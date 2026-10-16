@@ -31,7 +31,7 @@ def normalized_values(raw,field,allowed,limit=4):
 
 def contains_phrase(text,phrase):
     """Whole-word Unicode matching: 'hospital' cannot match 'hospitalidade'."""
-    return bool(re.search(r"(?<!\\w)"+re.escape(phrase.strip().casefold())+r"(?!\\w)",text.casefold()))
+    return bool(re.search(r"(?<!\w)"+re.escape(phrase.strip().casefold())+r"(?!\w)",text.casefold()))
 
 def infer_aliases(text, aliases):
     return [label for label, words in aliases.items()
