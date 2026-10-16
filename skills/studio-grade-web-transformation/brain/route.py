@@ -115,8 +115,12 @@ def intent_policy(task,surfaces):
         return "TASK_FIRST"
     if any(s in surfaces for s in ("internal","dashboard")):
         return "OPERATIONAL_FIRST_ART_SUPPORT"
+    if "checkout" in surfaces:
+        return "COMMERCE_FIRST_ART_SUPPORT"
     if "landing" in surfaces:
         return "EXPERIENTIAL_COMMERCE"
+    if "product" in surfaces:
+        return "PRODUCT_FIRST_ART_SUPPORT"
     return "ART_DIRECTOR_FIRST"
 
 def new_project_request(task):
@@ -203,8 +207,11 @@ def route(context):
             # Spectacle and buyer understanding are BOTH essential.
             goals=["artistic_impact","conversion","immersion"]+[g for g in goals if g not in
                   {"artistic_impact","conversion","immersion"}]
-        elif policy=="OPERATIONAL_FIRST_ART_SUPPORT":
-            op=next((RULES["surfaces"][s]["primary_goal"] for s in ("internal","dashboard")
+        elif policy in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT",
+                        "PRODUCT_FIRST_ART_SUPPORT"}:
+            protected_order=("internal","dashboard") if policy=="OPERATIONAL_FIRST_ART_SUPPORT" else (
+                            ("checkout",) if policy=="COMMERCE_FIRST_ART_SUPPORT" else ("product",))
+            op=next((RULES["surfaces"][s]["primary_goal"] for s in protected_order
                      if s in surfaces),"task_success")
             goals=[op]+[g for g in goals if g not in {op,"artistic_impact","immersion"}]+["artistic_impact"]
         # Pedagogical mastery is the goal of a learning PRODUCT, not necessarily its landing page.

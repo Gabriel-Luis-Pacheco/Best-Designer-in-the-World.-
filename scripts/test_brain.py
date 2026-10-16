@@ -29,9 +29,19 @@ class BrainTests(unittest.TestCase):
         self.assertEqual(d["strategy"]["mode"],"REFINE")
 
     def test_experimental_operations_cannot_override_accuracy(self):
-        d=brain.route({"task":"Crie dashboard interno fintech Awwwards com dados auditáveis"})
+        d=brain.route({"task":"Crie dashboard para sistema interno de fintech Awwwards com dados auditáveis"})
         self.assertEqual(d["strategy"]["creative_authority"],"OPERATIONAL_FIRST_ART_SUPPORT")
         self.assertEqual(d["strategy"]["primary_goal"],"accuracy")
+
+    def test_awwwards_checkout_never_becomes_an_art_exhibition(self):
+        d=brain.route({"task":"Crie checkout Awwwards de uma loja com preço e pagamentos reais"})
+        self.assertEqual(d["strategy"]["creative_authority"],"COMMERCE_FIRST_ART_SUPPORT")
+        self.assertEqual(d["strategy"]["primary_goal"],"conversion")
+
+    def test_awwwards_product_preserves_product_activation(self):
+        d=brain.route({"task":"Crie um app Awwwards para onboarding de novos usuários"})
+        self.assertEqual(d["strategy"]["creative_authority"],"PRODUCT_FIRST_ART_SUPPORT")
+        self.assertEqual(d["strategy"]["primary_goal"],"activation")
 
     def test_explicit_goal_hybrid_still_overrides_defaults(self):
         d=brain.route({"task":"Crie landing comercial experimental Awwwards",
