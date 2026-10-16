@@ -1,3 +1,10 @@
+## 8.1.0 — 2026-10-16
+- Diretórios isolados por execução do runner A/B, sem prometer sandbox de SO.
+- Revisões pareadas por pair_id, revisor, dimensões e run_id com exclusões auditáveis.
+- Casos sintéticos aumentados de 16 para 20 e contratos comerciais demonstrativos com testes negativos.
+- Referências de arte editorial, motion, UX operacional e avaliação baseadas em exemplos práticos.
+- Separação da identidade geral de exemplos proprietários, sem alegações de superioridade estética não demonstradas.
+
 # Histórico
 
 ## 8.0.0 — 2026-10-16

@@ -12,8 +12,8 @@ from compare_reviews import compare
 class ValidationTests(unittest.TestCase):
     def test_repository_structural_validation(self):
         summary = validate()
-        self.assertGreaterEqual(summary["cases"], 16)
-        self.assertEqual(summary["version"], "8.0.0")
+        self.assertGreaterEqual(summary["cases"], 20)
+        self.assertEqual(summary["version"], "8.1.0")
     def test_case_rejects_traversal(self):
         source = json.loads((ROOT / "evals/evals.json").read_text(encoding="utf-8"))["evals"][0]
         case = copy.deepcopy(source)

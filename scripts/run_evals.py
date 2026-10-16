@@ -49,7 +49,11 @@ def build_prompt(case: dict, variant: str) -> str:
             10: ["product-truth.md"], 11: ["anti-slop-composition.md"],
             12: ["quality-gates-and-evidence.md"], 13: ["anti-slop-composition.md", "typography-layout-craft.md"],
             14: ["interaction-and-content.md"], 15: ["quality-gates-and-evidence.md"],
-            16: ["ethics-and-licensing.md"]
+            16: ["ethics-and-licensing.md"],
+            17: ["design-proof-and-decision-records.md"],
+            18: ["editorial-art-direction-lab.md", "visual-storytelling.md"],
+            19: ["quality-gates-and-evidence.md"],
+            20: ["advanced-product-ux-operations.md"]
         }
         for name in packs.get(case["id"], []):
             path = SK / "references" / name
