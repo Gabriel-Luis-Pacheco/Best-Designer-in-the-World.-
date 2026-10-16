@@ -1,3 +1,7 @@
+## 9.2.0 — 2026-10-16
+- Guard de decisões de edição: contrato protegido bloqueia; trabalho fora de escopo exige autorização; mudança de alto impacto requer validação de domínio.
+- Roteador incorpora limites explícitos de permissão e testes adversariais do guard.
+
 ## 9.1.0 — 2026-10-16
 - Suite de testes estratégicos do cérebro: domínio igual, superfícies diferentes, metas explícitas, PATCH proporcional, ausência de acesso web e insumos hostis.
 - Quatro cenários adicionais (28 no total) sobre múltiplas superfícies, objetivo explícito, pesquisa offline e proatividade sem escopo indevido.

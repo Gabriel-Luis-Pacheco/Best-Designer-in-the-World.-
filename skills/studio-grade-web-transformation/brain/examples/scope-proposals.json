@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "allowed_kinds": [
+    "visual",
+    "content",
+    "accessibility"
+  ],
+  "protected_targets": [
+    "Plus.monthly_price",
+    "invoice.key",
+    "brand.official_mascot"
+  ],
+  "proposals": [
+    {
+      "id": "a",
+      "kind": "visual",
+      "target": "landing.hero.spacing"
+    },
+    {
+      "id": "b",
+      "kind": "pricing",
+      "target": "Plus.monthly_price"
+    },
+    {
+      "id": "c",
+      "kind": "content",
+      "target": "landing.hero.promise"
+    }
+  ]
+}

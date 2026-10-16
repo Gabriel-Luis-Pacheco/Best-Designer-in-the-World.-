@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "9.1.0"
+  version: "9.2.0"
 ---
 
-# Design OS Prime v8.8.0 — criar, testar, criticar e melhorar
+# Design OS Prime v9.2 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -24,7 +24,7 @@ Tratar design como sistema de decisões verificáveis, não uma coleção de ten
 9. **Não executar código externo ou instalar dependências por conta própria sem avaliar segurança, licença e autorização.** Segredos nunca vão a logs ou repositório.
 
 ## Cérebro estratégico — obrigatório antes de decisões significativas
-Antes de criar, estabelecer a identidade do produto, público, tarefa real, superfície, vertical, objetivos e guardrails. O roteador portátil `brain/route.py` e o playbook `references/product-intelligence-playbook.md` produzem hipóteses para guiar a inspeção, não fatos. Validar por código, conteúdo, dados e pesquisa autorizada; separar convicção do algoritmo de evidência. Para produtos com múltiplas superfícies, criar planos distintos: landing de fintech ≠ backoffice fintech. Roteie referências por objetivo e mecanismo, não por estilo. Proativamente investigar causas adjacentes relevantes sem fazer alterações não autorizadas. `brain/route_rules.json` é configurável, não é modelo de IA.
+Antes de criar, estabelecer a identidade do produto, público, tarefa real, superfície, vertical, objetivos e guardrails. O roteador portátil `brain/route.py` e o playbook `references/product-intelligence-playbook.md` produzem hipóteses para guiar a inspeção, não fatos. Validar por código, conteúdo, dados e pesquisa autorizada; separar convicção do algoritmo de evidência. Para produtos com múltiplas superfícies, criar planos distintos: landing de fintech ≠ backoffice fintech. Roteie referências por objetivo e mecanismo, não por estilo. Proativamente investigar causas adjacentes relevantes sem fazer alterações não autorizadas. Riscos de alteração são auditados por `brain/decision_guard.py` (escopo declarado, contratos protegidos e verificações adicionais); ver `references/product-intelligence-playbook.md`. `brain/route_rules.json` é configurável, não é modelo de IA.
 
 ## Roteador de execução: esforço proporcional
 Classifique a solicitação antes do trabalho; não aplique todos os ritos a um ajuste local.

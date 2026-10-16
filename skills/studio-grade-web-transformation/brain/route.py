@@ -111,6 +111,10 @@ def route(context):
         if vertical=="fintech" and "trust" not in goals:goals.append("trust")
         goals=list(dict.fromkeys(goals))[:3]
     tools=context.get("tools",[])
+    for field in ("authorized_change_types","protected_contract_ids"):
+        val=context.get(field,[])
+        if not isinstance(val,list) or len(val)>100 or any(not isinstance(x,str) or len(x)>200 for x in val):
+            raise ValueError("invalid "+field)
     if not isinstance(tools,list) or len(tools)>20 or any(not isinstance(x,str) for x in tools):
         raise ValueError("tools must be a list of strings")
     tools=[x.strip().lower() for x in tools]
@@ -158,6 +162,9 @@ def route(context):
       "tool_routing":{"selected_skill_refs":["references/"+x for x in refs],
                       "research_candidates":refs_selected,
                       "recommended_execution":"Inspect first; research as allowed; implement only within authorized scope; test relevant real flows."},
+      "permission_boundary":{"authorized_change_types":context.get("authorized_change_types",[]),
+        "protected_contract_ids":context.get("protected_contract_ids",[]),
+        "default":"No alteration outside explicit authorization; run brain/decision_guard.py for proposed edits."},
       "uncertainties":unknown,
       "interpretation_limits":"Deterministic triage is not research, browser inspection, independent creative judgment or measured business impact."}
 
