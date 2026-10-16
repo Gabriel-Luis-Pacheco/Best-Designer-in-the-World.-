@@ -48,7 +48,7 @@ def check_pair(pair,skill_path):
                    event.get("operation")=="read_skill" and
                    event.get("skill_name")==NAME and
                    event.get("content_sha256")==digest
-                   for event in a.get("read_trace",[]) if isinstance(a.get("read_trace"),list)):
+                   for event in (a.get("read_trace") if isinstance(a.get("read_trace"),list) else [])):
             problems.append("no matching read event in reported tool trace")
     return {"status":("INVALID_COMPARISON" if problems else
                        "READY_FOR_BLIND_REVIEW_NOT_PROVEN"),
