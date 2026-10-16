@@ -1,3 +1,7 @@
+## 8.7.0 — 2026-10-16
+- Cenários adversariais envolvendo landing financeira, reconciliação interna, retenção educacional e adoção responsável (24 evals).
+- Referência de tensões entre objetivos, guardrails, proxies e antiobjetivos.
+
 ## 8.6.0 — 2026-10-16
 - Gate de qualidade com bloqueio verificável de P0/P1 FAIL/UNKNOWN; PASS exige referência de evidência; status máximo é pronto para revisão humana, nunca aprovação automática.
 

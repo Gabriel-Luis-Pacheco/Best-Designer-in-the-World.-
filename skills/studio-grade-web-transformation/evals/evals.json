@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "8.6.0",
+  "version": "8.7.0",
   "evals": [
     {
       "id": 1,
@@ -280,6 +280,94 @@
         "Distinctly label empty and error states",
         "Prioritize task success over decorative drama"
       ]
+    },
+    {
+      "id": 21,
+      "name": "Fintech landing: persuasão versus honestidade",
+      "prompt": "REDESIGN uma landing de fintech para vender sem esconder termos, taxas ou inventar segurança. Identifique metas, audiência, padrões relevantes, contratos e guardrails.",
+      "expected_output": "Estratégia verificável com tradeoffs, metas e riscos para landing; provas de resultado apenas se medidas.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expectations": [
+        "Separar confiança comprovada de estética",
+        "Respeitar contratos comerciais",
+        "Indicar fontes e evidência real"
+      ],
+      "meta": {
+        "vertical": "fintech",
+        "surface": "landing",
+        "goals": [
+          "conversion",
+          "trust"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "name": "Fintech dashboard: exatidão versus espetáculo",
+      "prompt": "REFINE um sistema interno de conciliação: uma ordem pede visual espetacular, mas operadores precisam evitar erros. Identifique objetivos e fluxo crítico.",
+      "expected_output": "Estratégia verificável com tradeoffs, metas e riscos para internal; provas de resultado apenas se medidas.",
+      "files": [
+        "fixtures/dashboard-generic.html",
+        "fixtures/dashboard-data-contract.md"
+      ],
+      "expectations": [
+        "Preservar colunas, filtros e exports",
+        "Priorizar eficiência e rastreabilidade",
+        "Não aplicar uma estética de landing em dados densos"
+      ],
+      "meta": {
+        "vertical": "fintech",
+        "surface": "internal",
+        "goals": [
+          "accuracy",
+          "efficiency"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "name": "Edtech: retenção versus aprendizagem",
+      "prompt": "Um app fictício quer reter pessoas; não há evidência de aprendizagem ou métricas. Proponha motivação, feedback e progressão evitando manipulação.",
+      "expected_output": "Estratégia verificável com tradeoffs, metas e riscos para product; provas de resultado apenas se medidas.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expectations": [
+        "Retenção não equivale a aprendizagem",
+        "Métricas futuras não são resultados observados",
+        "Experiência deve respeitar autonomia"
+      ],
+      "meta": {
+        "vertical": "education",
+        "surface": "product",
+        "goals": [
+          "learning",
+          "retention"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "name": "Adoção responsável versus cadastros",
+      "prompt": "Planeje UX de uma plataforma de adoção responsável para ONGs e adotantes. Uma meta de mais inscrições pode conflitar com bons encontros. Escolha guardrails.",
+      "expected_output": "Estratégia verificável com tradeoffs, metas e riscos para mobile; provas de resultado apenas se medidas.",
+      "files": [],
+      "expectations": [
+        "Qualidade de encontros supera clique superficial",
+        "Segurança e consentimento antes de urgência",
+        "Não inventar volume, sucesso nem dados"
+      ],
+      "meta": {
+        "vertical": "social_impact",
+        "surface": "mobile",
+        "goals": [
+          "trust",
+          "quality_matches"
+        ]
+      }
     }
   ]
 }

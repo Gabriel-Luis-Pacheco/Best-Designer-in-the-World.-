@@ -4,7 +4,7 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.6.0"
+  version: "8.7.0"
 ---
 
 # Design OS Prime v8.6.0 — criar, testar, criticar e melhorar
@@ -39,7 +39,7 @@ Se a entrada não indicar modo, escolher o MENOR capaz de resolver a causa. Nunc
 ## Fluxo de trabalho — etapas ativadas conforme o modo
 
 ### 0. Entender a verdade e a fronteira de edição
-Inspecionar o projeto disponível, rotas, links, público, telas, tokens, conteúdo, assets, analytics, integrações e dependências. Descrever o objetivo mensurável: ex. "entender em 5 s", "concluir inscrição", "localizar divergência". Criar `INVARIANTS`: itens que NÃO devem mudar sem necessidade e testes associados. Para tarefas estruturais, mapear contratos e evidências conforme `references/design-proof-and-decision-records.md`. Em tarefas com contratos estáticos, declarar checks estruturados em `templates/PRODUCT_CONTRACT.json` (modelo sintético) e verificar com `scripts/contract_engine.py`; não confundir checagem de HTML com funcionamento. Marcar desconhecidos. Consultar `references/product-truth.md` e `references/brand-canon.md`.
+Inspecionar o projeto disponível, rotas, links, público, telas, tokens, conteúdo, assets, analytics, integrações e dependências. Identificar tensões entre métricas de vaidade e resultados reais (ver `references/goal-tensions.md`). Descrever o objetivo mensurável: ex. "entender em 5 s", "concluir inscrição", "localizar divergência". Criar `INVARIANTS`: itens que NÃO devem mudar sem necessidade e testes associados. Para tarefas estruturais, mapear contratos e evidências conforme `references/design-proof-and-decision-records.md`. Em tarefas com contratos estáticos, declarar checks estruturados em `templates/PRODUCT_CONTRACT.json` (modelo sintético) e verificar com `scripts/contract_engine.py`; não confundir checagem de HTML com funcionamento. Marcar desconhecidos. Consultar `references/product-truth.md` e `references/brand-canon.md`.
 
 ### 1. Diagnosticar antes de decorar
 Observar a página inteira e trechos em 1440 e 390 px se navegador disponível; complementar 320/768/1280, zoom e telas de estados quando relevantes. Avaliar linha narrativa, silhueta, densidade, escalas, foco, transitions, CTA, credibilidade e comportamento real. Classificar seção por função; decidir `preservar / elevar / fundir / eliminar / reconstruir`. Usar `templates/FULL_PAGE_AUTOPSY.md`.
