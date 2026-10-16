@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Validate example product contracts
+        run: python scripts/check_contracts.py
       - name: Validate manifests and portable references
         run: python scripts/check_evals.py
       - name: Validate isolated installed skill

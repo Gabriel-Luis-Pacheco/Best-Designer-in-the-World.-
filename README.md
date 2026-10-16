@@ -2,6 +2,12 @@
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
+## Novas melhorias em desenvolvimento
+- Runner de avaliação com execução por diretório limpo e hashes das fixtures.
+- Comparação pareada e estrita: não mistura avaliadores nem dimensões diferentes.
+- Contratos comerciais de protótipo sintético testados em CI.
+- Novos guias práticos de composição editorial, motion, UX de produto e evidências.
+
 ## O que mudou
 - Modos proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Uma correção local não dispara reconstrução.
 - Anti-slop construtivo: composição, tipografia, ritmo, provas e decisões criativas; não apenas estilos proibidos.
@@ -24,6 +30,7 @@ O ponto de entrada é `skills/studio-grade-web-transformation/SKILL.md`. É poss
 
 ## Validação estrutural (Python 3.12+)
 ```bash
+python scripts/check_contracts.py
 python scripts/check_evals.py
 python skills/studio-grade-web-transformation/scripts/validate.py
 python -m unittest discover -s scripts -p "test_*.py" -v
@@ -34,7 +41,7 @@ Isso **não** valida a beleza nem executa um modelo de IA.
 ```bash
 npm install
 npx playwright install chromium
-npm run test:browser:fixtures
+npm run test:browser
 ```
 As fixtures são **sintéticas** e incluem deficiências intencionais. Testes de navegador verificam carga e fatos invariantes, não qualidade artística.
 
