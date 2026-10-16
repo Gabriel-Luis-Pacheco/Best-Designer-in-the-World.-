@@ -44,6 +44,13 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 ```
 O ponto de entrada é `skills/studio-grade-web-transformation/SKILL.md`. É possível copiar somente essa pasta; referências, fixtures e validação portátil a acompanham.
 
+## Testar instalação e comparações A/B
+Ao pedir explicitamente esta skill no OpenCode, confirme a leitura real de `skills/studio-grade-web-transformation/SKILL.md`. Se ela não existir na sessão, a execução é **INVALID_COMPARISON**; outra skill não pode substituí-la.
+```bash
+python scripts/validate_experiment.py --pair caminho/pair.json --skill skills/studio-grade-web-transformation/SKILL.md
+```
+O validador rejeita ausência de skill, fallback `frontend-design`, ferramentas/modelos/orçamentos desiguais e falta de rastro de leitura. Uma passagem significa somente `READY_FOR_BLIND_REVIEW_NOT_PROVEN` e **não comprova superioridade**. Detalhes e esquema: `docs/MIRAGE_AB_LESSONS.md`.
+
 ## Como usar
 - "PATCH: corrija apenas o estado de erro deste formulário e preserve o restante."
 - "AUDIT: analise a landing e diferencie o que foi observado do que não foi verificado."

@@ -15,6 +15,31 @@ The original agent self-reports are untrusted provenance: verify actual tool rea
 7. Capture identical viewports, identical progress state, actual browser behavior, errors and runtime measurements. Judge full-page result and separate artistic/functional axes.
 8. Conduct blind comparative review with multiple raters if possible; log disagreement and failures.
 
+## Example of paired declarations (fill from REAL tool traces)
+```json
+{
+  "with_skill": {
+    "model": "Muse Spark", "model_revision": "same-version", "thinking_effort": "high",
+    "settings": {"temperature": "unchanged"}, "prompt_sha256": "<actual sha256>",
+    "tool_profile": ["terminal", "browser"], "budget": {"tokens": 50000},
+    "workspace_id": "workspace-a", "skill_name": "studio-grade-web-transformation",
+    "skill_loaded": true, "skill_sha256": "<actual sha256 of SKILL.md>",
+    "other_design_skills": [],
+    "read_trace": [
+      {"operation": "read_skill", "skill_name": "studio-grade-web-transformation",
+       "content_sha256": "<same actual sha256>"}
+    ]
+  },
+  "without_skill": {
+    "model": "Muse Spark", "model_revision": "same-version", "thinking_effort": "high",
+    "settings": {"temperature": "unchanged"}, "prompt_sha256": "<actual sha256>",
+    "tool_profile": ["terminal", "browser"], "budget": {"tokens": 50000},
+    "workspace_id": "workspace-b", "skill_loaded": false, "loaded_design_skills": []
+  }
+}
+```
+The displayed values are a schema example, NOT a completed experiment. The prompt hash should be for the common creative task after removing the intentionally different skill-control line.
+
 ## Integrity script
 \`python scripts/validate_experiment.py --pair /path/to/pair.json --skill /path/to/SKILL.md\`
 
