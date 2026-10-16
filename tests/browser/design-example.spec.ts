@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 const url = 'http://127.0.0.1:4173/examples/conversaboa-concept.html';
-for (const width of [390, 1440]) {
+for (const width of [320, 390, 768, 1280, 1440]) {
   test(`creative example at ${width}px: CTA, no overflow, screenshot evidence`, async ({ page }, info) => {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
     const response = await page.goto(url);
@@ -30,4 +30,14 @@ test('reduced motion keeps the full content available', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(url);
   await expect(page.getByRole('heading', { name: 'Comece no seu ritmo.' })).toBeVisible();
+});
+
+test('critical actions and labels are keyboard reachable', async ({ page }) => {
+  await page.goto(url);
+  const primary=page.locator('[data-design-critical-cta]');
+  await expect(primary).toHaveAccessibleName(/Experimentar uma conversa/);
+  await primary.focus();
+  await expect(primary).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/#demonstracao$/);
 });
