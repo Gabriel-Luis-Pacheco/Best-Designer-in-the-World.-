@@ -45,7 +45,8 @@ test('critical actions and labels are keyboard reachable', async ({ page }) => {
 test('keyboard can reveal feedback and keep aria state in sync', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 780 });
   await page.goto(url);
-  const button=page.getByRole('button', { name: /Mostrar feedback/ });
+  const button=page.locator('.show-feedback');
+  await expect(button).toHaveAccessibleName(/Mostrar feedback/);
   await button.focus();
   await expect(button).toBeFocused();
   await page.keyboard.press('Space');
