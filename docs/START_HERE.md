@@ -1,29 +1,20 @@
-# Comece aqui — Design OS Prime v7
+# Comece aqui — Design OS Prime v8
 
-## Qual é a finalidade?
-Ajudar um agente a elevar a qualidade real da concepção e implementação de sites e produtos. Não é um template Lovable, galeria de imagens nem promessa de Awwwards.
+A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
-## Instalar
-`npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-grade-web-transformation`. Ou copie a pasta `skills/studio-grade-web-transformation` para a pasta de skills do seu agente.
+## Selecione o menor escopo adequado
+PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia; REFINE melhora tela boa; REDESIGN altera arquitetura ou direção; REBUILD reconstrói quando problemas sistêmicos justificam. Distinga MARKETING (clareza, prova, conversão) de PRODUCT (precisão, tarefas, densidade e estados).
 
-## Pedir redesign
-> Ative `studio-grade-web-transformation`. Inspecione meu projeto e site real. Preserve funcionalidades e assets canônicos. Analise a página inteira (desktop e mobile), pesquise referências pertinentes, proponha uma única direção de arte com storyboard e reconstrua o que for necessário. Implemente e valide o resultado no navegador. Reprove a pior seção, não apenas a média. Não invente dados, reviews ou testes.
+## Processo
+1. Inspecionar produto, rota, assets, identidade, público e invariantes antes de editar.
+2. Observar página inteira, mobile, estados e fluxo de uso real; registrar observado/inferido/proposto/não verificado.
+3. Em redesign estrutural, propor teses diferentes e escolher por clareza, prova, marca, acessibilidade e custo, não preferência vazia.
+4. Compor storyboard por pergunta, evidência e ação; construir incrementos pequenos.
+5. Validar no navegador, inclusive desktop/mobile, CTA, estados, teclado, reduzido movimento e regressões.
+6. Corrigir defeitos P0/P1 comprovados. Documentar o que não pôde testar.
 
-## Antes do design
-1. Verifique stack e disponibilidade de navegador, assets oficiais, conteúdo e integrações.
-2. Faça baseline e contrato do que não pode quebrar.
-3. Decida preservar, fundir, eliminar e reconstruir por seção.
+## Exemplo de pedido
+"Ative studio-grade-web-transformation. Faça uma auditoria real do meu projeto, preserve fluxos críticos, proponha duas direções de redesign coerentes com minha marca, escolha a mais forte e implemente. Capture página inteira desktop/mobile, teste interações e corrija o pior elo. Não invente resultados."
 
-## Depois do design
-Documente as decisões e compare screenshots reais, estados, conteúdo, CTA, fluxos, acessibilidade e performance. Execute evals separados para testar a *skill* em múltiplos contextos.
-
-## O que há no repo
-- `skills/studio-grade-web-transformation/SKILL.md`: única fonte normativa.
-- `skills/.../references/`: práticas especializadas.
-- `docs/SOURCE_MATRIX.md`: fontes e adoções.
-- `docs/GAP_ANALYSIS.md`: confronto com V6.1.
-- `docs/QUALITY_RUBRIC.md`: qualidade artística separada de teste técnico.
-- `evals/evals.json`: prompts/casos de teste.
-- `scripts/`: validação offline; sem alterações silenciosas.
-
-> Um teste com resultado PASS em scripts estruturais não significa site bonito. Boa composição e clareza exigem revisão humana; conversão exige medição com usuários.
+## Testes e limites
+`scripts/check_evals.py`, `scripts/test_validators.py` e `skills/.../scripts/validate.py` validam só estrutura. `npm run test:browser:fixtures` verifica fixtures sintéticas, não estética. `scripts/run_evals.py` depende de CLI de agente externo. O documento `docs/EVALUATION_RUNBOOK.md` explica avaliação cega. A rubrica também viaja na skill em `references/quality-rubric.md`.

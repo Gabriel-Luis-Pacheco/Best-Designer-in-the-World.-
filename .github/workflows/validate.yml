@@ -1,9 +1,9 @@
-name: Validate Agent Skill
+name: Validate Design OS
 on:
   push:
   pull_request:
 jobs:
-  validate:
+  structure:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -12,5 +12,36 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate manifest, references and eval cases
+      - name: Validate manifests and portable references
         run: python scripts/check_evals.py
+      - name: Validate isolated installed skill
+        run: python skills/studio-grade-web-transformation/scripts/validate.py
+      - name: Test validation logic
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+  browser-fixtures:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned Playwright dependency
+        run: npm install --no-audit --no-fund
+      - name: Install Chromium for browser fixture tests
+        run: npx playwright install --with-deps chromium
+      - name: Test browser fixtures
+        run: npm run test:browser:fixtures
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-fixture-evidence
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7
