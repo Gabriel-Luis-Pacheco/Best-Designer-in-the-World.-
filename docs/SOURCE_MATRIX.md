@@ -1,4 +1,4 @@
-# Matriz de fontes e skills — Design OS Prime v7
+# Matriz de fontes e skills — Design OS Prime v8.1
 
 Curadoria em 16/10/2026. Adaptações escritas especificamente para este projeto. Referências são **links de estudo**, não conteúdo redistribuído; verifique atualizações, licenças e disponibilidade. Não interpretar ranking/popularidade como evidência de resultado para seu produto.
 

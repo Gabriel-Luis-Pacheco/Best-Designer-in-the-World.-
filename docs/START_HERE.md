@@ -1,4 +1,4 @@
-# Comece aqui — Design OS Prime v8
+# Comece aqui — Design OS Prime v8.1
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
@@ -17,4 +17,4 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 "Ative studio-grade-web-transformation. Faça uma auditoria real do meu projeto, preserve fluxos críticos, proponha duas direções de redesign coerentes com minha marca, escolha a mais forte e implemente. Capture página inteira desktop/mobile, teste interações e corrija o pior elo. Não invente resultados."
 
 ## Testes e limites
-`scripts/check_evals.py`, `scripts/test_validators.py` e `skills/.../scripts/validate.py` validam só estrutura. `npm run test:browser:fixtures` verifica fixtures sintéticas, não estética. `scripts/run_evals.py` depende de CLI de agente externo. O documento `docs/EVALUATION_RUNBOOK.md` explica avaliação cega. A rubrica também viaja na skill em `references/quality-rubric.md`.
+`scripts/check_contracts.py` verifica contratos comerciais do exemplo sintético. `scripts/check_evals.py`, `scripts/test_validators.py` e `skills/.../scripts/validate.py` validam só estrutura. `npm run test:browser:fixtures` verifica fixtures sintéticas, não estética. `scripts/run_evals.py` depende de CLI de agente externo. O documento `docs/EVALUATION_RUNBOOK.md` explica avaliação cega. A rubrica também viaja na skill em `references/quality-rubric.md`.

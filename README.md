@@ -57,6 +57,6 @@ Os 20 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-
 ## Princípios
 Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
 
-**Status:** a V8.1 tem harness melhor e dados sintéticos reproduzíveis, mas sua superioridade visual ou comercial diante da V7 ainda NÃO FOI COMPROVADA por A/B real.
+**Status:** a V8.1 tem harness melhor e dados sintéticos reproduzíveis, mas sua superioridade visual ou comercial diante da V8 ou sem skill ainda NÃO FOI COMPROVADA por A/B real.
 
 Histórico: `CHANGELOG.md`. Licença: `LICENSE`.
