@@ -1,3 +1,8 @@
+## 9.0.0 — 2026-10-16
+- Primeiro cérebro estratégico executável: classificação de superfície/vertical/modo/objetivo com fontes, limites e guardrails explícitos; carrega conhecimentos por necessidade.
+- Regras em JSON e exemplos distintos de fintech marketing, fintech interno e edtech; pesquisa selecionada, NUNCA declarada realizada.
+- Integração normativa à skill sem substituir ferramentas, direção criativa nem autorização para mudanças.
+
 ## 8.9.0 — 2026-10-16
 - Curadoria de fontes passa por schema HTTPS/IDs/tags/limitações verificáveis; pacote portátil valida esse schema.
 - Templates de descoberta estratégica e decisão de pesquisa preparam um cérebro por contexto sem desmontar ferramentas já existentes.

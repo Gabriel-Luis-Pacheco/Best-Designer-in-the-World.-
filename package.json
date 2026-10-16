@@ -1,6 +1,6 @@
 {
   "name": "design-os-prime-evidence-harness",
-  "version": "8.9.0",
+  "version": "9.0.0",
   "private": true,
   "description": "Optional Playwright browser smoke tests for synthetic fixtures and authorized target environments",
   "scripts": {

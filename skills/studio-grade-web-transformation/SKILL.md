@@ -4,7 +4,7 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.9.0"
+  version: "9.0.0"
 ---
 
 # Design OS Prime v8.8.0 — criar, testar, criticar e melhorar
@@ -22,6 +22,9 @@ Tratar design como sistema de decisões verificáveis, não uma coleção de ten
 7. **Incerteza explícita.** `VERIFICADO`, `INFERIDO`, `PROPOSTO`, `NÃO VERIFICADO`; nenhum checklist autodeclarado substitui teste real.
 8. **O pior elo importa.** Uma falha funcional grave bloqueia. Uma discordância estética isolada exige evidência e comparação, não veto subjetivo.
 9. **Não executar código externo ou instalar dependências por conta própria sem avaliar segurança, licença e autorização.** Segredos nunca vão a logs ou repositório.
+
+## Cérebro estratégico — obrigatório antes de decisões significativas
+Antes de criar, estabelecer a identidade do produto, público, tarefa real, superfície, vertical, objetivos e guardrails. O roteador portátil `brain/route.py` e o playbook `references/product-intelligence-playbook.md` produzem hipóteses para guiar a inspeção, não fatos. Validar por código, conteúdo, dados e pesquisa autorizada; separar convicção do algoritmo de evidência. Para produtos com múltiplas superfícies, criar planos distintos: landing de fintech ≠ backoffice fintech. Roteie referências por objetivo e mecanismo, não por estilo. Proativamente investigar causas adjacentes relevantes sem fazer alterações não autorizadas. `brain/route_rules.json` é configurável, não é modelo de IA.
 
 ## Roteador de execução: esforço proporcional
 Classifique a solicitação antes do trabalho; não aplique todos os ritos a um ajuste local.

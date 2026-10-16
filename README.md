@@ -1,4 +1,4 @@
-# Design OS Prime v8.9 — Best Designer in the World
+# Design OS Prime v9.0 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
@@ -7,6 +7,9 @@ Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand
 - Comparação pareada e estrita: não mistura avaliadores nem dimensões diferentes.
 - Contratos comerciais de protótipo sintético testados em CI.
 - Novos guias práticos de composição editorial, motion, UX de produto e evidências.
+
+## Cérebro estratégico (v9.0)
+O roteador portátil `brain/route.py` gera um **brief estratégico proposto** de produto, público, superfície, objetivo e guardrails; escolhe packs da skill e fontes para pesquisa de acordo com o contexto. Não navega, não executa alterações nem inventa métricas. A IA que usar a skill tem que confrontar hipóteses com o projeto real e corrigir erros de classificação. Exemplos: `python skills/studio-grade-web-transformation/brain/route.py skills/studio-grade-web-transformation/brain/examples/fintech-landing.json`. Uma landing de fintech e um backoffice financeiro recebem estratégias distintas.
 
 ## O que mudou
 - Modos proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Uma correção local não dispara reconstrução.
