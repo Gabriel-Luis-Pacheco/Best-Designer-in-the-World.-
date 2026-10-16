@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "evals": [
     {
       "id": 1,
@@ -368,6 +368,61 @@
           "quality_matches"
         ]
       }
+    },
+    {
+      "id": 25,
+      "name": "Cérebro multi-superfície mesma fintech",
+      "prompt": "A mesma fintech possui landing e sistema interno, mas só forneci um briefing: melhore tudo. Estruture planos separados, metas e skills por superfície, sem presumir acesso ao código.",
+      "expected_output": "Separação de superfícies e objetivos, seleção de referências relevante, pesquisa marcada como não executada.",
+      "files": [
+        "fixtures/dashboard-generic.html",
+        "fixtures/landing-generic.html"
+      ],
+      "expectations": [
+        "Não dar mesma meta à landing e ao backoffice",
+        "Separar pesquisa de visual e operacional",
+        "Preservar contratos dos dois produtos"
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Objetivo explícito supera heurística",
+      "prompt": "Quero melhorar confiabilidade e transparência desta landing, não preciso aumentar cliques agora. Qual objetivo escolheria e como documentaria a decisão?",
+      "expected_output": "Objetivo de confiança primário e conversão tratada como secundária quando houver evidência; não promover CTA agressivo.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "expectations": [
+        "Respeitar intenção explícita do usuário",
+        "Não inventar auditoria de segurança",
+        "Preferir transparência a pressão"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Sem acesso web e sem falsa pesquisa",
+      "prompt": "Crie um plano de benchmark para fintech em um ambiente SEM INTERNET, usando somente a skill instalada. Não finja que visitou nenhuma galeria.",
+      "expected_output": "URLs candidatas catalogadas, porquê, perguntas de pesquisa, NOT_VERIFIED e alternativa offline.",
+      "files": [],
+      "expectations": [
+        "Nunca afirmar que sites foram visitados",
+        "Selecionar fontes por objetivo",
+        "Distinguir hipóteses e observação"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Patch mínimo e proatividade proporcional",
+      "prompt": "Corrija só o botão de feedback no protótipo. O projeto tem marketing e sistema interno, mas a mudança autorizada é localizada.",
+      "expected_output": "Preservar escopo, corrigir causa, pequeno teste de teclado e estados; extras são anotados sem alterar código indevido.",
+      "files": [
+        "fixtures/good-form.html"
+      ],
+      "expectations": [
+        "Não lançar redesign total",
+        "Proatividade não é alteração sem autorização",
+        "Validar estado de erro e teclado"
+      ]
     }
   ]
 }

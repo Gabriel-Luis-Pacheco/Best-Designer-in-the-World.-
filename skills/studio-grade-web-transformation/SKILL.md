@@ -4,7 +4,7 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "9.0.0"
+  version: "9.1.0"
 ---
 
 # Design OS Prime v8.8.0 — criar, testar, criticar e melhorar

@@ -1,3 +1,7 @@
+## 9.1.0 — 2026-10-16
+- Suite de testes estratégicos do cérebro: domínio igual, superfícies diferentes, metas explícitas, PATCH proporcional, ausência de acesso web e insumos hostis.
+- Quatro cenários adicionais (28 no total) sobre múltiplas superfícies, objetivo explícito, pesquisa offline e proatividade sem escopo indevido.
+
 ## 9.0.0 — 2026-10-16
 - Primeiro cérebro estratégico executável: classificação de superfície/vertical/modo/objetivo com fontes, limites e guardrails explícitos; carrega conhecimentos por necessidade.
 - Regras em JSON e exemplos distintos de fintech marketing, fintech interno e edtech; pesquisa selecionada, NUNCA declarada realizada.
