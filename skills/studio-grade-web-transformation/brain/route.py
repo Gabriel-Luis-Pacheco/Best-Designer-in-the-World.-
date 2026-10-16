@@ -29,11 +29,13 @@ def normalized_values(raw,field,allowed,limit=4):
     if invalid: raise ValueError(f"unknown {field}: {', '.join(invalid)}")
     return cleaned
 
+def contains_phrase(text,phrase):
+    """Whole-word Unicode matching: 'hospital' cannot match 'hospitalidade'."""
+    return bool(re.search(r"(?<!\\w)"+re.escape(phrase.strip().casefold())+r"(?!\\w)",text.casefold()))
+
 def infer_aliases(text, aliases):
-    matches=[]
-    for label,words in aliases.items():
-        if any(word in text for word in words):matches.append(label)
-    return matches
+    return [label for label, words in aliases.items()
+            if any(contains_phrase(text,word) for word in words)]
 
 def classify_mode(data,task):
     explicit=text_field(data,"mode").upper()
@@ -41,11 +43,48 @@ def classify_mode(data,task):
         if explicit not in MODES:raise ValueError("unknown mode")
         return explicit,"explicit"
     low=task.casefold()
-    if any(w in low for w in ["audite","auditar","analise","análise crítica","critique","diagnóstico"]):return "AUDIT","task_inferred"
-    if any(w in low for w in ["reconstrua","rebuild","do zero","recrie tudo"]):return "REBUILD","task_inferred"
-    if any(w in low for w in ["redesign","reformule","refaça a landing","nova linguagem"]):return "REDESIGN","task_inferred"
-    if any(w in low for w in ["bug","corrija apenas","fix","patch","conserte o erro"]):return "PATCH","task_inferred"
+    limited=any(contains_phrase(low,x) for x in
+                ["só","somente","apenas","mínimo","pontual","localizada","isolado"])
+    patch=any(contains_phrase(low,x) for x in
+              ["corrija","corrigir","conserte","consertar","fix","patch","bug"])
+    rebuild=any(contains_phrase(low,x) for x in
+                ["reconstrua","rebuild","do zero","recrie tudo"])
+    redesign=any(contains_phrase(low,x) for x in
+                 ["redesign","redesenhe","redesenhar","reformule","refaça","nova linguagem","recrie a landing"])
+    audit=any(contains_phrase(low,x) for x in
+              ["audite","auditar","analise","análise","análise crítica","critique","diagnóstico"])
+    implementation=any(contains_phrase(low,x) for x in
+                       ["implemente","implementar","aplique","aplicar","construa","construir","faça","fazer"])
+    if patch and limited:return "PATCH","task_inferred_limited"
+    if rebuild:return "REBUILD","task_inferred"
+    if redesign:return "REDESIGN","task_inferred"
+    if audit and not implementation:return "AUDIT","task_inferred"
+    if patch:return "PATCH","task_inferred"
+    if audit:return "AUDIT","task_inferred"
     return "REFINE","default_low_confidence"
+
+def infer_goals(task):
+    """Propose explicit-seeming user intent as a hypothesis, not a business fact."""
+    signals={
+        "trust":["confiança","confiabilidade","transparência","transparencia","credibilidade"],
+        "accuracy":["exatidão","exatidao","precisão","precisao","conciliação","conferencia"],
+        "learning":["aprendizagem","aprender melhor","aprender de verdade","domínio","dominio"],
+        "retention":["retenção","retencao","reter","voltar ao app"],
+        "quality_matches":["adoção responsável","adocao responsavel","bons encontros"],
+        "efficiency":["eficiência","eficiencia","menos tempo","produtividade"],
+        "conversion":["conversão","conversao","vender","vendas","cadastros"],
+        "activation":["ativação","ativacao","primeira experiência","primeiro valor"],
+        "engagement":["engajamento","cativar"],
+        "task_success":["concluir tarefa","resolver tarefa"]
+    }
+    negative_click=any(contains_phrase(task,x) for x in
+                       ["não preciso aumentar cliques","nao preciso aumentar cliques",
+                        "sem priorizar conversão","sem priorizar conversao"])
+    detected=[]
+    for goal,expressions in signals.items():
+        if goal=="conversion" and negative_click:continue
+        if any(contains_phrase(task,x) for x in expressions):detected.append(goal)
+    return detected
 
 def choose_sources(tags,mode,tools):
     if mode=="PATCH":return []
@@ -108,11 +147,17 @@ def route(context):
     goals=normalized_values(context.get("goals",context.get("goal")),"goals",RULES["goals"],4)
     goal_source="explicit" if goals else "inferred_low_confidence"
     if not goals:
-        goals=[RULES["surfaces"][s]["primary_goal"] for s in surfaces]
-        if vertical=="education" and "learning" not in goals:goals.insert(0,"learning")
-        if vertical=="social_impact" and "quality_matches" not in goals:goals.insert(0,"quality_matches")
+        intent_goals=infer_goals(task)
+        goals=intent_goals + [RULES["surfaces"][s]["primary_goal"] for s in surfaces]
+        # Pedagogical mastery is the goal of a learning PRODUCT, not necessarily its landing page.
+        if vertical=="education" and any(s in surfaces for s in ("product","mobile")):
+            goals.insert(0,"learning")
+        if vertical=="social_impact" and any(s in surfaces for s in ("product","mobile")):
+            goals.insert(0,"quality_matches")
         if vertical=="fintech" and "trust" not in goals:goals.append("trust")
-        goals=list(dict.fromkeys(goals))[:3]
+        # A goal stated in natural language outranks our industry defaults.
+        goals=list(dict.fromkeys(intent_goals+goals))[:4]
+        if intent_goals:goal_source="task_inferred_low_confidence"
     tools=context.get("tools",[])
     for field in ("authorized_change_types","protected_contract_ids"):
         val=context.get(field,[])
@@ -139,6 +184,10 @@ def route(context):
     guardrails=list(dict.fromkeys(RULES["verticals"][vertical]["guardrails"]+
                                  [RULES["goals"][g]["guardrail"] for g in goals]+constraints))
     alltags=surfaces+[vertical]+goals+["research","accessibility"]
+    if "landing" in surfaces:
+        alltags+=["marketing","editorial"]
+    if mode in {"REDESIGN","REBUILD"} and "landing" in surfaces:
+        alltags+=["brand"]
     refs_selected=choose_sources(alltags,mode,tools)
     research_questions=[]
     if mode!="PATCH":
@@ -154,7 +203,9 @@ def route(context):
         conf=RULES["surfaces"][s]
         target=goals[0] if len(surfaces)==1 else conf["primary_goal"]
         plans.append({"surface":s,"default_job":conf["jobs"],
-                      "priority_goal":target,"reference_packs":conf["refs"],
+                      "priority_goal":target,"governing_goal":goals[0],
+                      "explicit_goals_not_overridden":goal_source=="explicit",
+                      "reference_packs":conf["refs"],
                       "suggested_measure":RULES["goals"].get(target,{}).get("metric",conf["metric"]),
                       "status":"HYPOTHESIS_NOT_VALIDATED"})
     if not audience:unknown.append("Audience and actual task context not supplied.")
@@ -167,6 +218,7 @@ def route(context):
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
       "strategy":{"mode":mode,"mode_source":mode_source,"primary_goal":goals[0],
                   "secondary_goals":goals[1:],"goal_source":goal_source,
+                  "goal_policy":"Explicit goals govern all surface plans; surface-specific defaults are subgoals, not replacements.",
                   "goal_mechanism":RULES["goals"][goals[0]]["action"],
                   "guardrails":guardrails,"surface_plans":plans,
                   "measurement_status":"NOT_MEASURED",

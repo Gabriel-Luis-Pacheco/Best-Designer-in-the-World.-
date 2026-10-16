@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "description": "Deterministic hypothesis starter. Agent must inspect real evidence and override heuristics.",
+  "version": 2,
+  "description": "Deterministic hypothesis starter. Agent must inspect real evidence and override heuristics. Contextual routing remains a hypothesis; explicit goal governs surface-level defaults.",
   "surface_aliases": {
     "landing": [
       "landing",
