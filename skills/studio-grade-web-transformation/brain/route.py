@@ -109,6 +109,26 @@ def infer_goals(task):
         if any(contains_phrase(task,x) for x in expressions):detected.append(goal)
     return detected
 
+def intent_policy(task,surfaces):
+    """Choose art/commerce/operational emphasis as a hypothesis, not a verdict."""
+    if "experience" not in surfaces:
+        return "TASK_FIRST"
+    if any(s in surfaces for s in ("internal","dashboard")):
+        return "OPERATIONAL_FIRST_ART_SUPPORT"
+    if "landing" in surfaces:
+        return "EXPERIENTIAL_COMMERCE"
+    return "ART_DIRECTOR_FIRST"
+
+def new_project_request(task):
+    """Avoid treating a fresh commissioned website as a refinement of an existing one."""
+    build=any(contains_phrase(task,p) for p in
+              ["crie","criar","cria","construa","construir","desenvolva","desenvolver",
+               "do zero","from scratch","build a","create a"])
+    existing=any(contains_phrase(task,p) for p in
+                 ["existente","atual","corrija","corrigir","melhore","melhorar",
+                  "refine","ajuste","ajustar","conserte","bug","apenas","só"])
+    return build and not existing
+
 def choose_sources(tags,mode,tools):
     if mode=="PATCH":return []
     candidates=[]
@@ -167,19 +187,26 @@ def route(context):
         vertical_source="inferred_low_confidence"
         if len(found)>1:unknown.append("Competing vertical signals: "+", ".join(found))
     mode,mode_source=classify_mode(context,task)
-    if "experience" in surfaces and mode=="REFINE" and any(contains_phrase(task,x) for x in
-           ["criar","crie","construa","construir","desenvolva","desenvolver","from scratch","do zero"]):
-        mode,mode_source="REBUILD","new_creative_build"
+    if mode=="REFINE" and new_project_request(task):
+        mode,mode_source="REBUILD","new_project_build"
+    policy=intent_policy(task,surfaces)
     goals=normalized_values(context.get("goals",context.get("goal")),"goals",RULES["goals"],4)
     goal_source="explicit" if goals else "inferred_low_confidence"
     if not goals:
         intent_goals=infer_goals(task)
         goals=intent_goals + [RULES["surfaces"][s]["primary_goal"] for s in surfaces]
-        if "experience" in surfaces:
-            # In a pure artwork, negated sales language is not commercial intent.
-            # Explicit context.goals continues to override this default.
+        if policy=="ART_DIRECTOR_FIRST":
+            # A digital artwork has no default commercial funnel.
             intent_goals=[g for g in intent_goals if g not in {"conversion","activation"}]
             goals=["artistic_impact","immersion"]+[g for g in goals if g not in {"artistic_impact","immersion","conversion","activation"}]
+        elif policy=="EXPERIENTIAL_COMMERCE":
+            # Spectacle and buyer understanding are BOTH essential.
+            goals=["artistic_impact","conversion","immersion"]+[g for g in goals if g not in
+                  {"artistic_impact","conversion","immersion"}]
+        elif policy=="OPERATIONAL_FIRST_ART_SUPPORT":
+            op=next((RULES["surfaces"][s]["primary_goal"] for s in ("internal","dashboard")
+                     if s in surfaces),"task_success")
+            goals=[op]+[g for g in goals if g not in {op,"artistic_impact","immersion"}]+["artistic_impact"]
         # Pedagogical mastery is the goal of a learning PRODUCT, not necessarily its landing page.
         if vertical=="education" and any(s in surfaces for s in ("product","mobile")):
             goals.insert(0,"learning")
@@ -205,6 +232,10 @@ def route(context):
     refs=(["creative-experience-direction.md","motion-and-interaction-direction.md"]
           if "experience" in surfaces else
           ["product-truth.md","brand-canon.md","design-proof-and-decision-records.md"])
+    if policy=="EXPERIENTIAL_COMMERCE":
+        refs.extend(["experiential-commerce.md","product-truth.md","full-page-craft-review.md"])
+    if policy=="OPERATIONAL_FIRST_ART_SUPPORT":
+        refs.extend(["advanced-product-ux-operations.md","product-truth.md"])
     for surface in surfaces:refs.extend(RULES["surfaces"][surface]["refs"])
     refs.extend(RULES["verticals"][vertical]["refs"])
     for goal in goals:
@@ -255,7 +286,7 @@ def route(context):
     if not facts:unknown.append("Project facts are not supplied; inspect actual code/site and ask only if blocked.")
     if "web" not in tools and "browser" not in tools and refs_selected:
         unknown.append("Curated references selected offline; none were visited.")
-    return {"schema_version":"9.7",
+    return {"schema_version":"9.8",
       "task":task,
       "product":{"name":product,"audience":audience or "UNKNOWN","vertical":vertical,"vertical_source":vertical_source,
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
@@ -268,9 +299,16 @@ def route(context):
                   "anti_goal":("Replacing art direction with conventional components or explanatory UI" if
                                "experience" in surfaces else
                                "Optimizing vanity metrics while damaging user outcome or a protected contract"),
-                  "creative_authority":("ART_DIRECTOR_FIRST" if "experience" in surfaces else "CONTEXTUAL"),
-                  "artistic_priority":("Composition, memorable scenes, typography as material, spatial transition, interactive climax" if
-                                      "experience" in surfaces else "SUPPORTS_PRIMARY_GOAL")},
+                  "creative_authority":policy,
+                  "artistic_priority":("Composition, memorable scenes, typography as material, spatial transition, interactive climax"
+                                      if policy=="ART_DIRECTOR_FIRST" else
+                                      "Art and product story with a real next step" if policy=="EXPERIENTIAL_COMMERCE" else
+                                      "SUPPORTS_PRIMARY_GOAL"),
+                  "quality_axes":(["originality","composition","interaction","narrative","mobile","performance"]
+                                  if policy=="ART_DIRECTOR_FIRST" else
+                                  ["artistic_impact","product_clarity","desire","action_integrity","mobile","performance"]
+                                  if policy=="EXPERIENTIAL_COMMERCE" else
+                                  ["task_accuracy","data_integrity","accessibility","efficiency"])},
       "tool_routing":{"selected_skill_refs":["references/"+x for x in refs],
                       "research_candidates":refs_selected,
                       "research_questions":research_questions,
