@@ -1,4 +1,4 @@
-# Design OS Brain v9.7 — ferramenta portátil, não um modelo adicional
+# Design OS Brain v9.8 — ferramenta portátil, não um modelo adicional
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -21,6 +21,9 @@ Em instalação isolada, usar `python brain/route.py brain/examples/fintech-land
 ## Input de route.py
 JSON com `task` (obrigatório), opcionalmente `product`, `description`, `surface` (string ou lista), `vertical`, `goals` (lista), `audience`, `facts`, `constraints`, `tools`, `mode`, `authorized_change_types` e `protected_contract_ids`.
 Intenções explícitas são priorizadas; termos inferidos são marcados `inferred_low_confidence`. `facts` são declarações fornecidas, não inspeção verificável. A saída inclui planos por superfície, métrica proposta NÃO medida, guardrails e fila de pesquisa NÃO executada.
+
+## Políticas específicas
+`ART_DIRECTOR_FIRST`: obra imersiva em que composição e narrativa são o fim; `EXPERIENTIAL_COMMERCE`: landing Awwwards com produto, desejo e CTA verdadeiro; `COMMERCE_FIRST_ART_SUPPORT`: checkout protegido; `OPERATIONAL_FIRST_ART_SUPPORT`: dados/operadores; `PRODUCT_FIRST_ART_SUPPORT`: produto funcional. Objetivo explícito do usuário prevalece. Todas são hipóteses a serem verificadas no projeto real.
 
 ## Skill selection
 A ordem proposta no JSON é contextual, não exaustiva nem autorização para mudar código. O agente deve investigar fatos reais, comparar alternativas, selecionar referências adicionais conforme necessário e executar testes reais. Refere-se a **packs de conhecimento**, não instala plugins automaticamente.

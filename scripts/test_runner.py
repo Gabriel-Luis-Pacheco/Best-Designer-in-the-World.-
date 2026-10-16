@@ -40,6 +40,15 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("references/creative-experience-direction.md",prompt)
         self.assertIn('"creative_authority": "ART_DIRECTOR_FIRST"',prompt)
 
+    def test_experiential_commerce_prompt_keeps_art_and_product(self):
+        case={"prompt":"Crie landing comercial experimental Awwwards para uma caixa de som de luxo",
+              "files":[],"meta":{"surface":["experience","landing"]}}
+        prompt=build_prompt(case,"with_skill")
+        self.assertIn('"creative_authority": "EXPERIENTIAL_COMMERCE"',prompt)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/experiential-commerce.md",prompt)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/product-truth.md",prompt)
+        self.assertIn('"conversion"',prompt)
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "
