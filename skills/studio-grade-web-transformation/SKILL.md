@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.4.0"
+  version: "8.5.0"
 ---
 
-# Design OS Prime v8.4.0 — criar, testar, criticar e melhorar
+# Design OS Prime v8.5.0 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
