@@ -22,6 +22,17 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("TRUSTED ADAPTIVE STRATEGY HYPOTHESIS",b)
         self.assertIn("CANDIDATE_NOT_INSPECTED",b)
         self.assertNotIn("TRUSTED ADAPTIVE STRATEGY HYPOTHESIS",a)
+    def test_redesign_loads_applied_design_decisions(self):
+        b=build_prompt(self.case,"with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/applied-design-decisions.md",b)
+
+    def test_operational_case_prioritizes_data_dense_ui_knowledge(self):
+        cases=json.loads((ROOT / "evals/evals.json").read_text(encoding="utf-8"))["evals"]
+        case=next(c for c in cases if c["id"]==22)
+        b=build_prompt(case,"with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/advanced-product-ux-operations.md",b)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/anti-slop-composition.md",b)
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "

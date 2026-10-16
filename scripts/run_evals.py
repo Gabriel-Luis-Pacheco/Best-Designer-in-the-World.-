@@ -56,14 +56,19 @@ def build_prompt(case: dict, variant: str) -> str:
         chunks.insert(2, "TRUSTED ADAPTIVE STRATEGY HYPOTHESIS — VERIFY AGAINST REAL INPUTS; "
                        "NOT EXECUTED RESEARCH OR MEASURED RESULTS:\n"
                        + json.dumps(proposed_plan, ensure_ascii=False, indent=2))
+        # Prioritize actual decision mechanisms over generic reference ordering.
+        mode = proposed_plan["strategy"]["mode"]
+        surfaces = proposed_plan["product"]["surfaces"]
         suggested = ["references/product-intelligence-playbook.md"]
-        for part in proposed_plan["strategy"]["surface_plans"]:
-            suggested.extend("references/" + x for x in part["reference_packs"])
-        selected = []
-        for name in suggested:
-            if name not in selected:
-                selected.append(name)
-        for rel in selected[:3]:
+        if mode in {"REDESIGN", "REBUILD"}:
+            suggested.append("references/applied-design-decisions.md")
+        if "internal" in surfaces or "dashboard" in surfaces:
+            suggested.append("references/advanced-product-ux-operations.md")
+        elif "landing" in surfaces:
+            suggested.append("references/anti-slop-composition.md")
+        suggested.extend(proposed_plan["tool_routing"]["selected_skill_refs"])
+        selected = list(dict.fromkeys(suggested))
+        for rel in selected[:4]:
             path = SK / rel
             if not path.resolve().is_relative_to(SK.resolve()) or not path.is_file():
                 raise ValueError("invalid selected reference: " + rel)

@@ -18,7 +18,7 @@ Para gerar SAÍDAS (não notas) de um CLI de agente confiável, capaz de ler pro
 ```bash
 python scripts/run_evals.py --case 1 --variant both --command "SEU_CLI_DE_AGENTE" --out output/eval-runs
 ```
-Cada execução recebe um diretório temporário limpo contendo apenas suas fixtures. Isso não isola credenciais globais, rede ou configuração de agente. Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md, uma hipótese de roteamento e até três referências portáteis selecionadas para o caso; não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
+Cada execução recebe um diretório temporário limpo contendo apenas suas fixtures. Isso não isola credenciais globais, rede ou configuração de agente. Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md, uma hipótese de roteamento e até quatro referências portáteis selecionadas por objetivo, modo e superfície; não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
 
 A avaliação precisa de `pair_id` comum às variantes do mesmo caso, o mesmo revisor, dimensões idênticas e run_id diferentes. Comparações inválidas são excluídas, não promediadas. O runner só captura arquivos gerados com opt-in `--capture-workspace`; revise segredos antes de compartilhar.
 

@@ -177,7 +177,7 @@ def route(context):
     for goal in goals:
         if goal in {"learning","retention","engagement"}:refs.append("user-research-and-proof.md")
         if goal in {"conversion","trust"}:refs.append("visual-storytelling.md")
-    if mode in {"REDESIGN","REBUILD"}:refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
+    if mode in {"REDESIGN","REBUILD"}:refs.extend(["applied-design-decisions.md","editorial-art-direction-lab.md","typography-layout-craft.md"])
     refs=list(dict.fromkeys(refs))
     missing=[x for x in refs if not (ROOT/"references"/x).is_file()]
     if missing:raise ValueError("missing skill pack: "+", ".join(missing))
