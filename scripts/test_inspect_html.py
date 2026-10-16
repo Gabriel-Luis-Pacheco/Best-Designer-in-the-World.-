@@ -21,3 +21,14 @@ class StaticHTMLTests(unittest.TestCase):
         result=mod.inspect(page)
         self.assertEqual(result["status"],"WARN")
         self.assertIn("BUTTON_NAME_MAY_BE_MISSING",[x["code"] for x in result["issues"]])
+
+    def test_broken_aria_reference(self):
+        page='<html lang="en"><main><button aria-describedby="not-there">Go</button></main></html>'
+        self.assertEqual(mod.inspect(page)["status"],"FAIL")
+        self.assertIn("BROKEN_ARIA_REFERENCE",[x["code"] for x in mod.inspect(page)["issues"]])
+    def test_unlabelled_input_warning(self):
+        page='<html lang="en"><main><input id="email"></main></html>'
+        self.assertIn("INPUT_LABEL_MAY_BE_MISSING",[x["code"] for x in mod.inspect(page)["issues"]])
+    def test_labelled_input_clean(self):
+        page='<html lang="en"><main><label for="email">Email</label><input id="email"></main></html>'
+        self.assertEqual(mod.inspect(page)["status"],"PASS")

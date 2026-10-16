@@ -1,3 +1,6 @@
+## 8.8.0 — 2026-10-16
+- Auditor estático detecta referências ARIA inválidas e inputs sem rótulos; tests negativos, e Playwright cobre interação por teclado da demonstração em viewport estreito.
+
 ## 8.7.0 — 2026-10-16
 - Cenários adversariais envolvendo landing financeira, reconciliação interna, retenção educacional e adoção responsável (24 evals).
 - Referência de tensões entre objetivos, guardrails, proxies e antiobjetivos.

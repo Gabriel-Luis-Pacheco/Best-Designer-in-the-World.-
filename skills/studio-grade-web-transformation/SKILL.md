@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.7.0"
+  version: "8.8.0"
 ---
 
-# Design OS Prime v8.6.0 — criar, testar, criticar e melhorar
+# Design OS Prime v8.8.0 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -62,7 +62,7 @@ Separar evidências em (opcional: `scripts/inspect_html.py` gera observações d
 - **Funcional:** CTA clicável com destino correto, menus, formulários, erros, rotas, teclado, loading, responsividade.
 - **Visual:** página inteira antes/depois, estados críticos, coerência, recortes, hierarquia e pior seção.
 - **Experiência:** tarefa observada; pesquisa com usuários quando realmente realizada.
-- **Performance e inclusão:** medição Core Web Vitals quando disponível; reflow, contraste, leitor de tela, foco e reduced motion.
+- **Performance e inclusão:** medição Core Web Vitals quando disponível; reflow, contraste, leitor de tela, foco, associação de rótulos e referências ARIA e reduced motion.
 Playwright screenshot diff detecta mudanças, não excelência. Usar `references/visual-regression-harness.md` e `references/quality-gates-and-evidence.md`.
 
 ### 7. Crítica adversarial seguida de correção

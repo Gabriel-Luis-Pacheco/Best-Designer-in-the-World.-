@@ -15,6 +15,9 @@ class Scanner(HTMLParser):
         self.html_lang=False
         self.main=0
         self.images=0
+        self.inputs=[]
+        self.labels=set()
+        self.aria_refs=[]
         self.buttons=[]
         self._button=None
     def handle_starttag(self,tag,attrs):
@@ -25,6 +28,13 @@ class Scanner(HTMLParser):
             self.ids.append(a["id"])
         if tag=="main":
             self.main+=1
+        if tag=="label" and a.get("for"):self.labels.add(a["for"])
+        if a.get("aria-labelledby"):
+            self.aria_refs.extend(a["aria-labelledby"].split())
+        if a.get("aria-describedby"):
+            self.aria_refs.extend(a["aria-describedby"].split())
+        if tag=="input" and a.get("type","text").lower() not in {"hidden","submit","reset","button"}:
+            self.inputs.append((a.get("id"),bool(a.get("aria-label") or a.get("aria-labelledby") or a.get("title")))
         if tag=="img":
             self.images+=1
             if "alt" not in a:
@@ -51,6 +61,11 @@ def inspect(markup):
     problems=list(s.issues)
     for i,n in Counter(s.ids).items():
         if n>1:problems.append({"code":"DUPLICATE_ID","severity":"ERROR","detail":i})
+    for target in s.aria_refs:
+        if target not in s.ids:problems.append({"code":"BROKEN_ARIA_REFERENCE","severity":"ERROR","detail":target})
+    for input_id,named in s.inputs:
+        if not named and (not input_id or input_id not in s.labels):
+            problems.append({"code":"INPUT_LABEL_MAY_BE_MISSING","severity":"WARN","detail":input_id or "(no id)"})
     for t in s.targets:
         if t not in s.ids:problems.append({"code":"BROKEN_ANCHOR","severity":"ERROR","detail":t})
     if not s.html_lang:problems.append({"code":"LANG_MISSING","severity":"WARN"})
