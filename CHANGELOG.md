@@ -1,3 +1,6 @@
+## 8.2.0 — 2026-10-16
+- Contratos portáteis em JSON com validador estático independente, IDs e casos negativos. Não confundir evidência sintática com fluxo real.
+
 ## 8.1.0 — 2026-10-16
 - Diretórios isolados por execução do runner A/B, sem prometer sandbox de SO.
 - Revisões pareadas por pair_id, revisor, dimensões e run_id com exclusões auditáveis.
