@@ -1,3 +1,7 @@
+## 9.4.0 — 2026-10-16
+- Feedback loop de metas, indicadores e guardrails com dados faltantes UNKNOWN e regressões destacadas.
+- Testes impedem classificar deslocamento de indicador como causalidade; regras não são reescritas automaticamente.
+
 ## 9.3.0 — 2026-10-16
 - Perguntas de pesquisa por vertical/superfície, em domínio, mecanismo e expressão, sempre NOT_EXECUTED antes de navegação real.
 - Backoffices e dashboards não recebem galerias de marketing automaticamente; testes garantem a especialização.

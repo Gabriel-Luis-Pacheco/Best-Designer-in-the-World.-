@@ -1,4 +1,4 @@
-# Design OS Prime v9.3 — Best Designer in the World
+# Design OS Prime v9.4 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 

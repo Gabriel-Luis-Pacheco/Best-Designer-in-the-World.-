@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "9.3.0"
+  version: "9.4.0"
 ---
 
-# Design OS Prime v9.3 — criar, testar, criticar e melhorar
+# Design OS Prime v9.4 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -72,7 +72,7 @@ Playwright screenshot diff detecta mudanças, não excelência. Usar `references
 Executar revisão em cinco escalas: silhueta; transições; seção; componente/estado; mobile. Procurar a melhor objeção contra a solução escolhida. Para defeitos P0/P1 sustentados, corrigir a CAUSA e repetir o teste afetado. Não declarar pronto com regressões críticas conhecidas. Se não existir revisão independente real, não alegá-la. Consultar `references/studio-critique-method.md` e `templates/QA_WORST_LINK.md`.
 
 ### 8. Aprender por resultados — não em cada patch
-Após mudanças da PRÓPRIA skill, rodar avaliações com e sem skill mantendo modelo, entradas, ferramentas e orçamento comparáveis; registrar resultados por caso e avaliadores cegos se disponíveis. `UNKNOWN` não equivale a `PASS`. Usar `references/eval-harness.md`, `references/evaluation-isolation-protocol.md` e `evals/evals.json`; ver `docs/EVALUATION_RUNBOOK.md` no repositório, não assumir acesso ao documento se a instalação for isolada.
+Após testes reais de produto, organizar observações, guardrails e lacunas usando `brain/feedback_loop.py` e `references/closed-loop-design-learning.md`; não alterar regras automaticamente. Após mudanças da PRÓPRIA skill, rodar avaliações com e sem skill mantendo modelo, entradas, ferramentas e orçamento comparáveis; registrar resultados por caso e avaliadores cegos se disponíveis. `UNKNOWN` não equivale a `PASS`. Usar `references/eval-harness.md`, `references/evaluation-isolation-protocol.md` e `evals/evals.json`; ver `docs/EVALUATION_RUNBOOK.md` no repositório, não assumir acesso ao documento se a instalação for isolada.
 
 ## Critérios de bloqueio
 Use `templates/RELEASE_CHECKS.json` e `scripts/release_gate.py` para bloquear P0/P1 não verificados ou falhos. `READY_FOR_HUMAN_REVIEW` não é certificação nem publicação automática.
