@@ -1,35 +1,26 @@
-# Rubrica de julgamento visual e operacional
+# Rubrica de qualidade visual, funcional e de produto (v8)
 
-Não é cálculo de Awwwards, não é score automaticamente produzido por IA. Cada dimensão recebe: FALHA / ACEITÁVEL / FORTE / EXCEPCIONAL, com evidência concreta. A avaliação de cada landing deve incluir screenshots inteiras desktop/mobile e experiência executável quando disponível.
+Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
 
-| Dimensão | Questão essencial |
-|---|---|
-| Clareza e promessa | Uma pessoa identifica produto, para quem, ação e benefício sem decifrar jargão? |
-| Conceito autoral | O produto determina a linguagem visual ou é um template genérico? |
-| Direção de arte integral | Hero, miolo, preços, FAQ e footer pertencem ao mesmo universo? |
-| Composição e ritmo | Escala, hierarquia, espaço, densidade, contraste, cor e transições tornam o scroll interessante? |
-| Demonstração | A experiência é mostrada fielmente, e não apenas descrita? |
-| Microcraft e assets | Personagens, ícones, bordas, sombras, crop, feedback e estados são do mesmo nível? |
-| UX e acessibilidade | Fluxos funcionam com mouse, toque, teclado, zoom, leitura e reduced motion? |
-| Mobile de verdade | Houve recomposição artística e funcional, não só empilhamento? |
-| Copy e credibilidade | Mensagens claras, preços honestos, sem claims ou provas inventadas? |
-| Performance e robustez | Métricas medidas, carregamento, rota e estados críticos testados? |
+Escala consistente para TODAS as dimensões:
+- `0 FALHA`: problema demonstrável que atrapalha objetivo.
+- `1 ACEITÁVEL`: funciona ou comunica o mínimo, mas há deficiências evidentes.
+- `2 FORTE`: adequado, coerente e bem acabado no contexto.
+- `3 EXCEPCIONAL`: solução distintiva e refinada, apoiada em exemplos concretos e contexto.
 
-## Bloqueadores
-**P0:** checkout/cadastro quebrado, dados inventados, falha grave de acessibilidade, info essencial indisponível, perda funcional crítica.
-**P1:** pior seção claramente genérica, mascote off-brand, hero enganoso, impressão de produto falso, mobile severamente cansativo, CTA ambíguo, inconsistência do design system.
-**P2:** pequenos ajustes de contraste não críticos, alinhamento óptico, refinamento de motion.
+Dimensões: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
+Marcar `UNKNOWN` como valor `null` ou omitir a dimensão, documentando por quê. Não atribuir 3 só por estética pessoal; relacionar cada nota a observação e artefato.
 
-P0/P1 conhecido impede a conclusão até corrigido ou explicitamente reportado como pendência séria. Não “diluir” esses defeitos na média. Não estipular número mágico de seções nem comprimento universal de texto.
+Exemplos de ancoragem:
+- Clareza 0: não é possível identificar produto/CTA; 2: promessa concreta visível; 3: promessa, prova e ação se reforçam sem esforço.
+- Direção de arte 0: incoerência ou cópia literal; 2: linguagem consistente; 3: composição autoral justificada pela experiência do produto.
+- Mobile 0: tarefas centrais inviáveis; 2: leitura e ações fluem em 390 px e zoom; 3: recomposição dedicada com igual hierarquia e sem esforço extra.
+- Funcionalidade 0: CTA quebrado; 2: fluxos testados e utilizáveis; 3: fluxos, recuperação e estados críticos muito bem resolvidos.
+- Acessibilidade 0: barreira severa comprovada; 2: testes essenciais realizados sem barreiras conhecidas; 3: verificação ampliada com tecnologias assistivas e evidências.
+- Performance: UNKNOWN sem medida; 2 apenas com ambiente e métricas registradas.
 
-## Crítica de estúdio
-1. Enquadramento integral em miniatura: onde há repetição visual? O olhar encontra três momentos diferentes?
-2. Teste de desfoque / squint: o foco continua claro sem ler o texto?
-3. Teste de subtração: o que pode sair/fundir sem perda de verdade?
-4. Teste do pior trecho: qual região contradiz a promessa estética do hero?
-5. Teste de identidade: com logo coberto, isto parece da marca?
-6. Teste de experiência: pelo menos um fluxo útil funciona?
-7. Teste de contexto: no dashboard, eficiência supera espetáculo?
-8. Revisão cega: um avaliador que não sabe a versão escolhe qual e por quê?
+Severidade em separado: P0 (falha central, falsidade, perda de dados), P1 (prejuízo relevante e demonstrável à tarefa/identidade), P2 (acabamento local). A estética subjetiva sozinha não é P1. P0/P1 conhecido bloqueia status aprovado. A média não apaga bloqueadores.
 
-Registrar captura, motivo, impacto, proposta e confirmação após correção.
+Campos mínimos por revisão: caso, condição (`with_skill`/`without_skill`), identificador de execução, revisor, dimensões avaliadas 0–3, `evidence` com links/caminhos ou comandos e resultados PASS/FAIL/UNKNOWN. Avaliação cega é preferível; registrar se houve. Não converter notas de uma pessoa em resultado de usuários reais.
+
+Roteiro: primeiro screenshot inteira sem conhecer variante; segundo revisar ações, estados e mobile; terceiro anotar pior elo e riscos; quarto conferir evidência independente. Comparar dois artefatos da MESMA tarefa. Não afirmar ganho estatístico com amostra mínima.
