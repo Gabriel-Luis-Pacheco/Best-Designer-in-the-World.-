@@ -64,3 +64,11 @@ Se executou: resumo da mudança, arquivos/rotas alterados, screenshots/testes re
 `references/brand-canon.md`, `references/product-truth.md`, `references/full-page-art-direction.md`, `references/research-provenance.md`, `references/art-direction-and-optical-craft.md`, `references/visual-storytelling.md`, `references/design-system-extraction.md`, `references/implementation-quality.md`, `references/visual-regression-harness.md`, `references/critique-and-gates.md`, `references/eval-harness.md`, `references/ethics-and-licensing.md`.
 
 Materiais complementares em `docs/`; avaliações em `evals/`. Não copie indiscriminadamente outras skills nem execute ferramentas não instaladas.
+
+
+## Especialistas e testes de campo
+- Se houver pesquisa com usuários: consultar `references/user-research-and-proof.md` para tarefas observáveis, sem entrevistas inventadas.
+- Para review de direção de arte: usar `references/studio-critique-method.md` e registrar hipótese, evidência e trade-off; não vencer debate só por preferência visual.
+- Para sistemas internos/dashboards: usar `references/product-ux-versus-marketing.md` e validar sucesso de tarefa, não quantidade de animações.
+
+A lista de fontes e decisões de adoção/rejeição fica em `docs/SOURCE_MATRIX.md` e `docs/RESEARCH_DECISIONS.md`, a partir da raiz do repositório. Esses arquivos não são licença para copiar conteúdo de terceiros.
