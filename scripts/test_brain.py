@@ -10,6 +10,32 @@ brain=importlib.util.module_from_spec(spec);spec.loader.exec_module(brain)
 class BrainTests(unittest.TestCase):
     def sample(self,name):
         return json.loads((ROOT/"brain/examples"/(name+".json")).read_text(encoding="utf-8"))
+    def test_creative_mirage_explicit_negative_landing(self):
+        task=("Crie um site experimental de nível Awwwards, museu digital de mundos impossíveis. "
+              "Não estamos criando um produto comercial, um MVP, uma landing page de vendas ou um site corporativo.")
+        d=brain.route({"task":task})
+        self.assertEqual(d["product"]["surfaces"],["experience"])
+        self.assertEqual(d["strategy"]["primary_goal"],"artistic_impact")
+        self.assertEqual(d["strategy"]["mode"],"REBUILD")
+        self.assertEqual(d["strategy"]["creative_authority"],"ART_DIRECTOR_FIRST")
+        self.assertIn("references/creative-experience-direction.md",d["tool_routing"]["selected_skill_refs"])
+        self.assertNotIn("conversion",d["strategy"]["secondary_goals"])
+
+    def test_negative_surface_does_not_trigger_commercial(self):
+        d=brain.route({"task":"Não é uma landing page, é uma experiência imersiva artística. Crie o site."})
+        self.assertNotIn("landing",d["product"]["surfaces"])
+        self.assertEqual(d["strategy"]["primary_goal"],"artistic_impact")
+
+    def test_experience_explicit_goal_can_override_creative_default(self):
+        d=brain.route({"task":"Experiência imersiva para ensinar", "surface":"experience", "goals":["learning"]})
+        self.assertEqual(d["strategy"]["primary_goal"],"learning")
+        self.assertEqual(d["strategy"]["goal_source"],"explicit")
+
+    def test_creative_sources_are_candidates_not_visited(self):
+        d=brain.route({"task":"Crie website experimental Awwwards"})
+        self.assertEqual(d["tool_routing"]["research_candidates"][0]["kind"],"visual")
+        self.assertTrue(all(x["status"]=="CANDIDATE_NOT_INSPECTED" for x in d["tool_routing"]["research_candidates"]))
+
     def test_critical_phrase_not_substring(self):
         self.assertFalse(brain.contains_phrase("hospitalidade","hospital"))
         self.assertTrue(brain.contains_phrase("hospital clínico","hospital"))

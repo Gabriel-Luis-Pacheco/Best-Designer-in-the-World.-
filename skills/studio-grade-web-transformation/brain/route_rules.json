@@ -1,7 +1,32 @@
 {
-  "version": 2,
-  "description": "Deterministic hypothesis starter. Agent must inspect real evidence and override heuristics. Contextual routing remains a hypothesis; explicit goal governs surface-level defaults.",
+  "version": 3,
+  "description": "Deterministic triage; creative experiences are first-class. Negative descriptions never become affirmative design goals. Agent must inspect evidence and override hypotheses.",
   "surface_aliases": {
+    "experience": [
+      "site experimental",
+      "website experimental",
+      "museu digital",
+      "museu virtual",
+      "instalação digital",
+      "instalacao digital",
+      "experiência imersiva",
+      "experiencia imersiva",
+      "experiência artística",
+      "experiencia artistica",
+      "experiência digital artística",
+      "experiencia digital artistica",
+      "portfolio experimental",
+      "portfólio experimental",
+      "awwwards",
+      "site of the day",
+      "site of the year",
+      "creative showcase",
+      "interactive exhibition",
+      "interactive experience",
+      "immersive experience",
+      "mundos impossíveis",
+      "mundos impossiveis"
+    ],
     "landing": [
       "landing",
       "lp ",
@@ -95,6 +120,23 @@
     ]
   },
   "surfaces": {
+    "experience": {
+      "primary_goal": "artistic_impact",
+      "refs": [
+        "creative-experience-direction.md",
+        "editorial-art-direction-lab.md",
+        "motion-and-interaction-direction.md",
+        "typography-layout-craft.md",
+        "visual-storytelling.md"
+      ],
+      "jobs": [
+        "surpreender no primeiro encontro",
+        "fazer a interface se comportar como a própria obra",
+        "criar cenas conectadas por transformações espaciais",
+        "entregar um clímax memorável e uma saída intencional"
+      ],
+      "metric": "avaliação humana cega de impacto, originalidade, movimento, coerência e lembrança do percurso"
+    },
     "landing": {
       "primary_goal": "conversion",
       "refs": [
@@ -295,6 +337,16 @@
       "action": "aumentar interação significativa",
       "metric": "interação útil voluntária",
       "guardrail": "sem estímulos manipulativos"
+    },
+    "artistic_impact": {
+      "action": "produzir assombro e identificação por direção artística, composição e comportamento original",
+      "metric": "julgamento humano cego de impacto, memorabilidade e originalidade",
+      "guardrail": "não substituir espetáculo por widgets ou prometer prêmios"
+    },
+    "immersion": {
+      "action": "fazer tipografia, ambiente, gestos e transições formarem uma única experiência",
+      "metric": "revisão cega da continuidade espacial, resposta a gestos e ritmo narrativo",
+      "guardrail": "preservar controle, desempenho e alternativas para movimento reduzido"
     }
   }
 }
