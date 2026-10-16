@@ -33,6 +33,13 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/advanced-product-ux-operations.md",b)
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/anti-slop-composition.md",b)
 
+    def test_experimental_art_director_is_loaded_not_commercial_playbook(self):
+        cases=json.loads((ROOT/"evals/evals.json").read_text(encoding="utf-8"))["evals"]
+        case=next(c for c in cases if c["id"]==37)
+        prompt=build_prompt(case,"with_skill")
+        self.assertIn("references/creative-experience-direction.md",prompt)
+        self.assertIn('"creative_authority": "ART_DIRECTOR_FIRST"',prompt)
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "

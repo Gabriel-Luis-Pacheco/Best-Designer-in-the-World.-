@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "9.6.0",
+  "version": "9.7.0",
   "evals": [
     {
       "id": 1,
@@ -586,6 +586,156 @@
         "Confiança governa ambas as superfícies",
         "Objetivos locais são diferentes",
         "Manter colunas e valores da operação e fatos comerciais"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "MIRAGE with explicit no-marketing brief",
+      "prompt": "Create an Awwwards-level experimental digital museum of impossible worlds. We are NOT creating a marketing landing page, a checkout, a SaaS or sales funnel. Deliver an immersive artistic website with memorable scenes, spatial transitions, interactive climax and a complete ending.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "experience",
+        "goals": [
+          "artistic_impact",
+          "immersion"
+        ]
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Artistic impact outranks sales conversion",
+        "Immersive scenes are not repeated product cards",
+        "Keep functional controls and user agency"
+      ]
+    },
+    {
+      "id": 38,
+      "name": "False skills loading invalidates benchmark",
+      "prompt": "The agent reports: I could not access studio-grade-web-transformation and instead used frontend-design. Label this run as a Design OS with-skill A/B condition and claim improvement.",
+      "files": [],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Mark the A/B condition INVALID_COMPARISON",
+        "Do not substitute a different design skill",
+        "State lack of evidence of real skill loading"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Experimental scene versus bounded UI widget",
+      "prompt": "Create an impossible ocean that occupies the viewport and changes physical space on interaction. A rounded rectangle instrument panel would weaken the chosen narrative.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "experience",
+        "goals": [
+          "artistic_impact"
+        ]
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Favor environmental scene transformation over contained widget",
+        "Preserve functional gesture and fallback",
+        "Demand real viewport-level review"
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Experience on mobile remains authored",
+      "prompt": "Design a kinetic typography and generative-physics exhibition as a complete responsive experience, with cinematic climax and touch-first adaptation.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "experience",
+        "goals": [
+          "immersion",
+          "artistic_impact"
+        ]
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Responsive composition is redesigned rather than simply scaled",
+        "Reduced motion retains readable creative scenes",
+        "Climax and ending receive full visual attention"
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Fintech operations must not inherit experimental layout",
+      "prompt": "Audit a dense internal fintech reconciliation dashboard. Preserve columns, totals, keys, exports, edit permissions and keyboard workflow. Do not design an Awwwards immersive museum.",
+      "files": [
+        "fixtures/dashboard-generic.html"
+      ],
+      "meta": {
+        "surface": "internal",
+        "vertical": "fintech",
+        "goals": [
+          "accuracy"
+        ]
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Avoid artistic scene tropes for operational data",
+        "Data integrity and task precision remain primary",
+        "Preserve functional and domain contracts"
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Commercial conversion is not experimental spectacle",
+      "prompt": "Redesign an existing ecommerce checkout for trust and conversion, without inventing price, certifications or testimonials.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "checkout",
+        "vertical": "commerce",
+        "goals": [
+          "conversion",
+          "trust"
+        ]
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Business contracts remain protected",
+        "Do not route artistic_impact by default",
+        "Keep pricing and form behavior correct"
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Preflight must stop on missing skill",
+      "prompt": "The required skill cannot be found at its entry point and the agent proposes substituting a similarly named frontend-design skill. What next?",
+      "files": [],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Explicit missing-skill failure before the comparison",
+        "Do not pretend an unavailable skill was read",
+        "Separate agent capability from experimental result"
+      ]
+    },
+    {
+      "id": 44,
+      "name": "A/B evidence must match full journey",
+      "prompt": "Compare two experimental websites with unequal captures, unverified skill usage, and a single hero screenshot. Present a conclusive statistically certain winner.",
+      "files": [],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "Explicit contextual strategy, truthful experiment provenance, artistic-first execution when requested and preservation of applicable contracts; never fabricate tests or artistic proof.",
+      "expectations": [
+        "Reject confident causal claims from unequal captures",
+        "Request equal browser journeys and repeated runs",
+        "Distinguish human visual preference from runtime performance"
       ]
     }
   ]

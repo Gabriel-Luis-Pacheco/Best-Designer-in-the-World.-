@@ -43,8 +43,8 @@ def negated_mention(text, phrase):
     low=text.casefold()
     for match in re.finditer(re.escape(phrase.casefold()),low):
         prefix=low[max(0,match.start()-180):match.start()]
-        prefix=re.split(r"[.!?;\\n]",prefix)[-1]
-        if re.search(r"(?:não|nao)\\s+(?:estamos\\s+)?(?:criando|fazendo|é|e|quero|sera|será|deve\\s+ser)\\b|(?:sem\\s+ser)\\b",prefix):
+        prefix=re.split(r"[.!?;\n]",prefix)[-1]
+        if re.search(r"(?:não|nao)\s+(?:estamos\s+)?(?:criando|fazendo|é|e|quero|sera|será|deve\s+ser)\b|(?:sem\s+ser)\b",prefix):
             return True
     return False
 
