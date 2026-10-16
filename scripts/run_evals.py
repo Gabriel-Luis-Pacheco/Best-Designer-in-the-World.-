@@ -38,34 +38,37 @@ def build_prompt(case: dict, variant: str) -> str:
         # Trust scope: skill instruction belongs to the experiment, not external material.
         skill = (SK / "SKILL.md").read_text(encoding="utf-8")
         chunks.insert(1, "EXPERIMENT CONDITION: Apply these Design OS operating instructions:\n" + skill)
-        # Select up to three portable references for the task and embed them,
-        # so generic stdin-based CLIs can evaluate more than the top-level rules.
-        packs = {
-            1: ["anti-slop-composition.md", "visual-storytelling.md"],
-            2: ["brand-canon.md"], 3: ["product-truth.md", "interaction-and-content.md"],
-            4: ["product-ux-versus-marketing.md"], 5: ["critique-and-gates.md"],
-            6: ["interaction-and-content.md"], 7: ["typography-layout-craft.md"],
-            8: ["ethics-and-licensing.md"], 9: ["art-direction-and-optical-craft.md"],
-            10: ["product-truth.md"], 11: ["anti-slop-composition.md"],
-            12: ["quality-gates-and-evidence.md"], 13: ["anti-slop-composition.md", "typography-layout-craft.md"],
-            14: ["interaction-and-content.md"], 15: ["quality-gates-and-evidence.md"],
-            16: ["ethics-and-licensing.md"],
-            17: ["design-proof-and-decision-records.md"],
-            18: ["editorial-art-direction-lab.md", "visual-storytelling.md"],
-            19: ["quality-gates-and-evidence.md"],
-            20: ["advanced-product-ux-operations.md"],
-            21: ["goal-tensions.md", "product-truth.md"],
-            22: ["goal-tensions.md", "advanced-product-ux-operations.md"],
-            23: ["goal-tensions.md", "user-research-and-proof.md"],
-            24: ["goal-tensions.md", "ethics-and-licensing.md"],
-            25: ["product-intelligence-playbook.md", "advanced-product-ux-operations.md"],
-            26: ["goal-tensions.md", "product-truth.md"],
-            27: ["research-selection-playbook.md", "research-provenance.md"],
-            28: ["product-intelligence-playbook.md", "interaction-and-content.md"]
-        }
-        for name in packs.get(case["id"], []):
-            path = SK / "references" / name
-            chunks.append("TRUSTED DESIGN REFERENCE: " + name + "\\n" + path.read_text(encoding="utf-8"))
+        # Brain triage is a deterministic hypothesis starter, not actual browsing.
+        import importlib.util
+        source = SK / "brain" / "route.py"
+        spec = importlib.util.spec_from_file_location("design_os_eval_brain", source)
+        if spec is None or spec.loader is None:
+            raise ValueError("brain entrypoint unavailable")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        meta = case.get("meta", {})
+        context = {"task": case["prompt"], "product": "SYNTHETIC EVAL FIXTURE",
+                   "tools": [], "facts": []}
+        if "surface" in meta: context["surface"] = meta["surface"]
+        if "vertical" in meta: context["vertical"] = meta["vertical"]
+        if "goals" in meta: context["goals"] = meta["goals"]
+        proposed_plan = module.route(context)
+        chunks.insert(2, "TRUSTED ADAPTIVE STRATEGY HYPOTHESIS — VERIFY AGAINST REAL INPUTS; "
+                       "NOT EXECUTED RESEARCH OR MEASURED RESULTS:\n"
+                       + json.dumps(proposed_plan, ensure_ascii=False, indent=2))
+        suggested = ["references/product-intelligence-playbook.md"]
+        for part in proposed_plan["strategy"]["surface_plans"]:
+            suggested.extend("references/" + x for x in part["reference_packs"])
+        selected = []
+        for name in suggested:
+            if name not in selected:
+                selected.append(name)
+        for rel in selected[:3]:
+            path = SK / rel
+            if not path.resolve().is_relative_to(SK.resolve()) or not path.is_file():
+                raise ValueError("invalid selected reference: " + rel)
+            chunks.append("TRUSTED CONTEXTUAL REFERENCE: " + rel + "\n"
+                          + path.read_text(encoding="utf-8"))
     else:
         chunks.insert(1, "EXPERIMENT CONDITION: No Design OS instructions.")
     chunks.append("Complete the task with available tools. Mark unexecuted checks UNKNOWN, never PASS.")

@@ -1,6 +1,15 @@
-# Design OS Prime v9.4 — Best Designer in the World
+# Design OS Prime v9.5 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
+
+## Versão 9.5 — Toolbelt + Product Intelligence Brain
+A skill investiga produto, contexto, objetivo primário, guardrails e diferenças entre superfícies antes de escolher conhecimentos. Um roteiro determinístico portátil `brain/route.py` gera hipóteses e URLs candidatas, nunca navegação presumida. O adaptador A/B agora inclui o plano contextual no prompt com skill. Execução de agent, pesquisa, testes em projetos reais e revisão humana exigem ferramentas e evidência externas.
+
+```bash
+python scripts/verify_brain_examples.py
+python skills/studio-grade-web-transformation/brain/route.py skills/studio-grade-web-transformation/brain/examples/fintech-landing.json
+```
+Consultar `docs/V95_ARCHITECTURE.md` e `skills/studio-grade-web-transformation/brain/README.md`.
 
 ## Melhorias da versão 8.1
 - Runner de avaliação com execução por diretório limpo e hashes das fixtures.

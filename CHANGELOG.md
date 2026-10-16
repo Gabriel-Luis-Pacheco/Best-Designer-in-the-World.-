@@ -1,3 +1,7 @@
+## 9.5.0 — 2026-10-16
+- Integração real do cérebro com runner A/B: contexto e packs adaptativos apenas na condição with_skill; comparação continua exigindo evidência e revisão independente.
+- Smoke tests offline para cenários diferentes de fintech e educação; arquitetura, comandos e limites documentados.
+
 ## 9.4.0 — 2026-10-16
 - Feedback loop de metas, indicadores e guardrails com dados faltantes UNKNOWN e regressões destacadas.
 - Testes impedem classificar deslocamento de indicador como causalidade; regras não são reescritas automaticamente.

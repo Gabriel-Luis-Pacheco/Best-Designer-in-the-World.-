@@ -44,3 +44,7 @@ Comparação é DESCRITIVA. Dimensões ou revisores diferentes distorcem médias
 
 ## Anti-Goodhart
 Não usar URLs inventadas, entrevistas simuladas, screenshots falsas, dados inexistentes, atualizações automáticas de baseline, métricas sem medição ou "nota de beleza" automática. Revisar o próprio pior caso, não só a média.
+
+
+## V9.5 — cérebro integrado à condição with_skill
+O runner injeta um plano determinístico de intenção e seleção contextual de até três referências portáteis na condição com skill. A condição sem skill recebe o mesmo prompt e fixtures, mas não recebe o motor. Os dois workspaces são separados; isso não isola contas de agente, rede ou sistema operacional. O arquivo emitido é uma hipótese, nunca observação de negócio. Para medir qualidade visual, rode o agente, implemente o resultado num browser autorizado e peça avaliação humana cega dos artefatos equivalentes.
