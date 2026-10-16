@@ -34,7 +34,7 @@ class Scanner(HTMLParser):
         if a.get("aria-describedby"):
             self.aria_refs.extend(a["aria-describedby"].split())
         if tag=="input" and a.get("type","text").lower() not in {"hidden","submit","reset","button"}:
-            self.inputs.append((a.get("id"),bool(a.get("aria-label") or a.get("aria-labelledby") or a.get("title")))
+            self.inputs.append((a.get("id"),bool(a.get("aria-label") or a.get("aria-labelledby") or a.get("title"))))
         if tag=="img":
             self.images+=1
             if "alt" not in a:
