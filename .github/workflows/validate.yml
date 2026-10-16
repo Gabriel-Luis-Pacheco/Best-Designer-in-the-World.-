@@ -35,7 +35,7 @@ jobs:
       - name: Install Chromium for browser fixture tests
         run: npx playwright install --with-deps chromium
       - name: Test browser fixtures
-        run: npm run test:browser:fixtures
+        run: npm run test:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:

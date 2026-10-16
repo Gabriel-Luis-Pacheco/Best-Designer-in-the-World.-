@@ -9,6 +9,7 @@ for (const width of [390, 1440]) {
     await expect(page.locator('[data-design-critical-cta]')).toHaveAttribute('href', '#demonstracao');
     await expect(page.locator('#demonstracao')).toHaveCount(1);
     await expect(page.locator('main section')).toHaveCount(4);
+    await expect(page.locator('.plan').last().locator('a')).toHaveAttribute('href', '#precos');
     await expect(page.getByText('R$ 19,90')).toBeVisible();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     expect(overflow).toBeLessThanOrEqual(1);

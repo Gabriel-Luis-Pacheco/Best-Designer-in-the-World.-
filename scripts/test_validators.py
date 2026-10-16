@@ -26,12 +26,25 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             safe_input_path(SKILL, "fixtures/missing.html")
     def sample_review(self, variant):
-        return {"case_id":1,"variant":variant,"run_id":"synthetic-run-001",
+        return {"case_id":1,"variant":variant,"run_id":"synthetic-" + variant, "pair_id":"synthetic-pair-001",
                 "reviewer":"example-reviewer","scores":{"clareza":2,"mobile":1},
                 "evidence":["tests/example-evidence-placeholder"],"blockers":[],
                 "assertions":[{"text":"Form is present","result":"PASS","evidence":"example check"}]}
     def test_review_accepts_anchored_scores(self):
         self.assertEqual(validate_review(self.sample_review("with_skill"))["scores"]["clareza"],2)
+    def test_review_rejects_unknown_dimension(self):
+        r=self.sample_review("with_skill");r["scores"]["looks_magical"]=3
+        with self.assertRaises(ValueError):validate_review(r)
+    def test_comparison_rejects_mismatched_dimensions(self):
+        a=self.sample_review("with_skill");b=self.sample_review("without_skill")
+        b["scores"]["composicao"]=2
+        result=compare([a,b])
+        self.assertEqual(result["paired_cases"],0)
+        self.assertEqual(result["excluded"][0]["reason"],"rated dimensions differ")
+    def test_comparison_rejects_unpaired_reviewer(self):
+        a=self.sample_review("with_skill");b=self.sample_review("without_skill")
+        b["reviewer"]="someone-else"
+        self.assertEqual(compare([a,b])["paired_cases"],0)
     def test_review_rejects_old_scale(self):
         r=self.sample_review("with_skill");r["scores"]["mobile"]=4
         with self.assertRaises(ValueError):validate_review(r)
