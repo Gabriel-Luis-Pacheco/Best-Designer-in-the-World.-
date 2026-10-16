@@ -5,3 +5,6 @@ Fixar uma tese visual antes do código: produto, público, metáfora própria, t
 Aplicar a mesma gramática a hero, demonstração, pricing, rodapé e mobile. Se parecem sites diferentes, retornar ao conceito. Usar tokens semânticos, permitindo ajustes ópticos quando o alinhamento geométrico aparenta desequilíbrio.
 
 Revisar quebras tipográficas, peso das bordas, recorte de assets, alinhamento de ícones, estados e microinterações. O acabamento de um tooltip e de um mascote pode comprometer toda a experiência. Sofisticação não exige WebGL; minimalismo não exige vazio.
+
+## Aplicação verificável
+Criar duas miniaturas completas de layout sem cor e testar títulos reais, zoom e mobile antes dos detalhes. Definir o ritmo macro antes das microcorreções. Consultar `references/editorial-art-direction-lab.md` e registrar razões para a direção derrotada.
