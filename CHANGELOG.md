@@ -1,3 +1,6 @@
+## 8.6.0 — 2026-10-16
+- Gate de qualidade com bloqueio verificável de P0/P1 FAIL/UNKNOWN; PASS exige referência de evidência; status máximo é pronto para revisão humana, nunca aprovação automática.
+
 ## 8.5.0 — 2026-10-16
 - Auditor de presença/hashes para evidências de revisão, rejeição de caminhos inseguros e URLs não verificadas classificadas como UNKNOWN; pacote de revisão e testes.
 

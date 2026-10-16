@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "checks": [
+    {
+      "id": "critical-flow",
+      "severity": "P0",
+      "result": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "business-truth",
+      "severity": "P0",
+      "result": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "keyboard-and-focus",
+      "severity": "P1",
+      "result": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "responsive-no-overflow",
+      "severity": "P1",
+      "result": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "visual-storyboard-review",
+      "severity": "P2",
+      "result": "UNKNOWN",
+      "evidence": []
+    }
+  ]
+}

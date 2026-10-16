@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.5.0"
+  version: "8.6.0"
 ---
 
-# Design OS Prime v8.5.0 — criar, testar, criticar e melhorar
+# Design OS Prime v8.6.0 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -72,6 +72,8 @@ Executar revisão em cinco escalas: silhueta; transições; seção; componente/
 Após mudanças da PRÓPRIA skill, rodar avaliações com e sem skill mantendo modelo, entradas, ferramentas e orçamento comparáveis; registrar resultados por caso e avaliadores cegos se disponíveis. `UNKNOWN` não equivale a `PASS`. Usar `references/eval-harness.md`, `references/evaluation-isolation-protocol.md` e `evals/evals.json`; ver `docs/EVALUATION_RUNBOOK.md` no repositório, não assumir acesso ao documento se a instalação for isolada.
 
 ## Critérios de bloqueio
+Use `templates/RELEASE_CHECKS.json` e `scripts/release_gate.py` para bloquear P0/P1 não verificados ou falhos. `READY_FOR_HUMAN_REVIEW` não é certificação nem publicação automática.
+
 **P0:** quebra do fluxo central, manipulação ou falsidade comercial, perda de dados, impossibilidade significativa de acesso. **P1:** falha grave de clareza, inconsistência de marca comprovável, interação essencial inacessível, mobile inutilizável, composição claramente inadequada à tarefa. **P2:** refinamento sem impacto crítico. Um P1 artístico precisa de evidência contextual e segunda solução; gosto pessoal não é P1 automático.
 
 ## Entrega final
