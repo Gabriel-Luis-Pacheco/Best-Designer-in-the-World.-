@@ -30,7 +30,7 @@ test.describe('authorized target-site checks', () => {
         const cta = page.locator(ctaSelector).first();
         await expect(cta, 'Set DESIGN_CTA_SELECTOR to the critical CTA on your site').toBeVisible();
         await expect(cta).toBeEnabled();
-        await expect(cta).toHaveAccessibleName(/\\S/);
+        await expect(cta).toHaveAccessibleName(/\S/);
         const href = await cta.getAttribute('href');
         // Only inspect destination. NEVER purchase/submit data as a side effect of a design test.
         if (href !== null) {
