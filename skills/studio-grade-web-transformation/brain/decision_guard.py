@@ -30,9 +30,10 @@ def evaluate(plan):
             # A protected contract covers its descendants; do not block a sibling.
             canonical=lambda x:x.replace("/",".").strip(".")
             value,barrier=canonical(value),canonical(barrier)
-            return value==barrier or value.startswith(barrier+".")
+            return (value==barrier or value.startswith(barrier+".")
+                    or barrier.startswith(value+"."))
         if any(protected_match(target,barrier) for barrier in protected):
-            result="BLOCK_PROTECTED_CONTRACT";reason="Target matches protected contract or descendant"
+            result="BLOCK_PROTECTED_CONTRACT";reason="Target overlaps a protected contract (ancestor or descendant)"
         elif kind not in allow:
             result="NEEDS_AUTHORIZATION";reason="Outside declared change scope"
         elif kind in HIGH_RISK:
@@ -44,7 +45,7 @@ def evaluate(plan):
             else "REVIEW_REQUIRED" if any(x["decision"] in ("NEEDS_AUTHORIZATION","REQUIRES_DOMAIN_VERIFICATION") for x in results)
             else "IN_SCOPE_NOT_EXECUTED",
             "changes":results,
-            "limitations":"Checks declared contract IDs, their dot/slash descendants and edit types. It does not inspect files or diffs, grant permission or make changes."}
+            "limitations":"Checks declared contract IDs, their dot/slash ancestors/descendants and edit types. It does not inspect files or diffs, grant permission or make changes."}
 
 if __name__=="__main__":
     if len(sys.argv)!=2:raise SystemExit("usage: decision_guard.py scope-plan.json")

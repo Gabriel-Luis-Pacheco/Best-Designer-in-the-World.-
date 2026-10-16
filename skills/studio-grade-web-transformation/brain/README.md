@@ -2,6 +2,9 @@
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
+## Integrated planning gate
+`brain/pipeline.py plano.json --project diretorio` compõe roteamento, inventário local opcional e verificação de propostas. JSON: `{"context":{"task":"Corrija só botão","authorized_change_types":["visual"],"protected_contract_ids":["checkout.total"]},"proposals":[{"id":"p1","kind":"visual","target":"checkout"}]}`. O resultado bloqueia alterações ancestrais/descendentes de contratos protegidos e nunca executa mutações. Não substitui inspeção de diff, navegador nem autorização.
+
 ## Project intake opcional
 `brain/project_intake.py --project caminho/do/projeto` identifica candidatos a rotas, assets e arquivos de tokens em modo somente leitura. Com `--context brief.json`, acrescenta inventário ao plano. Não executa o produto nem prova compreensão, métricas ou qualidade. Nunca interpretar a existência de uma rota como verificação de um fluxo.
 

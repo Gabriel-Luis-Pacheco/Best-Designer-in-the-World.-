@@ -3,7 +3,7 @@
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
 ## Versão 9.6 — Project Intake + Product Intelligence Brain
-Agora a skill inclui inventário local **somente leitura** em `brain/project_intake.py`, melhorias de interpretação de intenção, objetivos globais preservados nas múltiplas superfícies, referências visuais alcançáveis e proteção de contratos hierárquicos. A inspeção de caminhos não equivale a compreensão do negócio, testes de UX ou evidência visual. Ver `docs/V96_ARCHITECTURE.md`.
+Agora a skill inclui um planejador integrado `brain/pipeline.py`, que combina roteamento, avaliação de escopo e inventário opcional, sem executar mudanças. A skill inclui inventário local **somente leitura** em `brain/project_intake.py`, melhorias de interpretação de intenção, objetivos globais preservados nas múltiplas superfícies, referências visuais alcançáveis e proteção de contratos hierárquicos. A inspeção de caminhos não equivale a compreensão do negócio, testes de UX ou evidência visual. Ver `docs/V96_ARCHITECTURE.md`.
 
 **36 casos de avaliação**, ainda sem benchmark visual independente publicado.
 
