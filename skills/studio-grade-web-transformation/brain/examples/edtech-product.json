@@ -1,0 +1,18 @@
+{
+  "product": "ConversaBoa (ficcional)",
+  "task": "Melhorar progresso e feedback para retenção saudável e aprendizado",
+  "surface": "product",
+  "vertical": "education",
+  "goals": [
+    "learning",
+    "retention"
+  ],
+  "audience": "Pessoas que praticam inglês",
+  "tools": [],
+  "facts": [
+    "Atividades de texto no protótipo"
+  ],
+  "constraints": [
+    "Não inventar resultados de aprendizagem"
+  ]
+}

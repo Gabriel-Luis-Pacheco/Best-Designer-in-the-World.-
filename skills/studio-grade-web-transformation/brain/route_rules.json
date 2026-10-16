@@ -1,0 +1,300 @@
+{
+  "version": 1,
+  "description": "Deterministic hypothesis starter. Agent must inspect real evidence and override heuristics.",
+  "surface_aliases": {
+    "landing": [
+      "landing",
+      "lp ",
+      "homepage",
+      "página de vendas",
+      "pagina de vendas",
+      "site institucional",
+      "marketing page"
+    ],
+    "internal": [
+      "sistema interno",
+      "backoffice",
+      "back-office",
+      "operação",
+      "operacional",
+      "conciliação",
+      "auditoria interna",
+      "enterprise tool"
+    ],
+    "dashboard": [
+      "dashboard",
+      "painel",
+      "relatório interativo",
+      "tabela de dados"
+    ],
+    "product": [
+      "saas",
+      "app",
+      "aplicativo",
+      "plataforma",
+      "portal do usuário",
+      "tela do produto"
+    ],
+    "checkout": [
+      "checkout",
+      "pagamento",
+      "assinatura",
+      "compra",
+      "carrinho"
+    ],
+    "mobile": [
+      "mobile",
+      "aplicativo móvel",
+      "aplicativo movel",
+      "react native"
+    ]
+  },
+  "vertical_aliases": {
+    "fintech": [
+      "fintech",
+      "banco",
+      "financeiro",
+      "financeira",
+      "pagamento",
+      "conciliação",
+      "tributário",
+      "icms"
+    ],
+    "education": [
+      "educação",
+      "edtech",
+      "escola",
+      "inglês",
+      "idiomas",
+      "aprendizado",
+      "ensino"
+    ],
+    "social_impact": [
+      "adoção",
+      "doação",
+      "ong",
+      "animais",
+      "cachorro",
+      "doa dog",
+      "doadog"
+    ],
+    "health": [
+      "saúde",
+      "clinica",
+      "clínica",
+      "hospital",
+      "paciente",
+      "telemedicina"
+    ],
+    "commerce": [
+      "ecommerce",
+      "e-commerce",
+      "loja virtual",
+      "carrinho",
+      "varejo"
+    ]
+  },
+  "surfaces": {
+    "landing": {
+      "primary_goal": "conversion",
+      "refs": [
+        "product-truth.md",
+        "product-ux-versus-marketing.md",
+        "editorial-art-direction-lab.md",
+        "visual-storytelling.md",
+        "design-proof-and-decision-records.md"
+      ],
+      "jobs": [
+        "explicar valor",
+        "demonstrar prova",
+        "reduzir fricção até ação"
+      ],
+      "metric": "taxa de ação qualificada"
+    },
+    "internal": {
+      "primary_goal": "accuracy",
+      "refs": [
+        "advanced-product-ux-operations.md",
+        "product-truth.md",
+        "interaction-and-content.md",
+        "quality-gates-and-evidence.md"
+      ],
+      "jobs": [
+        "concluir tarefa corretamente",
+        "rastrear origem",
+        "corrigir erros"
+      ],
+      "metric": "taxa de conclusão correta"
+    },
+    "dashboard": {
+      "primary_goal": "efficiency",
+      "refs": [
+        "advanced-product-ux-operations.md",
+        "typography-layout-craft.md",
+        "quality-gates-and-evidence.md"
+      ],
+      "jobs": [
+        "interpretar dados",
+        "comparar alternativas",
+        "agir com segurança"
+      ],
+      "metric": "tempo por tarefa sem erro"
+    },
+    "product": {
+      "primary_goal": "activation",
+      "refs": [
+        "interaction-and-content.md",
+        "user-research-and-proof.md",
+        "visual-storytelling.md",
+        "quality-gates-and-evidence.md"
+      ],
+      "jobs": [
+        "entender próximo passo",
+        "experimentar valor real",
+        "voltar com propósito"
+      ],
+      "metric": "ativação útil"
+    },
+    "checkout": {
+      "primary_goal": "conversion",
+      "refs": [
+        "product-truth.md",
+        "interaction-and-content.md",
+        "design-proof-and-decision-records.md"
+      ],
+      "jobs": [
+        "entender condições",
+        "confirmar com segurança",
+        "recuperar erros"
+      ],
+      "metric": "conclusão sem erro"
+    },
+    "mobile": {
+      "primary_goal": "task_success",
+      "refs": [
+        "interaction-and-content.md",
+        "motion-and-interaction-direction.md",
+        "quality-gates-and-evidence.md"
+      ],
+      "jobs": [
+        "usar com uma mão",
+        "fazer tarefa central",
+        "recuperar de falhas"
+      ],
+      "metric": "conclusão de tarefa em mobile"
+    }
+  },
+  "verticals": {
+    "fintech": {
+      "guardrails": [
+        "nunca inventar certificações, taxas ou garantias",
+        "preservar números, permissões, identidades e auditoria"
+      ],
+      "refs": [
+        "product-truth.md",
+        "design-proof-and-decision-records.md"
+      ]
+    },
+    "education": {
+      "guardrails": [
+        "não confundir retenção com aprendizagem",
+        "não inventar resultados pedagógicos"
+      ],
+      "refs": [
+        "user-research-and-proof.md",
+        "interaction-and-content.md"
+      ]
+    },
+    "social_impact": {
+      "guardrails": [
+        "proteger bem-estar e consentimento",
+        "não otimizar cadastros à custa da qualidade"
+      ],
+      "refs": [
+        "ethics-and-licensing.md",
+        "user-research-and-proof.md"
+      ]
+    },
+    "health": {
+      "guardrails": [
+        "não inferir segurança clínica sem evidência",
+        "proteger privacidade e clareza"
+      ],
+      "refs": [
+        "ethics-and-licensing.md",
+        "product-truth.md"
+      ]
+    },
+    "commerce": {
+      "guardrails": [
+        "exibir condições de compra com clareza",
+        "não usar urgência falsa"
+      ],
+      "refs": [
+        "product-truth.md",
+        "interaction-and-content.md"
+      ]
+    },
+    "general": {
+      "guardrails": [
+        "não alterar contratos ou fluxos existentes",
+        "não atribuir resultados sem teste"
+      ],
+      "refs": [
+        "design-proof-and-decision-records.md"
+      ]
+    }
+  },
+  "goals": {
+    "conversion": {
+      "action": "tornar valor e próximo passo inequívocos",
+      "metric": "ação qualificada concluída",
+      "guardrail": "sem urgência ou prova social inventada"
+    },
+    "retention": {
+      "action": "criar motivos verdadeiros para voltar",
+      "metric": "retorno voluntário com valor",
+      "guardrail": "sem loops coercitivos ou notificações manipulativas"
+    },
+    "activation": {
+      "action": "entregar primeira experiência útil rapidamente",
+      "metric": "primeira tarefa significativa concluída",
+      "guardrail": "sem onboarding que esconda limitações"
+    },
+    "trust": {
+      "action": "mostrar transparência e controle verificáveis",
+      "metric": "compreensão de riscos e termos",
+      "guardrail": "sem ícones de segurança usados como prova"
+    },
+    "accuracy": {
+      "action": "prevenir erro e manter rastreabilidade",
+      "metric": "porcentagem de tarefas corretas",
+      "guardrail": "não ocultar campos ou chaves"
+    },
+    "efficiency": {
+      "action": "reduzir passos e tempo sem perda de informação",
+      "metric": "tempo de tarefa correta",
+      "guardrail": "não sacrificar precisão por velocidade"
+    },
+    "learning": {
+      "action": "dar feedback e progressão orientados à aprendizagem",
+      "metric": "evidência de domínio demonstrado",
+      "guardrail": "não inferir aprendizagem de streak"
+    },
+    "quality_matches": {
+      "action": "facilitar bons encontros e triagem transparente",
+      "metric": "encontros qualificados e sustentáveis",
+      "guardrail": "não maximizar volume irresponsável"
+    },
+    "task_success": {
+      "action": "remover bloqueios da tarefa principal",
+      "metric": "conclusão correta da tarefa",
+      "guardrail": "preservar recuperação de erros"
+    },
+    "engagement": {
+      "action": "aumentar interação significativa",
+      "metric": "interação útil voluntária",
+      "guardrail": "sem estímulos manipulativos"
+    }
+  }
+}

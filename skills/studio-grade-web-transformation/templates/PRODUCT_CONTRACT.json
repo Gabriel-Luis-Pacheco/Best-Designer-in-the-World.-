@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "artifact": "examples/conversaboa-concept.html",
+  "checks": [
+    {
+      "id": "price-plus",
+      "kind": "contains_text",
+      "value": "R$ 19,90"
+    },
+    {
+      "id": "destination",
+      "kind": "contains_id",
+      "value": "demonstracao"
+    },
+    {
+      "id": "primary-cta",
+      "kind": "link_with_text",
+      "value": "Experimentar uma conversa",
+      "href": "#demonstracao"
+    },
+    {
+      "id": "disclosure",
+      "kind": "contains_text",
+      "value": "Checkout não implementado"
+    }
+  ]
+}

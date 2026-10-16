@@ -79,6 +79,9 @@ def validate(root: pathlib.Path = ROOT) -> dict:
     with_inputs = [c for c in cases if c["files"]]
     if len(with_inputs) < len(cases) // 2:
         raise ValueError("too few evaluation cases have realistic inputs")
+    catalog = json.loads((sk / "research/source_catalog.json").read_text(encoding="utf-8"))
+    if len(catalog.get("sources", [])) < 10 or any(x.get("access") != "VERIFY_AT_RUNTIME" for x in catalog["sources"]):
+        raise ValueError("invalid research catalog")
     for must in ("fixtures/landing-generic.html", "fixtures/dashboard-generic.html", "fixtures/brand-original.svg", "references/quality-rubric.md"):
         if not (sk / must).is_file():
             raise ValueError(f"missing package asset: {must}")

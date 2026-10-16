@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.1.0"
+  version: "9.5.0"
 ---
 
-# Design OS Prime v8.1 — criar, testar, criticar e melhorar
+# Design OS Prime v9.5 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -22,6 +22,9 @@ Tratar design como sistema de decisões verificáveis, não uma coleção de ten
 7. **Incerteza explícita.** `VERIFICADO`, `INFERIDO`, `PROPOSTO`, `NÃO VERIFICADO`; nenhum checklist autodeclarado substitui teste real.
 8. **O pior elo importa.** Uma falha funcional grave bloqueia. Uma discordância estética isolada exige evidência e comparação, não veto subjetivo.
 9. **Não executar código externo ou instalar dependências por conta própria sem avaliar segurança, licença e autorização.** Segredos nunca vão a logs ou repositório.
+
+## Cérebro estratégico — obrigatório antes de decisões significativas
+Antes de criar, estabelecer a identidade do produto, público, tarefa real, superfície, vertical, objetivos e guardrails. O roteador portátil `brain/route.py` e o playbook `references/product-intelligence-playbook.md` produzem hipóteses para guiar a inspeção, não fatos. Validar por código, conteúdo, dados e pesquisa autorizada; separar convicção do algoritmo de evidência. Para produtos com múltiplas superfícies, criar planos distintos: landing de fintech ≠ backoffice fintech. Roteie referências por objetivo e mecanismo, não por estilo. Gerar perguntas conforme `brain/research_briefs.json` antes de visitar sites; sempre distinguir shortlist de inspeção real. Proativamente investigar causas adjacentes relevantes sem fazer alterações não autorizadas. Riscos de alteração são auditados por `brain/decision_guard.py` (escopo declarado, contratos protegidos e verificações adicionais); ver `references/product-intelligence-playbook.md`. `brain/route_rules.json` é configurável, não é modelo de IA.
 
 ## Roteador de execução: esforço proporcional
 Classifique a solicitação antes do trabalho; não aplique todos os ritos a um ajuste local.
@@ -39,13 +42,13 @@ Se a entrada não indicar modo, escolher o MENOR capaz de resolver a causa. Nunc
 ## Fluxo de trabalho — etapas ativadas conforme o modo
 
 ### 0. Entender a verdade e a fronteira de edição
-Inspecionar o projeto disponível, rotas, links, público, telas, tokens, conteúdo, assets, analytics, integrações e dependências. Descrever o objetivo mensurável: ex. "entender em 5 s", "concluir inscrição", "localizar divergência". Criar `INVARIANTS`: itens que NÃO devem mudar sem necessidade e testes associados. Para tarefas estruturais, mapear contratos e evidências conforme `references/design-proof-and-decision-records.md`. Marcar desconhecidos. Consultar `references/product-truth.md` e `references/brand-canon.md`.
+Em trabalhos estratégicos, organizar descobertas em `templates/PRODUCT_DISCOVERY.md` e `templates/RESEARCH_DECISION.md` (preenchimento proporcional à tarefa). Inspecionar o projeto disponível, rotas, links, público, telas, tokens, conteúdo, assets, analytics, integrações e dependências. Identificar tensões entre métricas de vaidade e resultados reais (ver `references/goal-tensions.md`). Descrever o objetivo mensurável: ex. "entender em 5 s", "concluir inscrição", "localizar divergência". Criar `INVARIANTS`: itens que NÃO devem mudar sem necessidade e testes associados. Para tarefas estruturais, mapear contratos e evidências conforme `references/design-proof-and-decision-records.md`. Em tarefas com contratos estáticos, declarar checks estruturados em `templates/PRODUCT_CONTRACT.json` (modelo sintético) e verificar com `scripts/contract_engine.py`; não confundir checagem de HTML com funcionamento. Marcar desconhecidos. Consultar `references/product-truth.md` e `references/brand-canon.md`.
 
 ### 1. Diagnosticar antes de decorar
 Observar a página inteira e trechos em 1440 e 390 px se navegador disponível; complementar 320/768/1280, zoom e telas de estados quando relevantes. Avaliar linha narrativa, silhueta, densidade, escalas, foco, transitions, CTA, credibilidade e comportamento real. Classificar seção por função; decidir `preservar / elevar / fundir / eliminar / reconstruir`. Usar `templates/FULL_PAGE_AUTOPSY.md`.
 
 ### 2. Pesquisa com causalidade
-Pesquisar concorrentes e referências pertinentes **quando o modo exige e as ferramentas permitem**. Registar fonte/data, público, mecanismo observado, hipótese transferível e risco. Mecanismo não é layout: "progressão demonstrada em interação" é adaptável; "copiar hero azul" não. Identificar uma anti-referência. Não fingir navegação ou testes de usuário. Consultar `references/research-provenance.md`.
+Pesquisar concorrentes e referências pertinentes **quando o modo exige e as ferramentas permitem**. Registar fonte/data, público, mecanismo observado, hipótese transferível e risco. Mecanismo não é layout: "progressão demonstrada em interação" é adaptável; "copiar hero azul" não. Identificar uma anti-referência. Não fingir navegação ou testes de usuário. Consultar `references/research-provenance.md`, `references/research-selection-playbook.md` e `research/source_catalog.json`. Só alegar inspeção quando houver acesso e artefato.
 
 ### 3. Divergir para convergir
 Nos modos REDESIGN/REBUILD, propor duas ou três teses realmente distintas, não três paletas. Cada tese precisa de conceito nativo ao produto, gramática de tipografia/espaço, demonstração, limites, consistência mobile e custo técnico. Comparar clareza, diferenciação, marca, acessibilidade, robustez e esforço; escolher e documentar com `templates/DIRECTION_DECISION.md`. Ver `references/art-direction-and-optical-craft.md`, `references/editorial-art-direction-lab.md` e `references/anti-slop-composition.md`. Em PATCH, pular esta fase.
@@ -57,21 +60,23 @@ Mapear cada seção como pergunta → prova/ação → resposta → próximo pas
 Se solicitado e código acessível: implementar em alterações pequenas e auditáveis, respeitando stack e sem mexer em backend por ornamento. Criar estados necessários (focus, hover, busy, error, empty, success, disabled), UX de formulário, teclado, leitores de tela, zoom, motion reduzido, legibilidade e redes instáveis. Dados e mídia devem ser reais, licenciados ou explicitamente prototipais. Não inventar métricas, depoimentos, interfaces e funcionalidades. Consultar `references/implementation-quality.md`, `references/interaction-and-content.md`, `references/motion-and-interaction-direction.md` e, para produto denso, `references/advanced-product-ux-operations.md`.
 
 ### 6. Testar funcionamento E qualidade
-Separar evidências em:
+Separar evidências em (opcional: `scripts/inspect_html.py` gera observações de HTML estático, NÃO valida WCAG):
 - **Estrutural:** arquivos, metadados, links e manifest.
 - **Funcional:** CTA clicável com destino correto, menus, formulários, erros, rotas, teclado, loading, responsividade.
 - **Visual:** página inteira antes/depois, estados críticos, coerência, recortes, hierarquia e pior seção.
 - **Experiência:** tarefa observada; pesquisa com usuários quando realmente realizada.
-- **Performance e inclusão:** medição Core Web Vitals quando disponível; reflow, contraste, leitor de tela, foco e reduced motion.
+- **Performance e inclusão:** medição Core Web Vitals quando disponível; reflow, contraste, leitor de tela, foco, associação de rótulos e referências ARIA e reduced motion.
 Playwright screenshot diff detecta mudanças, não excelência. Usar `references/visual-regression-harness.md` e `references/quality-gates-and-evidence.md`.
 
 ### 7. Crítica adversarial seguida de correção
 Executar revisão em cinco escalas: silhueta; transições; seção; componente/estado; mobile. Procurar a melhor objeção contra a solução escolhida. Para defeitos P0/P1 sustentados, corrigir a CAUSA e repetir o teste afetado. Não declarar pronto com regressões críticas conhecidas. Se não existir revisão independente real, não alegá-la. Consultar `references/studio-critique-method.md` e `templates/QA_WORST_LINK.md`.
 
 ### 8. Aprender por resultados — não em cada patch
-Após mudanças da PRÓPRIA skill, rodar avaliações com e sem skill mantendo modelo, entradas, ferramentas e orçamento comparáveis; registrar resultados por caso e avaliadores cegos se disponíveis. `UNKNOWN` não equivale a `PASS`. Usar `references/eval-harness.md`, `references/evaluation-isolation-protocol.md` e `evals/evals.json`; ver `docs/EVALUATION_RUNBOOK.md` no repositório, não assumir acesso ao documento se a instalação for isolada.
+Após testes reais de produto, organizar observações, guardrails e lacunas usando `brain/feedback_loop.py` e `references/closed-loop-design-learning.md`; não alterar regras automaticamente. Após mudanças da PRÓPRIA skill, rodar avaliações com e sem skill mantendo modelo, entradas, ferramentas e orçamento comparáveis; registrar resultados por caso e avaliadores cegos se disponíveis. `UNKNOWN` não equivale a `PASS`. Usar `references/eval-harness.md`, `references/evaluation-isolation-protocol.md` e `evals/evals.json`; ver `docs/EVALUATION_RUNBOOK.md` no repositório, não assumir acesso ao documento se a instalação for isolada.
 
 ## Critérios de bloqueio
+Use `templates/RELEASE_CHECKS.json` e `scripts/release_gate.py` para bloquear P0/P1 não verificados ou falhos. `READY_FOR_HUMAN_REVIEW` não é certificação nem publicação automática.
+
 **P0:** quebra do fluxo central, manipulação ou falsidade comercial, perda de dados, impossibilidade significativa de acesso. **P1:** falha grave de clareza, inconsistência de marca comprovável, interação essencial inacessível, mobile inutilizável, composição claramente inadequada à tarefa. **P2:** refinamento sem impacto crítico. Um P1 artístico precisa de evidência contextual e segunda solução; gosto pessoal não é P1 automático.
 
 ## Entrega final

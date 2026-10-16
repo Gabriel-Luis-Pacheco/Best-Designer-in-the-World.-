@@ -1,3 +1,54 @@
+## 9.5.0 — 2026-10-16
+- Integração real do cérebro com runner A/B: contexto e packs adaptativos apenas na condição with_skill; comparação continua exigindo evidência e revisão independente.
+- Smoke tests offline para cenários diferentes de fintech e educação; arquitetura, comandos e limites documentados.
+
+## 9.4.0 — 2026-10-16
+- Feedback loop de metas, indicadores e guardrails com dados faltantes UNKNOWN e regressões destacadas.
+- Testes impedem classificar deslocamento de indicador como causalidade; regras não são reescritas automaticamente.
+
+## 9.3.0 — 2026-10-16
+- Perguntas de pesquisa por vertical/superfície, em domínio, mecanismo e expressão, sempre NOT_EXECUTED antes de navegação real.
+- Backoffices e dashboards não recebem galerias de marketing automaticamente; testes garantem a especialização.
+
+## 9.2.0 — 2026-10-16
+- Guard de decisões de edição: contrato protegido bloqueia; trabalho fora de escopo exige autorização; mudança de alto impacto requer validação de domínio.
+- Roteador incorpora limites explícitos de permissão e testes adversariais do guard.
+
+## 9.1.0 — 2026-10-16
+- Suite de testes estratégicos do cérebro: domínio igual, superfícies diferentes, metas explícitas, PATCH proporcional, ausência de acesso web e insumos hostis.
+- Quatro cenários adicionais (28 no total) sobre múltiplas superfícies, objetivo explícito, pesquisa offline e proatividade sem escopo indevido.
+
+## 9.0.0 — 2026-10-16
+- Primeiro cérebro estratégico executável: classificação de superfície/vertical/modo/objetivo com fontes, limites e guardrails explícitos; carrega conhecimentos por necessidade.
+- Regras em JSON e exemplos distintos de fintech marketing, fintech interno e edtech; pesquisa selecionada, NUNCA declarada realizada.
+- Integração normativa à skill sem substituir ferramentas, direção criativa nem autorização para mudanças.
+
+## 8.9.0 — 2026-10-16
+- Curadoria de fontes passa por schema HTTPS/IDs/tags/limitações verificáveis; pacote portátil valida esse schema.
+- Templates de descoberta estratégica e decisão de pesquisa preparam um cérebro por contexto sem desmontar ferramentas já existentes.
+
+## 8.8.0 — 2026-10-16
+- Auditor estático detecta referências ARIA inválidas e inputs sem rótulos; tests negativos, e Playwright cobre interação por teclado da demonstração em viewport estreito.
+
+## 8.7.0 — 2026-10-16
+- Cenários adversariais envolvendo landing financeira, reconciliação interna, retenção educacional e adoção responsável (24 evals).
+- Referência de tensões entre objetivos, guardrails, proxies e antiobjetivos.
+
+## 8.6.0 — 2026-10-16
+- Gate de qualidade com bloqueio verificável de P0/P1 FAIL/UNKNOWN; PASS exige referência de evidência; status máximo é pronto para revisão humana, nunca aprovação automática.
+
+## 8.5.0 — 2026-10-16
+- Auditor de presença/hashes para evidências de revisão, rejeição de caminhos inseguros e URLs não verificadas classificadas como UNKNOWN; pacote de revisão e testes.
+
+## 8.4.0 — 2026-10-16
+- Auditor de HTML estático com detecção de IDs repetidos, links fragmentados quebrados e alertas acessíveis; CI informa limitações e testes adversariais.
+
+## 8.3.0 — 2026-10-16
+- Curadoria contextual de 18 recursos em catálogo legível por máquina; playbook triplo de domínio/mecanismo/expressão e cautelas. Fixados testes de versão e compatibilidade de prompts.
+
+## 8.2.0 — 2026-10-16
+- Contratos portáteis em JSON com validador estático independente, IDs e casos negativos. Não confundir evidência sintática com fluxo real.
+
 ## 8.1.0 — 2026-10-16
 - Diretórios isolados por execução do runner A/B, sem prometer sandbox de SO.
 - Revisões pareadas por pair_id, revisor, dimensões e run_id com exclusões auditáveis.

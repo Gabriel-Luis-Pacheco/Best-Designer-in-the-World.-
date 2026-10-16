@@ -41,3 +41,18 @@ test('critical actions and labels are keyboard reachable', async ({ page }) => {
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/#demonstracao$/);
 });
+
+test('keyboard can reveal feedback and keep aria state in sync', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 780 });
+  await page.goto(url);
+  const button=page.locator('.show-feedback');
+  await expect(button).toHaveAccessibleName(/Mostrar feedback/);
+  await button.focus();
+  await expect(button).toBeFocused();
+  await page.keyboard.press('Space');
+  await expect(page.locator('#feedback')).toBeVisible();
+  await expect(button).toHaveAttribute('aria-expanded','true');
+  await page.keyboard.press('Space');
+  await expect(page.locator('#feedback')).toBeHidden();
+  await expect(button).toHaveAttribute('aria-expanded','false');
+});

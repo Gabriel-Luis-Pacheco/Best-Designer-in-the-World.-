@@ -1,0 +1,21 @@
+{
+  "product": "FinPay (ficcional)",
+  "task": "Redesenhe a landing para explicar a proposta de pagamentos e vender assinaturas sem criar provas falsas",
+  "surface": "landing",
+  "vertical": "fintech",
+  "goals": [
+    "conversion",
+    "trust"
+  ],
+  "audience": "Pequenos comerciantes",
+  "tools": [
+    "web",
+    "browser"
+  ],
+  "facts": [
+    "Pricing must be confirmed with product owner"
+  ],
+  "constraints": [
+    "Preservar termos de cobrança"
+  ]
+}

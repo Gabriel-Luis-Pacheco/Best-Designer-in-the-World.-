@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "fintech:landing": [
+    [
+      "domain",
+      "Quais termos, riscos e mecanismos de confiança fintechs comparáveis explicam?",
+      "payment fintech SaaS landing transparent pricing trust"
+    ],
+    [
+      "mechanism",
+      "Que padrões ajudam a entender taxas e agir com segurança?",
+      "financial onboarding checkout transparent fees usability"
+    ],
+    [
+      "expression",
+      "Como transmitir confiança sem falsa certificação ou copiar o layout?",
+      "financial services art direction editorial landing"
+    ]
+  ],
+  "fintech:internal": [
+    [
+      "domain",
+      "Que invariantes financeiros o operador precisa preservar?",
+      "financial reconciliation dashboard audit trail error prevention UX"
+    ],
+    [
+      "mechanism",
+      "Como interfaces complexas preservam filtros, chaves e proveniência?",
+      "enterprise data table workflow bulk operations traceability"
+    ],
+    [
+      "expression",
+      "Como escanear números e estados sem esconder informação?",
+      "dense enterprise software information hierarchy"
+    ]
+  ],
+  "education:product": [
+    [
+      "domain",
+      "Que comportamento representa aprender, não só retornar?",
+      "language learning formative feedback mastery evidence"
+    ],
+    [
+      "mechanism",
+      "Que progressão e correção apoiam autonomia?",
+      "learning app feedback deliberate practice UX"
+    ],
+    [
+      "expression",
+      "Como personagem e motion ajudam sem distrair?",
+      "educational UI character system motion meaning"
+    ]
+  ],
+  "social_impact:mobile": [
+    [
+      "domain",
+      "Que informações qualificam adoção responsável?",
+      "animal adoption responsible screening UX"
+    ],
+    [
+      "mechanism",
+      "Como comunicar requisitos e recuperar formulários?",
+      "mobile discovery filtering multistep application"
+    ],
+    [
+      "expression",
+      "Como acolher sem tratar animais como mercadoria?",
+      "nonprofit mobile app design trust"
+    ]
+  ],
+  "general:landing": [
+    [
+      "domain",
+      "Como a pessoa compara alternativas e reconhece valor?",
+      "audience competitive positioning landing UX"
+    ],
+    [
+      "mechanism",
+      "O que dificulta a proposta, prova e próxima ação?",
+      "landing usability value proposition friction"
+    ],
+    [
+      "expression",
+      "Que identidade é própria ao produto?",
+      "editorial visual identity original landing"
+    ]
+  ],
+  "general:internal": [
+    [
+      "domain",
+      "Que tarefa exige precisão?",
+      "enterprise workflow task analysis UX"
+    ],
+    [
+      "mechanism",
+      "Como manter dados e recuperar erros?",
+      "data heavy admin UI error recovery"
+    ],
+    [
+      "expression",
+      "Que hierarquia ajuda leitura de dados?",
+      "enterprise UI information density"
+    ]
+  ],
+  "general:product": [
+    [
+      "domain",
+      "O que é valor na primeira experiência?",
+      "product activation journey research"
+    ],
+    [
+      "mechanism",
+      "Como remover fricção sem mascarar limitações?",
+      "SaaS onboarding user research"
+    ],
+    [
+      "expression",
+      "Como unir personalidade com clareza?",
+      "product UI consistency"
+    ]
+  ]
+}
