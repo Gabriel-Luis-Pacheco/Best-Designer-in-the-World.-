@@ -71,4 +71,9 @@ Materiais complementares em `docs/`; avaliações em `evals/`. Não copie indisc
 - Para review de direção de arte: usar `references/studio-critique-method.md` e registrar hipótese, evidência e trade-off; não vencer debate só por preferência visual.
 - Para sistemas internos/dashboards: usar `references/product-ux-versus-marketing.md` e validar sucesso de tarefa, não quantidade de animações.
 
-A lista de fontes e decisões de adoção/rejeição fica em `docs/SOURCE_MATRIX.md` e `docs/RESEARCH_DECISIONS.md`, a partir da raiz do repositório. Esses arquivos não são licença para copiar conteúdo de terceiros.
+A curadoria essencial viaja com a skill em `references/source-map.md`; materiais mais extensos ficam em `docs/SOURCE_MATRIX.md` e `docs/RESEARCH_DECISIONS.md` somente no repositório completo. Nenhum deles concede direito a copiar código/arte de terceiros.
+
+## Templates e harness transportáveis
+Antes de implementar, usar somente os templates necessários: `templates/FULL_PAGE_AUTOPSY.md`, `templates/CREATIVE_DIRECTION_CARD.md`, `templates/EDITORIAL_STORYBOARD.md`, `templates/BRAND_CANON.md`. Ao finalizar, usar `templates/QA_WORST_LINK.md`. Todos ficam dentro da skill instalada.
+
+Os 12 casos de avaliação em `evals/evals.json` e `scripts/validate.py` também viajam com a skill. O validador verifica estrutura, **não** qualidade artística nem execução da IA. A rubrica humana estendida fica em `docs/QUALITY_RUBRIC.md` no repositório completo.
