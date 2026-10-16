@@ -1,4 +1,4 @@
-# Design OS Brain v9.6 — ferramenta portátil, não um modelo adicional
+# Design OS Brain v9.7 — ferramenta portátil, não um modelo adicional
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 

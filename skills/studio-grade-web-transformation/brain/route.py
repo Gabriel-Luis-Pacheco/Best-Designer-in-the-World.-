@@ -33,9 +33,26 @@ def contains_phrase(text,phrase):
     """Whole-word Unicode matching: 'hospital' cannot match 'hospitalidade'."""
     return bool(re.search(r"(?<!\w)"+re.escape(phrase.strip().casefold())+r"(?!\w)",text.casefold()))
 
+def negated_mention(text, phrase):
+    """Conservative exclusion of explicitly negated surface descriptions.
+
+    This is NOT language understanding; narrow sentence-level scope handles
+    'not a landing page, but an immersive exhibition' without treating the
+    denied category as positive evidence.
+    """
+    low=text.casefold()
+    for match in re.finditer(re.escape(phrase.casefold()),low):
+        prefix=low[max(0,match.start()-180):match.start()]
+        prefix=re.split(r"[.!?;\n]",prefix)[-1]
+        # Positive contrast begins a new clause: "not a landing, it IS an experience".
+        prefix=re.split(r"(?:,\s*|\bmas\s+)(?:é|e|será|sera)\s+",prefix)[-1]
+        if re.search(r"(?:não|nao)\s+(?:estamos\s+)?(?:criando|fazendo|é|e|quero|sera|será|deve\s+ser)\b|(?:sem\s+ser)\b",prefix):
+            return True
+    return False
+
 def infer_aliases(text, aliases):
     return [label for label, words in aliases.items()
-            if any(contains_phrase(text,word) for word in words)]
+            if any(contains_phrase(text,word) and not negated_mention(text,word) for word in words)]
 
 def classify_mode(data,task):
     explicit=text_field(data,"mode").upper()
@@ -75,7 +92,13 @@ def infer_goals(task):
         "conversion":["conversão","conversao","vender","vendas","cadastros"],
         "activation":["ativação","ativacao","primeira experiência","primeiro valor"],
         "engagement":["engajamento","cativar"],
-        "task_success":["concluir tarefa","resolver tarefa"]
+        "task_success":["concluir tarefa","resolver tarefa"],
+        "artistic_impact":["impacto visual","mais bonito","mais bonita","extraordinário",
+                          "extraordinario","awwwards","site of the year","site of the day",
+                          "espetáculo visual","espetaculo visual","surpreender","memorável",
+                          "memoravel","impressione","direção artística"],
+        "immersion":["imersivo","imersiva","imersão","imersao","mundo digital artístico",
+                     "experiência visual e interativa"]
     }
     negative_click=any(contains_phrase(task,x) for x in
                        ["não preciso aumentar cliques","nao preciso aumentar cliques",
@@ -144,11 +167,19 @@ def route(context):
         vertical_source="inferred_low_confidence"
         if len(found)>1:unknown.append("Competing vertical signals: "+", ".join(found))
     mode,mode_source=classify_mode(context,task)
+    if "experience" in surfaces and mode=="REFINE" and any(contains_phrase(task,x) for x in
+           ["criar","crie","construa","construir","desenvolva","desenvolver","from scratch","do zero"]):
+        mode,mode_source="REBUILD","new_creative_build"
     goals=normalized_values(context.get("goals",context.get("goal")),"goals",RULES["goals"],4)
     goal_source="explicit" if goals else "inferred_low_confidence"
     if not goals:
         intent_goals=infer_goals(task)
         goals=intent_goals + [RULES["surfaces"][s]["primary_goal"] for s in surfaces]
+        if "experience" in surfaces:
+            # In a pure artwork, negated sales language is not commercial intent.
+            # Explicit context.goals continues to override this default.
+            intent_goals=[g for g in intent_goals if g not in {"conversion","activation"}]
+            goals=["artistic_impact","immersion"]+[g for g in goals if g not in {"artistic_impact","immersion","conversion","activation"}]
         # Pedagogical mastery is the goal of a learning PRODUCT, not necessarily its landing page.
         if vertical=="education" and any(s in surfaces for s in ("product","mobile")):
             goals.insert(0,"learning")
@@ -156,7 +187,7 @@ def route(context):
             goals.insert(0,"quality_matches")
         if vertical=="fintech" and "trust" not in goals:goals.append("trust")
         # A goal stated in natural language outranks our industry defaults.
-        goals=list(dict.fromkeys(intent_goals+goals))[:4]
+        goals=list(dict.fromkeys((goals if "experience" in surfaces else intent_goals+goals)))[:4]
         if intent_goals:goal_source="task_inferred_low_confidence"
     tools=context.get("tools",[])
     for field in ("authorized_change_types","protected_contract_ids"):
@@ -171,13 +202,20 @@ def route(context):
     for label,value in (("facts",facts),("constraints",constraints)):
         if not isinstance(value,list) or len(value)>100 or any(not isinstance(x,str) or len(x)>2000 for x in value):
             raise ValueError(label+" must be a bounded list of strings")
-    refs=["product-truth.md","brand-canon.md","design-proof-and-decision-records.md"]
+    refs=(["creative-experience-direction.md","motion-and-interaction-direction.md"]
+          if "experience" in surfaces else
+          ["product-truth.md","brand-canon.md","design-proof-and-decision-records.md"])
     for surface in surfaces:refs.extend(RULES["surfaces"][surface]["refs"])
     refs.extend(RULES["verticals"][vertical]["refs"])
     for goal in goals:
         if goal in {"learning","retention","engagement"}:refs.append("user-research-and-proof.md")
         if goal in {"conversion","trust"}:refs.append("visual-storytelling.md")
-    if mode in {"REDESIGN","REBUILD"}:refs.extend(["applied-design-decisions.md","editorial-art-direction-lab.md","typography-layout-craft.md"])
+    if mode in {"REDESIGN","REBUILD"}:
+        refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
+        if "experience" in surfaces:
+            refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
+        else:
+            refs.append("applied-design-decisions.md")
     refs=list(dict.fromkeys(refs))
     missing=[x for x in refs if not (ROOT/"references"/x).is_file()]
     if missing:raise ValueError("missing skill pack: "+", ".join(missing))
@@ -188,7 +226,12 @@ def route(context):
         alltags+=["marketing","editorial"]
     if mode in {"REDESIGN","REBUILD"} and "landing" in surfaces:
         alltags+=["brand"]
+    if "experience" in surfaces:
+        alltags+=["brand","editorial","visual"]
     refs_selected=choose_sources(alltags,mode,tools)
+    if "experience" in surfaces:
+        # Creative works favor artistic reference discovery; research is still not performed.
+        refs_selected.sort(key=lambda x:(x["kind"]!="visual", x["kind"]!="research", x["id"]))
     research_questions=[]
     if mode!="PATCH":
         for surface in surfaces:
@@ -212,7 +255,7 @@ def route(context):
     if not facts:unknown.append("Project facts are not supplied; inspect actual code/site and ask only if blocked.")
     if "web" not in tools and "browser" not in tools and refs_selected:
         unknown.append("Curated references selected offline; none were visited.")
-    return {"schema_version":"9.0",
+    return {"schema_version":"9.7",
       "task":task,
       "product":{"name":product,"audience":audience or "UNKNOWN","vertical":vertical,"vertical_source":vertical_source,
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
@@ -222,7 +265,12 @@ def route(context):
                   "goal_mechanism":RULES["goals"][goals[0]]["action"],
                   "guardrails":guardrails,"surface_plans":plans,
                   "measurement_status":"NOT_MEASURED",
-                  "anti_goal":"Optimizing vanity metrics while damaging user outcome or a protected contract"},
+                  "anti_goal":("Replacing art direction with conventional components or explanatory UI" if
+                               "experience" in surfaces else
+                               "Optimizing vanity metrics while damaging user outcome or a protected contract"),
+                  "creative_authority":("ART_DIRECTOR_FIRST" if "experience" in surfaces else "CONTEXTUAL"),
+                  "artistic_priority":("Composition, memorable scenes, typography as material, spatial transition, interactive climax" if
+                                      "experience" in surfaces else "SUPPORTS_PRIMARY_GOAL")},
       "tool_routing":{"selected_skill_refs":["references/"+x for x in refs],
                       "research_candidates":refs_selected,
                       "research_questions":research_questions,

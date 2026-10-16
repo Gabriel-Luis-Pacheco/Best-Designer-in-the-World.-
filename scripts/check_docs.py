@@ -16,14 +16,14 @@ def validate():
           "BRAIN_README.md":SK/"brain/README.md"}
     contents={k:v.read_text(encoding="utf-8") for k,v in docs.items()}
     for name,body in contents.items():
-        if "9.6" not in body:
+        if "9.7" not in body:
             raise ValueError(f"{name}: missing 9.6 release reference")
-    if f'version: "9.6.0"' not in contents["SKILL.md"]:
+    if f'version: "9.7.0"' not in contents["SKILL.md"]:
         raise ValueError("SKILL.md frontmatter does not match v9.6.0")
     for name in ("README.md","EVALUATION_RUNBOOK.md"):
         if f"{count} casos de avaliação" not in contents[name]:
             raise ValueError(f"{name}: expected case count {count}")
-    if version!="9.6.0":
+    if version!="9.7.0":
         raise ValueError("manifest version must match the release")
     if manifest!=json.loads((SK/"evals/evals.json").read_text(encoding="utf-8")):
         raise ValueError("portable and root evaluation manifests differ")

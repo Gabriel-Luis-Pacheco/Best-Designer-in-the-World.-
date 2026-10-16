@@ -118,5 +118,22 @@
       "Como unir personalidade com clareza?",
       "product UI consistency"
     ]
+  ],
+  "general:experience": [
+    [
+      "domain",
+      "Qual é a sensação memorável que esta obra precisa criar? O que NÃO é o site?",
+      "award winning interactive experience immersive digital exhibition art direction"
+    ],
+    [
+      "mechanism",
+      "Como tipografia, espaço e física mudam entre cenas sem virar widgets independentes?",
+      "experimental website kinetic typography spatial transitions scroll storytelling"
+    ],
+    [
+      "expression",
+      "Qual linguagem visual é reconhecível mesmo removendo o nome e a marca?",
+      "creative coding experiential portfolio generative art motion design"
+    ]
   ]
 }

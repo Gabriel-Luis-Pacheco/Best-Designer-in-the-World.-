@@ -59,8 +59,10 @@ def build_prompt(case: dict, variant: str) -> str:
         # Prioritize actual decision mechanisms over generic reference ordering.
         mode = proposed_plan["strategy"]["mode"]
         surfaces = proposed_plan["product"]["surfaces"]
-        suggested = ["references/product-intelligence-playbook.md"]
-        if mode in {"REDESIGN", "REBUILD"}:
+        suggested = (["references/creative-experience-direction.md",
+                      "references/full-page-craft-review.md"] if "experience" in surfaces
+                     else ["references/product-intelligence-playbook.md"])
+        if mode in {"REDESIGN", "REBUILD"} and "experience" not in surfaces:
             suggested.append("references/applied-design-decisions.md")
         if "internal" in surfaces or "dashboard" in surfaces:
             suggested.append("references/advanced-product-ux-operations.md")
