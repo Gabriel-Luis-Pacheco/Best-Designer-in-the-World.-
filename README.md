@@ -31,3 +31,23 @@ Referências externas são creditadas; não incorporar código, textos ou assets
 ## Status
 
 Repositório inaugurado com estrutura de skill e documentação; avaliações estéticas e comerciais dependem de testes em produto real.
+
+
+## Atualização v7 — curadoria técnica e avaliação
+
+A pesquisa cruzou **skills para IA**, design systems, práticas de UX, materiais de arte de marca e ferramentas de teste. A matriz com mais de 35 referências está em [SOURCE_MATRIX.md](docs/SOURCE_MATRIX.md); a análise do que já existia na V6.1 e do que foi acrescentado está em [GAP_ANALYSIS.md](docs/GAP_ANALYSIS.md).
+
+A nova skill inclui **15 referências operacionais próprias**: extração de identidade e tokens, direção de arte da página inteira, personagens/mascotes canônicos, prova visual do produto, implementação de qualidade, crítica de estúdio e pesquisa com usuários.
+
+### Harness de qualidade (não é promessa de resultado)
+
+- [12 casos de avaliação](evals/evals.json) com resultados esperados.
+- [Runbook A/B com e sem a skill](docs/EVALUATION_RUNBOOK.md), idealmente com avaliação cega.
+- [Rubrica humana](docs/QUALITY_RUBRIC.md) com bloqueio por P0/P1 e pior elo.
+- [Validador estrutural](scripts/check_evals.py), que não avalia estética:
+  `python scripts/check_evals.py`
+- [Resumidor de revisão humana](scripts/score_review.py), que não inventa notas.
+- [Exemplo Playwright](examples/playwright-visual.spec.ts) para snapshots em projeto com a dependência instalada.
+- [Decisões preservadas de V1–V6.1](docs/LEGACY_V6_1_DECISIONS.md).
+
+**Status real:** documentos, arquivos e testes estruturais publicáveis. Ainda é necessário executar A/B num projeto real para afirmar que esta versão produziu interfaces melhores que a anterior.
