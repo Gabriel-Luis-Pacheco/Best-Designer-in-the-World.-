@@ -32,8 +32,14 @@ def validate():
             raise ValueError(f"{name}: expected current case count {count}")
     if manifest!=json.loads((SK/"evals/evals.json").read_text(encoding="utf-8")):
         raise ValueError("portable and root evaluation manifests differ")
-    if (ROOT/"docs/QUALITY_RUBRIC.md").read_text(encoding="utf-8")!=(SK/"references/quality-rubric.md").read_text(encoding="utf-8"):
+    rubric=(SK/"references/quality-rubric.md").read_text(encoding="utf-8")
+    if (ROOT/"docs/QUALITY_RUBRIC.md").read_text(encoding="utf-8")!=rubric:
         raise ValueError("portable and repository rubrics differ")
+    if release not in rubric:
+        raise ValueError("human-review rubric version mismatch")
+    craft=(SK/"references/full-page-craft-review.md").read_text(encoding="utf-8")
+    if "0–4" in craft or "0–4" in rubric:
+        raise ValueError("inconsistent human-review scale; use 0–3")
     return {"version":version,"evaluation_cases":count,"docs_checked":list(docs)}
 
 if __name__=="__main__":
