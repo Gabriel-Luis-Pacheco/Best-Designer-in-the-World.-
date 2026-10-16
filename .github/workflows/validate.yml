@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Validate example product contracts
+        run: python scripts/check_contracts.py
       - name: Validate manifests and portable references
         run: python scripts/check_evals.py
       - name: Validate isolated installed skill
@@ -35,7 +37,7 @@ jobs:
       - name: Install Chromium for browser fixture tests
         run: npx playwright install --with-deps chromium
       - name: Test browser fixtures
-        run: npm run test:browser:fixtures
+        run: npm run test:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:

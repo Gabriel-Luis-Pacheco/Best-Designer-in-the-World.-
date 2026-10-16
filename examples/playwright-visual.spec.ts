@@ -9,7 +9,7 @@ const ctaSelector = process.env.DESIGN_CTA_SELECTOR ?? '[data-design-critical-ct
 test.describe('authorized target-site checks', () => {
   test.skip(!target, 'Set DESIGN_TEST_URL for the actual authorized site');
 
-  for (const width of [390, 1440]) {
+  for (const width of [320, 390, 768, 1440]) {
     test.describe(`viewport ${width}`, () => {
       test.use({ viewport: { width, height: width < 500 ? 844 : 900 } });
 
@@ -23,14 +23,21 @@ test.describe('authorized target-site checks', () => {
         if (process.env.DESIGN_APPROVED_BASELINE === '1') {
           await expect(page).toHaveScreenshot(`approved-${width}.png`, { fullPage: true, animations: 'disabled' });
         }
+        const duplicateIds=await page.evaluate(() => { const seen=new Set<string>(); const repeats:string[]=[]; document.querySelectorAll('[id]').forEach(el=>{if(seen.has(el.id)) repeats.push(el.id); seen.add(el.id);}); return repeats;});
+        expect(duplicateIds, 'Duplicate IDs break anchors and accessible descriptions').toEqual([]);
         const bodyWidth = await page.evaluate(() => document.documentElement.scrollWidth);
         expect(bodyWidth).toBeLessThanOrEqual(width + 1);
         const cta = page.locator(ctaSelector).first();
         await expect(cta, 'Set DESIGN_CTA_SELECTOR to the critical CTA on your site').toBeVisible();
         await expect(cta).toBeEnabled();
+        await expect(cta).toHaveAccessibleName(/\S/);
         const href = await cta.getAttribute('href');
         // Only inspect destination. NEVER purchase/submit data as a side effect of a design test.
         if (href !== null) {
+          const expectedDestination=process.env.DESIGN_EXPECTED_CTA_URL;
+          if (expectedDestination) {
+            expect(new URL(href, page.url()).href).toBe(new URL(expectedDestination, page.url()).href);
+          }
           expect(href.trim()).not.toBe('');
           expect(href.trim()).not.toBe('#');
           const link = new URL(href, page.url());

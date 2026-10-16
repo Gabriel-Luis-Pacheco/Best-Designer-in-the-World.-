@@ -20,6 +20,20 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn("Design OS Prime v8",a)
         self.assertIn("Design OS Prime v8",b)
         self.assertIn("anti-slop-composition.md",b)
+    def test_isolated_workspaces_do_not_share_mutations(self):
+        with tempfile.TemporaryDirectory() as d:
+            code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "
+                    "print('SEEN' if p.exists() else 'CLEAN'); p.write_text('created')")
+            command=[sys.executable,"-c",code]
+            a=execute(self.case,"without_skill",command,10,pathlib.Path(d))
+            b=execute(self.case,"with_skill",command,10,pathlib.Path(d))
+            first=json.loads(pathlib.Path(a["path"]).read_text(encoding="utf-8"))
+            second=json.loads(pathlib.Path(b["path"]).read_text(encoding="utf-8"))
+            self.assertIn("CLEAN",first["stdout"])
+            self.assertIn("CLEAN",second["stdout"])
+            self.assertEqual(first["fixture_sha256"],second["fixture_sha256"])
+            self.assertTrue(first["workspace_isolated"])
+            self.assertTrue(second["workspace_isolated"])
     def test_records_outputs_without_grading(self):
         with tempfile.TemporaryDirectory() as d:
             output=execute(self.case,"without_skill",

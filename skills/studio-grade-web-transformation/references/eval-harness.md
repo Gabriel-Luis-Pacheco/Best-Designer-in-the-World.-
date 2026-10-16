@@ -15,3 +15,6 @@ A pasta `evals/evals.json` agora contém cenários conceituais E fixtures sinté
 `scripts/check_evals.py` e `scripts/test_validators.py` validam ESTRUTURA, não designs. `scripts/score_review.py` resume notas humanas existentes; `scripts/compare_reviews.py` compara casos pareados sem alegar significância. `scripts/run_evals.py` é um adaptador CLI opcional para executar um agente que leia prompt por stdin; não prova qualidade sozinho. Um ambiente sem modelo/revisor real não pode afirmar teste A/B realizado.
 
 A instalação isolada acompanha `scripts/validate.py`, as fixtures e a rubrica; ferramentas de agregação no repositório completo são opcionais.
+
+## Pareamento e isolamento dos experimentos
+Cada condição roda no seu próprio diretório limpo, mas não há isolamento de credenciais, contexto remoto ou rede. Revisões comparáveis usam pair_id, mesmo revisor, dimensões iguais e run_id diferentes. Arquivos gerados somente são arquivados com opt-in. Consulte `references/evaluation-isolation-protocol.md`.
