@@ -1,3 +1,7 @@
+## 8.9.0 — 2026-10-16
+- Curadoria de fontes passa por schema HTTPS/IDs/tags/limitações verificáveis; pacote portátil valida esse schema.
+- Templates de descoberta estratégica e decisão de pesquisa preparam um cérebro por contexto sem desmontar ferramentas já existentes.
+
 ## 8.8.0 — 2026-10-16
 - Auditor estático detecta referências ARIA inválidas e inputs sem rótulos; tests negativos, e Playwright cobre interação por teclado da demonstração em viewport estreito.
 

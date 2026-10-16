@@ -39,6 +39,9 @@ def validate() -> None:
                 raise ValueError(f"unsafe/missing input: {path}")
     if not (ROOT / "references/quality-rubric.md").is_file():
         raise ValueError("rubric missing")
+    catalog = json.loads((ROOT / "research/source_catalog.json").read_text(encoding="utf-8"))
+    if len(catalog.get("sources", [])) < 10:
+        raise ValueError("missing research catalog")
     print(f"PASS: portable package only — {len(cases)} cases, version {m.group(1)}. NOT a design score.")
 
 if __name__ == "__main__":
