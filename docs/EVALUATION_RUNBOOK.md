@@ -17,7 +17,7 @@ Para gerar SAÍDAS (não notas) de um CLI de agente confiável, capaz de ler pro
 ```bash
 python scripts/run_evals.py --case 1 --variant both --command "SEU_CLI_DE_AGENTE" --out output/eval-runs
 ```
-Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. Em CLI sem acesso a arquivos, referências progressivas NÃO são automaticamente carregadas. Informar esse limite.
+Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md e até duas referências portáteis relevantes por caso (seleção fixa); não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
 
 ## Comparação justa
 Fixar modelo, versão, contexto, ferramentas, orçamento, stack, entradas e comandos. Repetir por condição. Executar no browser e salvar artefatos, screenshot completa, rotas, estados e custo. Obter avaliadores cegos ao tipo de execução, idealmente mais de um, comparando tarefas iguais. Não atribuir score de UI a texto de resposta sem implementação.

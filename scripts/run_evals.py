@@ -34,8 +34,22 @@ def build_prompt(case: dict, variant: str) -> str:
         # Trust scope: skill instruction belongs to the experiment, not external material.
         skill = (SK / "SKILL.md").read_text(encoding="utf-8")
         chunks.insert(1, "EXPERIMENT CONDITION: Apply these Design OS operating instructions:\n" + skill)
-        # A skill-aware agent may read linked references; models without local fs receive
-        # only the SKILL.md. Document this limitation in the run metadata.
+        # Select up to three portable references for the task and embed them,
+        # so generic stdin-based CLIs can evaluate more than the top-level rules.
+        packs = {
+            1: ["anti-slop-composition.md", "visual-storytelling.md"],
+            2: ["brand-canon.md"], 3: ["product-truth.md", "interaction-and-content.md"],
+            4: ["product-ux-versus-marketing.md"], 5: ["critique-and-gates.md"],
+            6: ["interaction-and-content.md"], 7: ["typography-layout-craft.md"],
+            8: ["ethics-and-licensing.md"], 9: ["art-direction-and-optical-craft.md"],
+            10: ["product-truth.md"], 11: ["anti-slop-composition.md"],
+            12: ["quality-gates-and-evidence.md"], 13: ["anti-slop-composition.md", "typography-layout-craft.md"],
+            14: ["interaction-and-content.md"], 15: ["quality-gates-and-evidence.md"],
+            16: ["ethics-and-licensing.md"]
+        }
+        for name in packs.get(case["id"], []):
+            path = SK / "references" / name
+            chunks.append("TRUSTED DESIGN REFERENCE: " + name + "\\n" + path.read_text(encoding="utf-8"))
     else:
         chunks.insert(1, "EXPERIMENT CONDITION: No Design OS instructions.")
     chunks.append("Complete the task with available tools. Mark unexecuted checks UNKNOWN, never PASS.")
@@ -60,7 +74,7 @@ def execute(case: dict, variant: str, command: list[str], seconds: int, outdir: 
         "duration_sec": round(time.monotonic() - start, 2),
         "command_executable": command[0], "exit_code": exit_code,
         "prompt_size_chars": len(prompt),
-        "skill_file_only": variant == "with_skill",
+        "loaded_portable_references": "selected_by_case" if variant == "with_skill" else "none",
         "independent_human_review": "NOT_PERFORMED",
         "note": "Output is not a quality verdict; human and browser evaluation separate.",
         "stdout": stdout, "stderr": stderr[:8000]

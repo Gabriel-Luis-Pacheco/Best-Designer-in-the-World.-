@@ -40,7 +40,8 @@ test.describe('authorized target-site checks', () => {
             await expect(page.locator(`[id="${id.replace(/\"/g, '')}"]`)).toHaveCount(1);
           }
         } else {
-          await expect(cta).toHaveAttribute('role', 'button');
+          const nativeButton = await cta.evaluate(el => el.tagName.toLowerCase() === 'button');
+          expect(nativeButton || (await cta.getAttribute('role')) === 'button').toBeTruthy();
           // Button functionality must have its own product-specific interaction test.
         }
       });
