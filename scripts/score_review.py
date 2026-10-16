@@ -1,25 +1,52 @@
 #!/usr/bin/env python3
-"""Summarize HUMAN reviews only; do not invent aesthetic scores."""
-import json,sys,pathlib
-if len(sys.argv)!=2:
-    raise SystemExit("usage: python scripts/score_review.py path/to/human-review.json")
-p=pathlib.Path(sys.argv[1]); d=json.loads(p.read_text(encoding="utf-8"))
-assert d.get("reviewer"),"reviewer is required"
-assert d.get("case_id") is not None and d.get("variant") in ("with_skill","without_skill")
-scores=d.get("scores",{})
-assert isinstance(scores,dict) and scores,"human scores required"
-for name,value in scores.items():
-    assert isinstance(value,int) and 0<=value<=4,(name,value)
-blockers=d.get("blockers",[])
-assert isinstance(blockers,list)
-for b in blockers:
-    assert b.get("severity") in ("P0","P1","P2") and b.get("evidence"),"severity and evidence required"
-assertions=d.get("assertions",[])
-for a in assertions:
-    assert a.get("result") in ("PASS","FAIL","UNKNOWN")
-print("Case:",d["case_id"],"| Variant:",d["variant"],"| Human reviewer:",d["reviewer"])
-print("Judgments (0-4):",scores)
-print("Worst dimension:",min(scores,key=scores.get),"=",min(scores.values()))
-print("Blockers:",len([b for b in blockers if b["severity"] in ("P0","P1")]))
-print("Assertions:",{x:sum(a["result"]==x for a in assertions) for x in ("PASS","FAIL","UNKNOWN")})
-print("Status:",("BLOCKED" if any(b["severity"] in ("P0","P1") for b in blockers) else "HUMAN_REVIEW_ONLY"))
+"""Validate and summarize actual human reviews; never generates aesthetic scores."""
+from __future__ import annotations
+import json
+import pathlib
+import sys
+
+VALID_VARIANTS = {"with_skill", "without_skill"}
+VALID_RESULTS = {"PASS", "FAIL", "UNKNOWN"}
+VALID_SEVERITIES = {"P0", "P1", "P2"}
+
+def validate_review(d: dict) -> dict:
+    if not isinstance(d, dict):
+        raise ValueError("review must be object")
+    for key in ("reviewer", "run_id"):
+        if not isinstance(d.get(key), str) or not d[key].strip():
+            raise ValueError(f"missing {key}")
+    if type(d.get("case_id")) is not int or d.get("variant") not in VALID_VARIANTS:
+        raise ValueError("invalid case_id / variant")
+    scores = d.get("scores")
+    if not isinstance(scores, dict) or not scores:
+        raise ValueError("scores required")
+    if any(type(v) is not int or v not in (0, 1, 2, 3) for v in scores.values()):
+        raise ValueError("human ratings use 0..3; omit UNKNOWN dimensions")
+    evidence = d.get("evidence")
+    if not isinstance(evidence, list) or not evidence or any(not isinstance(x, str) or not x.strip() for x in evidence):
+        raise ValueError("evidence references required (not self-assigned grades)")
+    blockers = d.get("blockers", [])
+    if not isinstance(blockers, list) or any(not isinstance(b, dict) or b.get("severity") not in VALID_SEVERITIES or not b.get("evidence") for b in blockers):
+        raise ValueError("blockers require severity and evidence")
+    assertions = d.get("assertions", [])
+    if not isinstance(assertions, list) or any(not isinstance(a, dict) or a.get("result") not in VALID_RESULTS or not a.get("text") or (a["result"] != "UNKNOWN" and not a.get("evidence")) for a in assertions):
+        raise ValueError("assertions require result and evidence for PASS/FAIL")
+    return d
+
+def load_review(path: str | pathlib.Path) -> dict:
+    return validate_review(json.loads(pathlib.Path(path).read_text(encoding="utf-8")))
+
+def describe(d: dict) -> dict:
+    return {"case_id": d["case_id"], "variant": d["variant"], "run_id": d["run_id"], "reviewer": d["reviewer"],
+            "min_rating": min(d["scores"].values()), "rated_dimensions": len(d["scores"]),
+            "blocked": any(b["severity"] in ("P0", "P1") for b in d.get("blockers", [])),
+            "assertions": {v: sum(a["result"] == v for a in d.get("assertions", [])) for v in ("PASS", "FAIL", "UNKNOWN")},
+            "status": "HUMAN_REVIEW_BLOCKED" if any(b["severity"] in ("P0", "P1") for b in d.get("blockers", [])) else "HUMAN_REVIEW_ONLY"}
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        raise SystemExit("usage: python scripts/score_review.py path/to/review.json")
+    try:
+        print(json.dumps(describe(load_review(sys.argv[1])), ensure_ascii=False, indent=2))
+    except (ValueError, OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"FAIL: {exc}")

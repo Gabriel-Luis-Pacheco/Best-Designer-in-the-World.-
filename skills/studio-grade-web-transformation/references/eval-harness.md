@@ -1,12 +1,17 @@
-# Avaliação da própria skill (A/B)
+# Avaliação da skill em casos reproduzíveis
 
-Inspirado nas recomendações públicas de avaliação de Agent Skills e Anthropic Skill Creator.
+A pasta `evals/evals.json` agora contém cenários conceituais E fixtures sintéticas reais em `fixtures/` (HTML, SVG, brief e contratos de dados). Fixtures não são sites de produção nem modelos de qualidade; alguns defeitos foram preservados intencionalmente.
 
-1. Use `evals/evals.json` com prompts realistas, contexto e saída esperada. Incluir casos de falha, regressão, dashboard, brand fidelity, excesso de texto e site já bom que NÃO deve ser reconstruído.
-2. Rode cada caso com `with_skill` e `without_skill` sob mesmo modelo, mesmos arquivos, ferramentas e limite de execução. Registre versão, custo e duração.
-3. Repita quando possível para estimar variância, não premiar uma execução sortuda.
-4. Peça avaliação cega de designers/usuários com `docs/QUALITY_RUBRIC.md`; não revelar qual versão é da skill.
-5. Julgue P0/P1, sucesso de tarefa e evidência de implementação separadamente de preferência estética.
-6. Registre relatórios e evidências; não invente benchmark ou scores quando não executou.
+## Protocolo A/B
+1. Fixar modelo/versão, ferramentas, orçamento, ambiente e a mesma entrada em ambas as condições.
+2. Executar `without_skill` e `with_skill` separadamente; a única diferença de condição deve ser a orientação da skill. Se ferramentas ou recursos divergirem, marcar estudo inválido para causalidade.
+3. Executar pelo menos duas repetições por condição quando viável. Gravar prompts, saídas, mudanças de código, capturas e logs, sem segredos.
+4. Revisores que desconhecem a condição avaliam os artefatos usando `references/quality-rubric.md`. Não pedir ao mesmo agente que produziu o design para fingir avaliação independente.
+5. Executar tarefas reais de interação, registrar sucesso, erros, bloqueadores P0/P1 e custo/tempo. Preferência estética não substitui sucesso de tarefa.
+6. Usar notas de 0–3, com evidência por afirmação; `UNKNOWN` não é `PASS`. Não inferir ganho de conversão.
+7. Repetir após mudanças e publicar regressões, não só casos favoráveis.
 
-O script `scripts/check-evals.py` valida o formato dos testes, não roda agente nem decide qualidade visual. `scripts/score_review.py` resume notas humanas registradas; não gera avaliação automaticamente.
+## Ferramentas no repositório completo
+`scripts/check_evals.py` e `scripts/test_validators.py` validam ESTRUTURA, não designs. `scripts/score_review.py` resume notas humanas existentes; `scripts/compare_reviews.py` compara casos pareados sem alegar significância. `scripts/run_evals.py` é um adaptador CLI opcional para executar um agente que leia prompt por stdin; não prova qualidade sozinho. Um ambiente sem modelo/revisor real não pode afirmar teste A/B realizado.
+
+A instalação isolada acompanha `scripts/validate.py`, as fixtures e a rubrica; ferramentas de agregação no repositório completo são opcionais.
