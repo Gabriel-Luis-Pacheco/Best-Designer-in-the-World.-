@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "9.7.0",
+  "version": "9.8.0",
   "evals": [
     {
       "id": 1,
@@ -736,6 +736,71 @@
         "Reject confident causal claims from unequal captures",
         "Request equal browser journeys and repeated runs",
         "Distinguish human visual preference from runtime performance"
+      ]
+    },
+    {
+      "id": 45,
+      "name": "RESONANCE commerce spectacle without losing buying story",
+      "prompt": "Crie uma landing page comercial experimental estilo Awwwards para a marca fictícia RESONANCE, caixa de som escultural de luxo. O diferencial é a experiência artística, mas o visitante deve compreender e desejar o objeto, com CTA honesto e funcional.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": [
+          "experience",
+          "landing"
+        ],
+        "goals": [
+          "artistic_impact",
+          "conversion"
+        ]
+      },
+      "expected_output": "Solução completa que respeite objetivos de arte e produto, sem falsidade nem regressões; comprovação por ferramentas quando executadas.",
+      "expectations": [
+        "A obra cria cenas e narrativa autoral sem cair em cards genéricos",
+        "Produto e próximo passo ficam compreensíveis e verdadeiros",
+        "Motion/mobile são parte da direção artística"
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Awwwards does not remove checkout protections",
+      "prompt": "Crie uma experiência visual Awwwards no checkout existente de ecommerce. Preserve preços reais, impostos, teclado, confirmação e rota de compra.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": [
+          "experience",
+          "checkout"
+        ],
+        "goals": [
+          "conversion",
+          "trust"
+        ]
+      },
+      "expected_output": "Solução completa que respeite objetivos de arte e produto, sem falsidade nem regressões; comprovação por ferramentas quando executadas.",
+      "expectations": [
+        "Contratos comerciais e conclusão segura governam o checkout",
+        "O visual não inventa preço ou prova social",
+        "Acessibilidade e ações reais são validadas"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "New landing is a build even without art vocabulary",
+      "prompt": "Crie do zero uma landing page para um produto digital novo. Não existe código anterior; entregue a página completa e funcionando.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "landing"
+      },
+      "expected_output": "Solução completa que respeite objetivos de arte e produto, sem falsidade nem regressões; comprovação por ferramentas quando executadas.",
+      "expectations": [
+        "Criação do zero não pode ser classificada como REFINE",
+        "Composição inteira e não apenas hero precisam ser construídos",
+        "Teste real é distinto de descrição"
       ]
     }
   ]

@@ -10,6 +10,44 @@ brain=importlib.util.module_from_spec(spec);spec.loader.exec_module(brain)
 class BrainTests(unittest.TestCase):
     def sample(self,name):
         return json.loads((ROOT/"brain/examples"/(name+".json")).read_text(encoding="utf-8"))
+    def test_luxury_experiential_landing_preserves_both_goals(self):
+        d=brain.route({"task":"Crie uma landing page comercial experimental nível Awwwards para "
+                       "caixa de som escultural de luxo. A experiência visual é o diferencial."})
+        self.assertEqual(d["strategy"]["mode"],"REBUILD")
+        self.assertEqual(d["strategy"]["creative_authority"],"EXPERIENTIAL_COMMERCE")
+        self.assertEqual(d["strategy"]["primary_goal"],"artistic_impact")
+        self.assertIn("conversion",d["strategy"]["secondary_goals"])
+        self.assertIn("references/experiential-commerce.md",d["tool_routing"]["selected_skill_refs"])
+
+    def test_fresh_commercial_landing_not_refine(self):
+        d=brain.route({"task":"Crie uma landing page para um produto novo"})
+        self.assertEqual(d["strategy"]["mode"],"REBUILD")
+        self.assertEqual(d["product"]["surfaces"],["landing"])
+
+    def test_existing_landing_refinement_preserved(self):
+        d=brain.route({"task":"Melhore a landing existente e crie um menu melhor"})
+        self.assertEqual(d["strategy"]["mode"],"REFINE")
+
+    def test_experimental_operations_cannot_override_accuracy(self):
+        d=brain.route({"task":"Crie dashboard para sistema interno de fintech Awwwards com dados auditáveis"})
+        self.assertEqual(d["strategy"]["creative_authority"],"OPERATIONAL_FIRST_ART_SUPPORT")
+        self.assertEqual(d["strategy"]["primary_goal"],"accuracy")
+
+    def test_awwwards_checkout_never_becomes_an_art_exhibition(self):
+        d=brain.route({"task":"Crie checkout Awwwards de uma loja com preço e pagamentos reais"})
+        self.assertEqual(d["strategy"]["creative_authority"],"COMMERCE_FIRST_ART_SUPPORT")
+        self.assertEqual(d["strategy"]["primary_goal"],"conversion")
+
+    def test_awwwards_product_preserves_product_activation(self):
+        d=brain.route({"task":"Crie um app Awwwards para onboarding de novos usuários"})
+        self.assertEqual(d["strategy"]["creative_authority"],"PRODUCT_FIRST_ART_SUPPORT")
+        self.assertEqual(d["strategy"]["primary_goal"],"activation")
+
+    def test_explicit_goal_hybrid_still_overrides_defaults(self):
+        d=brain.route({"task":"Crie landing comercial experimental Awwwards",
+                       "goals":["trust","artistic_impact"]})
+        self.assertEqual(d["strategy"]["primary_goal"],"trust")
+
     def test_creative_mirage_explicit_negative_landing(self):
         task=("Crie um site experimental de nível Awwwards, museu digital de mundos impossíveis. "
               "Não estamos criando um produto comercial, um MVP, uma landing page de vendas ou um site corporativo.")

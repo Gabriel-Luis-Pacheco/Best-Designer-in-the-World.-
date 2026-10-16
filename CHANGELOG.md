@@ -1,3 +1,19 @@
+## 9.8.0 — 2026-10-16
+- Mantém a direção artística e corrige a classificação de landing comercial imersiva com o novo modo `EXPERIENTIAL_COMMERCE`: experiência autoral e apresentação comercial coexistem.
+- Protege checkout, sistemas internos e funcionalidades de produto contra prioridades artísticas descontextualizadas, mesmo quando o briefing cita Awwwards.
+- Criações novas são roteadas como `REBUILD` em vez de `REFINE`; pedidos de melhoria de projetos existentes continuam proporcionais.
+- Conhecimento `experiential-commerce.md` é carregado seletivamente; removidas obrigações implícitas de pricing/CTA para trabalhos sem comércio.
+- Alinha rubricas humanas em escala 0–3, sincroniza versões de pacote/pipeline/skill e valida consistência no CI.
+- 47 cenários de avaliação e testes adicionais de roteamento/prompt; testes de fixture e código não comprovam superioridade visual ou aumento de conversão.
+- Relato de vitória do teste RESONANCE recebido, mas sem ZIP, logs ou revisão cega nesta rodada; não elevar à categoria de resultado independente.
+
+## 9.7.0 — 2026-10-16
+- Experiências artísticas reconhecidas como categoria própria, com direção `ART_DIRECTOR_FIRST`, revisão de página inteira e guard de comparações A/B inválidas.
+- Corrige negações como “não é landing, é experiência”; caso MIRAGE mostrou que o agente rotulado “com skill” não carregou a Design OS.
+
+## 9.6.0 — 2026-10-16
+- Inspeção somente leitura de projetos e plano de mudanças integrado, com melhorias de interpretação, proteção hierárquica de contratos e 36 casos de avaliação.
+
 ## 9.5.0 — 2026-10-16
 - Integração real do cérebro com runner A/B: contexto e packs adaptativos apenas na condição with_skill; comparação continua exigindo evidência e revisão independente.
 - Smoke tests offline para cenários diferentes de fintech e educação; arquitetura, comandos e limites documentados.

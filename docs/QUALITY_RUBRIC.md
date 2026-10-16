@@ -1,4 +1,4 @@
-# Rubrica de qualidade visual, funcional e de produto (v9.6)
+# Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
 

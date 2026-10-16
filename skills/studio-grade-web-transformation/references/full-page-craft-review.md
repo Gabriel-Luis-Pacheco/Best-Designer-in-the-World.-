@@ -15,7 +15,7 @@ Different capture timing, fonts or viewport dimensions invalidate pixel-level co
 
 ## Two separate gates
 **Hard functional gate:** build, errors, dead actions, readability, reduced motion, keyboard access, responsive overflow, asset rights, no false evidence.
-**Creative ceiling review:** assess (0–4) first-impression power, authored composition, typographic expressivity, visual coherence, immersive use of space, originality of transition, agency of gestures, climax and closure. This score is **human judgment**, never produced as a factual metric automatically.
+**Creative ceiling review:** assess (0–3, aligned with the repository's human review rubric) first-impression power, authored composition, typographic expressivity, visual coherence, immersive use of space, originality of transition, agency of gestures, climax and closure. This score is **human judgment**, never produced as a factual metric automatically.
 
 A functional gate cannot certify artistic excellence. A weak artistic review does not justify adding arbitrary animation everywhere.
 

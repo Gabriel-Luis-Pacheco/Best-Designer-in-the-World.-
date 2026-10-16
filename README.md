@@ -1,11 +1,16 @@
-# Design OS Prime v9.7 — Best Designer in the World
+# Design OS Prime v9.8 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão 9.7 — Art Director First + A/B integrity
+## Versão 9.8 — Creative Commerce sem perder a 9.7
+O teste RESONANCE foi relatado pelo usuário como uma vitória expressiva da skill, mas os artefatos e logs da nova execução ainda não foram enviados, portanto **não se alega validação independente**. Esta atualização é deliberadamente focada em proteção contra regressões: diferencia experiência artística pura, landing comercial imersiva e sistemas/checkout; classifica criação nova como construção em vez de refinamento; prioriza referências realmente úteis; sincroniza versões e fortalece testes. Consulte `references/experiential-commerce.md` dentro da skill.
+
+**47 casos de avaliação**, sem benchmark cego independente publicado.
+
+## Histórico — Versão 9.7 — Art Director First + A/B integrity
 O MIRAGE evidenciou uma comparação inválida: o agente rotulado "com skill" declarou que **não tinha a Design OS instalada** e usou outra skill. A v9.7 não alega superar o baseline; adiciona preflight de leitura, bloqueio de substituições silenciosas, rota `experience` para projetos Awwwards e direção criativa de ponta a ponta. Ver `docs/MIRAGE_AB_LESSONS.md`.
 
-**44 casos de avaliação**, sem benchmark cego independente realizado.
+A 9.7 introduziu 44 casos e correções do roteador, sem benchmark cego independente realizado.
 
 ## Histórico — Versão 9.6 — Project Intake + Product Intelligence Brain
 Agora a skill inclui um planejador integrado `brain/pipeline.py`, que combina roteamento, avaliação de escopo e inventário opcional, sem executar mudanças. A skill inclui inventário local **somente leitura** em `brain/project_intake.py`, melhorias de interpretação de intenção, objetivos globais preservados nas múltiplas superfícies, referências visuais alcançáveis e proteção de contratos hierárquicos. A inspeção de caminhos não equivale a compreensão do negócio, testes de UX ou evidência visual. Ver `docs/V96_ARCHITECTURE.md`.
@@ -34,7 +39,7 @@ O roteador portátil `brain/route.py` gera um **brief estratégico proposto** de
 - Modos proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Uma correção local não dispara reconstrução.
 - Anti-slop construtivo: composição, tipografia, ritmo, provas e decisões criativas; não apenas estilos proibidos.
 - Comparação de duas ou mais direções realmente distintas em mudanças estruturais, com critérios e trade-offs.
-- Pacote instalável com 44 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
+- Pacote instalável com 47 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
 - CI estrutural, testes negativos Python, browser smoke em Chromium, scripts de revisão humana e runner CLI opcional.
 - Nenhuma afirmação estética automática ou evidência falsa.
 
@@ -81,11 +86,11 @@ DESIGN_TEST_URL=http://localhost:3000 DESIGN_CTA_SELECTOR='[data-design-critical
 Captura screenshots em 320/390/768/1440 px e verifica renderização, overflow, IDs duplicados, nome acessível e destino de CTA (contrato opcional `DESIGN_EXPECTED_CTA_URL`); não compra nem envia formulários. Fluxos específicos exigem seus próprios testes.
 
 ## Avaliação A/B
-Os 44 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta SKILL.md e até quatro referências contextualizadas por caso, inclusive em CLIs sem acesso a arquivos. Essa seleção é fixa e documentada; não equivale à navegação dinâmica por todas as referências. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
+Os 47 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta SKILL.md e até quatro referências contextualizadas por caso, inclusive em CLIs sem acesso a arquivos. Essa seleção é fixa e documentada; não equivale à navegação dinâmica por todas as referências. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
 
 ## Princípios
 Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
 
-**Status:** v9.7 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
+**Status:** v9.8 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
 
 Histórico: `CHANGELOG.md`. Licença: `LICENSE`.
