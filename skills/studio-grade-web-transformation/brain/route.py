@@ -174,7 +174,10 @@ def route(context):
         intent_goals=infer_goals(task)
         goals=intent_goals + [RULES["surfaces"][s]["primary_goal"] for s in surfaces]
         if "experience" in surfaces:
-            goals=["artistic_impact","immersion"]+[g for g in goals if g not in {"artistic_impact","immersion"}]
+            # In a pure artwork, negated sales language is not commercial intent.
+            # Explicit context.goals continues to override this default.
+            intent_goals=[g for g in intent_goals if g not in {"conversion","activation"}]
+            goals=["artistic_impact","immersion"]+[g for g in goals if g not in {"artistic_impact","immersion","conversion","activation"}]
         # Pedagogical mastery is the goal of a learning PRODUCT, not necessarily its landing page.
         if vertical=="education" and any(s in surfaces for s in ("product","mobile")):
             goals.insert(0,"learning")
@@ -182,7 +185,7 @@ def route(context):
             goals.insert(0,"quality_matches")
         if vertical=="fintech" and "trust" not in goals:goals.append("trust")
         # A goal stated in natural language outranks our industry defaults.
-        goals=list(dict.fromkeys(intent_goals+goals))[:4]
+        goals=list(dict.fromkeys((goals if "experience" in surfaces else intent_goals+goals)))[:4]
         if intent_goals:goal_source="task_inferred_low_confidence"
     tools=context.get("tools",[])
     for field in ("authorized_change_types","protected_contract_ids"):
