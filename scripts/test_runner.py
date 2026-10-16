@@ -17,8 +17,8 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("=== BEGIN INPUT FILE: fixtures/landing-generic.html ===",b)
         self.assertIn("R$ 19,90",a)
         self.assertIn("R$ 19,90",b)
-        self.assertNotIn("Design OS Prime v8",a)
-        self.assertIn("Design OS Prime v8",b)
+        self.assertNotIn("Design OS Prime v",a)
+        self.assertIn("Design OS Prime v",b)
         self.assertIn("anti-slop-composition.md",b)
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:

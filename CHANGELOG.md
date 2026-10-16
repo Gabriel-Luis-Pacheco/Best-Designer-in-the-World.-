@@ -1,3 +1,6 @@
+## 8.3.0 — 2026-10-16
+- Curadoria contextual de 18 recursos em catálogo legível por máquina; playbook triplo de domínio/mecanismo/expressão e cautelas. Fixados testes de versão e compatibilidade de prompts.
+
 ## 8.2.0 — 2026-10-16
 - Contratos portáteis em JSON com validador estático independente, IDs e casos negativos. Não confundir evidência sintática com fluxo real.
 

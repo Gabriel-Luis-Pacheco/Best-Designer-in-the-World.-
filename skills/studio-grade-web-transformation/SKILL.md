@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.2.0"
+  version: "8.3.0"
 ---
 
-# Design OS Prime v8.2.0 — criar, testar, criticar e melhorar
+# Design OS Prime v8.3.0 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -45,7 +45,7 @@ Inspecionar o projeto disponível, rotas, links, público, telas, tokens, conte�
 Observar a página inteira e trechos em 1440 e 390 px se navegador disponível; complementar 320/768/1280, zoom e telas de estados quando relevantes. Avaliar linha narrativa, silhueta, densidade, escalas, foco, transitions, CTA, credibilidade e comportamento real. Classificar seção por função; decidir `preservar / elevar / fundir / eliminar / reconstruir`. Usar `templates/FULL_PAGE_AUTOPSY.md`.
 
 ### 2. Pesquisa com causalidade
-Pesquisar concorrentes e referências pertinentes **quando o modo exige e as ferramentas permitem**. Registar fonte/data, público, mecanismo observado, hipótese transferível e risco. Mecanismo não é layout: "progressão demonstrada em interação" é adaptável; "copiar hero azul" não. Identificar uma anti-referência. Não fingir navegação ou testes de usuário. Consultar `references/research-provenance.md`.
+Pesquisar concorrentes e referências pertinentes **quando o modo exige e as ferramentas permitem**. Registar fonte/data, público, mecanismo observado, hipótese transferível e risco. Mecanismo não é layout: "progressão demonstrada em interação" é adaptável; "copiar hero azul" não. Identificar uma anti-referência. Não fingir navegação ou testes de usuário. Consultar `references/research-provenance.md`, `references/research-selection-playbook.md` e `research/source_catalog.json`. Só alegar inspeção quando houver acesso e artefato.
 
 ### 3. Divergir para convergir
 Nos modos REDESIGN/REBUILD, propor duas ou três teses realmente distintas, não três paletas. Cada tese precisa de conceito nativo ao produto, gramática de tipografia/espaço, demonstração, limites, consistência mobile e custo técnico. Comparar clareza, diferenciação, marca, acessibilidade, robustez e esforço; escolher e documentar com `templates/DIRECTION_DECISION.md`. Ver `references/art-direction-and-optical-craft.md`, `references/editorial-art-direction-lab.md` e `references/anti-slop-composition.md`. Em PATCH, pular esta fase.

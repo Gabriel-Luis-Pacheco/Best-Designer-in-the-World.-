@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "description": "Research entrypoints, not evidence of inspection or endorsement; use when runtime access exists.",
+  "sources": [
+    {
+      "id": "awwwards",
+      "url": "https://www.awwwards.com/",
+      "when": [
+        "marketing",
+        "brand",
+        "editorial"
+      ],
+      "extract": "original visual composition; full-page rhythm",
+      "caution": "Awards do not prove conversion; never clone",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "siteinspire",
+      "url": "https://www.siteinspire.com/",
+      "when": [
+        "marketing",
+        "editorial"
+      ],
+      "extract": "layout families and typography",
+      "caution": "Unverified effectiveness and licenses",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "landbook",
+      "url": "https://land-book.com/",
+      "when": [
+        "landing",
+        "conversion"
+      ],
+      "extract": "landing compositions by category",
+      "caution": "Screenshots not equivalent to working flows",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "godly",
+      "url": "https://godly.website/",
+      "when": [
+        "landing",
+        "visual"
+      ],
+      "extract": "motion and novel page art direction",
+      "caution": "May be inaccessible or overdecorated",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "mobbin",
+      "url": "https://mobbin.com/",
+      "when": [
+        "product",
+        "mobile",
+        "fintech"
+      ],
+      "extract": "real product screen patterns and flows",
+      "caution": "Some content behind login/paywall; no invented findings",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "pageflows",
+      "url": "https://pageflows.com/",
+      "when": [
+        "product",
+        "conversion",
+        "onboarding"
+      ],
+      "extract": "multistep user journeys",
+      "caution": "May be paywalled; verify origin",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "carbon",
+      "url": "https://carbondesignsystem.com/",
+      "when": [
+        "internal",
+        "dashboard",
+        "enterprise",
+        "fintech"
+      ],
+      "extract": "tables, data density, states",
+      "caution": "Pattern transfer requires task fit",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "atlassian",
+      "url": "https://atlassian.design/",
+      "when": [
+        "internal",
+        "saas",
+        "product"
+      ],
+      "extract": "tokens, navigation, feedback",
+      "caution": "Different brand and governance",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "material",
+      "url": "https://m3.material.io/",
+      "when": [
+        "mobile",
+        "product",
+        "accessibility"
+      ],
+      "extract": "adaptive patterns and foundations",
+      "caution": "Do not turn brand into Material clone",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "duolingo",
+      "url": "https://design.duolingo.com/",
+      "when": [
+        "education",
+        "gamification",
+        "brand"
+      ],
+      "extract": "character system and brand consistency",
+      "caution": "Never copy mascot or infer pedagogic efficacy",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "baymard",
+      "url": "https://baymard.com/research/checkout-usability",
+      "when": [
+        "checkout",
+        "ecommerce",
+        "conversion",
+        "fintech"
+      ],
+      "extract": "checkout friction supported by user studies",
+      "caution": "Scope research to relevant tasks; many resources paid",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "nngroup",
+      "url": "https://www.nngroup.com/articles/",
+      "when": [
+        "research",
+        "usability",
+        "enterprise"
+      ],
+      "extract": "task analysis, evidence of interaction issues",
+      "caution": "General research is not proof of local outcome",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "heart",
+      "url": "https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/",
+      "when": [
+        "metrics",
+        "retention",
+        "engagement",
+        "product"
+      ],
+      "extract": "goals-signals-metrics and user-centred measurement",
+      "caution": "Pick relevant measures; no invented baseline",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "webvitals",
+      "url": "https://web.dev/articles/vitals",
+      "when": [
+        "performance",
+        "mobile",
+        "product",
+        "marketing"
+      ],
+      "extract": "performance measurement and Core Web Vitals",
+      "caution": "Measured results required",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "wcag",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "when": [
+        "accessibility",
+        "any"
+      ],
+      "extract": "accessibility success criteria and exceptions",
+      "caution": "Checklist is not full conformance test",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "apple-hig",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/",
+      "when": [
+        "mobile",
+        "ios",
+        "product"
+      ],
+      "extract": "mobile interaction, accessibility and spatial hierarchy",
+      "caution": "Not every interface is native iOS",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "shopify-polaris",
+      "url": "https://polaris.shopify.com/",
+      "when": [
+        "ecommerce",
+        "merchant",
+        "internal"
+      ],
+      "extract": "merchant workflows and data patterns",
+      "caution": "Avoid visual copying",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "finos",
+      "url": "https://www.finos.org/",
+      "when": [
+        "fintech",
+        "internal",
+        "compliance"
+      ],
+      "extract": "finance industry context and standards discovery",
+      "caution": "Does not provide blanket design validation",
+      "access": "VERIFY_AT_RUNTIME"
+    }
+  ]
+}
