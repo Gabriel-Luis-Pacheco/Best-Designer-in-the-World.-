@@ -35,7 +35,7 @@ def contract_checks(html:str,brief:str)->None:
         raise ValueError("price contract lost")
     if "Gratuito" not in html or "R$ 0" not in brief:
         raise ValueError("free tier contract lost")
-    if "Checkout NÃO implementado" not in brief or "Checkout não implementado" not in html:
+    if "checkout não implementado" not in brief.casefold() or "checkout não implementado" not in html.casefold():
         raise ValueError("checkout prototype disclosure lost")
     primary=[a for a in p.links if "data-design-critical-cta" in a]
     if len(primary)!=1 or primary[0].get("href")!="#demonstracao":
