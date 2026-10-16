@@ -1,3 +1,7 @@
+## 9.3.0 — 2026-10-16
+- Perguntas de pesquisa por vertical/superfície, em domínio, mecanismo e expressão, sempre NOT_EXECUTED antes de navegação real.
+- Backoffices e dashboards não recebem galerias de marketing automaticamente; testes garantem a especialização.
+
 ## 9.2.0 — 2026-10-16
 - Guard de decisões de edição: contrato protegido bloqueia; trabalho fora de escopo exige autorização; mudança de alto impacto requer validação de domínio.
 - Roteador incorpora limites explícitos de permissão e testes adversariais do guard.

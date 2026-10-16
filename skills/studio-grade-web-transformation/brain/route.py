@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 RULES=json.loads((ROOT/"brain/route_rules.json").read_text(encoding="utf-8"))
 CATALOG=json.loads((ROOT/"research/source_catalog.json").read_text(encoding="utf-8"))
+RESEARCH=json.loads((ROOT/"brain/research_briefs.json").read_text(encoding="utf-8"))
 MODES={"PATCH","AUDIT","REFINE","REDESIGN","REBUILD"}
 
 def text_field(data,key,default=""):
@@ -56,6 +57,8 @@ def choose_sources(tags,mode,tools):
         kind=("visual" if row["id"] in {"awwwards","siteinspire","landbook","godly"}
               else "product-pattern" if row["id"] in {"mobbin","pageflows","carbon","atlassian","material","duolingo","apple-hig","shopify-polaris"}
               else "research")
+        if kind=="visual" and ({"internal","dashboard"} & tags) and "landing" not in tags:
+            continue  # Avoid marketing-gallery suggestions for data-dense tools.
         candidates.append((len(matching),kind,row))
     budget={"AUDIT":4,"REFINE":5,"REDESIGN":7,"REBUILD":7}.get(mode,4)
     candidates.sort(key=lambda x:(-x[0],x[2]["id"]))
@@ -137,6 +140,15 @@ def route(context):
                                  [RULES["goals"][g]["guardrail"] for g in goals]+constraints))
     alltags=surfaces+[vertical]+goals+["research","accessibility"]
     refs_selected=choose_sources(alltags,mode,tools)
+    research_questions=[]
+    if mode!="PATCH":
+        for surface in surfaces:
+            questions=(RESEARCH.get(f"{vertical}:{surface}") or RESEARCH.get(f"general:{surface}")
+                       or RESEARCH["general:product"])
+            for layer,question,query in questions:
+                research_questions.append({"surface":surface,"layer":layer,
+                    "question":question,"suggested_query":query,
+                    "status":"NOT_EXECUTED","caution":"No findings before inspecting actual sources"})
     plans=[]
     for s in surfaces:
         conf=RULES["surfaces"][s]
@@ -161,6 +173,7 @@ def route(context):
                   "anti_goal":"Optimizing vanity metrics while damaging user outcome or a protected contract"},
       "tool_routing":{"selected_skill_refs":["references/"+x for x in refs],
                       "research_candidates":refs_selected,
+                      "research_questions":research_questions,
                       "recommended_execution":"Inspect first; research as allowed; implement only within authorized scope; test relevant real flows."},
       "permission_boundary":{"authorized_change_types":context.get("authorized_change_types",[]),
         "protected_contract_ids":context.get("protected_contract_ids",[]),

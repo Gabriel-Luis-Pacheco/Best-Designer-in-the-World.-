@@ -57,3 +57,16 @@ class BrainTests(unittest.TestCase):
     def test_mode_recognizes_audit(self):
         d=brain.route({"task":"Analise criticamente o dashboard","surface":"dashboard"})
         self.assertEqual(d["strategy"]["mode"],"AUDIT")
+
+    def test_internal_fintech_avoids_marketing_gallery(self):
+        d=brain.route(self.sample("fintech-internal"))
+        ids={x["id"] for x in d["tool_routing"]["research_candidates"]}
+        self.assertFalse(ids.intersection({"awwwards","siteinspire","landbook","godly"}))
+    def test_research_questions_include_mechanisms(self):
+        d=brain.route(self.sample("fintech-internal"))
+        layers={x["layer"] for x in d["tool_routing"]["research_questions"]}
+        self.assertEqual(layers,{"domain","mechanism","expression"})
+        self.assertTrue(all(x["status"]=="NOT_EXECUTED" for x in d["tool_routing"]["research_questions"]))
+    def test_patch_no_research_questions(self):
+        d=brain.route({"task":"Corrija apenas bug","mode":"PATCH","surface":"internal"})
+        self.assertEqual(d["tool_routing"]["research_questions"],[])

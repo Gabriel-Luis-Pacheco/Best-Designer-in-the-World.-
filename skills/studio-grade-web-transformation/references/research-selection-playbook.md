@@ -22,3 +22,7 @@ Fintech **landing**: clareza de proposta, termos transparentes, segurança demon
 Fintech **sistema de conciliação**: chaves, estados, reversibilidade, auditoria, permissões, custo de erro e volume. Fontes: Carbon, estudos de UX operacional, documentação de dados. Não usar galeria de landing como especificação de sistema.
 
 Pesquisa não deve atrasar correção de ícone localizada; modo PATCH tem orçamento de pesquisa proporcional e normalmente zero.
+
+
+## Pesquisa orientada a perguntas — v9.3
+Consultar `brain/research_briefs.json` para construir perguntas específicas por vertical e superfície antes de abrir sites. O roteador retorna candidatas em camadas domínio/mecanismo/expressão com estado NOT_EXECUTED. Para fintech interna, priorizar documentação de software operacional e pesquisa de tarefas, não galerias de marketing. Verificar as referências em ambiente autorizado e registrar evidência concreta antes de aplicar qualquer princípio.
