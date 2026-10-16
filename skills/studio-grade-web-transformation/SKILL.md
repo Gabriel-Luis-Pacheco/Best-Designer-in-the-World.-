@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "8.3.0"
+  version: "8.4.0"
 ---
 
-# Design OS Prime v8.3.0 — criar, testar, criticar e melhorar
+# Design OS Prime v8.4.0 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -57,7 +57,7 @@ Mapear cada seção como pergunta → prova/ação → resposta → próximo pas
 Se solicitado e código acessível: implementar em alterações pequenas e auditáveis, respeitando stack e sem mexer em backend por ornamento. Criar estados necessários (focus, hover, busy, error, empty, success, disabled), UX de formulário, teclado, leitores de tela, zoom, motion reduzido, legibilidade e redes instáveis. Dados e mídia devem ser reais, licenciados ou explicitamente prototipais. Não inventar métricas, depoimentos, interfaces e funcionalidades. Consultar `references/implementation-quality.md`, `references/interaction-and-content.md`, `references/motion-and-interaction-direction.md` e, para produto denso, `references/advanced-product-ux-operations.md`.
 
 ### 6. Testar funcionamento E qualidade
-Separar evidências em:
+Separar evidências em (opcional: `scripts/inspect_html.py` gera observações de HTML estático, NÃO valida WCAG):
 - **Estrutural:** arquivos, metadados, links e manifest.
 - **Funcional:** CTA clicável com destino correto, menus, formulários, erros, rotas, teclado, loading, responsividade.
 - **Visual:** página inteira antes/depois, estados críticos, coerência, recortes, hierarquia e pior seção.

@@ -1,3 +1,6 @@
+## 8.4.0 — 2026-10-16
+- Auditor de HTML estático com detecção de IDs repetidos, links fragmentados quebrados e alertas acessíveis; CI informa limitações e testes adversariais.
+
 ## 8.3.0 — 2026-10-16
 - Curadoria contextual de 18 recursos em catálogo legível por máquina; playbook triplo de domínio/mecanismo/expressão e cautelas. Fixados testes de versão e compatibilidade de prompts.
 

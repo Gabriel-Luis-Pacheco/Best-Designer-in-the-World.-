@@ -18,6 +18,8 @@ jobs:
         run: python scripts/check_evals.py
       - name: Validate isolated installed skill
         run: python skills/studio-grade-web-transformation/scripts/validate.py
+      - name: Audit static synthetic markup (informational, non-WCAG)
+        run: python skills/studio-grade-web-transformation/scripts/inspect_html.py skills/studio-grade-web-transformation/examples/conversaboa-concept.html
       - name: Test validation logic
         run: python -m unittest discover -s scripts -p 'test_*.py' -v
   browser-fixtures:
