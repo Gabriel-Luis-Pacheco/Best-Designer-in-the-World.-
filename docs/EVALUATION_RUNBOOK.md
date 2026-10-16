@@ -1,7 +1,7 @@
-# Harness de avaliação — V8.1
+# Harness de avaliação — v9.6
 
 ## Estado comprovável
-Existem 20 casos de teste, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
+Existem 36 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
 ## Execução
 ```bash
@@ -18,7 +18,7 @@ Para gerar SAÍDAS (não notas) de um CLI de agente confiável, capaz de ler pro
 ```bash
 python scripts/run_evals.py --case 1 --variant both --command "SEU_CLI_DE_AGENTE" --out output/eval-runs
 ```
-Cada execução recebe um diretório temporário limpo contendo apenas suas fixtures. Isso não isola credenciais globais, rede ou configuração de agente. Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md e até duas referências portáteis relevantes por caso (seleção fixa); não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
+Cada execução recebe um diretório temporário limpo contendo apenas suas fixtures. Isso não isola credenciais globais, rede ou configuração de agente. Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md, uma hipótese de roteamento e até três referências portáteis selecionadas para o caso; não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
 
 A avaliação precisa de `pair_id` comum às variantes do mesmo caso, o mesmo revisor, dimensões idênticas e run_id diferentes. Comparações inválidas são excluídas, não promediadas. O runner só captura arquivos gerados com opt-in `--capture-workspace`; revise segredos antes de compartilhar.
 
@@ -46,5 +46,5 @@ Comparação é DESCRITIVA. Dimensões ou revisores diferentes distorcem médias
 Não usar URLs inventadas, entrevistas simuladas, screenshots falsas, dados inexistentes, atualizações automáticas de baseline, métricas sem medição ou "nota de beleza" automática. Revisar o próprio pior caso, não só a média.
 
 
-## V9.5 — cérebro integrado à condição with_skill
+## V9.6 — cérebro integrado à condição with_skill e inventário local opcional
 O runner injeta um plano determinístico de intenção e seleção contextual de até três referências portáteis na condição com skill. A condição sem skill recebe o mesmo prompt e fixtures, mas não recebe o motor. Os dois workspaces são separados; isso não isola contas de agente, rede ou sistema operacional. O arquivo emitido é uma hipótese, nunca observação de negócio. Para medir qualidade visual, rode o agente, implemente o resultado num browser autorizado e peça avaliação humana cega dos artefatos equivalentes.

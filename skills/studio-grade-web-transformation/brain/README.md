@@ -1,6 +1,9 @@
-# Design OS Brain — ferramenta portátil, não um modelo adicional
+# Design OS Brain v9.6 — ferramenta portátil, não um modelo adicional
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
+
+## Project intake opcional
+`brain/project_intake.py --project caminho/do/projeto` identifica candidatos a rotas, assets e arquivos de tokens em modo somente leitura. Com `--context brief.json`, acrescenta inventário ao plano. Não executa o produto nem prova compreensão, métricas ou qualidade. Nunca interpretar a existência de uma rota como verificação de um fluxo.
 
 ## Execute
 Da raiz do repositório:

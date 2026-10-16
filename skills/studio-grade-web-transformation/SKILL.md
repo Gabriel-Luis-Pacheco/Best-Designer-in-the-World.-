@@ -4,10 +4,10 @@ description: Planeja, audita, redesenha e implementa landing pages, SaaS, interf
 compatibility: Execução no navegador, pesquisa, testes, Figma e alterações no código dependem das ferramentas e permissões disponíveis. Nunca apresentar documentação como prova de qualidade.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "9.5.0"
+  version: "9.6.0"
 ---
 
-# Design OS Prime v9.5 — criar, testar, criticar e melhorar
+# Design OS Prime v9.6 — criar, testar, criticar e melhorar
 
 ## Norte
 Tratar design como sistema de decisões verificáveis, não uma coleção de tendências. Uma página bonita mas enganosa, ilegível, lenta, genérica ou quebrada é trabalho incompleto. O objetivo não é gerar muitas propostas: é entregar a melhor solução justificável ao problema real. Não prometer prêmio, conversão ou originalidade absoluta.
@@ -24,6 +24,7 @@ Tratar design como sistema de decisões verificáveis, não uma coleção de ten
 9. **Não executar código externo ou instalar dependências por conta própria sem avaliar segurança, licença e autorização.** Segredos nunca vão a logs ou repositório.
 
 ## Cérebro estratégico — obrigatório antes de decisões significativas
+Quando houver acesso autorizado a um projeto local e a tarefa for estratégica, usar `brain/project_intake.py --project <diretório>` para coletar um inventário inicial limitado e sem executar código. Depois abrir os arquivos pertinentes, verificar fluxos no navegador e conferir contratos de negócio. O inventário só prova a existência de caminhos e nomes de scripts; não prova comportamento, estratégia ou UI. Para planejamento estruturado, `--context caminho.json` incorpora o relatório ao roteamento. Dados não públicos não devem ser exportados para benchmarking.
 Antes de criar, estabelecer a identidade do produto, público, tarefa real, superfície, vertical, objetivos e guardrails. O roteador portátil `brain/route.py` e o playbook `references/product-intelligence-playbook.md` produzem hipóteses para guiar a inspeção, não fatos. Validar por código, conteúdo, dados e pesquisa autorizada; separar convicção do algoritmo de evidência. Para produtos com múltiplas superfícies, criar planos distintos: landing de fintech ≠ backoffice fintech. Roteie referências por objetivo e mecanismo, não por estilo. Gerar perguntas conforme `brain/research_briefs.json` antes de visitar sites; sempre distinguir shortlist de inspeção real. Proativamente investigar causas adjacentes relevantes sem fazer alterações não autorizadas. Riscos de alteração são auditados por `brain/decision_guard.py` (escopo declarado, contratos protegidos e verificações adicionais); ver `references/product-intelligence-playbook.md`. `brain/route_rules.json` é configurável, não é modelo de IA.
 
 ## Roteador de execução: esforço proporcional
@@ -81,6 +82,9 @@ Use `templates/RELEASE_CHECKS.json` e `scripts/release_gate.py` para bloquear P0
 
 ## Entrega final
 Em IMPLEMENTAÇÃO: decisões e razões; arquivos/rotas alterados; estado real dos testes executados (com comando/link/screenshot quando disponível); regressões corrigidas; P0/P1 em aberto; `NÃO VERIFICADO`. Em AUDIT: observações com evidência, hipóteses e plano; nunca afirmar que implementou. Em qualquer caso, oferecer um resumo curto antes dos detalhes, sem inventar relatórios de usuários.
+
+## Regra de conflitos e prioridades
+Se houver conflito, respeitar nesta ordem: permissões e contratos reais do projeto; objetivo explícito do usuário; evidência observada do produto; objetivos globais; objetivos específicos da superfície; heurísticas de setor; preferências estéticas. Não transformar hipótese de roteador em fato. Em múltiplas superfícies, diferenciar metas locais sem suprimir o objetivo global explícito. A pesquisa requer registro do que foi realmente visitado e do mecanismo aprendido; links sugeridos não são fontes lidas.
 
 ## Carregamento progressivo
 Usar apenas referências relevantes por fase, sem carregar o diretório inteiro. Núcleo: `references/product-truth.md`, `references/brand-canon.md`, `references/critique-and-gates.md`. Arte: `references/editorial-art-direction-lab.md`, `references/motion-and-interaction-direction.md`, `references/anti-slop-composition.md`, `references/typography-layout-craft.md`, `references/art-direction-and-optical-craft.md`, `references/full-page-art-direction.md`, `references/visual-storytelling.md`. Produto: `references/design-proof-and-decision-records.md`, `references/advanced-product-ux-operations.md`, `references/product-ux-versus-marketing.md`, `references/interaction-and-content.md`, `references/user-research-and-proof.md`. Implementação: `references/implementation-quality.md`, `references/visual-regression-harness.md`, `references/quality-gates-and-evidence.md`, `references/quality-rubric.md`. Outras: `references/design-system-extraction.md`, `references/research-provenance.md`, `references/studio-critique-method.md`, `references/ethics-and-licensing.md`, `references/eval-harness.md`, `references/evaluation-isolation-protocol.md`, `references/source-map.md`.
