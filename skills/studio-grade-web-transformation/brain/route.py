@@ -44,6 +44,8 @@ def negated_mention(text, phrase):
     for match in re.finditer(re.escape(phrase.casefold()),low):
         prefix=low[max(0,match.start()-180):match.start()]
         prefix=re.split(r"[.!?;\n]",prefix)[-1]
+        # Positive contrast begins a new clause: "not a landing, it IS an experience".
+        prefix=re.split(r"(?:,\s*|\bmas\s+)(?:é|e|será|sera)\s+",prefix)[-1]
         if re.search(r"(?:não|nao)\s+(?:estamos\s+)?(?:criando|fazendo|é|e|quero|sera|será|deve\s+ser)\b|(?:sem\s+ser)\b",prefix):
             return True
     return False
