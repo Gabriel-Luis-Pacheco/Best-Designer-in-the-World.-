@@ -10,6 +10,37 @@ brain=importlib.util.module_from_spec(spec);spec.loader.exec_module(brain)
 class BrainTests(unittest.TestCase):
     def sample(self,name):
         return json.loads((ROOT/"brain/examples"/(name+".json")).read_text(encoding="utf-8"))
+    def test_critical_phrase_not_substring(self):
+        self.assertFalse(brain.contains_phrase("hospitalidade","hospital"))
+        self.assertTrue(brain.contains_phrase("hospital clínico","hospital"))
+
+    def test_redesign_after_analysis_not_audit(self):
+        d=brain.route({"task":"Analise a landing e proponha um redesign completo","surface":"landing"})
+        self.assertEqual(d["strategy"]["mode"],"REDESIGN")
+
+    def test_only_fix_is_patch(self):
+        d=brain.route({"task":"Corrija só o botão de feedback","surface":"product"})
+        self.assertEqual(d["strategy"]["mode"],"PATCH")
+
+    def test_education_landing_not_forced_into_learning(self):
+        d=brain.route({"task":"Melhore esta landing de inglês","surface":"landing","vertical":"education"})
+        self.assertEqual(d["strategy"]["primary_goal"],"conversion")
+
+    def test_natural_language_trust_over_clicks(self):
+        d=brain.route({"task":"Quero melhorar confiabilidade e transparência desta landing, não preciso aumentar cliques agora"})
+        self.assertEqual(d["strategy"]["primary_goal"],"trust")
+
+    def test_research_gallery_is_reachable_for_landing(self):
+        d=brain.route({"task":"Redesenhe uma landing comercial","surface":"landing","mode":"REDESIGN"})
+        ids={x["id"] for x in d["tool_routing"]["research_candidates"]}
+        self.assertTrue(ids.intersection({"awwwards","siteinspire"}),ids)
+
+    def test_explicit_governing_goal_survives_multisurface(self):
+        d=brain.route({"task":"Melhore landing e sistema interno de fintech",
+                       "surface":["landing","internal"],"goals":["trust","conversion"]})
+        self.assertTrue(all(x["governing_goal"]=="trust" for x in d["strategy"]["surface_plans"]))
+        self.assertTrue(all(x["explicit_goals_not_overridden"] for x in d["strategy"]["surface_plans"]))
+
     def test_fintech_same_vertical_different_surfaces(self):
         landing=brain.route(self.sample("fintech-landing"))
         internal=brain.route(self.sample("fintech-internal"))

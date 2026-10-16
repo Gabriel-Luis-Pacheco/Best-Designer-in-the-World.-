@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "9.5.0",
+  "version": "9.6.0",
   "evals": [
     {
       "id": 1,
@@ -422,6 +422,170 @@
         "Não lançar redesign total",
         "Proatividade não é alteração sem autorização",
         "Validar estado de erro e teclado"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Análise antes de redesign não significa apenas auditoria",
+      "prompt": "Analise criticamente esta landing e proponha um redesign completo que preserve as condições comerciais. Entregue teses concretas e valide o que conseguir.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion",
+          "trust"
+        ]
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Não reduzir um pedido de redesign completo a uma auditoria",
+        "Preservar CTA, preço e ofertas",
+        "Não inventar prova social ou testes executados"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Patch restrito protege o restante",
+      "prompt": "Corrija só o botão de feedback desta página fictícia; não mexa em preço, dados, layout geral ou backend.",
+      "files": [
+        "fixtures/good-form.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": "product"
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Executar patch proporcional",
+        "Não modificar escopo adjacente",
+        "Validar clique, teclado e estado afetado"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Marketing edtech não implica aula na landing",
+      "prompt": "Melhore a landing de um produto de inglês. Seu objetivo comercial é explicar a proposta e captar inscrições qualificadas, sem prometer aprendizagem garantida.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "vertical": "education",
+        "surface": "landing",
+        "goals": [
+          "conversion",
+          "trust"
+        ]
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Conversão qualificada governa landing",
+        "Não confundir inscrição com aprendizagem",
+        "Evidenciar valor real sem inventar métricas"
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Prioridade explícita para transparência",
+      "prompt": "Quero melhorar confiança e transparência de minha landing sem otimizar cliques agora. Compare soluções e mantenha as afirmações verificáveis.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "trust",
+          "conversion"
+        ]
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Confiança explícita não é substituída por conversão padrão",
+        "Divulgar limites ou custos reais",
+        "Registrar trade-offs e incerteza"
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Catálogo deve selecionar direção artística pertinente",
+      "prompt": "Uma landing comercial carece de direção autoral. Planeje benchmark de composição e UX, mas nunca diga que visitou sites sem acesso real.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion"
+        ]
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Candidatar referências artísticas e pesquisa aplicada",
+        "Diferenciar shortlist de fontes consultadas",
+        "Transformar mecanismos, não copiar screenshot"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Contrato protegido abrange descendentes",
+      "prompt": "Redesenhe o card do checkout sem alterar o contrato protegido checkout, nem checkout.total, rotas ou valores. Documente bloqueios.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": "checkout"
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Não alterar checkout.total quando checkout está protegido",
+        "Não contornar escopo mudando ID filho",
+        "Verificar preço e destino dos CTAs"
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Contexto de repo não prova a aplicação funcionando",
+      "prompt": "Você só encontrou arquivos page.tsx, package.json e logo.svg no projeto. Pode declarar a navegação e acessibilidade aprovadas?",
+      "files": [],
+      "meta": {
+        "surface": "product"
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Inventário de arquivos não equivale a teste de UI",
+        "Declarar estados e rotas ainda não inspecionados",
+        "Exigir inspeção real do produto e evidências"
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Mesmo produto, metas locais e objetivo global",
+      "prompt": "Uma fintech tem uma landing e um backoffice. O objetivo global explícito é confiança. Otimize venda e conciliação sem perder essa prioridade.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/dashboard-generic.html"
+      ],
+      "meta": {
+        "vertical": "fintech",
+        "surface": [
+          "landing",
+          "internal"
+        ],
+        "goals": [
+          "trust",
+          "conversion",
+          "accuracy"
+        ]
+      },
+      "expected_output": "Recomendação/implementação proporcional, justificada e comprovada por evidências disponíveis; sem inventar execução, pesquisa ou métricas.",
+      "expectations": [
+        "Confiança governa ambas as superfícies",
+        "Objetivos locais são diferentes",
+        "Manter colunas e valores da operação e fatos comerciais"
       ]
     }
   ]
