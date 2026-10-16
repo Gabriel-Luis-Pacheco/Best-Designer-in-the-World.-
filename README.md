@@ -1,53 +1,55 @@
-# Best Designer in the World — Design OS Prime
+# Design OS Prime v8 — Best Designer in the World
 
-**Agent Skill para reconstrução de landing pages, SaaS e interfaces com direção de arte, UX, fidelidade à marca e verificação real de qualidade.**
+Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-> Não é um template, promessa de prêmio ou garantia de conversão. É um processo para pesquisar, decidir, construir e avaliar.
+## O que mudou
+- Modos proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Uma correção local não dispara reconstrução.
+- Anti-slop construtivo: composição, tipografia, ritmo, provas e decisões criativas; não apenas estilos proibidos.
+- Comparação de duas ou mais direções realmente distintas em mudanças estruturais, com critérios e trade-offs.
+- Pacote instalável com 16 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
+- CI estrutural, testes negativos Python, browser smoke em Chromium, scripts de revisão humana e runner CLI opcional.
+- Nenhuma afirmação estética automática ou evidência falsa.
 
 ## Instalação
-
 ```bash
 npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-grade-web-transformation
 ```
+O ponto de entrada é `skills/studio-grade-web-transformation/SKILL.md`. É possível copiar somente essa pasta; referências, fixtures e validação portátil a acompanham.
 
-O arquivo principal está em [skills/studio-grade-web-transformation/SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Use [docs/START_HERE.md](docs/START_HERE.md) para o fluxo de trabalho; [docs/SOURCE_MATRIX.md](docs/SOURCE_MATRIX.md) para referências e inspirações; [evals/evals.json](evals/evals.json) para casos de teste.
+## Como usar
+- "PATCH: corrija apenas o estado de erro deste formulário e preserve o restante."
+- "AUDIT: analise a landing e diferencie o que foi observado do que não foi verificado."
+- "REDESIGN: compare duas direções criativas, escolha pelos critérios do público e da marca, implemente e valide a página inteira no navegador."
+- "PRODUCT: melhore este dashboard preservando dados, colunas, filtros e fluxos críticos."
 
-## Metodologia
+## Validação estrutural (Python 3.12+)
+```bash
+python scripts/check_evals.py
+python skills/studio-grade-web-transformation/scripts/validate.py
+python -m unittest discover -s scripts -p "test_*.py" -v
+```
+Isso **não** valida a beleza nem executa um modelo de IA.
 
-1. Investigar o produto e seus assets reais, proteger o que já funciona.
-2. Diagnosticar arquitetura e densidade visual da página inteira.
-3. Pesquisar concorrentes e estúdios; **extrair mecanismos, não copiar layouts**.
-4. Construir uma direção de arte e storyboards coerentes.
-5. Preservar, fundir ou reconstruir seções — inclusive a página inteira.
-6. Implementar cenas, componentes, estados e motion com propósito.
-7. Testar a página rodando, no desktop e mobile, e verificar acessibilidade/performances.
-8. Criticar o *pior elo*: nenhuma seção vazia, mockup genérico ou mascote descaracterizado pode ser ignorado.
-9. Comparar resultados com e sem skill em avaliações independentes.
+## Smoke tests das fixtures (Node + Chromium)
+```bash
+npm install
+npx playwright install chromium
+npm run test:browser:fixtures
+```
+As fixtures são **sintéticas** e incluem deficiências intencionais. Testes de navegador verificam carga e fatos invariantes, não qualidade artística.
 
-## Integridade
+## Teste opcional de site real (ambiente autorizado)
+```bash
+DESIGN_TEST_URL=http://localhost:3000 DESIGN_CTA_SELECTOR='[data-design-critical-cta]' npm run test:browser:target
+```
+Captura screenshots e verifica aspectos de renderização, overflow e CTA estático; não compra nem envia formulários. Fluxos específicos exigem seus próprios testes.
 
-Referências externas são creditadas; não incorporar código, textos ou assets de terceiros sem verificar licença. Nada de depoimentos ou métricas inventadas. Scripts externos não são executados automaticamente. Tokens e segredos nunca devem ser publicados.
+## Avaliação A/B
+Os 16 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta o SKILL.md, mas não carrega automaticamente referências em agentes sem acesso a arquivos. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
 
-## Status
+## Princípios
+Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
 
-Repositório inaugurado com estrutura de skill e documentação; avaliações estéticas e comerciais dependem de testes em produto real.
+**Status:** a V8 tem harness melhor e dados sintéticos reproduzíveis, mas sua superioridade visual ou comercial diante da V7 ainda NÃO FOI COMPROVADA por A/B real.
 
-
-## Atualização v7 — curadoria técnica e avaliação
-
-A pesquisa cruzou **skills para IA**, design systems, práticas de UX, materiais de arte de marca e ferramentas de teste. A matriz com mais de 35 referências está em [SOURCE_MATRIX.md](docs/SOURCE_MATRIX.md); a análise do que já existia na V6.1 e do que foi acrescentado está em [GAP_ANALYSIS.md](docs/GAP_ANALYSIS.md).
-
-A nova skill inclui **15 referências operacionais próprias**: extração de identidade e tokens, direção de arte da página inteira, personagens/mascotes canônicos, prova visual do produto, implementação de qualidade, crítica de estúdio e pesquisa com usuários.
-
-### Harness de qualidade (não é promessa de resultado)
-
-- [12 casos de avaliação](evals/evals.json) com resultados esperados.
-- [Runbook A/B com e sem a skill](docs/EVALUATION_RUNBOOK.md), idealmente com avaliação cega.
-- [Rubrica humana](docs/QUALITY_RUBRIC.md) com bloqueio por P0/P1 e pior elo.
-- [Validador estrutural](scripts/check_evals.py), que não avalia estética:
-  `python scripts/check_evals.py`
-- [Resumidor de revisão humana](scripts/score_review.py), que não inventa notas.
-- [Exemplo Playwright](examples/playwright-visual.spec.ts) para snapshots em projeto com a dependência instalada.
-- [Decisões preservadas de V1–V6.1](docs/LEGACY_V6_1_DECISIONS.md).
-
-**Status real:** documentos, arquivos e testes estruturais publicáveis. Ainda é necessário executar A/B num projeto real para afirmar que esta versão produziu interfaces melhores que a anterior.
+Histórico: `CHANGELOG.md`. Licença: `LICENSE`.

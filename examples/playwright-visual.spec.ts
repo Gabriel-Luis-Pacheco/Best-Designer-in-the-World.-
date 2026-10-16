@@ -37,7 +37,7 @@ test.describe('authorized target-site checks', () => {
           expect(['http:', 'https:'].includes(link.protocol) || href.startsWith('#')).toBeTruthy();
           if (href.startsWith('#')) {
             const id = href.slice(1);
-            await expect(page.locator(`[id="${CSS.escape(id)}"]`)).toHaveCount(1);
+            await expect(page.locator(`[id="${id.replace(/\"/g, '')}"]`)).toHaveCount(1);
           }
         } else {
           await expect(cta).toHaveAttribute('role', 'button');

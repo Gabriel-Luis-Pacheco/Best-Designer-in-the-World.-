@@ -1,25 +1,43 @@
-# Harness de avaliação da skill
+# Harness de avaliação — V8
 
-O pacote de testes em `evals/evals.json` é uma **especificação de casos**, não um relatório de sucesso. Nenhuma execução de modelo foi feita automaticamente.
+## Estado comprovável
+Existem 16 casos de teste, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
-## Experimento comparativo
-1. Registrar modelo e versão, temperatura/esforço, data, ferramentas, stack, hardware e arquivos de entrada.
-2. Executar cada caso pelo menos duas vezes **sem a skill** e duas vezes **com a skill** quando custo permitir; a qualidade possui variância.
-3. Salvar artefatos e screenshots do projeto inteiro (não só hero). Usar o mesmo ambiente para duas versões.
-4. Revisão cega com avaliador humano usando `docs/QUALITY_RUBRIC.md`, sem revelar a condição.
-5. Para cada expectativa, marcar PASS/FAIL/UNKNOWN com fonte de evidência. `UNKNOWN` não é PASS.
-6. Comparar sucesso em fluxos, falhas P0/P1, preferência humana, esforço de correção e custo. Não colapsar tudo em um “98/100” arbitrário.
-7. Repetir depois de mudar a skill. Publicar relatório, inclusive regressões.
-
-## Exemplo de review JSON
-```json
-{"case_id":1,"variant":"with_skill","reviewer":"designer-01","scores":{"clareza":3,"direcao_arte":4,"identidade":2,"mobile":3},"blockers":[{"severity":"P1","evidence":"Mascote divergente"}],"assertions":[{"text":"Respeita marca original","result":"FAIL"}]}
+## Execução
+```bash
+python scripts/check_evals.py
+python skills/studio-grade-web-transformation/scripts/validate.py
+python -m unittest discover -s scripts -p "test_*.py" -v
+npm install && npx playwright install chromium
+npm run test:browser:fixtures
 ```
+CI executa esses testes em push/PR, com evidências anexadas ao workflow.
 
-Os scores 0–4 são julgamentos humanos e não pontuação oficial. Se não houver avaliador humano e navegador real, reportar apenas validação estrutural.
+Para gerar SAÍDAS (não notas) de um CLI de agente confiável, capaz de ler prompt via stdin:
+```bash
+python scripts/run_evals.py --case 1 --variant both --command "SEU_CLI_DE_AGENTE" --out output/eval-runs
+```
+Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. Em CLI sem acesso a arquivos, referências progressivas NÃO são automaticamente carregadas. Informar esse limite.
 
-## Regressão visual
-Receitas em `examples/playwright-visual.spec.ts`. Playwright screenshot diffs detectam alterações inesperadas, não julgam qualidade artística. Fixar navegadores, fontes, dados e screenshots baseline. Não atualizar baseline automaticamente sem review.
+## Comparação justa
+Fixar modelo, versão, contexto, ferramentas, orçamento, stack, entradas e comandos. Repetir por condição. Executar no browser e salvar artefatos, screenshot completa, rotas, estados e custo. Obter avaliadores cegos ao tipo de execução, idealmente mais de um, comparando tarefas iguais. Não atribuir score de UI a texto de resposta sem implementação.
+
+## Revisão 0–3 com evidência
+Todas as dimensões usam `0=FALHA, 1=ACEITÁVEL, 2=FORTE, 3=EXCEPCIONAL`. Omitir dimensões não observadas, jamais inventar nota. P0/P1 conhecidos bloqueiam aprovação. Exemplo **apenas de esquema, não avaliação real**:
+```json
+{
+  "case_id": 1, "variant": "with_skill", "run_id": "run-001", "reviewer": "designer-01",
+  "scores": {"clareza": 2, "direcao_arte": 1, "mobile": 2},
+  "evidence": ["artifacts/run-001/mobile.png", "artifacts/run-001/desktop.png"],
+  "blockers": [{"severity": "P1", "evidence": "Problema documentado no vídeo do fluxo"}],
+  "assertions": [{"text": "CTA funciona", "result": "FAIL", "evidence": "navegador: destino ausente"}]
+}
+```
+```bash
+python scripts/score_review.py caminho/review.json
+python scripts/compare_reviews.py review-com-skill.json review-sem-skill.json
+```
+Comparação é DESCRITIVA. Dimensões ou revisores diferentes distorcem médias; não declarar causalidade ou ganho comercial. `UNKNOWN` não é `PASS`.
 
 ## Anti-Goodhart
-Uma skill treinada para sempre declarar que “comparou 5 concorrentes” pode cumprir o texto sem realmente ter navegado em nenhum. Exigir URLs, data, captura ou arquivos de prova. Métrica passa se houver evidência, não uma autodeclaração bonita.
+Não usar URLs inventadas, entrevistas simuladas, screenshots falsas, dados inexistentes, atualizações automáticas de baseline, métricas sem medição ou "nota de beleza" automática. Revisar o próprio pior caso, não só a média.
