@@ -35,6 +35,8 @@ function validate(cfg) {
       throw new Error('Every frame needs a CSS selector');
     if (f.action && (f.action.type!=='click'||typeof f.action.selector!=='string'||f.action.selector.length>300))
       throw new Error('Only explicit click actions supported');
+    if (f.scroll_offset_px!==undefined && (!Number.isInteger(f.scroll_offset_px)||Math.abs(f.scroll_offset_px)>2400))
+      throw new Error('Scroll offset must be between -2400 and 2400');
     if (f.wait_ms!==undefined && (!Number.isInteger(f.wait_ms)||f.wait_ms<0||f.wait_ms>3000))
       throw new Error('Wait must be 0..3000ms');
   }
@@ -75,6 +77,7 @@ export async function capture(config) {
         const target=page.locator(frame.selector).first();
         if (await target.count()===0) throw new Error('MISSING_SCENE: '+frame.id+' / '+frame.selector);
         await target.scrollIntoViewIfNeeded({timeout:10000});
+        if (frame.scroll_offset_px) await page.mouse.wheel(0,frame.scroll_offset_px);
         if (frame.action) await page.locator(frame.action.selector).first().click({timeout:10000});
         await page.waitForTimeout(frame.wait_ms??350);
         const file='frames/'+label(viewport.name)+'-'+label(frame.id)+'.png';
@@ -89,7 +92,7 @@ export async function capture(config) {
                   documentWidth:document.documentElement.scrollWidth};
         },frame.selector);
         result.frames.push({id:frame.id,viewport:viewport.name,file,sha256,bytes:binary.length,
-          selector:frame.selector,action:frame.action||null,...state});
+          selector:frame.selector,scroll_offset_px:frame.scroll_offset_px||0,action:frame.action||null,...state});
       }
       await page.close();
     }
