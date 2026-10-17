@@ -869,8 +869,8 @@
           "landing"
         ],
         "goals": [
-          "visual originality",
-          "truthful product comprehension"
+          "artistic_impact",
+          "trust"
         ]
       }
     },
@@ -894,7 +894,7 @@
           "landing"
         ],
         "goals": [
-          "distinctive visual storytelling"
+          "artistic_impact"
         ]
       }
     },
@@ -919,7 +919,8 @@
           "internal"
         ],
         "goals": [
-          "task accuracy"
+          "accuracy",
+          "efficiency"
         ]
       }
     },
@@ -941,7 +942,7 @@
           "landing"
         ],
         "goals": [
-          "interaction payoff"
+          "engagement"
         ]
       }
     }
