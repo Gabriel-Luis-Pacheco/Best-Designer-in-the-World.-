@@ -1,10 +1,10 @@
-# Harness de avaliação — v9.8
+# Design OS Prime v10.0 — guia de avaliação
 
 ## Validade antes da qualidade
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
 
 ## Estado comprovável
-Existem 47 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
+Existem 50 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
 ## Execução
 ```bash
@@ -51,3 +51,6 @@ Não usar URLs inventadas, entrevistas simuladas, screenshots falsas, dados inex
 
 ## V9.8 — contexto artístico, comercial e operacional integrados
 O runner injeta um plano determinístico de intenção e seleção contextual de até quatro referências portáteis na condição com skill. A condição sem skill recebe o mesmo prompt e fixtures, mas não recebe o motor. Os dois workspaces são separados; isso não isola contas de agente, rede ou sistema operacional. O arquivo emitido é uma hipótese, nunca observação de negócio. Para medir qualidade visual, rode o agente, implemente o resultado num browser autorizado e peça avaliação humana cega dos artefatos equivalentes.
+
+## V10.0 — evidence boards
+A revisão visual deve incluir ao menos abertura, seção média, encerramento e mobile com **duas iterações renderizadas** quando for uma reconstrução importante. Use `scripts/visual_review_packet.py` na skill instalada para montar comparação de PNGs; o painel não julga estética. Use `scripts/asset_board.py` para investigar mascotes e imagens canônicas. Uma comparação A/B da skill exige execução isolada por variante e avaliação humana cega; não use o conceito fictício como prova de superioridade comercial.
