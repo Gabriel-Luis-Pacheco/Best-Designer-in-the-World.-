@@ -1,3 +1,11 @@
+## 11.1.0 — 2026-10-17 — A/B integrity + meaningful visual evidence
+- FIX CRITICAL: compare common `task_input_sha256` rather than treatment-specific full prompt; store different assembled prompts separately. Inline skill injection is NOT a verified agent skill read.
+- Contextually load V11 artistic references for actual evaluator inputs without contaminating operations dashboards.
+- Capture reproducible opt-in project source/config/3D/fonts with limits, manifests and provenance hashes; require human secret review before sharing.
+- Reject errored page captures and mismatched semantic interactions; record observed state, request restrictions and action intent.
+- Unify expectations about art-direction divergence, maintain accessible production loop and preserve earlier V10.1 methods.
+- Docs and tests aligned at v11.1.0; 61 eval scenarios are defined but are not 61 completed creative comparisons.
+
 ## 11.0.0 — 2026-10-17 — RESONANCE creative ceiling
 
 - Treats the provided RESONANCE V6.1-vs-no-skill comparison as an ARTISTIC DIAGNOSTIC, **not causal proof or a V10/V11 benchmark**.
