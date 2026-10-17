@@ -1,11 +1,16 @@
-# Design OS Prime v9.8 — Best Designer in the World
+# Design OS Prime v10.1 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão 9.8 — Creative Commerce sem perder a 9.7
+## Versão 10.1 — Creative Advantage: liberdade com controle
+A v10.1 prioriza **direção de arte competitiva e execução observável**, sem transformar a skill numa coleção de proibições. Em experiências criativas de alta ambição, a IA testa até três teses visuais realmente diferentes (não três sites inteiros), escolhe a solução mais distintiva **e** fiel ao produto, constrói abertura/miolo/interação/clímax/fechamento, e desafia o pior trecho depois de renderizar. Acrescenta playbook para 3D/WebGL, mobile e um painel portátil de comparação por cenas. Mantém modos proporcionais para não adicionar teatro ao backoffice. A comparação RESONANCE relatou **skill V6.1 local**, não esta V10.1; não há vitória garantida nem benchmark cego independente. Ver `docs/V101_CREATIVE_ADVANTAGE.md`.
+
+**54 casos de avaliação**, sem benchmark cego independente publicado.
+
+## Histórico — Versão 9.8 — Creative Commerce sem perder a 9.7
 O teste RESONANCE foi relatado pelo usuário como uma vitória expressiva da skill, mas os artefatos e logs da nova execução ainda não foram enviados, portanto **não se alega validação independente**. Esta atualização é deliberadamente focada em proteção contra regressões: diferencia experiência artística pura, landing comercial imersiva e sistemas/checkout; classifica criação nova como construção em vez de refinamento; prioriza referências realmente úteis; sincroniza versões e fortalece testes. Consulte `references/experiential-commerce.md` dentro da skill.
 
-**50 casos de avaliação**, sem benchmark cego independente publicado.
+**50 casos de avaliação** na v10.0, sem benchmark cego independente publicado.
 
 ## Histórico — Versão 9.7 — Art Director First + A/B integrity
 O MIRAGE evidenciou uma comparação inválida: o agente rotulado "com skill" declarou que **não tinha a Design OS instalada** e usou outra skill. A v9.7 não alega superar o baseline; adiciona preflight de leitura, bloqueio de substituições silenciosas, rota `experience` para projetos Awwwards e direção criativa de ponta a ponta. Ver `docs/MIRAGE_AB_LESSONS.md`.
@@ -39,7 +44,7 @@ O roteador portátil `brain/route.py` gera um **brief estratégico proposto** de
 - Modos proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Uma correção local não dispara reconstrução.
 - Anti-slop construtivo: composição, tipografia, ritmo, provas e decisões criativas; não apenas estilos proibidos.
 - Comparação de duas ou mais direções realmente distintas em mudanças estruturais, com critérios e trade-offs.
-- Pacote instalável com 50 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
+- Pacote instalável com 54 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
 - CI estrutural, testes negativos Python, browser smoke em Chromium, scripts de revisão humana e runner CLI opcional.
 - Nenhuma afirmação estética automática ou evidência falsa.
 
@@ -86,14 +91,17 @@ DESIGN_TEST_URL=http://localhost:3000 DESIGN_CTA_SELECTOR='[data-design-critical
 Captura screenshots em 320/390/768/1440 px e verifica renderização, overflow, IDs duplicados, nome acessível e destino de CTA (contrato opcional `DESIGN_EXPECTED_CTA_URL`); não compra nem envia formulários. Fluxos específicos exigem seus próprios testes.
 
 ## Avaliação A/B
-Os 50 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta SKILL.md e até quatro referências contextualizadas por caso, inclusive em CLIs sem acesso a arquivos. Essa seleção é fixa e documentada; não equivale à navegação dinâmica por todas as referências. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
+Os 54 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta SKILL.md e até quatro referências contextualizadas por caso, inclusive em CLIs sem acesso a arquivos. Essa seleção é fixa e documentada; não equivale à navegação dinâmica por todas as referências. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
 
 ## Princípios
 Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
 
-**Status:** v10.0 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
+**Status:** v10.1 amplia a direção criativa e possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
 
 Histórico: `CHANGELOG.md`. Licença: `LICENSE`.
 
 ## V10.0 — ciclo prático e ferramentas de revisão
 O auditor opcional de ritmo HTML `scripts/section_rhythm.py` identifica padrões para revisão sem atribuir pontuação estética. A skill principal é mais enxuta e prioriza construir abertura/miolo/fechamento, inspecionar pixels, refazer o elo fraco e registrar evidência — inclusive em mobile. Nova comparação canônica de assets em `scripts/asset_board.py` e antes/depois real em `scripts/visual_review_packet.py` (ambos dentro da skill instalada). Um segundo conceito experimental, `examples/conversaboa-editorial-alternative.html`, serve para comparar direções realmente distintas, não como certificado de beleza. Veja `docs/V10_CREATIVE_VALIDATION.md`.
+
+## Ferramenta nova — jornada por cenas
+Gere capturas PNG com a mesma cena, viewport e estado nas duas variantes; em seguida crie um manifesto JSON com `title`, `required_beats` e `candidates` (dois itens com `id` e `frames`: `beat`, `path`, `viewport`, `state`). Os caminhos dos PNGs são relativos ao manifesto. Execute `python skills/studio-grade-web-transformation/scripts/journey_board.py --manifest review.json --out review.html`. O relatório evidencia ausências e divergência de captura; **não declara vencedor**.
