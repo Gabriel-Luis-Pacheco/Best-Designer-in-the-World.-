@@ -57,3 +57,6 @@ A revisão visual deve incluir ao menos abertura, seção média, encerramento e
 
 ## V11.0 — comparação justa de criatividade
 Antes de comparar, confirmar skill carregada via trace e hash; mesma entrada/modelo/ferramentas/tempo/condições independentes. Capturar cinco estados visuais equivalentes (opening, first transformation, middle, climax, ending) em desktop e mobile, incluindo interações de verdade. Em cenas pinned/WebGL, não usar captura full-page isolada como evidência conclusiva. Revisor cego deve separar qualidade técnica/QA de autoria de forma, materialidade, interação e payoff. O baseline sem skill pode vencer. Publicar perdas e incertezas.
+
+### Blind journey pairing — V11.0
+Capture both conditions at same viewport, reduced-motion and planned semantic scene IDs, using local authorized projects. Run `python scripts/compare_creative_journeys.py --a WITH/manifest.json --b WITHOUT/manifest.json --out output/pair`. It verifies screenshot paths and hashes, viewport and frame coverage, and produces an anonymized A/B image board. The invocation order determines A/B; keep identity mapping outside reviewer materials. Matching screenshots do not prove same model, time budget, prompt, user state, network, interactions or cognition — verify those separately via the A/B trace controls and documented test procedure.
