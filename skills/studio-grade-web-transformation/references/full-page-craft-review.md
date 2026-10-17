@@ -35,3 +35,6 @@ If a blank creative project resembles a conventional marketing landing, **revisi
 
 ## Limit
 This playbook improves evaluation and direction, but cannot guarantee winning every independent A/B comparison.
+
+## Scene-state capture v11
+A full-page image may be misleading for WebGL, pinned canvases or scroll-linked scenes. Record a repeatable opener / transformation / middle / climax / ending capture and mobile/reduced-motion states using `scripts/capture_creative_journey.mjs` (requires locally installed Playwright and running authorized local server). Record frame URL, scene selector, viewport, scroll/action and hash; missing scenes block evidence claims. Five frames are *review materials*, not a machine score. Prefer a video for long gesture/stateful scenes; do not diagnose enormous blank scroll solely from a failed fullPage screenshot. See `creative-evidence-journey.md`.
