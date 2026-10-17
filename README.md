@@ -1,8 +1,8 @@
-# Design OS Prime v11.1 — Best Designer in the World
+# Design OS Prime v11.2 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão ativa — 11.1.0
+## Versão ativa — 11.2.0
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
 
@@ -15,6 +15,13 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 **Estudos práticos:** [Cenários comerciais, artísticos e operacionais](docs/CASE_STUDIES_V11_1.md).
 **Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
 **Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
+
+### Novidades V11.2 — pesquisa Awwwards integrada sem inflar a execução
+- Cinco módulos opt-in para pipeline de estúdios criativos, landing/CRO, decisões de tecnologia GSAP/3D, seleção de skills externas e evidência de qualidade.
+- Roteamento concreto: EXPERIENCE recebe processo de estúdio; LANDING recebe conversão; 3D/motion só quando solicitado; backoffice não é obrigado a usar espetáculo.
+- Dois templates de prova, documentação do inventário tema a tema deste chat e testes de roteamento negativos para evitar regressões.
+- Links de fontes e repositórios são candidatos à verificação, não skills instaladas, benchmark, certificação ou promessa de prêmio.
+- O contexto principal continua pequeno: referências carregadas seletivamente, com o mesmo processo de autópsia → conceito → implementação → inspeção → correção.
 
 ### Correções V11.1
 - O runner registra `task_input_sha256` do mesmo briefing/fixtures e `assembled_prompt_sha256` de cada condição; **não** exige prompts montados idênticos.

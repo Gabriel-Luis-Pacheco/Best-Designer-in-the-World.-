@@ -63,3 +63,7 @@ Curadoria em 16/10/2026. Adaptações escritas especificamente para este projeto
 6. **Decisão** documentada como ADOTAR, ADAPTAR, CONSULTAR ou REJEITAR.
 
 Nenhuma dessas fontes, isolada ou combinada, garante Awwwards. A qualidade final precisa ser inspecionada no projeto real e validada com usuários.
+
+
+## 17/10/2026 — Research-to-skill audit v11.2
+Full item-by-item conversation comparison: [CHAT_TO_SKILL_AUDIT_2026-10-17.md](CHAT_TO_SKILL_AUDIT_2026-10-17.md). Verified first-party source for GSAP: https://gsap.com/docs/v3/ ; creative studio author reports: https://tympanus.net/codrops/ ; web performance thresholds: https://web.dev/articles/vitals ; Impeccable source: https://github.com/pbakaus/impeccable ; UI/UX Pro Max source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill ; Marketing Skills: https://github.com/coreyhaines31/marketingskills . Entries are research references, not dependency installs or verified A/B results.

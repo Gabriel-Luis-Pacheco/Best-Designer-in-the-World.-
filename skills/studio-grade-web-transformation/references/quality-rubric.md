@@ -1,4 +1,4 @@
-# Human review rubric — v11.1
+# Human review rubric — v11.2
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -34,3 +34,6 @@ Roteiro: primeiro screenshot inteira sem conhecer variante; segundo revisar aç�
 
 ## Creative ceiling review — v11.1
 For ART/EXPERIENTIAL_COMMERCE, additionally compare FORMAL signature, MATERIAL system, BEHAVIORAL signature and meaningful climax across captured frames. A technical PASS and polished documentation are not proof that a site is artistically stronger than a rival. Assess blind without knowing the skill variant, and record real screenshots/states and shortcomings. These are contextual human judgments, NOT automatically computed scores; do not force WebGL, exports or theatrical interactions into unrelated products.
+
+## Field-backed checks — v11.2
+For creative-technology work, record real visual states and frame pacing/device/browser (or UNKNOWN); a Three.js import is not proof of a smooth immersive experience. For commercial LPs, keep artistic distinction separate from product clarity, truthful CTA, activation and measured conversion (or UNKNOWN). Historical award weights do not override product goals. See references/award-readiness-and-qa.md and references/landing-page-evidence-and-cro.md; never invent an award or audited UX outcome.

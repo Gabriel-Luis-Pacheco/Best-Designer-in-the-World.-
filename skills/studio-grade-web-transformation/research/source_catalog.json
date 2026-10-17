@@ -217,6 +217,43 @@
       "extract": "finance industry context and standards discovery",
       "caution": "Does not provide blanket design validation",
       "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "codrops-studio-case-studies",
+      "url": "https://tympanus.net/codrops/",
+      "when": [
+        "experience",
+        "visual",
+        "brand",
+        "research"
+      ],
+      "extract": "creator-written engineering and art-direction case studies; record mechanism and reported constraints",
+      "caution": "Author reports, not verified conversion or transferable source license",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "gsap-official-docs",
+      "url": "https://gsap.com/docs/v3/",
+      "when": [
+        "experience",
+        "animation",
+        "motion"
+      ],
+      "extract": "timelines, ScrollTrigger, matchMedia, lifecycle and real API versions",
+      "caution": "Only if GSAP needed; inspect current API and license",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "threejs-manual",
+      "url": "https://threejs.org/manual/",
+      "when": [
+        "experience",
+        "visual",
+        "3d"
+      ],
+      "extract": "WebGL resource ownership, loading, texturing and render performance",
+      "caution": "3D not obligatory; respect target implementation and fallbacks",
+      "access": "VERIFY_AT_RUNTIME"
     }
   ]
 }

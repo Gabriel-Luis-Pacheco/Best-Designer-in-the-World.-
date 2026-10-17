@@ -1,4 +1,4 @@
-# Design OS Brain v11.1 — heuristic router, not creative authority
+# Design OS Brain v11.2 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -42,3 +42,6 @@ The router remains deterministic and cannot infer the quality of a sculptural fo
 
 ## V10.1 functionality preserved in V11
 Creative challenger, 3D craft guide, journey board and context-aware A/B runner are preserved. The router remains a fallible heuristic and never grants design approval.
+
+## v11.2 specialty packs
+LANDING receives landing-page-evidence-and-cro; EXPERIENCE receives awwwards-studio-production and award-readiness. Technical pack creative-technology-playbook is conditional on explicit high-effect cues; specialist-skills-orchestration activates for skill-selection intents. All outputs remain hypotheses until the agent reads files and inspects the real product. None auto-installs third-party software.

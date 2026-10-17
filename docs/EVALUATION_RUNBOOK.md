@@ -1,4 +1,4 @@
-# Design OS Prime v11.1 — guia de avaliação
+# Design OS Prime v11.2 — guia de avaliação
 
 ## Validade antes da qualidade
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
@@ -70,3 +70,6 @@ O `task_input_sha256` do briefing e das fixtures é IGUAL entre condições; o `
 O runner seleciona guias novos da V11 para experiências artísticas, nunca para impor arte em um dashboard interno. A coleta opcional `--capture-workspace` guarda arquivos de projeto e assets 3D/fonte, mais hashes e limites, mas **pode capturar segredos**: revisar antes de compartilhar. Não salva dependências nem controla credenciais externas.
 
 A captura visual rejeita erros JS e recursos externos bloqueados, registra significado da ação e estado observado; o pareamento exige equivalência semântica antes de permitir avaliação cega. Essas garantias são técnicas, não prova estética.
+
+## v11.2 — avaliação de especialização
+A nova cobertura de roteamento é testada em scripts/test_brain.py. Esses testes verificam presença/ausência dos packs e NÃO medem mérito criativo, performance WebGL, conversão ou resultado em Awwwards. Para esses objetivos, ampliar A/B real com protótipos de uma LP comercial, uma experiência artística 3D e um dashboard interno, incluindo renderização mobile, estados reais, revisão cega e critérios de incerteza.

@@ -180,3 +180,31 @@ class BrainTests(unittest.TestCase):
     def test_patch_no_research_questions(self):
         d=brain.route({"task":"Corrija apenas bug","mode":"PATCH","surface":"internal"})
         self.assertEqual(d["tool_routing"]["research_questions"],[])
+
+    def test_awwwards_experience_routes_to_real_studio_process(self):
+        d=brain.route({"task":"Crie um museu digital experimental Awwwards","surface":"experience"})
+        refs=d["tool_routing"]["selected_skill_refs"]
+        self.assertIn("references/awwwards-studio-production.md",refs)
+        self.assertIn("references/award-readiness-and-qa.md",refs)
+        self.assertNotIn("references/landing-page-evidence-and-cro.md",refs)
+
+    def test_commercial_landing_routes_to_cro_not_3d_by_default(self):
+        d=brain.route({"task":"Crie uma landing comercial de SaaS","surface":"landing"})
+        refs=d["tool_routing"]["selected_skill_refs"]
+        self.assertIn("references/landing-page-evidence-and-cro.md",refs)
+        self.assertNotIn("references/creative-technology-playbook.md",refs)
+
+    def test_explicit_threejs_landing_routes_to_creative_tech(self):
+        d=brain.route({"task":"Landing comercial com Three.js e WebGL","surface":"landing"})
+        self.assertIn("references/creative-technology-playbook.md",
+                      d["tool_routing"]["selected_skill_refs"])
+
+    def test_skill_research_is_conditional(self):
+        d=brain.route({"task":"Faça seleção de skills externas para redesign","surface":"landing"})
+        self.assertIn("references/specialist-skills-orchestration.md",
+                      d["tool_routing"]["selected_skill_refs"])
+
+    def test_internal_fintech_never_receives_awards_pack_by_default(self):
+        d=brain.route({"task":"Corrija apenas filtro de tabela","surface":"internal","vertical":"fintech"})
+        self.assertNotIn("references/awwwards-studio-production.md",
+                         d["tool_routing"]["selected_skill_refs"])

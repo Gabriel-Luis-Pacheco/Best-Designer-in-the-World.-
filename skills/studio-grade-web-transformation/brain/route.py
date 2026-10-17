@@ -254,6 +254,21 @@ def route(context):
             refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
         else:
             refs.append("applied-design-decisions.md")
+    # A high-effect brief triggers the technology playbook; ordinary landing/product
+    # work does not inherit 3D dependencies. Keywords are provisional only.
+    creative_tech_terms = ["webgl", "webgpu", "three.js", "react three fiber",
+        "shader", "shaders", "3d", "r3f", "gsap", "rive", "scroll cinematográfico",
+        "scroll cinematografico", "câmera 3d", "camera 3d", "motion complexo"]
+    if any(contains_phrase(content, term) for term in creative_tech_terms):
+        refs.append("creative-technology-playbook.md")
+    if "experience" in surfaces or ("landing" in surfaces and
+            any(contains_phrase(content,term) for term in
+            ["awwwards", "site of the day", "site of the year"])):
+        refs.append("award-readiness-and-qa.md")
+    if any(contains_phrase(content,term) for term in
+           ["orquestração de skills", "orquestracao de skills", "seleção de skills",
+            "selecao de skills", "skills externas", "skill router"]):
+        refs.append("specialist-skills-orchestration.md")
     refs=list(dict.fromkeys(refs))
     missing=[x for x in refs if not (ROOT/"references"/x).is_file()]
     if missing:raise ValueError("missing skill pack: "+", ".join(missing))

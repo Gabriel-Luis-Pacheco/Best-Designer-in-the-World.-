@@ -27,3 +27,6 @@ A curadoria combina skills de agentes, ciência de UX, sistemas de design, mater
 
 ## Limites
 Pesquisa em links oficiais e documentação pública. Não entrevistamos designers específicos nem testamos mudança de conversão; não atribuímos opiniões a pessoas que não foram consultadas.
+
+## Curadoria adicional — 17/10/2026 (v11.2)
+Adotar como módulos opt-in: relato de produção de estúdios, seleção proporcional de tecnologia (GSAP/Three.js quando justificável), oferta/CRO com fatos e evidência, seleção de especialistas com verificação da fonte, revisão por estado de cena e métricas de campo. Não importar dezenas de skills nem sua redação integral. A pesquisa não equivale a estudo de eficácia, instalação real de agentes ou performance verificada. Matriz de comparação: docs/CHAT_TO_SKILL_AUDIT_2026-10-17.md.

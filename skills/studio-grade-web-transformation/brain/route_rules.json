@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "description": "Contextual deterministic strategy: pure artistic experiences, commercially useful immersive pages and safety-first operational work each have distinct priorities. Candidate hypotheses, not model judgments.",
+  "version": 5,
+  "description": "Contextual deterministic strategy: pure artistic experiences, commercially useful immersive pages and safety-first operational work each have distinct priorities. Candidate hypotheses, not model judgments. V11.2 adds award-production and conversion modules to the appropriate surfaces.",
   "surface_aliases": {
     "experience": [
       "site experimental",
@@ -127,7 +127,9 @@
         "editorial-art-direction-lab.md",
         "motion-and-interaction-direction.md",
         "typography-layout-craft.md",
-        "visual-storytelling.md"
+        "visual-storytelling.md",
+        "awwwards-studio-production.md",
+        "award-readiness-and-qa.md"
       ],
       "jobs": [
         "surpreender no primeiro encontro",
@@ -144,7 +146,8 @@
         "product-ux-versus-marketing.md",
         "editorial-art-direction-lab.md",
         "visual-storytelling.md",
-        "design-proof-and-decision-records.md"
+        "design-proof-and-decision-records.md",
+        "landing-page-evidence-and-cro.md"
       ],
       "jobs": [
         "explicar valor",
