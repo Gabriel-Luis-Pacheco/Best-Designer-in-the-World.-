@@ -32,3 +32,14 @@ test('refuses external URLs and unsafe capture config',async()=>{
   await writeFile('test-results/rejected-creative-config.json',JSON.stringify(config));
   await expect(run('test-results/rejected-creative-config.json')).rejects.toThrow('Every frame needs a CSS selector');
 });
+
+test('rejects runtime JavaScript errors instead of certifying a screenshot',async()=>{
+  const config=JSON.parse(await readFile('tests/browser/creative-journey.sample.json','utf8'));
+  config.url='http://127.0.0.1:4173/fixtures/browser-runtime-error.html';
+  config.output='test-results/negative-runtime';
+  config.viewports=[{name:'desktop',width:1440,height:900}];
+  config.frames=[{id:'opening',selector:'#start'},{id:'ending',selector:'#end'}];
+  await mkdir('test-results',{recursive:true});
+  await writeFile('test-results/runtime-error-creative-config.json',JSON.stringify(config));
+  await expect(run('test-results/runtime-error-creative-config.json')).rejects.toThrow(/PAGE_RUNTIME_ERRORS/);
+});
