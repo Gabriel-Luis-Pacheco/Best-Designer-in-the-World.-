@@ -18,3 +18,6 @@ A instalação isolada acompanha `scripts/validate.py`, as fixtures e a rubrica;
 
 ## Pareamento e isolamento dos experimentos
 Cada condição roda no seu próprio diretório limpo, mas não há isolamento de credenciais, contexto remoto ou rede. Revisões comparáveis usam pair_id, mesmo revisor, dimensões iguais e run_id diferentes. Arquivos gerados somente são arquivados com opt-in. Consulte `references/evaluation-isolation-protocol.md`.
+
+## V11.1: task hash vs treatment hash
+`task_input_sha256` verifies that both variants received the SAME brief and identical input fixture hashes. `assembled_prompt_sha256` records the actual full prompt and SHOULD differ when the skill is injected. Inline skill instructions are `INLINE_IN_AGENT_INPUT_NOT_CONFIRMED_READ`; the strict `validate_experiment.py` still requires a matching independent read trace to certify real installed-skill usage. Tool logs and screenshots may be confidential. Artifact manifests support reconstruction, not proof of execution or visual quality.
