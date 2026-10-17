@@ -92,6 +92,9 @@ export async function capture(config) {
       }
       const response=await page.goto(cfg.url,{waitUntil:'domcontentloaded',timeout:20000});
       if (!response || response.status()>=400) throw new Error('Navigation returned HTTP '+response?.status());
+      const finalHost=new URL(page.url()).hostname;
+      if (!['localhost','127.0.0.1','[::1]'].includes(finalHost))
+        throw new Error('CROSS_ORIGIN_NAVIGATION: final page left local authorized host');
       await page.evaluate(()=>document.fonts.ready);
       const hashes=new Map();
       for (const frame of cfg.frames) {
