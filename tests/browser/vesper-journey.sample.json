@@ -1,0 +1,49 @@
+{
+  "url": "http://127.0.0.1:4173/examples/vesper-sculptural-light-study.html",
+  "output": "test-results/vesper-journey",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "frames": [
+    {
+      "id": "opener",
+      "selector": "#opening"
+    },
+    {
+      "id": "transform",
+      "selector": "#hinge"
+    },
+    {
+      "id": "middle",
+      "selector": "#light-lab"
+    },
+    {
+      "id": "gesture",
+      "selector": "#light-lab",
+      "action": {
+        "type": "click",
+        "selector": "#light-angle"
+      },
+      "wait_ms": 500
+    },
+    {
+      "id": "climax",
+      "selector": "#afterglow"
+    },
+    {
+      "id": "ending",
+      "selector": "#ending"
+    }
+  ],
+  "reduced_motion": false,
+  "allow_animations": false
+}
