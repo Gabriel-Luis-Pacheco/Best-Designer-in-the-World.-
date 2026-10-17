@@ -12,7 +12,7 @@ from pathlib import Path
 
 NAME="studio-grade-web-transformation"
 REQUIRED_EQUAL=("model","model_revision","thinking_effort","settings",
-                "prompt_sha256","tool_profile","budget")
+                "task_input_sha256","tool_profile","budget")
 def check_pair(pair,skill_path):
     problems=[]
     if not isinstance(pair,dict):
@@ -20,13 +20,24 @@ def check_pair(pair,skill_path):
     a,b=pair.get("with_skill"),pair.get("without_skill")
     if not isinstance(a,dict) or not isinstance(b,dict):
         return {"status":"INVALID_COMPARISON","reasons":["missing conditions"]}
+    for condition, data in (("with_skill", a), ("without_skill", b)):
+        assembled = data.get("assembled_prompt_sha256")
+        if not isinstance(assembled, str) or len(assembled) != 64 or any(c not in "0123456789abcdef" for c in assembled):
+            problems.append(f"{condition}: missing or invalid assembled prompt hash")
+        task_hash = data.get("task_input_sha256")
+        if not isinstance(task_hash, str) or len(task_hash) != 64 or any(c not in "0123456789abcdef" for c in task_hash):
+            problems.append(f"{condition}: invalid common task hash")
     for k in REQUIRED_EQUAL:
         if k not in a or k not in b or a.get(k) in (None,"",{}) or b.get(k) in (None,"",{}):
             problems.append(f"missing comparison control: {k}")
         elif a[k]!=b[k]:
             problems.append(f"unmatched comparison control: {k}")
+    if a.get("assembled_prompt_sha256") == b.get("assembled_prompt_sha256"):
+        problems.append("identical assembled prompts: treatment may not have been applied")
     if not a.get("workspace_id") or not b.get("workspace_id") or a["workspace_id"]==b["workspace_id"]:
         problems.append("workspaces not demonstrably isolated")
+    if a.get("skill_delivery") == "INLINE_IN_AGENT_INPUT_NOT_CONFIRMED_READ":
+        problems.append("inline skill instructions do not establish actual agent read trace")
     if a.get("skill_name")!=NAME or a.get("skill_loaded") is not True:
         problems.append("design-os not explicitly loaded in treatment")
     if a.get("other_design_skills")!=[]:

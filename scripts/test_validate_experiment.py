@@ -13,12 +13,12 @@ NAME=guard.NAME
 class ABEvaluationTests(unittest.TestCase):
     def setup_pair(self,sha):
         common={"model":"Muse Spark","model_revision":"fixed","thinking_effort":"high",
-                "settings":{"temperature":"default"},"prompt_sha256":"9"*64,
+                "settings":{"temperature":"default"},"task_input_sha256":"9"*64,
                 "tool_profile":["editor","terminal","browser"],"budget":{"tokens":50000}}
-        treatment={**common,"workspace_id":"a","skill_name":NAME,"skill_loaded":True,
+        treatment={**common,"assembled_prompt_sha256":"a"*64,"workspace_id":"a","skill_name":NAME,"skill_loaded":True,
                    "skill_sha256":sha,"other_design_skills":[],
                    "read_trace":[{"operation":"read_skill","skill_name":NAME,"content_sha256":sha}]}
-        baseline={**common,"workspace_id":"b","skill_loaded":False,"loaded_design_skills":[]}
+        baseline={**common,"assembled_prompt_sha256":"b"*64,"workspace_id":"b","skill_loaded":False,"loaded_design_skills":[]}
         return {"with_skill":treatment,"without_skill":baseline}
     def test_mirage_missing_skill_and_substitution_invalid(self):
         with tempfile.TemporaryDirectory() as d:
@@ -45,6 +45,28 @@ class ABEvaluationTests(unittest.TestCase):
             path=Path(d)/"SKILL.md";path.write_text("real v9.7",encoding="utf-8")
             pair=self.setup_pair(hashlib.sha256(path.read_bytes()).hexdigest())
             self.assertEqual(guard.check_pair(pair,path)["status"],"READY_FOR_BLIND_REVIEW_NOT_PROVEN")
+    def test_common_task_hash_equal_assembled_prompts_different(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/"SKILL.md";path.write_text("example",encoding="utf-8")
+            pair=self.setup_pair(hashlib.sha256(path.read_bytes()).hexdigest())
+            self.assertNotEqual(pair["with_skill"]["assembled_prompt_sha256"],
+                                pair["without_skill"]["assembled_prompt_sha256"])
+            self.assertEqual(guard.check_pair(pair,path)["status"],"READY_FOR_BLIND_REVIEW_NOT_PROVEN")
+
+    def test_mismatched_common_task_hash_invalid(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/"SKILL.md";path.write_text("example",encoding="utf-8")
+            pair=self.setup_pair(hashlib.sha256(path.read_bytes()).hexdigest())
+            pair["without_skill"]["task_input_sha256"]="0"*64
+            self.assertEqual(guard.check_pair(pair,path)["status"],"INVALID_COMPARISON")
+
+    def test_runner_inline_delivery_is_not_agent_read_trace(self):
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/"SKILL.md";path.write_text("example",encoding="utf-8")
+            pair=self.setup_pair(hashlib.sha256(path.read_bytes()).hexdigest())
+            pair["with_skill"]["skill_delivery"]="INLINE_IN_AGENT_INPUT_NOT_CONFIRMED_READ"
+            self.assertEqual(guard.check_pair(pair,path)["status"],"INVALID_COMPARISON")
+
     def test_missing_skill_file_invalid(self):
         pair=self.setup_pair("a"*64)
         self.assertEqual(guard.check_pair(pair,"/does/not/exist")["status"],"INVALID_COMPARISON")

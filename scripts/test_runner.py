@@ -4,7 +4,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
-from run_evals import ROOT, build_prompt, execute
+from run_evals import ROOT, build_prompt, execute, common_task_sha256
 
 class RunnerTests(unittest.TestCase):
     @classmethod
@@ -61,6 +61,15 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-advantage-loop.md",operational)
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",operational)
 
+    def test_v11_creative_guides_really_injected(self):
+        cases=json.loads((ROOT/"evals/evals.json").read_text(encoding="utf-8"))["evals"]
+        case=next(c for c in cases if c["id"]==51)
+        b=build_prompt(case,"with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-signature-and-form.md",b)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/interaction-dramaturgy-and-payoff.md",b)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-signature-and-form.md",
+                         build_prompt(case,"without_skill"))
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "
@@ -73,8 +82,35 @@ class RunnerTests(unittest.TestCase):
             self.assertIn("CLEAN",first["stdout"])
             self.assertIn("CLEAN",second["stdout"])
             self.assertEqual(first["fixture_sha256"],second["fixture_sha256"])
+            self.assertEqual(first["task_input_sha256"],second["task_input_sha256"])
+            self.assertEqual(first["task_input_sha256"],common_task_sha256(self.case))
+            self.assertNotEqual(first["assembled_prompt_sha256"],second["assembled_prompt_sha256"])
+            self.assertEqual(second["skill_delivery"],"INLINE_IN_AGENT_INPUT_NOT_CONFIRMED_READ")
+            self.assertIn("references/applied-design-decisions.md",second["loaded_portable_references"])
             self.assertTrue(first["workspace_isolated"])
             self.assertTrue(second["workspace_isolated"])
+    def test_capture_reproducible_project_assets_and_reject_secret_files(self):
+        with tempfile.TemporaryDirectory() as d:
+            code=(
+                "import pathlib, json; "
+                "pathlib.Path('package.json').write_text(json.dumps({'name':'fixture-app'})); "
+                "pathlib.Path('vite.config.ts').write_text('export default {}'); "
+                "pathlib.Path('model.glb').write_bytes(b'glTF\\x02\\x00\\x00\\x00'); "
+                "pathlib.Path('.env').write_text('SECRET=hidden'); "
+                "pathlib.Path('api-key.json').write_text('SECRET=hidden'); "
+                "pathlib.Path('app.tsx').write_text('export const x=1')"
+            )
+            run=execute(self.case,"with_skill",[sys.executable,"-c",code],20,pathlib.Path(d),True)
+            payload=json.loads(pathlib.Path(run["path"]).read_text(encoding="utf-8"))
+            self.assertIn("package.json"," ".join(payload["captured_artifacts"]))
+            self.assertIn("model.glb"," ".join(payload["captured_artifacts"]))
+            self.assertIn("vite.config.ts"," ".join(payload["captured_artifacts"]))
+            self.assertNotIn(".env"," ".join(payload["captured_artifacts"]))
+            self.assertNotIn("api-key.json"," ".join(payload["captured_artifacts"]))
+            manifest=json.loads((pathlib.Path(d)/payload["artifact_manifest"]).read_text())
+            self.assertEqual(manifest["status"],"PARTIAL_REPRODUCIBILITY_NEEDS_TRUSTED_DEPENDENCY_INSTALL")
+            self.assertTrue(all(len(x["sha256"])==64 for x in manifest["artifacts"].values()))
+
     def test_records_outputs_without_grading(self):
         with tempfile.TemporaryDirectory() as d:
             output=execute(self.case,"without_skill",

@@ -33,7 +33,12 @@
         "type": "click",
         "selector": "#light-angle"
       },
-      "wait_ms": 500
+      "wait_ms": 500,
+      "intent": "explore-light-angle",
+      "state": {
+        "selector": "#light-reading",
+        "property": "text"
+      }
     },
     {
       "id": "climax",

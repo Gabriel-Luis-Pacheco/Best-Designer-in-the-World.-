@@ -1,4 +1,4 @@
-# Design OS Prime v11.0 — guia de avaliação
+# Design OS Prime v11.1 — guia de avaliação
 
 ## Validade antes da qualidade
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
@@ -63,3 +63,10 @@ Capture both conditions at same viewport, reduced-motion and planned semantic sc
 
 ## V10.1 + V11 reconciliadas
 A rubrica preserva quatro dimensões opcionais para trabalhos experienciais — reconhecimento de produto, continuidade de cenas, agência interativa e clímax/encerramento — mais a revisão de assinaturas formal/material/comportamental da V11. Condições são apropriadas ao objetivo; não penalizar dashboards sem clímax. As quatro avaliações da V10.1 continuam, renumeradas 58–61.
+
+## V11.1 — integridade de experimentos
+O `task_input_sha256` do briefing e das fixtures é IGUAL entre condições; o `assembled_prompt_sha256` é deliberadamente DIFERENTE porque a condição with_skill recebe instruções adicionais. Injeção de texto da skill no prompt não comprova carregamento da skill instalada; o validador estrito exige rastreio real de leitura e hash. `run_evals.py` registra `INLINE_IN_AGENT_INPUT_NOT_CONFIRMED_READ` e não afirma carregamento.
+
+O runner seleciona guias novos da V11 para experiências artísticas, nunca para impor arte em um dashboard interno. A coleta opcional `--capture-workspace` guarda arquivos de projeto e assets 3D/fonte, mais hashes e limites, mas **pode capturar segredos**: revisar antes de compartilhar. Não salva dependências nem controla credenciais externas.
+
+A captura visual rejeita erros JS e recursos externos bloqueados, registra significado da ação e estado observado; o pareamento exige equivalência semântica antes de permitir avaliação cega. Essas garantias são técnicas, não prova estética.

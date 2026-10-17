@@ -28,6 +28,12 @@
       "action": {
         "type": "click",
         "selector": "#tab-2"
+      },
+      "intent": "inspect-feedback",
+      "state": {
+        "selector": "#tab-2",
+        "property": "aria-selected",
+        "expected": "true"
       }
     },
     {

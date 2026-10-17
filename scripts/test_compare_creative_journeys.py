@@ -33,6 +33,26 @@ class PairedCreativeTests(unittest.TestCase):
             d=pathlib.Path(t);a=make_manifest(d/"a");b=make_manifest(d/"b")
             (d/"b/frames/test.png").write_bytes(png(390,844)+b"tamper")
             with self.assertRaisesRegex(ValueError,"SHA mismatch"):mod.compare(a,b,d/"bad")
+    def test_semantic_action_mismatch_rejected(self):
+        with tempfile.TemporaryDirectory() as t:
+            d=pathlib.Path(t);a=make_manifest(d/"a");b=make_manifest(d/"b")
+            for manifest,intent in ((a,"open-object"),(b,"download-receipt")):
+                value=json.loads(manifest.read_text())
+                value["frames"][0]["intent"]=intent
+                value["frames"][0]["action"]={"type":"click","selector":"button"}
+                value["frames"][0]["observed_state"]={"property":"text","value":"Done"}
+                manifest.write_text(json.dumps(value))
+            with self.assertRaisesRegex(ValueError,"Mismatched semantic action"):
+                mod.compare(a,b,d/"invalid")
+    def test_errored_capture_rejected(self):
+        with tempfile.TemporaryDirectory() as t:
+            d=pathlib.Path(t);a=make_manifest(d/"a")
+            value=json.loads(a.read_text())
+            value["page_errors"]=[{"error":"TypeError"}]
+            a.write_text(json.dumps(value))
+            with self.assertRaisesRegex(ValueError,"Runtime errors"):
+                mod.verify_manifest(a)
+
     def test_different_scenes_rejected(self):
         with tempfile.TemporaryDirectory() as t:
             d=pathlib.Path(t);a=make_manifest(d/"a");b=make_manifest(d/"b",scene="climax")
