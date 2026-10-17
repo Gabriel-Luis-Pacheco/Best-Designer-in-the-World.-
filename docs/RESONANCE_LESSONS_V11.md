@@ -32,3 +32,6 @@ Mesmo prompt/assets/modelo/ferramentas/limites, duas workspaces separadas, leitu
 - Inflar o prompt principal a ponto de impedir o agente de construir.
 
 Este relatório resume observações do material fornecido pelo usuário; não publica os assets/vídeos do usuário no GitHub.
+
+## Referência prática VESPER
+Foi criado um estudo **ficcional** e original em examples/vesper-sculptural-light-study.html (HTML/CSS/JS), com escultura de três aletas, variação de luz, gesto por input acessível e um encerramento que reflete a escolha feita. Não copiar este visual como template nem afirmar que ganhou benchmark. O navegador e o roteiro local usam tests/browser/vesper-journey.sample.json; a ferramenta de captura é fornecida dentro da skill instalada em scripts/capture_creative_journey.mjs.
