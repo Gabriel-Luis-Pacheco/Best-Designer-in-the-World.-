@@ -1,8 +1,8 @@
-# Design OS Prime v9.8 — Best Designer in the World
+# Design OS Prime v11.1 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão 9.8 — Creative Commerce sem perder a 9.7
+## Histórico — V9.8 Creative Commerce sem perder a V9.7
 O teste RESONANCE foi relatado pelo usuário como uma vitória expressiva da skill, mas os artefatos e logs da nova execução ainda não foram enviados, portanto **não se alega validação independente**. Esta atualização é deliberadamente focada em proteção contra regressões: diferencia experiência artística pura, landing comercial imersiva e sistemas/checkout; classifica criação nova como construção em vez de refinamento; prioriza referências realmente úteis; sincroniza versões e fortalece testes. Consulte `references/experiential-commerce.md` dentro da skill.
 
 **61 casos de avaliação**, sem benchmark cego independente publicado.
