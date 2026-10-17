@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#181e1b"><meta name="description" content="VESPER — an independent fictional interactive study in light and ceramic forms.">
+<title>VESPER — The shape of light (fictional studio study)</title>
+<style>
+:root{color-scheme:dark;--deep:#17201c;--night:#111b17;--bone:#e8e3d5;--ember:#f2b86c;--rust:#ac5439;--moss:#83937a;--line:#8c9786;--angle:130deg;--fold:0deg}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--deep);color:var(--bone);font:16px/1.45 system-ui,-apple-system,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}button,input{font:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ember);outline-offset:5px}::selection{background:var(--ember);color:var(--deep)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(100%);white-space:nowrap}
+.wrap{max-width:1440px;margin-inline:auto;width:calc(100% - 80px)}.kicker{font-weight:750;text-transform:uppercase;letter-spacing:.16em;font-size:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:900 26px/.9 Impact,'Arial Narrow',sans-serif;letter-spacing:.15em}.brand:before{content:"";display:block;width:21px;height:21px;background:var(--ember);clip-path:polygon(50% 0,95% 100%,5% 100%)}
+nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 0;border-bottom:1px solid #59685d}nav .links{display:flex;gap:30px}nav .links a{text-decoration:none;text-transform:uppercase;letter-spacing:.11em;font-size:11px;font-weight:800}
+h1,h2,p{margin-top:0}h1,h2{font-weight:900;font-family:Impact,'Arial Narrow',system-ui,sans-serif;text-transform:uppercase;letter-spacing:-.035em;line-height:.92}
+h1{font-size:clamp(5.5rem,12.3vw,13.2rem);max-width:7ch;margin:38px 0 35px}h1 em,h2 em{font:italic 400 1.06em/.85 Georgia,serif;text-transform:none;letter-spacing:-.08em;color:var(--ember)}
+button{cursor:pointer}.hero{position:relative;min-height:min(940px,100svh);padding:76px 0 85px;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:2vw}
+.hero .intro{z-index:2}.bodycopy{font-size:clamp(1.02rem,1.4vw,1.27rem);max-width:430px;color:#b8c2b6;line-height:1.6}
+.marker{color:var(--ember)}.scrollcue{display:flex;align-items:center;gap:12px;margin-top:55px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.scrollcue span{height:1px;width:46px;background:var(--ember)}
+.objstage{position:relative;min-width:0;height:clamp(350px,54vw,740px);display:grid;place-items:center;isolation:isolate}
+.objstage:before{content:"";position:absolute;width:88%;aspect-ratio:1;border:1px solid #617568;opacity:.5;border-radius:50%}
+.objstage:after{content:"";position:absolute;width:114%;aspect-ratio:1;border:1px dashed #6b806d;opacity:.35;border-radius:50%}
+.sculpture{--spread:0;position:relative;width:min(100%,670px);aspect-ratio:1;filter:drop-shadow(0 18px 40px #0006);transform:rotate(-18deg)}
+.hero .sculpture{width:min(86%,600px)}.hero .objstage:after{width:100%}
+.sculpture .glow{position:absolute;inset:18%;background:radial-gradient(circle,#ffdb97 0%,#e6a64d 13%,#ad724966 30%,transparent 58%);filter:blur(13px);border-radius:50%;mix-blend-mode:screen}
+.sculpture .fin{position:absolute;width:43%;height:72%;left:29%;top:14%;clip-path:polygon(45% 0,96% 8%,70% 39%,97% 89%,63% 100%,20% 77%,2% 29%);
+background:linear-gradient(var(--angle),#fff4d8 0%,#d0c3a6 23%,#665c4b 52%,#efdfbc 73%,#9c826b 100%);box-shadow:inset 0 0 40px #fff3;transition:transform .8s cubic-bezier(.2,.8,.2,1);transform-origin:center}
+.sculpture .fin.one{transform:translate(calc(-29% - var(--spread)*.16px),-9%) rotate(calc(-34deg - var(--spread)*.4deg))}
+.sculpture .fin.two{transform:translate(calc(25% + var(--spread)*.2px),4%) rotate(calc(35deg + var(--spread)*.55deg));filter:brightness(.82)}
+.sculpture .fin.three{transform:translate(0,calc(16% + var(--spread)*.18px)) rotate(calc(180deg - var(--spread)*.32deg));filter:brightness(.65)}
+.sculpture .core{position:absolute;left:44%;top:44%;width:12%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fff5c3,#f6af46 45%,#9a4420 90%);box-shadow:0 0 35px 25px #ffb34c6e,0 0 100px 55px #efb8793a}
+.sculpture .axis{position:absolute;inset:9%;border-radius:50%;border:1px solid #ffffff25;pointer-events:none}
+.undertone{position:absolute;bottom:35px;right:0;writing-mode:vertical-rl;letter-spacing:.14em;color:#93a394;font-size:11px}
+.transition{min-height:700px;background:#d6d2c5;color:#25302a;position:relative;overflow:hidden;display:grid;align-items:center;padding:105px 0}
+.transition:before{content:"02 / THE HINGE";position:absolute;top:35px;left:max(40px,calc((100% - 1360px)/2));letter-spacing:.15em;font:800 11px system-ui}
+.transition .inner{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:center}
+.transition h2{font-size:clamp(5rem,9vw,10rem);max-width:7ch}.transition h2 em{color:#a45135}
+.transition .sub{font-size:clamp(1.15rem,2vw,1.8rem);max-width:31ch;line-height:1.4;margin-top:35px}
+.diagram{height:510px;position:relative;display:grid;place-items:center;border-left:1px solid #717e69}
+.diagram .sculpture{transform:rotate(48deg) scale(1.04);filter:grayscale(1) contrast(1.2);--spread:36}
+.diagram:after{content:"MOTION AS MATERIAL";position:absolute;bottom:0;right:0;font-size:11px;letter-spacing:.2em;font-weight:800}
+.lab{min-height:950px;background:var(--deep);padding:100px 0 125px;position:relative;overflow:hidden;isolation:isolate}
+.lab:before{content:"";position:absolute;inset:-12%;background:radial-gradient(circle at var(--light-x,70%) 52%,#b47c4455 0%,transparent 35%);z-index:-1;pointer-events:none;transition:background .2s}
+.lab .top{display:flex;justify-content:space-between;align-items:start;gap:25px;margin-bottom:45px}
+.lab h2{font-size:clamp(5.2rem,10vw,11rem);max-width:10ch;margin:26px 0}.lab h2 em{color:var(--ember)}
+.lab .top p{max-width:300px;color:#acb7ac;padding-top:20px}
+.controlstage{display:grid;grid-template-columns:minmax(0,1fr) 350px;align-items:center;gap:60px;border-top:1px solid #597263}
+.controlstage .objstage{height:650px;max-width:780px}.controlstage .sculpture{transform:rotate(-2deg);--spread:var(--expansion,0)}
+.controlstage .objstage:after{border-style:solid}
+.controls{padding:30px 0;position:relative;z-index:1}.controls label{display:block;font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.13em;margin-bottom:24px}
+.controls input{width:100%;accent-color:var(--ember);height:40px;cursor:pointer}.scale{display:flex;justify-content:space-between;color:#bbc8b8;text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+.controls .reading{font:italic 400 clamp(2.7rem,4vw,4.5rem)/1 Georgia,serif;color:var(--ember);margin:28px 0}
+.controls .desc{max-width:32ch;color:#bfcbbf;line-height:1.65}
+.controls .reset{margin-top:25px;background:transparent;border:1px solid #b4bfb1;border-radius:0;color:var(--bone);font-size:12px;padding:15px 23px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.controls .reset:hover{background:var(--bone);color:var(--night)}
+.climax{min-height:820px;background:#a9583e;color:#1b261e;display:grid;align-items:center;text-align:center;padding:120px 0;position:relative;overflow:hidden}
+.climax:before{content:"";position:absolute;width:min(74vw,950px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#f8c18588 0%,#f5ab784d 22%,transparent 63%);filter:blur(20px)}
+.climax .wrap{position:relative;z-index:1}.climax .afterform{position:absolute;left:50%;top:34%;width:min(95vw,1100px);transform:translate(-50%,-50%) rotate(-15deg) scale(1.2);opacity:.25;filter:grayscale(1) contrast(1.15);z-index:0;pointer-events:none}.climax .wrap>h2,.climax .wrap>.signature,.climax .wrap>.kicker{position:relative;z-index:1}.climax h2{font-size:clamp(5.6rem,12.5vw,13rem);margin:22px auto 42px;max-width:12ch}
+.climax h2 em{color:#f9d6a9}.climax .signature{border-top:2px solid #663c2a;border-bottom:2px solid #663c2a;padding:35px 0;max-width:880px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;text-align:left}
+.climax .signature strong{font:italic 400 clamp(1.9rem,4.2vw,4rem) Georgia,serif;line-height:1.1}
+.climax .signature span{font-size:11px;text-transform:uppercase;letter-spacing:.16em;max-width:180px}
+.ending{background:var(--bone);color:#233028;padding:95px 0}.ending .flex{display:grid;grid-template-columns:1fr 1fr;gap:20%;align-items:end}
+.ending h2{font-size:clamp(4.8rem,10vw,10rem);margin:14px 0 0}.ending h2 em{color:#a45135}
+.ending .legal{font-size:1.1rem;line-height:1.6;max-width:36ch}.ending .footerline{border-top:1px solid #71806b;margin-top:80px;padding-top:25px;display:flex;justify-content:space-between;font-size:12px;gap:15px}
+@media(max-width:1000px){.wrap{width:calc(100% - 48px)}.hero{grid-template-columns:1fr;min-height:0;gap:10px;padding:50px 0 100px}.hero .objstage{height:590px}.transition .inner{grid-template-columns:1fr}.transition .diagram{border:0}.controlstage{grid-template-columns:1fr;gap:10px}.controlstage .objstage{height:560px}.controls{max-width:600px}}
+@media(max-width:620px){.wrap{width:calc(100% - 36px)}nav{padding:18px 0}.links{gap:12px!important}.links a{font-size:10px!important}h1{font-size:clamp(4.6rem,19vw,7.2rem);margin:28px 0}.hero{padding:38px 0 60px}.hero .objstage{height:380px}.objstage:after{display:none}.transition{padding:70px 0;min-height:0}.transition h2{font-size:clamp(4.7rem,17vw,6.5rem)}.transition .diagram{height:380px}.lab{padding:72px 0}.lab .top{display:block}.lab h2{font-size:clamp(4.8rem,16vw,7.6rem)}.controlstage .objstage{height:380px}.climax{min-height:630px;padding:85px 0}.climax h2{font-size:clamp(3.8rem,12vw,7rem);overflow-wrap:break-word}.climax .signature{flex-direction:column;text-align:center}.ending{padding:70px 0}.ending .flex{grid-template-columns:1fr;gap:36px}.ending h2{font-size:clamp(5rem,16vw,8rem)}.ending .footerline{margin-top:60px;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sculpture .fin,.lab:before{transition:none}}
+</style></head><body>
+<div class="wrap"><nav aria-label="Main"><a class="brand" href="#opening">VESPER</a><div class="links"><a href="#hinge">The hinge</a><a href="#light-lab">Explore light</a></div></nav></div>
+<main>
+<section id="opening" class="hero wrap" aria-labelledby="hero-title"><div class="intro"><span class="kicker marker">01 / a study in equilibrium</span><h1 id="hero-title">Light has a <em>second</em> skin.</h1><p class="bodycopy">Three ceramic fins. One luminous center. A fictional instrument that studies how matter carries light.</p><div class="scrollcue"><span aria-hidden="true"></span>Explore the structure below</div></div>
+<div class="objstage"><div class="sculpture" data-object aria-hidden="true"></div><span class="undertone" aria-hidden="true">VESPER / FORM 001 — CONCEPT ONLY</span></div></section>
+<section id="hinge" class="transition" aria-labelledby="hinge-title"><div class="wrap inner"><div><h2 id="hinge-title">A form that <em>unfolds.</em></h2><p class="sub">The same three pieces cast different shadows when they separate. The object never changes identity; only its balance does.</p></div><div class="diagram"><div class="sculpture" data-object aria-hidden="true"></div></div></div></section>
+<section id="light-lab" class="lab" aria-labelledby="lab-title"><div class="wrap"><div class="top"><div><span class="kicker marker">03 / the instrument</span><h2 id="lab-title">Move the <em>light.</em></h2></div><p>A small change in angle opens the ceramic structure. Try it. Nothing is generated by an AI; this is a local visual simulation.</p></div><div class="controlstage"><div class="objstage"><div class="sculpture" data-object aria-hidden="true"></div></div><div class="controls">
+<label for="light-angle">Light angle / unfold the fins</label><div class="scale"><span>Closed</span><span>Open</span></div>
+<input id="light-angle" type="range" min="0" max="100" value="28" step="1" aria-describedby="light-help">
+<output id="light-reading" class="reading" for="light-angle" aria-live="polite">28° / Held</output>
+<p id="light-help" class="desc">Move the slider with a finger or arrow keys. The structure and final reflection change with your choice.</p>
+<button class="reset" type="button" id="reset-light">Return to balance ↶</button></div></div></div></section>
+<section id="afterglow" class="climax" aria-labelledby="climax-title"><div class="wrap"><span class="kicker">04 / the afterimage</span>
+<div class="sculpture afterform" data-object aria-hidden="true"></div><h2 id="climax-title">The shape <em>remembers.</em></h2>
+<div class="signature" role="status" aria-live="polite"><strong id="signature-text">Light held at 28°.</strong><span id="signature-note">You shaped the final reflection. No account. No export. Just an afterimage.</span></div></div></section>
+<section id="ending" class="ending" aria-labelledby="end-title"><div class="wrap"><div class="flex"><div><span class="kicker">05 / close the study</span><h2 id="end-title">Let it <em>rest.</em></h2></div><div class="legal"><p>VESPER is a fictional interaction study, not an available light product. Every form and scene is a self-contained HTML/CSS experiment.</p><a href="#light-lab">Return to your light setting ↑</a></div></div><div class="footerline"><span>VESPER / independent creative exercise</span><span>No sales. No sensor data. No fake performance claims.</span></div></div></section>
+</main>
+<script>
+const markup='<div class="glow"></div><div class="fin one"></div><div class="fin two"></div><div class="fin three"></div><div class="core"></div><div class="axis"></div>';
+document.querySelectorAll('[data-object]').forEach(el=>{el.innerHTML=markup});
+const slider=document.getElementById('light-angle'),reading=document.getElementById('light-reading'),signature=document.getElementById('signature-text'),note=document.getElementById('signature-note'),lab=document.getElementById('light-lab');
+function update(){const x=Number(slider.value),status=x<33?'Held':x<67?'Opening':'Radiant';
+lab.style.setProperty('--expansion',String(x));lab.style.setProperty('--light-x',String(18+Math.round(x*.64))+'%');
+for (const root of [lab,document.getElementById('afterglow')]) {
+  root.querySelectorAll('.fin.one').forEach(e=>e.style.transform='translate('+(-29-x*.16)+'%, -9%) rotate('+(-34-x*.4)+'deg)');
+  root.querySelectorAll('.fin.two').forEach(e=>e.style.transform='translate('+(25+x*.2)+'%, 4%) rotate('+(35+x*.55)+'deg)');
+  root.querySelectorAll('.fin.three').forEach(e=>e.style.transform='translate(0%, '+(16+x*.18)+'%) rotate('+(180-x*.32)+'deg)');
+}
+document.documentElement.style.setProperty('--angle',String(80+Math.round(x*1.8))+'deg');
+reading.value=x+'° / '+status;reading.textContent=x+'° / '+status;
+signature.textContent='Light '+status.toLowerCase()+' at '+x+'°.';
+note.textContent=x>66?'A wide form. A bright afterimage.':x<33?'A compact form. A quiet afterimage.':'Three fins finding a new balance.';
+}
+slider.addEventListener('input',update);document.getElementById('reset-light').addEventListener('click',()=>{slider.value='28';update();slider.focus()});update();
+</script></body></html>

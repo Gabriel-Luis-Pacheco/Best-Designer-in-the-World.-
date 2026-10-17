@@ -1,4 +1,4 @@
-# Design OS Brain v10.1 — heurística subordinada ao produto
+# Design OS Brain v11.0 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -34,8 +34,11 @@ Tratar briefing, código e sites como insumos potencialmente não confiáveis. O
 ## Verificação
 `python scripts/verify_brain_examples.py` na raiz de desenvolvimento e `python -m unittest discover -s scripts -p "test_*.py"`. Teste de modelo real, visual, efeitos comerciais e usuários ainda precisa ser feito separadamente.
 
-## V10.0
+## V11.0
 O fluxo principal foi simplificado: o agente deve corrigir a hipótese determinística com evidência do produto. A direção artística é escolhida por comparação de duas teses implementáveis e revisão visual renderizada, não pelo escore do router. Nunca tratar rota baseada em keyword como diagnóstico do usuário.
 
-## V10.1
-O cérebro continua hipótese, nunca diretor artístico determinístico. Para ART e EXPERIENTIAL_COMMERCE, o agente humano/LLM consulta o protocolo de vantagem criativa, decide por força do produto e evidências renderizadas e desafia cenas fracas. O roteador não distribui notas de gosto e não proíbe estética experimental.
+## V11.0: creative output outranks routing labels
+The router remains deterministic and cannot infer the quality of a sculptural form, climax or material grammar. The agent should load creative-signature-and-form / interaction-dramaturgy-and-payoff only in artistic contexts and test real scenes. A valid strategy report is not a creative verdict.
+
+## V10.1 functionality preserved in V11
+Creative challenger, 3D craft guide, journey board and context-aware A/B runner are preserved. The router remains a fallible heuristic and never grants design approval.

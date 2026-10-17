@@ -1,0 +1,48 @@
+{
+  "url": "http://127.0.0.1:4173/examples/conversaboa-editorial-alternative.html",
+  "output": "test-results/creative-journey",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "frames": [
+    {
+      "id": "opener",
+      "selector": ".hero"
+    },
+    {
+      "id": "transition",
+      "selector": "#ensaio"
+    },
+    {
+      "id": "gesture",
+      "selector": "#ensaio",
+      "action": {
+        "type": "click",
+        "selector": "#tab-2"
+      }
+    },
+    {
+      "id": "middle",
+      "selector": ".progress"
+    },
+    {
+      "id": "decision",
+      "selector": "#precos"
+    },
+    {
+      "id": "ending",
+      "selector": "footer"
+    }
+  ],
+  "reduced_motion": false,
+  "allow_animations": false
+}

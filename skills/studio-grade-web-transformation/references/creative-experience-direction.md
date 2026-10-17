@@ -46,3 +46,6 @@ First, identify what is specific to this artwork. Then maximize **the emotional 
 
 ## Evidence
 Browser snapshots, recorded interactions and review scores must be actual artifacts; a storyboard written in Markdown is not proof of implementation. Benchmark superiority requires blinded comparisons against a matched unskilled baseline. See references/full-page-craft-review.md.
+
+## V11 addendum — learn from losing well
+A coherent artistic experience must carry its signature through **five beats**, not deliver all invention in the first viewport. Differentiate formal shape, materials and agency early (see `creative-signature-and-form.md`), build a second visual thesis, and prove at least opener and mid/climax in pixels. Design a finale with meaningful consequence (see `interaction-dramaturgy-and-payoff.md`). Do not impose a ring, neon color, SVG export or 3D framework from any single successful example.

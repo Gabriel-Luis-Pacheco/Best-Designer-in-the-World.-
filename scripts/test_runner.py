@@ -56,7 +56,7 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-advantage-loop.md",prompt)
         self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",prompt)
         cases=json.loads((ROOT/"evals/evals.json").read_text(encoding="utf-8"))["evals"]
-        case=next(c for c in cases if c["id"]==53)
+        case=next(c for c in cases if c["name"]=="Do not apply immersion rituals to an internal finance dashboard")
         operational=build_prompt(case,"with_skill")
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-advantage-loop.md",operational)
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",operational)

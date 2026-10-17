@@ -22,5 +22,11 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 
 Ferramenta estratégica: `python skills/studio-grade-web-transformation/brain/route.py skills/studio-grade-web-transformation/brain/examples/fintech-landing.json`. Ver `docs/V95_ARCHITECTURE.md`. 
 
-## V10.0: menos ritual, mais execução
+## V11.0: menos ritual, mais execução
 Para rebuilds: autópsia da página → duas direções → implementar abertura/miolo/fecho → capturar desktop/mobile → corrigir pior trecho → recapturar. Veja `references/creative-production-loop.md` e `references/brand-fidelity-review.md`.
+
+## V11.0: RESONANCE method
+For artistic REDESIGN/REBUILD, choose two different *formal* hypotheses, build a middle and ending as seriously as the hero, inspect five rendered frames and recover from failed full-page captures. Review the best rival direction without bias. Do not impose this ceremony on PATCH or routine dashboards.
+
+## V10.1 methods preserved
+For authored interactive products also consult creative-advantage-loop.md, immersive-3d-product-direction.md and SCENE_CHALLENGE.md. Offline journey_board.py complements the reproducible capture and pair-review V11 tools.

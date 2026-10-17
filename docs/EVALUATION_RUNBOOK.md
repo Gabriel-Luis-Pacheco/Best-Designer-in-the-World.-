@@ -1,10 +1,10 @@
-# Design OS Prime v10.1 — guia de avaliação
+# Design OS Prime v11.0 — guia de avaliação
 
 ## Validade antes da qualidade
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
 
 ## Estado comprovável
-Existem 54 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
+Existem 61 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
 ## Execução
 ```bash
@@ -52,8 +52,14 @@ Não usar URLs inventadas, entrevistas simuladas, screenshots falsas, dados inex
 ## V9.8 — contexto artístico, comercial e operacional integrados
 O runner injeta um plano determinístico de intenção e seleção contextual de até quatro referências portáteis na condição com skill. A condição sem skill recebe o mesmo prompt e fixtures, mas não recebe o motor. Os dois workspaces são separados; isso não isola contas de agente, rede ou sistema operacional. O arquivo emitido é uma hipótese, nunca observação de negócio. Para medir qualidade visual, rode o agente, implemente o resultado num browser autorizado e peça avaliação humana cega dos artefatos equivalentes.
 
-## V10.0 — evidence boards
+## V11.0 — evidence boards
 A revisão visual deve incluir ao menos abertura, seção média, encerramento e mobile com **duas iterações renderizadas** quando for uma reconstrução importante. Use `scripts/visual_review_packet.py` na skill instalada para montar comparação de PNGs; o painel não julga estética. Use `scripts/asset_board.py` para investigar mascotes e imagens canônicas. Uma comparação A/B da skill exige execução isolada por variante e avaliação humana cega; não use o conceito fictício como prova de superioridade comercial.
 
-## V10.1 — competição criativa sem falsear a avaliação
-Os novos casos incluem reconhecimento do produto versus abstração, qualidade do miolo e encerramento, integridade em sistemas operacionais e artefato final honesto. O script portátil `journey_board.py` compara quadros por etapa e marca diferenças de viewport/estado/ausência. **Não julga beleza.** O teste RESONANCE registrado como V6.1 local não prova desempenho da v10.0/v10.1; exigir hash/leitura real do pacote em novos testes.
+## V11.0 — comparação justa de criatividade
+Antes de comparar, confirmar skill carregada via trace e hash; mesma entrada/modelo/ferramentas/tempo/condições independentes. Capturar cinco estados visuais equivalentes (opening, first transformation, middle, climax, ending) em desktop e mobile, incluindo interações de verdade. Em cenas pinned/WebGL, não usar captura full-page isolada como evidência conclusiva. Revisor cego deve separar qualidade técnica/QA de autoria de forma, materialidade, interação e payoff. O baseline sem skill pode vencer. Publicar perdas e incertezas.
+
+### Blind journey pairing — V11.0
+Capture both conditions at same viewport, reduced-motion and planned semantic scene IDs, using local authorized projects. Run `python scripts/compare_creative_journeys.py --a WITH/manifest.json --b WITHOUT/manifest.json --out output/pair`. It verifies screenshot paths and hashes, viewport and frame coverage, and produces an anonymized A/B image board. The invocation order determines A/B; keep identity mapping outside reviewer materials. Matching screenshots do not prove same model, time budget, prompt, user state, network, interactions or cognition — verify those separately via the A/B trace controls and documented test procedure.
+
+## V10.1 + V11 reconciliadas
+A rubrica preserva quatro dimensões opcionais para trabalhos experienciais — reconhecimento de produto, continuidade de cenas, agência interativa e clímax/encerramento — mais a revisão de assinaturas formal/material/comportamental da V11. Condições são apropriadas ao objetivo; não penalizar dashboards sem clímax. As quatro avaliações da V10.1 continuam, renumeradas 58–61.

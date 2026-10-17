@@ -1,3 +1,14 @@
+## 11.0.0 — 2026-10-17 — RESONANCE creative ceiling
+
+- Treats the provided RESONANCE V6.1-vs-no-skill comparison as an ARTISTIC DIAGNOSTIC, **not causal proof or a V10/V11 benchmark**.
+- Adds three creative specialist references: formal/material/behavioral signature, interaction dramaturgy + contextual payoff, reproducible evidence across five scenes.
+- Makes the core creative route challenge two genuinely different rendered theses and reject hero-only brilliance, repeated title/widget panels and endings that fail to repay attention.
+- Adds A/B screenshot-pairing validator with strict hashes, matched scenes, viewport/motion conditions, and an unlabeled human review board; no winner is assigned.
+- Adds optional portable Playwright `scripts/capture_creative_journey.mjs` supporting scripted scene selectors, clicks, scroll offsets, fixed viewport capture, hashes, warnings and contact.html. It captures locally served pages only and is NOT an automatic art grader.
+- Adds VESPER, an original fictional multi-scene responsive HTML/CSS/JS light-object example whose gesture affects the final scene. Uses no original RESONANCE assets.
+- Adds `FIVE_FRAME_CREATIVE_REVIEW.md` and a detailed no-fake-causality RESONANCE learning report. Expands 50 → **57 evaluation scenarios** with synthetic creative-object fixture.
+- Extends browser CI to test new example, keyboard/reduced motion/scene capture. No claim of superior art, Awwwards wins, conversions or user outcomes without independent matched trials.
+
 ## v10.1.0 — Creative Advantage (2026-10-17)
 
 - High-ambition ART/EXPERIENTIAL_COMMERCE: competitive visual thesis selection, strongest-rival critique, true product recognition and a richer full-journey climax/closing. Scope remains proportional for operational UI and patches.
