@@ -21,3 +21,6 @@ Exemplo de configuração em tests/browser/creative-journey.sample.json. Substit
 - MISSING_SCENE ou FAILED_CAPTURE exige retestar; não aprovar.
 - Repetição de imagem = REVIEW_DUPLICATE_FRAMES; verificar pin/canvas/movimento antes de acusar falha.
 - Em A/B com skill e sem skill, aplicar mesmo roteiro de viewport/gestos, ambiente e recursos, e avaliar independentemente.
+
+## V11.1 state-integrity rule
+A captured frame with an action must declare an explicit semantic `intent` and a `state` observation (text/value/aria-selected); matching screenshots without matching gesture meaning are not a valid A/B. The capturer fails closed on browser runtime errors, denied external resources and observed state mismatch. Request outside-local resources only with explicit `allow_external_requests: true` for a controlled, trusted project; record this condition for both variants.
