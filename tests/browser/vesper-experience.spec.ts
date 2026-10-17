@@ -49,6 +49,9 @@ test('VESPER five beat journey captures real frames and metadata',async()=>{
   expect(result.count).toBe(12);
   const report=JSON.parse(await readFile('test-results/vesper-journey/manifest.json','utf8'));
   expect(report.frames.some((f:{id:string})=>f.id==='climax')).toBeTruthy();
+  const mid=report.frames.filter((f:{id:string})=>f.id==='middle');
+  expect(mid).toHaveLength(2);
+  expect(mid.every((f:{elementRect:{top:number}})=>Math.abs(f.elementRect.top)<=3)).toBeTruthy();
   expect(report.frames.every((f:{sha256:string,bytes:number})=>f.sha256.length===64&&f.bytes>1000)).toBeTruthy();
   expect(report.status).toBe('CAPTURED_FOR_HUMAN_REVIEW');
 });
