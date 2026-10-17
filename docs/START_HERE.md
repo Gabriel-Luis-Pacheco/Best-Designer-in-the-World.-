@@ -1,4 +1,4 @@
-# Comece aqui — Design OS Prime v9.5
+# Design OS Prime v11.1 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
