@@ -4,7 +4,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
-from run_evals import ROOT, build_prompt, execute
+from run_evals import ROOT, build_prompt, execute, common_task_sha256
 
 class RunnerTests(unittest.TestCase):
     @classmethod
@@ -61,6 +61,15 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-advantage-loop.md",operational)
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",operational)
 
+    def test_v11_creative_guides_really_injected(self):
+        cases=json.loads((ROOT/"evals/evals.json").read_text(encoding="utf-8"))["evals"]
+        case=next(c for c in cases if c["id"]==51)
+        b=build_prompt(case,"with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-signature-and-form.md",b)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/interaction-dramaturgy-and-payoff.md",b)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-signature-and-form.md",
+                         build_prompt(case,"without_skill"))
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "
@@ -73,6 +82,11 @@ class RunnerTests(unittest.TestCase):
             self.assertIn("CLEAN",first["stdout"])
             self.assertIn("CLEAN",second["stdout"])
             self.assertEqual(first["fixture_sha256"],second["fixture_sha256"])
+            self.assertEqual(first["task_input_sha256"],second["task_input_sha256"])
+            self.assertEqual(first["task_input_sha256"],common_task_sha256(self.case))
+            self.assertNotEqual(first["assembled_prompt_sha256"],second["assembled_prompt_sha256"])
+            self.assertEqual(second["skill_delivery"],"INLINE_IN_AGENT_INPUT_NOT_CONFIRMED_READ")
+            self.assertIn("references/applied-design-decisions.md",second["loaded_portable_references"])
             self.assertTrue(first["workspace_isolated"])
             self.assertTrue(second["workspace_isolated"])
     def test_records_outputs_without_grading(self):
