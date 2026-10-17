@@ -10,6 +10,7 @@ The prior V9.8 had broad professional design knowledge, but a long core and heav
 | Text-wall landing | Visual diagnosis playbook requires fuse/delete/rebuild by purpose, not three renamed cards | storyboard + human review |
 | Hero-only excellence | Vertical slice demands middle proof and ending; second rendered iteration reworks weak section | captured screenshots before/after |
 | Mascot drift | Portable offline `asset_board.py` for original-vs-candidate, SHA256, provenance and manual checks | unit test + generated artifact |
+| Generic copy repetition unnoticed | Portable `section_rhythm.py` reports possible text/card repetition for human inspection; not a visual score | unit tests on generic fixture and alternative |
 | Vague visual evidence | Portable `visual_review_packet.py` for matched-width PNG captures with provenance hashes | unit test + browser evidence |
 | One visual recipe | Second distinct editorial direction for fictional ConversaBoa with working keyboard-accessible state | Playwright at 390/1440 |
 | Self-congratulating evals | Adds cases on canon, full-page rebuild, divergent art; keep `UNKNOWN` for not observed | 50-case schema validation |
