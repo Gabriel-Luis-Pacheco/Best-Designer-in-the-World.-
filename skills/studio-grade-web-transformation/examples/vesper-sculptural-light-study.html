@@ -52,7 +52,7 @@ background:linear-gradient(var(--angle),#fff4d8 0%,#d0c3a6 23%,#665c4b 52%,#efdf
 .controls .reset:hover{background:var(--bone);color:var(--night)}
 .climax{min-height:820px;background:#a9583e;color:#1b261e;display:grid;align-items:center;text-align:center;padding:120px 0;position:relative;overflow:hidden}
 .climax:before{content:"";position:absolute;width:min(74vw,950px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#f8c18588 0%,#f5ab784d 22%,transparent 63%);filter:blur(20px)}
-.climax .wrap{position:relative;z-index:1}.climax h2{font-size:clamp(5.6rem,12.5vw,13rem);margin:22px auto 42px;max-width:12ch}
+.climax .wrap{position:relative;z-index:1}.climax .afterform{position:absolute;left:50%;top:34%;width:min(95vw,1100px);transform:translate(-50%,-50%) rotate(-15deg) scale(1.2);opacity:.17;filter:grayscale(1);z-index:0;pointer-events:none}.climax .wrap>h2,.climax .wrap>.signature,.climax .wrap>.kicker{position:relative;z-index:1}.climax h2{font-size:clamp(5.6rem,12.5vw,13rem);margin:22px auto 42px;max-width:12ch}
 .climax h2 em{color:#f9d6a9}.climax .signature{border-top:2px solid #663c2a;border-bottom:2px solid #663c2a;padding:35px 0;max-width:880px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;text-align:left}
 .climax .signature strong{font:italic 400 clamp(1.9rem,4.2vw,4rem) Georgia,serif;line-height:1.1}
 .climax .signature span{font-size:11px;text-transform:uppercase;letter-spacing:.16em;max-width:180px}
@@ -75,7 +75,7 @@ background:linear-gradient(var(--angle),#fff4d8 0%,#d0c3a6 23%,#665c4b 52%,#efdf
 <p id="light-help" class="desc">Move the slider with a finger or arrow keys. The structure and final reflection change with your choice.</p>
 <button class="reset" type="button" id="reset-light">Return to balance ↶</button></div></div></div></section>
 <section id="afterglow" class="climax" aria-labelledby="climax-title"><div class="wrap"><span class="kicker">04 / the afterimage</span>
-<h2 id="climax-title">The shape <em>remembers.</em></h2>
+<div class="sculpture afterform" data-object aria-hidden="true"></div><h2 id="climax-title">The shape <em>remembers.</em></h2>
 <div class="signature" role="status" aria-live="polite"><strong id="signature-text">Light held at 28°.</strong><span id="signature-note">You shaped the final reflection. No account. No export. Just an afterimage.</span></div></div></section>
 <section id="ending" class="ending" aria-labelledby="end-title"><div class="wrap"><div class="flex"><div><span class="kicker">05 / close the study</span><h2 id="end-title">Let it <em>rest.</em></h2></div><div class="legal"><p>VESPER is a fictional interaction study, not an available light product. Every form and scene is a self-contained HTML/CSS experiment.</p><a href="#light-lab">Return to your light setting ↑</a></div></div><div class="footerline"><span>VESPER / independent creative exercise</span><span>No sales. No sensor data. No fake performance claims.</span></div></div></section>
 </main>
@@ -85,6 +85,11 @@ document.querySelectorAll('[data-object]').forEach(el=>{el.innerHTML=markup});
 const slider=document.getElementById('light-angle'),reading=document.getElementById('light-reading'),signature=document.getElementById('signature-text'),note=document.getElementById('signature-note'),lab=document.getElementById('light-lab');
 function update(){const x=Number(slider.value),status=x<33?'Held':x<67?'Opening':'Radiant';
 lab.style.setProperty('--expansion',String(x));lab.style.setProperty('--light-x',String(18+Math.round(x*.64))+'%');
+for (const root of [lab,document.getElementById('afterglow')]) {
+  root.querySelectorAll('.fin.one').forEach(e=>e.style.transform='translate('+(-29-x*.16)+'%, -9%) rotate('+(-34-x*.4)+'deg)');
+  root.querySelectorAll('.fin.two').forEach(e=>e.style.transform='translate('+(25+x*.2)+'%, 4%) rotate('+(35+x*.55)+'deg)');
+  root.querySelectorAll('.fin.three').forEach(e=>e.style.transform='translate(0%, '+(16+x*.18)+'%) rotate('+(180-x*.32)+'deg)');
+}
 document.documentElement.style.setProperty('--angle',String(80+Math.round(x*1.8))+'deg');
 reading.value=x+'° / '+status;reading.textContent=x+'° / '+status;
 signature.textContent='Light '+status.toLowerCase()+' at '+x+'°.';
