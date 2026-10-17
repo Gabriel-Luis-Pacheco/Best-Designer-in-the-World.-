@@ -18,6 +18,13 @@ for(const width of [390,1440]){
     const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:/Exportar resultados CSV/}).click()]);
     expect(download.suggestedFilename()).toBe('ledger-conferencia-ficticia.csv');
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+    if(overflow>2){
+      const offenders=await page.evaluate(()=>[...document.querySelectorAll('body *')].map(el=>{
+        const r=el.getBoundingClientRect();return {tag:el.tagName,className:String(el.className).slice(0,60),
+          right:Math.round(r.right),left:Math.round(r.left),width:Math.round(r.width)};
+      }).filter(x=>x.right>window.innerWidth+2).sort((a,b)=>b.right-a.right).slice(0,12));
+      console.log('LEDGER_OVERFLOW_'+width,JSON.stringify(offenders));
+    }
     expect(overflow).toBeLessThanOrEqual(2);
     const screenshot=await page.screenshot({fullPage:true,animations:'disabled'});
     await info.attach('ledger-'+width+'.png',{body:screenshot,contentType:'image/png'});
