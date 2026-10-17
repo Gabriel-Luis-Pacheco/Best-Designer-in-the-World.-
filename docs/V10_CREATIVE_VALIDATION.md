@@ -34,7 +34,7 @@ Screenshots must be from an actual browser at the same viewport and comparable s
 - Direction A: `examples/conversaboa-concept.html` — conversation as a stage with a dramatic dark proof panel.
 - Direction B: `examples/conversaboa-editorial-alternative.html` — typographic learning-notebook visual grammar, dynamic scene tabs and timeline.
 
-Both belong to a **fictional** text-only service with fictional prices from the same brief. Neither is evidence of better conversion, user comprehension or winning a design award. They demonstrate two materially different hypotheses and browser-testable behavior. The visual judgment still needs a competent reviewer.
+A first editorial heading that could imply audio was corrected, and an audio-wave decoration in legacy Direction A was replaced with a truthful text-only label. This is a deliberate example of the microcraft/product-truth review gate.\n\nBoth belong to a **fictional** text-only service with fictional prices from the same brief. Neither is evidence of better conversion, user comprehension or winning a design award. They demonstrate two materially different hypotheses and browser-testable behavior. The visual judgment still needs a competent reviewer.
 
 ## What's not done
 No new genuine with/without-skill A/B across a real product, matched tools, independent blind raters and multiple repetitions was run here. The CI checks technical behavior and produces review material, not aesthetic superiority. Real mascot review requires real authorized brand files in an actual product; the synthetic SVG is educational only.
