@@ -55,7 +55,8 @@ def verify_manifest(path:Path)->dict:
                        "observed_state":observed.get("value") if isinstance(observed,dict) else None,
                        "scroll_offset_px":f.get("scroll_offset_px",0)}
     return {"frames":verified,"viewports":vp,"config":{"reduced_motion":data.get("reduced_motion"),
-             "allow_animations":data.get("allow_animations")},"source":path}
+             "allow_animations":data.get("allow_animations"),
+             "allow_external_requests":data.get("allow_external_requests",False)},"source":path}
 
 def compare(left_path:Path,right_path:Path,out:Path)->dict:
     a=verify_manifest(left_path);b=verify_manifest(right_path)
