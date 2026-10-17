@@ -36,7 +36,7 @@ def verify_manifest(path:Path)->dict:
         if not raw.startswith(b"\x89PNG\r\n\x1a\n") or len(raw)>MAX_IMAGE_BYTES or len(raw)<100:
             raise ValueError("Invalid PNG evidence: "+str(key))
         width,height=struct.unpack(">II",raw[16:24])
-        if width!=vp[key[0]][0] or not 1<=height<=12000:
+        if (width,height)!=vp[key[0]]:
             raise ValueError("PNG dimensions incompatible with declared viewport: "+str(key))
         sha=hashlib.sha256(raw).hexdigest()
         if f.get("sha256")!=sha:raise ValueError("SHA mismatch: "+str(key))
