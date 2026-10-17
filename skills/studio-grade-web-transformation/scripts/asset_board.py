@@ -30,7 +30,7 @@ def load_image(path: Path) -> dict:
         # Safe default: no active/external content in the review document.
         if any(x in lowered for x in (b"<script",b"<foreignobject",b"<!entity",b"<!doctype",
                                     b"javascript:",b"data:text/html",b"onload=",b"onclick=",
-                                    b"onerror=",b"@import")) or re.search(rb"(?:href|src)\s*=\s*[\x22\x27]\s*(?:https?://|//|javascript:)", lowered):
+                                    b"onerror=",b"@import")) or re.search(rb"\bon[a-z]+\s*=", lowered) or re.search(rb"(?:href|src)\s*=\s*[\x22\x27]\s*(?:https?://|//|javascript:|file:|data:)", lowered) or re.search(rb"url\(\s*[\x22\x27]?\s*(?:https?://|//|javascript:|file:|data:)", lowered):
             raise ValueError("SVG contains external/active markup; sanitize an offline copy first")
         if b"<svg" not in lowered:
             raise ValueError("Invalid SVG content")
