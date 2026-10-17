@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f0e7">
+<title>ConversaBoa — estudo de direção B: caderno de ensaio</title>
+<style>
+:root{--ink:#202f35;--paper:#f4f0e7;--lime:#c5e283;--rust:#c85d43;--line:#a3a89c;--muted:#59696c;--black:#16252b;--cream:#fefdf5}*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.55 system-ui,-apple-system,sans-serif}
+a{color:inherit}button{cursor:pointer;font:inherit}a:focus-visible,button:focus-visible{outline:3px solid #225ddd;outline-offset:5px}
+.wrap{width:min(1320px,calc(100% - 72px));margin-inline:auto}.small{font:700 12px/1.2 system-ui;letter-spacing:.14em;text-transform:uppercase}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:7px;text-decoration:none;font:900 25px/1 system-ui;letter-spacing:-.08em}.logo i{width:15px;height:15px;display:inline-block;background:var(--rust);border-radius:3px;transform:rotate(-11deg)}
+nav{display:flex;align-items:center;gap:32px}nav a{font-weight:700;text-decoration:none}nav a:hover{text-decoration:underline}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;background:var(--black);color:var(--cream);text-decoration:none;font-weight:800;border-radius:100px;border:2px solid var(--black)}
+.pill:hover{background:#3e5557}.pill.ghost{background:transparent;color:var(--black)}.pill.ghost:hover{background:#e2e8d0}
+.kicker{display:inline-flex;align-items:center;gap:14px;font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+.kicker:before{content:"";width:27px;height:2px;background:currentColor}
+.hero{padding:95px 0 125px;display:grid;grid-template-columns:1.1fr .9fr;gap:5%;align-items:center;position:relative}
+h1,h2,h3,p{margin-top:0}h1,h2{letter-spacing:-.07em;line-height:.98}h1{font-size:clamp(4.7rem,9vw,10.5rem);max-width:10ch;margin:30px 0 30px;font-weight:950}
+h1 em,h2 em{font-family:Georgia,serif;font-weight:400;letter-spacing:-.09em}
+.hero-text{font-size:1.22rem;max-width:32rem;color:var(--muted);margin-bottom:32px}
+.note{color:var(--muted);font-size:.83rem;max-width:33rem;margin-top:15px}
+.sheet{position:relative;aspect-ratio:5 / 6;background:var(--cream);padding:8% 8% 10%;border:2px solid var(--ink);box-shadow:22px 24px 0 var(--lime);transform:rotate(3deg);overflow:hidden}
+.sheet:before{content:"";position:absolute;inset:0 0 auto;height:16px;background:repeating-linear-gradient(90deg,transparent 0 24px,var(--rust) 24px 27px,transparent 27px 52px);opacity:.65}
+.sheet .kicker{color:var(--rust)}.sheet h2{font-size:clamp(2.8rem,5vw,5.4rem);max-width:8ch;margin:26px 0}.number{font:900 clamp(8rem,18vw,15rem)/.8 Georgia,serif;letter-spacing:-.14em;color:var(--rust);position:absolute;right:13%;bottom:0;transform:rotate(-10deg);opacity:.9}
+.sheet-footer{font:750 14px/1.4 system-ui;position:absolute;bottom:24px;left:8%;max-width:15ch}
+.tape{position:absolute;background:#dcebb7a8;height:25px;width:95px;top:-12px;right:10%;transform:rotate(-15deg);z-index:1;border:1px solid #9aaa7a}
+.intro{background:var(--black);color:var(--cream);padding:110px 0}
+.intro-head{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:end;margin-bottom:60px}
+h2{font-size:clamp(3.3rem,6.6vw,8rem)}.intro-head h2{margin:22px 0 0;max-width:10ch}.intro-head p{color:#c9d2c8;max-width:23rem;font-size:1.25rem}
+.lab{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;border-top:1px solid #687c7e;padding-top:32px}
+.tabs{display:grid;align-content:start;gap:10px}.tabs button{border:1px solid #788888;background:transparent;color:var(--cream);padding:16px 14px;text-align:left;font-weight:800}
+.tabs button[aria-selected="true"]{background:var(--lime);color:var(--black);border-color:var(--lime)}
+.lab-stage{min-height:360px;background:var(--cream);color:var(--black);padding:clamp(22px,4vw,55px);display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;position:relative}
+.lab-stage:before{content:"";position:absolute;top:0;left:0;width:12px;height:100%;background:var(--rust)}
+.lab-stage blockquote{margin:0;font:400 clamp(1.8rem,4.2vw,4rem)/1.06 Georgia,serif;letter-spacing:-.05em}
+.lab-stage aside{border-left:2px solid var(--line);padding-left:26px}.lab-stage aside strong{display:block;font-size:1.2rem;margin-bottom:8px}.lab-stage aside p{font-size:1.1rem;color:var(--muted)}
+.stage-foot{margin-top:18px;display:flex;justify-content:space-between;gap:14px;color:#bfcfc8;font-size:.9rem}
+.progress{padding:110px 0 120px}.progress-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:10%;align-items:center}
+.progress h2{max-width:11ch}.progress .intro-copy{font-size:1.2rem;color:var(--muted);max-width:33rem}.path{border-left:4px solid var(--ink);padding-left:36px;position:relative}
+.point{position:relative;padding:15px 0 30px}.point:before{content:"";position:absolute;left:-49px;top:17px;width:22px;height:22px;background:var(--rust);border:3px solid var(--paper);box-shadow:0 0 0 2px var(--ink);border-radius:50%}
+.point:nth-child(2):before{background:var(--lime)}.point:nth-child(3):before{background:var(--ink)}
+.point .small{color:var(--rust)}.point h3{font-size:clamp(1.35rem,2vw,1.9rem);letter-spacing:-.04em;margin:12px 0 7px}.point p{color:var(--muted);max-width:24rem}
+.pricing{background:var(--lime);padding:110px 0 115px}.pricing-top{display:grid;grid-template-columns:1fr .7fr;gap:7%;align-items:end;margin-bottom:55px}
+.pricing-top h2{max-width:11ch;margin:15px 0 0}.pricing-top p{max-width:24rem}
+.compare{border-block:2px solid var(--black)}.price-row{display:grid;grid-template-columns:1fr 1.3fr 1fr;align-items:center;gap:30px;padding:34px 0}
+.price-row+.price-row{border-top:1px solid #7a946a}.price-row h3{font-size:2.1rem;margin:0}.price-row p{margin:0;max-width:28ch}.price-row b{font-size:2rem;letter-spacing:-.05em}
+.truth{font-size:.9rem;max-width:57rem;margin-top:30px}
+footer{padding:48px 0;display:flex;justify-content:space-between;gap:20px}footer p{max-width:33rem;font-size:.84rem;color:var(--muted)}
+@media(max-width:980px){.hero{grid-template-columns:1fr;gap:65px}.sheet{width:min(520px,90%);margin-inline:auto}.intro-head,.progress-grid,.pricing-top{grid-template-columns:1fr}.lab-stage{grid-template-columns:1fr}.progress-grid{gap:35px}}
+@media(max-width:700px){.wrap{width:calc(100% - 36px)}header{padding:18px 0}nav{gap:14px}nav a{font-size:.85rem}nav .pill{min-height:40px;padding:8px 12px}
+.hero{padding:60px 0 88px;gap:55px}h1{font-size:clamp(4rem,17vw,6.6rem)}.sheet{box-shadow:10px 13px 0 var(--lime);width:min(95%,450px)}.sheet .number{font-size:10rem}.intro,.progress,.pricing{padding:80px 0}
+.intro-head{margin-bottom:40px}.intro-head p{font-size:1.08rem}.lab{grid-template-columns:1fr;gap:20px}.tabs{grid-template-columns:repeat(3,1fr);gap:6px}.tabs button{font-size:.78rem;padding:12px 8px;text-align:center}
+.lab-stage{min-height:315px;gap:25px}.lab-stage aside{padding-left:16px}.price-row{grid-template-columns:1fr;gap:10px}.price-row p{max-width:none}.price-row b{font-size:1.8rem}footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sheet{transform:none}}
+</style></head>
+<body><div class="wrap"><header><a class="logo" href="#inicio">conversaboa<i aria-hidden="true"></i></a>
+<nav aria-label="Principal"><a href="#ensaio">Ensaio</a><a class="pill" href="#precos">Planos ↗</a></nav></header></div>
+<main id="inicio">
+<section class="hero wrap"><div><span class="kicker">Estudo experimental de direção B</span>
+<h1>Seu inglês <em>em cena.</em></h1>
+<p class="hero-text">Treine diálogos por texto. Tente uma frase, veja uma sugestão e experimente outra resposta — sem fingir que já existe reconhecimento de fala.</p>
+<a class="pill" href="#ensaio" data-design-critical-cta>Experimentar uma conversa ↗</a>
+<p class="note">Este é um protótipo editorial fictício. Não possui cadastro nem serviço comercial.</p></div>
+<div class="sheet" aria-label="Ilustração editorial de um caderno de ensaio, não captura de aplicativo">
+<span class="tape" aria-hidden="true"></span><p class="kicker">Caderno de ensaio 01</p>
+<h2>Tentar também é <em>praticar.</em></h2><span class="number" aria-hidden="true">01</span>
+<span class="sheet-footer">Prática. Resposta. Outra tentativa.</span></div></section>
+<section class="intro" id="ensaio"><div class="wrap"><div class="intro-head"><div>
+<span class="kicker">A conversa em três movimentos</span><h2>Uma frase. <em>Três olhares.</em></h2></div>
+<p>Em vez de descrever o método em uma pilha de cards, veja o contexto, a resposta e a oportunidade de melhorar.</p></div>
+<div class="lab"><div class="tabs" role="tablist" aria-label="Momentos do ensaio">
+<button role="tab" type="button" id="tab-0" aria-selected="true" aria-controls="scene" data-step="0">01 Contexto</button>
+<button role="tab" type="button" id="tab-1" aria-selected="false" aria-controls="scene" data-step="1" tabindex="-1">02 Tentativa</button>
+<button role="tab" type="button" id="tab-2" aria-selected="false" aria-controls="scene" data-step="2" tabindex="-1">03 Feedback</button></div>
+<div class="lab-stage" role="tabpanel" id="scene" aria-labelledby="tab-0" tabindex="0">
+<blockquote id="scene-quote">“What would you like to order?”</blockquote>
+<aside><strong id="scene-title">A situação</strong><p id="scene-detail">Um atendente está esperando seu pedido. Você decide o que responder.</p></aside></div></div>
+<div class="stage-foot"><span>Simulação local — nenhum feedback gerado por IA.</span><span id="scene-index">01 / 03</span></div></div></section>
+<section class="progress wrap"><div class="progress-grid"><div>
+<span class="kicker">Ensaiar é voltar</span><h2>Não é uma prova. <em>É prática.</em></h2>
+<p class="intro-copy">Uma resposta imperfeita pode ser o começo de outra mais natural. Aqui, o valor está em tentar, comparar e repetir.</p></div>
+<div class="path" aria-label="Etapas do processo de estudo"><div class="point"><span class="small">01 — ESCOLHA</span><h3>Encontre uma conversa.</h3><p>Comece por uma situação concreta.</p></div>
+<div class="point"><span class="small">02 — PRATIQUE</span><h3>Responda por texto.</h3><p>Veja o efeito da sua escolha no contexto.</p></div>
+<div class="point"><span class="small">03 — REPITA</span><h3>Reescreva com feedback.</h3><p>Leia uma sugestão e experimente outra versão.</p></div></div></div></section>
+<section class="pricing" id="precos"><div class="wrap"><div class="pricing-top"><div><span class="kicker">Transparência</span><h2>Comece no seu <em>tempo.</em></h2></div>
+<p>Valores exclusivamente fictícios para testar apresentação comercial honesta. Não há checkout neste protótipo.</p></div>
+<div class="compare"><div class="price-row"><h3>Gratuito</h3><p>Três sessões de prática por semana.</p><b>R$ 0</b></div>
+<div class="price-row"><h3>Plus</h3><p>Sessões ilimitadas, renovação mensal.</p><b>R$ 19,90/mês</b></div></div>
+<p class="truth">Este estudo não realiza cobranças. A experiência demonstrada usa respostas predefinidas, não correção automática real.</p>
+<a class="pill ghost" href="#ensaio">Voltar ao ensaio ↗</a></div></section></main>
+<div class="wrap"><footer><a class="logo" href="#inicio">conversaboa<i aria-hidden="true"></i></a>
+<p>Direção B: caderno editorial de ensaio. Produto e preços fictícios. Material para crítica comparativa, não landing comercial publicada.</p></footer></div>
+<script>
+const scenes=[
+{quote:'“What would you like to order?”',title:'A situação',detail:'Um atendente está esperando seu pedido. Você decide o que responder.'},
+{quote:'“I want a coffee, please.”',title:'Sua primeira tentativa',detail:'Uma resposta compreensível, colocada no contexto do café.'},
+{quote:'“I’d like a coffee, please.”',title:'Uma alternativa possível',detail:'Uma formulação que pode soar mais natural neste contexto. Compare e tente de novo.'}
+];
+const tabs=[...document.querySelectorAll('[role="tab"]')];
+function show(i,focus=false){const s=scenes[i];document.getElementById('scene-quote').textContent=s.quote;
+document.getElementById('scene-title').textContent=s.title;document.getElementById('scene-detail').textContent=s.detail;
+document.getElementById('scene-index').textContent=String(i+1).padStart(2,'0')+' / 03';
+document.getElementById('scene').setAttribute('aria-labelledby',tabs[i].id);
+tabs.forEach((t,n)=>{t.setAttribute('aria-selected',String(n===i));t.tabIndex=n===i?0:-1});
+if(focus)tabs[i].focus()}
+tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>show(i));tab.addEventListener('keydown',e=>{
+if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();
+show(e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length,true)})});
+</script></body></html>

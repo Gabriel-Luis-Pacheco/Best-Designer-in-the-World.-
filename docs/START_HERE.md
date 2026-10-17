@@ -21,3 +21,6 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 
 
 Ferramenta estratégica: `python skills/studio-grade-web-transformation/brain/route.py skills/studio-grade-web-transformation/brain/examples/fintech-landing.json`. Ver `docs/V95_ARCHITECTURE.md`. 
+
+## V10.0: menos ritual, mais execução
+Para rebuilds: autópsia da página → duas direções → implementar abertura/miolo/fecho → capturar desktop/mobile → corrigir pior trecho → recapturar. Veja `references/creative-production-loop.md` e `references/brand-fidelity-review.md`.

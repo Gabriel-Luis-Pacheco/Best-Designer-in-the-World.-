@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "9.8.0",
+  "version": "10.0.0",
   "evals": [
     {
       "id": 1,
@@ -801,6 +801,54 @@
         "Criação do zero não pode ser classificada como REFINE",
         "Composição inteira e não apenas hero precisam ser construídos",
         "Teste real é distinto de descrição"
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Brand comparison must use real canon",
+      "prompt": "Compare the supplied official fictional mascot SVG with a proposed variant using an offline board. Reject shape differences without claiming an algorithm verified the mascot. Preserve product identity.",
+      "files": [
+        "fixtures/brand-original.svg",
+        "fixtures/brand-rules.md"
+      ],
+      "expected_output": "A side-by-side comparison brief, provenance and observable invariant check, and an explicit human review decision.",
+      "expectations": [
+        "Use canonical original rather than inventing a replacement",
+        "Review shape, expression and material in real context",
+        "Do not claim automatic identity certification",
+        "Report missing asset or preview limitations"
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Full-page rebuild driven by weak middle",
+      "prompt": "The synthetic landing hero looks acceptable but the middle repeats six text blocks and the footer feels unrelated. Redesign the entire narrative, propose meaningful deletions, build a usable alternative and capture before/after evidence when browser available.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expected_output": "Architecture-level diagnosis and a rendered cross-section proof (opening, middle, final action), then revision of the weakest zone without lying about screenshot evidence.",
+      "expectations": [
+        "Identify root cause rather than cosmetic defects",
+        "Fuse or delete repetitive sections instead of repackaging text",
+        "Build and inspect a middle section, not only hero",
+        "Mark unexecuted browser QA UNKNOWN"
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Two authentic artistic directions, not palette swaps",
+      "prompt": "For a fictional text-only English conversation practice service, propose and build two genuinely different creative directions while honoring the facts. One should be an editorial stage, another a visual learning notebook. Compare mobile, interaction and copy density. Do not invent a backend.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expected_output": "Two materially different visual concept implementations and explicit evidence of differences and remaining limitations.",
+      "expectations": [
+        "Distinct spatial grammar, narrative and method of proof",
+        "Both options preserve R$19,90 monthly and all truthful limits",
+        "Meaningful middle section and accessible mobile in both versions",
+        "Human artistic preference remains unverified unless reviewed"
       ]
     }
   ]

@@ -1,3 +1,13 @@
+## 10.0.0 — 2026-10-17
+- Rewrote the entry skill to privilege real visual execution, whole-page craft and a second rendered revision; shorter main guide, legacy specialist materials preserved.
+- Added three new expert references: production loop, canonical brand comparison, and design diagnosis→reconstruction.
+- Added a static section-rhythm inspection heuristic for repetitive cards/text, without aesthetic scoring.
+- Added offline `asset_board.py` and `visual_review_packet.py` with provenance hashes, safety checks and unit tests. Neither is an aesthetic judge.
+- Built an alternative fictional conversation-service art direction with accessible keyboard-controlled interaction; removed misleading audio/voice affordances from synthetic examples.
+- Expanded 47→50 evaluation scenarios; updated portable manifests, docs, release versions and screenshot workflow.
+- CI now emits local visual review boards and synthetic brand contrast evidence for independent inspection.
+- No independent skill-vs-baseline blind creative study; no promises of superior conversion, aesthetics or awards.
+
 ## 9.8.0 — 2026-10-16
 - Mantém a direção artística e corrige a classificação de landing comercial imersiva com o novo modo `EXPERIENTIAL_COMMERCE`: experiência autoral e apresentação comercial coexistem.
 - Protege checkout, sistemas internos e funcionalidades de produto contra prioridades artísticas descontextualizadas, mesmo quando o briefing cita Awwwards.
