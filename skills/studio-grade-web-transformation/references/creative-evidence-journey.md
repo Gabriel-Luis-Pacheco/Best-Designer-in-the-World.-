@@ -5,7 +5,7 @@ A captura integral pode enganar quando há canvas/WebGL, pinning, lazy-load, tra
 ## Coleta comparável
 - Documente commit, browser, dimensões da viewport, device scale, fonts, URL, motion, condição do WebGL, posição do scroll, evento e estado da interação.
 - Capture abertura, primeira transformação, meio representativo, clímax e conclusão; também mobile de 390 px e reduced-motion.
-- Role e ACIONE estados explicitamente; aguarde fontes e estabilidade antes da captura.
+- Role e ACIONE estados explicitamente; aguarde fontes e estabilidade antes da captura. Em seções maiores que a tela, o capturador deve alinhar o **início** da cena por padrão; marque um deslocamento de scroll intencional no roteiro para mostrar um beat posterior. Um enquadramento que começa no meio de um título pode ser falha de captura, não do layout.
 - Não use fullPage:true como única evidência de scrollytelling. Capture o viewport após scroll/trigger e produza uma contact sheet ordenada.
 - Em cenas de timeline, use vídeo com roteiro de ações replicável, não imagens de momentos diferentes como se fossem iguais.
 - Frames ausentes são falhas de coleta; hashes idênticos entre cenas diferentes exigem revisão, mas não provam defeito artístico.
