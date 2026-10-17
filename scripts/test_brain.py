@@ -10,6 +10,21 @@ brain=importlib.util.module_from_spec(spec);spec.loader.exec_module(brain)
 class BrainTests(unittest.TestCase):
     def sample(self,name):
         return json.loads((ROOT/"brain/examples"/(name+".json")).read_text(encoding="utf-8"))
+    def test_unverified_inference_is_explicitly_not_authorized(self):
+        d=brain.route({"task":"Faça um site bonito e útil"})
+        self.assertEqual(d["triage_review"]["interpretation"],"HYPOTHESIS_ONLY")
+        self.assertIn("surface",d["triage_review"]["inferred_fields"])
+        self.assertIn("verified_product_facts",d["triage_review"]["context_gaps"])
+        self.assertEqual(d["triage_review"]["approval"],"NOT_AUTHORIZED_TO_EDIT_FROM_THIS_OUTPUT")
+    def test_explicit_context_reduces_but_does_not_eliminate_review(self):
+        d=brain.route({"task":"Redesenhe esta landing comercial",
+                       "surface":"landing","vertical":"commerce","mode":"REDESIGN",
+                       "goals":["conversion"],"audience":"Compradores",
+                       "facts":["Preço confirmado pelo responsável"]})
+        self.assertEqual(d["triage_review"]["inferred_fields"],[])
+        self.assertEqual(d["triage_review"]["context_gaps"],[])
+        self.assertEqual(d["triage_review"]["interpretation"],"HYPOTHESIS_ONLY")
+
     def test_luxury_experiential_landing_preserves_both_goals(self):
         d=brain.route({"task":"Crie uma landing page comercial experimental nível Awwwards para "
                        "caixa de som escultural de luxo. A experiência visual é o diferencial."})
