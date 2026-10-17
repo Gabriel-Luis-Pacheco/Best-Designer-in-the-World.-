@@ -49,6 +49,18 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/product-truth.md",prompt)
         self.assertIn('"conversion"',prompt)
 
+    def test_creative_challenger_loaded_without_polluting_operational_ui(self):
+        case={"prompt":"Crie uma landing comercial 3D para uma caixa de som de luxo",
+              "files":[],"meta":{"surface":["experience","landing"]}}
+        prompt=build_prompt(case,"with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-advantage-loop.md",prompt)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",prompt)
+        cases=json.loads((ROOT/"evals/evals.json").read_text(encoding="utf-8"))["evals"]
+        case=next(c for c in cases if c["id"]==53)
+        operational=build_prompt(case,"with_skill")
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-advantage-loop.md",operational)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",operational)
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "

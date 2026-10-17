@@ -1,10 +1,10 @@
-# Design OS Prime v10.0 — guia de avaliação
+# Design OS Prime v10.1 — guia de avaliação
 
 ## Validade antes da qualidade
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
 
 ## Estado comprovável
-Existem 50 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
+Existem 54 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
 ## Execução
 ```bash
@@ -54,3 +54,6 @@ O runner injeta um plano determinístico de intenção e seleção contextual de
 
 ## V10.0 — evidence boards
 A revisão visual deve incluir ao menos abertura, seção média, encerramento e mobile com **duas iterações renderizadas** quando for uma reconstrução importante. Use `scripts/visual_review_packet.py` na skill instalada para montar comparação de PNGs; o painel não julga estética. Use `scripts/asset_board.py` para investigar mascotes e imagens canônicas. Uma comparação A/B da skill exige execução isolada por variante e avaliação humana cega; não use o conceito fictício como prova de superioridade comercial.
+
+## V10.1 — competição criativa sem falsear a avaliação
+Os novos casos incluem reconhecimento do produto versus abstração, qualidade do miolo e encerramento, integridade em sistemas operacionais e artefato final honesto. O script portátil `journey_board.py` compara quadros por etapa e marca diferenças de viewport/estado/ausência. **Não julga beleza.** O teste RESONANCE registrado como V6.1 local não prova desempenho da v10.0/v10.1; exigir hash/leitura real do pacote em novos testes.

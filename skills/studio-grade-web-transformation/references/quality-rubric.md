@@ -1,4 +1,4 @@
-# Human review rubric — v10.0
+# Human review rubric — v10.1
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -9,7 +9,9 @@ Escala consistente para TODAS as dimensões:
 - `2 FORTE`: adequado, coerente e bem acabado no contexto.
 - `3 EXCEPCIONAL`: solução distintiva e refinada, apoiada em exemplos concretos e contexto.
 
-Dimensões: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
+Dimensões gerais: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
+
+Em ART/EXPERIENCE/EXPERIENTIAL_COMMERCE, acrescentar quando observável `reconhecimento_produto`, `continuidade_cenas`, `agencia_interativa`, `climax_encerramento`. Elas são opcionais para dashboards, patches e páginas sem narrativa: não penalize o projeto por uma métrica irrelevante. Não use média para esconder uma falha de reconhecimento do produto vendido, funcionalidade ou acesso.
 Marcar `UNKNOWN` como valor `null` ou omitir a dimensão, documentando por quê. Não atribuir 3 só por estética pessoal; relacionar cada nota a observação e artefato.
 
 Exemplos de ancoragem:
@@ -19,6 +21,10 @@ Exemplos de ancoragem:
 - Funcionalidade 0: CTA quebrado; 2: fluxos testados e utilizáveis; 3: fluxos, recuperação e estados críticos muito bem resolvidos.
 - Acessibilidade 0: barreira severa comprovada; 2: testes essenciais realizados sem barreiras conhecidas; 3: verificação ampliada com tecnologias assistivas e evidências.
 - Performance: UNKNOWN sem medida; 2 apenas com ambiente e métricas registradas.
+- Reconhecimento do produto: 0 se uma página comercial faz o produto parecer um objeto diferente; 2 se forma, texto e prova tornam seu uso evidente; 3 se reconhecimento e singularidade estética se reforçam. Para arte abstrata sem produto, omitida.
+- Continuidade de cenas: 0 quando cada trecho parece outro template; 2 para transições com vocabulário visual consistente; 3 para narrativa autoral que progride sem repetição.
+- Agência interativa: 0 quando controle é ornamental ou inacessível; 2 quando modifica algo compreensível e reversível; 3 quando o gesto revela a ideia central do projeto.
+- Clímax e encerramento: 0 quando a experiência abandona o visitante sem resolução; 2 quando fechamento e ação/artefato são relevantes e honestos; 3 quando o final transforma o significado do início.
 
 Severidade em separado: P0 (falha central, falsidade, perda de dados), P1 (prejuízo relevante e demonstrável à tarefa/identidade), P2 (acabamento local). A estética subjetiva sozinha não é P1. P0/P1 conhecido bloqueia status aprovado. A média não apaga bloqueadores.
 

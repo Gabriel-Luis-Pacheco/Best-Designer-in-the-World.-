@@ -1,3 +1,11 @@
+## v10.1.0 — Creative Advantage (2026-10-17)
+
+- High-ambition ART/EXPERIENTIAL_COMMERCE: competitive visual thesis selection, strongest-rival critique, true product recognition and a richer full-journey climax/closing. Scope remains proportional for operational UI and patches.
+- New creative advantage and immersive 3D product packs, plus scene challenger mini-template; WebGL lifecycle, accessible fallback and honest interactive artifacts.
+- New portable journey_board.py evidence comparison by matching screenshots of scenes with source hashes and mismatch warnings, no algorithmic taste score; negative regression tests.
+- Human rubric has optional recognition/scene continuity/agency/climax dimensions; runner selects context-specific references. Four synthetic scenarios increase manifest to 54.
+- Compared-site provenance: uploaded skill project self-reports local V6.1, so that pair cannot prove v10.0 or v10.1 superiority or defeat. No real independent blind benchmark was performed by this release.
+
 ## 10.0.0 — 2026-10-17
 - Rewrote the entry skill to privilege real visual execution, whole-page craft and a second rendered revision; shorter main guide, legacy specialist materials preserved.
 - Added three new expert references: production loop, canonical brand comparison, and design diagnosis→reconstruction.

@@ -60,14 +60,19 @@ def build_prompt(case: dict, variant: str) -> str:
         mode = proposed_plan["strategy"]["mode"]
         surfaces = proposed_plan["product"]["surfaces"]
         policy = proposed_plan["strategy"]["creative_authority"]
+        needs_3d = any(term in case["prompt"].lower() for term in
+                       ("3d", "three.js", "webgl", "speaker", "alto-falante", "caixa de som", "escultura interativa"))
         if policy=="EXPERIENTIAL_COMMERCE":
             suggested=["references/experiential-commerce.md",
-                       "references/creative-experience-direction.md",
                        "references/product-truth.md",
-                       "references/full-page-craft-review.md"]
+                       "references/creative-advantage-loop.md",
+                       "references/immersive-3d-product-direction.md" if needs_3d
+                       else "references/creative-experience-direction.md"]
         elif policy=="ART_DIRECTOR_FIRST":
             suggested=["references/creative-experience-direction.md",
-                       "references/full-page-craft-review.md"]
+                       "references/creative-advantage-loop.md",
+                       "references/immersive-3d-product-direction.md" if needs_3d
+                       else "references/full-page-craft-review.md"]
         elif policy in {"COMMERCE_FIRST_ART_SUPPORT","OPERATIONAL_FIRST_ART_SUPPORT",
                         "PRODUCT_FIRST_ART_SUPPORT"}:
             suggested=["references/product-truth.md",
