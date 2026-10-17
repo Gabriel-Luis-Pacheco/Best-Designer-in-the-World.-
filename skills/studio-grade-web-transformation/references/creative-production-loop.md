@@ -34,3 +34,8 @@ Stop when product truth, interactions, accessibility, mobile and coherent art di
 - Is the mobile composition intentionally redrawn?
 - Does interaction transform understanding, not merely toggle a card?
 - Did the second iteration improve a real observed weakness?
+
+## V11 creative ceiling — signature before presentation
+For pure ART and EXPERIENTIAL_COMMERCE, use `creative-signature-and-form.md` to require a formal, material and behavioral identity. Rapidly prototype **opening + middle/climax** for competing theses, not merely descriptions. Plan five distinct beats and a contextual payoff; consult `interaction-dramaturgy-and-payoff.md`. If a polished site feels like oversized headlines and repeated widgets, rework the spatial concept even if automated tests pass. A technical PASS is not an artistic PASS.
+
+For scroll/WebGL, a failed full-page capture must be replaced by trustworthy scene-level evidence per `creative-evidence-journey.md`. This is a portable, optional browser capture tool; do not make paperwork mandatory for a simple PATCH. Never guarantee beating an unskilled baseline.
