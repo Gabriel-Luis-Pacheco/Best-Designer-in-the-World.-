@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "evals": [
     {
       "id": 1,
@@ -849,6 +849,146 @@
         "Both options preserve R$19,90 monthly and all truthful limits",
         "Meaningful middle section and accessible mobile in both versions",
         "Human artistic preference remains unverified unless reviewed"
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Artistic signature across five frames",
+      "prompt": "Create the fictional VESPER kinetic light exhibit as an immersive visual experience. Explore two materially different creative theses and make the formal, material and behavioral signature evident from opening through climax and closing.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": "experience",
+        "goals": [
+          "artistic_impact",
+          "immersion"
+        ]
+      },
+      "expected_output": "A working coherent immersive experience whose object/form, materiality and gestures transform meaningfully across five scenes and mobile, not just a decorated landing.",
+      "expectations": [
+        "Two theses differ in at least three artistic dimensions",
+        "Middle and climax are authored, not heading plus widget",
+        "Accessible interactive response and reduced-motion alternative",
+        "Actual browser captures or UNKNOWN, no guaranteed award"
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Technically correct but visually generic",
+      "prompt": "A local artistic concept technically passes Playwright, contrast checks and build, but all scenes are headline + short text + identical 3D card. It lacks visual continuity or climax. Diagnose and REBUILD the creative architecture, not only CSS.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "A diagnosis that rejects self-congratulation and an implemented visual alternative or honest implementation limit, with five-frame review.",
+      "expectations": [
+        "Never equate passing technical checks with artistic excellence",
+        "Find repeated spatial grammar and weak middle",
+        "Change formal/material/behavioral concept",
+        "Do not manufacture blind review results"
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Climax with contextual agency not obligatory download",
+      "prompt": "Design a memorable ending for an immersive artwork after a series of light-and-material interactions. It must repay the visitor's attention without adding a fake purchase or requiring an SVG export.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": "experience",
+        "goals": [
+          "immersion"
+        ]
+      },
+      "expected_output": "A truthful consequence or visual payoff derived from the earlier interaction, with fallbacks and no copied RESONANCE ending.",
+      "expectations": [
+        "Payoff is caused by concept, not generic CTA",
+        "Do not blindly add downloadable SVG just because it won another test",
+        "Allow reset/reversal and keyboard or touch access",
+        "Capture actual gesture response or UNKNOWN"
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Full-page screenshot misleading for WebGL scroll",
+      "prompt": "A scrollytelling site has a blank area in one full-page screenshot but video shows rendered scenes during scroll. Diagnose evidence quality and capture opener, transformation, middle, climax and ending at matching states.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "A reproducible scene-by-scene capture protocol using actual scroll states and no false claim about blank pages, with explicit capture failures.",
+      "expectations": [
+        "Distinguish screenshot bug from proven design issue",
+        "Use frame/state capture and comparable viewport/device settings",
+        "Mark missing frames and evidence as UNKNOWN not PASS",
+        "Separate image proof from FPS, WCAG and artistic score"
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Expressive commerce keeps facts and creative ceiling",
+      "prompt": "Turn the fictional kinetic instrument exhibit into a hypothetical commercial concept page while preserving artistic wonder. No actual product, availability, price or checkout exists. Avoid both boring pricing cards and a mysterious experience with no explanation.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "experience",
+          "landing"
+        ],
+        "goals": [
+          "artistic_impact",
+          "conversion"
+        ]
+      },
+      "expected_output": "Distinctive product-relevant story with honest conceptual next action, functioning interaction, and no fabricated commerce facts.",
+      "expectations": [
+        "Meaningful object transformation and memorable closure",
+        "Clarify product and conceptual status without fake checkout",
+        "Mobile and accessibility checked",
+        "Do not impose actual pricing on missing commercial facts"
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Creative A/B must not privilege skill compliance",
+      "prompt": "Two independent agents generated VESPER websites. With-skill site has better QA docs but a generic middle; without-skill site has stronger authored form and climax. Assess both without knowing labels and specify what to fix.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "Critical preference grounded in visual evidence, acknowledging the without-skill output may win, and no invalid causal interpretation.",
+      "expectations": [
+        "Evaluate artistic craft separately from documentation quality",
+        "Do not assume skill version wins",
+        "Require same conditions and skill read-trace for causal claim",
+        "Target weakest section and rebuild logic"
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Deliver artwork rather than ceremony",
+      "prompt": "You have a limited implementation window to build an experimental immersive page from an empty Vite starter. The instructions suggest many discovery templates; choose a minimum viable creative process that results in a working visual experience.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": "experience"
+      },
+      "expected_output": "Prioritizes implementation of representative opener, middle/climax, ending, mobile and one material revision over lengthy paperwork.",
+      "expectations": [
+        "No commercial funnel ritual for artwork",
+        "Build a tangible visual scene early",
+        "At least one meaningful real interaction",
+        "State unexecuted browser tests honestly"
       ]
     }
   ]
