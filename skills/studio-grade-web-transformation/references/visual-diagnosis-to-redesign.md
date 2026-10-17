@@ -23,3 +23,6 @@ Do not turn paragraphs into equally textual cards or tabs. Demonstrate the *mech
 
 ## Hard creative review
 The visual review must identify **which exact section to redesign, what it becomes, and what disappears**. Change source files and compare screenshots; a markdown recommendation alone is only an AUDIT. A P1 must be tied to a real user/brand/product impact, not one reviewer's private taste. Use `references/creative-production-loop.md` to drive correction.
+
+## Optional static early warning
+`python scripts/section_rhythm.py path/to/page.html --out output/rhythm.json` reports text/paragraph/card patterns in HTML without executing it. Treat flagged sections as *review candidates*, not failures; highly editorial designs may intentionally use text. CSS, scene quality and real mobile behavior still require a browser and human critique.
