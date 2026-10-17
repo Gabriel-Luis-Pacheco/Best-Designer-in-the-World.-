@@ -1,6 +1,8 @@
 import {test, expect} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
-import {capture} from '../../scripts/capture_creative_journey.mjs';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
+const exec=promisify(execFile);
 
 const url='http://127.0.0.1:4173/examples/vesper-sculptural-light-study.html';
 for(const width of [390,1440]){
@@ -33,8 +35,9 @@ test('VESPER reduced motion preserves scene comprehension',async({page})=>{
 });
 test('VESPER five beat journey captures real frames and metadata',async()=>{
   test.setTimeout(90000);
-  const cfg=JSON.parse(await readFile('tests/browser/vesper-journey.sample.json','utf8'));
-  const result=await capture(cfg);
+  const {stdout}=await exec(process.execPath,['scripts/capture_creative_journey.mjs','--config',
+    'tests/browser/vesper-journey.sample.json'],{timeout:90000,maxBuffer:1_048_576});
+  const result=JSON.parse(stdout);
   expect(result.status).toBe('CAPTURED_FOR_HUMAN_REVIEW');
   expect(result.count).toBe(12);
   const report=JSON.parse(await readFile('test-results/vesper-journey/manifest.json','utf8'));
