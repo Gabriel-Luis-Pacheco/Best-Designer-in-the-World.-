@@ -178,25 +178,61 @@ def execute(case: dict, variant: str, command: list[str], seconds: int,
             if isinstance(stdout, bytes):
                 stdout = stdout.decode("utf-8", errors="replace")
         captured = []
+        artifact_hashes = {}
+        capture_limitations = []
         if capture_workspace:
-            # Explicit opt-in only: generated artifacts may contain private data.
+            # Opt-in only. Reproduction includes source, configs, models and fonts;
+            # dependencies themselves are NOT copied. Never treat this as secret scanning.
             target = outdir / "artifacts" / uid
             safe_extensions = {".html", ".css", ".js", ".ts", ".tsx", ".jsx",
-                               ".svg", ".png", ".jpg", ".jpeg", ".webp", ".md"}
-            for path in workspace.rglob("*"):
+                               ".svg", ".png", ".jpg", ".jpeg", ".webp", ".md",
+                               ".json", ".jsonc", ".mjs", ".cjs", ".yaml", ".yml",
+                               ".toml", ".wasm", ".glb", ".gltf", ".woff", ".woff2",
+                               ".ttf", ".otf", ".map", ".webm", ".mp4"}
+            excluded_parts = {"node_modules", "dist", "build", ".git", ".cache",
+                              ".next", ".vercel", "coverage", "__pycache__",
+                              "secrets", "credentials", "private"}
+            total_bytes = 0
+            max_files = 220
+            max_bytes = 70_000_000
+            for path in sorted(workspace.rglob("*")):
                 if not path.is_file() or path.is_symlink():
                     continue
                 rel = path.relative_to(workspace)
+                parts = rel.parts
+                lower = rel.as_posix().lower()
                 if (rel.as_posix() in case["files"] or
-                    any(part.startswith(".") or part in {"node_modules", "dist", "build"}
-                        for part in rel.parts) or
-                    path.suffix.lower() not in safe_extensions or
-                    path.stat().st_size > 5_000_000):
+                    any(part.startswith(".") or part.lower() in excluded_parts
+                        for part in parts) or
+                    any(word in lower for word in (".env", "secret", "credential", "private-key",
+                                                  "auth-token", "api-key", ".pem", ".p12")) or
+                    path.suffix.lower() not in safe_extensions):
+                    continue
+                byte_size = path.stat().st_size
+                if (byte_size > 15_000_000 or total_bytes + byte_size > max_bytes or
+                    len(captured) >= max_files):
+                    capture_limitations.append("LIMIT_REACHED_OR_FILE_TOO_LARGE")
                     continue
                 output_path = target / rel
                 output_path.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(path, output_path)
-                captured.append(str(output_path.relative_to(outdir)))
+                total_bytes += byte_size
+                artifact_name = str(output_path.relative_to(outdir))
+                captured.append(artifact_name)
+                artifact_hashes[artifact_name] = {
+                    "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                    "bytes": byte_size,
+                }
+            target.mkdir(parents=True, exist_ok=True)
+            (target / "ARTIFACTS.json").write_text(json.dumps({
+                "status": "PARTIAL_REPRODUCIBILITY_NEEDS_TRUSTED_DEPENDENCY_INSTALL",
+                "case_id": case["id"], "variant": variant,
+                "fixture_sha256": file_hashes,
+                "artifacts": artifact_hashes,
+                "limits": {"max_files": max_files, "max_total_bytes": max_bytes},
+                "skipped_files_or_limits": capture_limitations,
+                "security": "Opt-in copy only; source files may still contain secrets. Review before sharing. No external packages or credentials are captured.",
+            }, indent=2) + "\n", encoding="utf-8")
     payload = {
         "run_id": uid, "case_id": case["id"], "variant": variant,
         "utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -217,7 +253,9 @@ def execute(case: dict, variant: str, command: list[str], seconds: int,
                 _route_case(case)) if variant == "with_skill" else []),
         "independent_human_review": "NOT_PERFORMED",
         "captured_artifacts": captured,
-        "note": "Output is NOT a quality verdict. Logs may contain sensitive CLI output; store locally.",
+        "artifact_manifest": (str((outdir / "artifacts" / uid / "ARTIFACTS.json").relative_to(outdir)) if capture_workspace else None),
+        "artifact_capture_limitations": capture_limitations,
+        "note": "Output is NOT a quality verdict. Even opted-in reproducible artifacts may contain secrets; review locally before sharing.",
         "stdout": stdout[:100_000], "stderr": str(stderr)[:8_000]
     }
     path = outdir / f"case-{case['id']}-{variant}-{uid}.json"
