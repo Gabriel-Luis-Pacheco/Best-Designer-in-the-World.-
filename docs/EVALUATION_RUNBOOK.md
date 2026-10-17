@@ -4,7 +4,7 @@
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
 
 ## Estado comprovável
-Existem 57 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
+Existem 61 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
 ## Execução
 ```bash
@@ -60,3 +60,6 @@ Antes de comparar, confirmar skill carregada via trace e hash; mesma entrada/mod
 
 ### Blind journey pairing — V11.0
 Capture both conditions at same viewport, reduced-motion and planned semantic scene IDs, using local authorized projects. Run `python scripts/compare_creative_journeys.py --a WITH/manifest.json --b WITHOUT/manifest.json --out output/pair`. It verifies screenshot paths and hashes, viewport and frame coverage, and produces an anonymized A/B image board. The invocation order determines A/B; keep identity mapping outside reviewer materials. Matching screenshots do not prove same model, time budget, prompt, user state, network, interactions or cognition — verify those separately via the A/B trace controls and documented test procedure.
+
+## V10.1 + V11 reconciliadas
+A rubrica preserva quatro dimensões opcionais para trabalhos experienciais — reconhecimento de produto, continuidade de cenas, agência interativa e clímax/encerramento — mais a revisão de assinaturas formal/material/comportamental da V11. Condições são apropriadas ao objetivo; não penalizar dashboards sem clímax. As quatro avaliações da V10.1 continuam, renumeradas 58–61.

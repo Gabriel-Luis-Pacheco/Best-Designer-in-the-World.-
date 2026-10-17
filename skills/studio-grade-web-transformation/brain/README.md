@@ -39,3 +39,6 @@ O fluxo principal foi simplificado: o agente deve corrigir a hip√≥tese determin√
 
 ## V11.0: creative output outranks routing labels
 The router remains deterministic and cannot infer the quality of a sculptural form, climax or material grammar. The agent should load creative-signature-and-form / interaction-dramaturgy-and-payoff only in artistic contexts and test real scenes. A valid strategy report is not a creative verdict.
+
+## V10.1 functionality preserved in V11
+Creative challenger, 3D craft guide, journey board and context-aware A/B runner are preserved. The router remains a fallible heuristic and never grants design approval.

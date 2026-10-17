@@ -27,3 +27,6 @@ Para rebuilds: autópsia da página → duas direções → implementar abertura
 
 ## V11.0: RESONANCE method
 For artistic REDESIGN/REBUILD, choose two different *formal* hypotheses, build a middle and ending as seriously as the hero, inspect five rendered frames and recover from failed full-page captures. Review the best rival direction without bias. Do not impose this ceremony on PATCH or routine dashboards.
+
+## V10.1 methods preserved
+For authored interactive products also consult creative-advantage-loop.md, immersive-3d-product-direction.md and SCENE_CHALLENGE.md. Offline journey_board.py complements the reproducible capture and pair-review V11 tools.

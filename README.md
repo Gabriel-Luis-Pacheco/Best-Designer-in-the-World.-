@@ -5,7 +5,7 @@ Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand
 ## Versão 9.8 — Creative Commerce sem perder a 9.7
 O teste RESONANCE foi relatado pelo usuário como uma vitória expressiva da skill, mas os artefatos e logs da nova execução ainda não foram enviados, portanto **não se alega validação independente**. Esta atualização é deliberadamente focada em proteção contra regressões: diferencia experiência artística pura, landing comercial imersiva e sistemas/checkout; classifica criação nova como construção em vez de refinamento; prioriza referências realmente úteis; sincroniza versões e fortalece testes. Consulte `references/experiential-commerce.md` dentro da skill.
 
-**57 casos de avaliação**, sem benchmark cego independente publicado.
+**61 casos de avaliação**, sem benchmark cego independente publicado.
 
 ## Histórico — Versão 9.7 — Art Director First + A/B integrity
 O MIRAGE evidenciou uma comparação inválida: o agente rotulado "com skill" declarou que **não tinha a Design OS instalada** e usou outra skill. A v9.7 não alega superar o baseline; adiciona preflight de leitura, bloqueio de substituições silenciosas, rota `experience` para projetos Awwwards e direção criativa de ponta a ponta. Ver `docs/MIRAGE_AB_LESSONS.md`.
@@ -39,7 +39,7 @@ O roteador portátil `brain/route.py` gera um **brief estratégico proposto** de
 - Modos proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Uma correção local não dispara reconstrução.
 - Anti-slop construtivo: composição, tipografia, ritmo, provas e decisões criativas; não apenas estilos proibidos.
 - Comparação de duas ou mais direções realmente distintas em mudanças estruturais, com critérios e trade-offs.
-- Pacote instalável com 57 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
+- Pacote instalável com 61 casos, fixtures sintéticas HTML/SVG/brief, rubrica, referências e templates.
 - CI estrutural, testes negativos Python, browser smoke em Chromium, scripts de revisão humana e runner CLI opcional.
 - Nenhuma afirmação estética automática ou evidência falsa.
 
@@ -86,7 +86,7 @@ DESIGN_TEST_URL=http://localhost:3000 DESIGN_CTA_SELECTOR='[data-design-critical
 Captura screenshots em 320/390/768/1440 px e verifica renderização, overflow, IDs duplicados, nome acessível e destino de CTA (contrato opcional `DESIGN_EXPECTED_CTA_URL`); não compra nem envia formulários. Fluxos específicos exigem seus próprios testes.
 
 ## Avaliação A/B
-Os 57 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta SKILL.md e até quatro referências contextualizadas por caso, inclusive em CLIs sem acesso a arquivos. Essa seleção é fixa e documentada; não equivale à navegação dinâmica por todas as referências. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
+Os 61 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-web-transformation/fixtures/`. `scripts/run_evals.py` aceita um CLI de agente que leia stdin; não fornece modelo, revisão independente ou julgamento visual. Na condição `with_skill`, o adaptador injeta SKILL.md e até quatro referências contextualizadas por caso, inclusive em CLIs sem acesso a arquivos. Essa seleção é fixa e documentada; não equivale à navegação dinâmica por todas as referências. Veja `docs/EVALUATION_RUNBOOK.md` e `docs/QUALITY_RUBRIC.md`.
 
 ## Princípios
 Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
@@ -101,7 +101,10 @@ O auditor opcional de ritmo HTML `scripts/section_rhythm.py` identifica padrões
 ## V11.0 — o que o teste RESONANCE ensinou
 Nesta revisão, acrescentamos assinatura FORMAL/MATERIAL/COMPORTAMENTAL, transformação entre cenas, dramaturgia do gesto, clímax contextual e revisão em cinco frames. A comparação original avaliou um pacote V6.1, **não V10/V11**, e não foi um experimento causal controlado. Evitamos impor o anel, a cor verde ou o SVG final do projeto vencedor. Consulte [lições do RESONANCE](docs/RESONANCE_LESSONS_V11.md), [assinatura criativa](skills/studio-grade-web-transformation/references/creative-signature-and-form.md) e [jornada visual](skills/studio-grade-web-transformation/references/creative-evidence-journey.md).
 
-O capturador local de cenas é opcional e não executa acesso à internet nem análise estética: `npm run capture:journey` (com servidor fixture rodando). **57 casos de avaliação** existem como cenários; não equivalem a 57 testes criativos vencidos.
+O capturador local de cenas é opcional e não executa acesso à internet nem análise estética: `npm run capture:journey` (com servidor fixture rodando). **61 casos de avaliação** existem como cenários; não equivalem a 57 testes criativos vencidos.
 
 ### V11 — comparativo cego de cenas
 Após capturar dois sites com o mesmo storyboard, o comando `python scripts/compare_creative_journeys.py --a output/A/manifest.json --b output/B/manifest.json --out output/pair-review` confere frames, viewport, motion e SHA256, depois produz `blind-review.html` com variantes A/B, sem nota. As imagens podem conter dados privados: manter evidências no ambiente autorizado. Não publicar artefatos do usuário nem afirmar que há experimento causal sem log real de modelo/skill/ferramentas.
+
+## Preservação da evolução paralela V10.1
+Além das novidades V11, esta integração mantém [Creative Advantage Loop](skills/studio-grade-web-transformation/references/creative-advantage-loop.md), [Immersive 3D Product Direction](skills/studio-grade-web-transformation/references/immersive-3d-product-direction.md), o [Scene Challenger](skills/studio-grade-web-transformation/templates/SCENE_CHALLENGE.md), `journey_board.py`, melhorias no runner A/B e os quatro cenários V10.1 (IDs 58–61). Histórico: [V10.1 Creative Advantage](docs/V101_CREATIVE_ADVANTAGE.md). São **61 casos de avaliação**, não 61 resultados positivos.

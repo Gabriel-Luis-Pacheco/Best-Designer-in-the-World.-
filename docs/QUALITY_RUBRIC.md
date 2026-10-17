@@ -9,7 +9,9 @@ Escala consistente para TODAS as dimensões:
 - `2 FORTE`: adequado, coerente e bem acabado no contexto.
 - `3 EXCEPCIONAL`: solução distintiva e refinada, apoiada em exemplos concretos e contexto.
 
-Dimensões: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
+Dimensões gerais: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
+
+Em ART/EXPERIENCE/EXPERIENTIAL_COMMERCE, acrescentar quando observável `reconhecimento_produto`, `continuidade_cenas`, `agencia_interativa`, `climax_encerramento`. Elas são opcionais para dashboards, patches e páginas sem narrativa: não penalize o projeto por uma métrica irrelevante. Não use média para esconder uma falha de reconhecimento do produto vendido, funcionalidade ou acesso.
 Marcar `UNKNOWN` como valor `null` ou omitir a dimensão, documentando por quê. Não atribuir 3 só por estética pessoal; relacionar cada nota a observação e artefato.
 
 Exemplos de ancoragem:
@@ -19,6 +21,10 @@ Exemplos de ancoragem:
 - Funcionalidade 0: CTA quebrado; 2: fluxos testados e utilizáveis; 3: fluxos, recuperação e estados críticos muito bem resolvidos.
 - Acessibilidade 0: barreira severa comprovada; 2: testes essenciais realizados sem barreiras conhecidas; 3: verificação ampliada com tecnologias assistivas e evidências.
 - Performance: UNKNOWN sem medida; 2 apenas com ambiente e métricas registradas.
+- Reconhecimento do produto: 0 se uma página comercial faz o produto parecer um objeto diferente; 2 se forma, texto e prova tornam seu uso evidente; 3 se reconhecimento e singularidade estética se reforçam. Para arte abstrata sem produto, omitida.
+- Continuidade de cenas: 0 quando cada trecho parece outro template; 2 para transições com vocabulário visual consistente; 3 para narrativa autoral que progride sem repetição.
+- Agência interativa: 0 quando controle é ornamental ou inacessível; 2 quando modifica algo compreensível e reversível; 3 quando o gesto revela a ideia central do projeto.
+- Clímax e encerramento: 0 quando a experiência abandona o visitante sem resolução; 2 quando fechamento e ação/artefato são relevantes e honestos; 3 quando o final transforma o significado do início.
 
 Severidade em separado: P0 (falha central, falsidade, perda de dados), P1 (prejuízo relevante e demonstrável à tarefa/identidade), P2 (acabamento local). A estética subjetiva sozinha não é P1. P0/P1 conhecido bloqueia status aprovado. A média não apaga bloqueadores.
 
@@ -26,5 +32,5 @@ Campos mínimos por revisão: caso, `pair_id` igual para as duas condições do 
 
 Roteiro: primeiro screenshot inteira sem conhecer variante; segundo revisar ações, estados e mobile; terceiro anotar pior elo e riscos; quarto conferir evidência independente. Comparar dois artefatos da MESMA tarefa. Não afirmar ganho estatístico com amostra mínima.
 
-## Creative-ceiling review (v11.0, applies to art/immersive commerce only)
-Beyond functional correctness, compare formal signature, materiality, meaningful action, scene-to-scene transformation, middle-page originality and contextual payoff. Treat labels of with/without skill as blinded in genuine experiments. A technically passing site that visually loses to a stronger alternative has a CREATIVE_REWORK requirement, not automatic success. Do not penalize minimalism when authored and appropriate; no required download, WebGL or animation. Require actual frames, not self-reported creative scores.
+## Creative ceiling review — v11.0
+For ART/EXPERIENTIAL_COMMERCE, additionally compare FORMAL signature, MATERIAL system, BEHAVIORAL signature and meaningful climax across captured frames. A technical PASS and polished documentation are not proof that a site is artistically stronger than a rival. Assess blind without knowing the skill variant, and record real screenshots/states and shortcomings. These are contextual human judgments, NOT automatically computed scores; do not force WebGL, exports or theatrical interactions into unrelated products.
