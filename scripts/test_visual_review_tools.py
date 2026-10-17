@@ -38,6 +38,11 @@ class ReviewToolTests(unittest.TestCase):
             p=pathlib.Path(folder)/"evil.svg"
             p.write_text('<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>')
             with self.assertRaises(ValueError): ASSET.load_image(p)
+    def test_svg_rejects_external_file_reference(self):
+        with tempfile.TemporaryDirectory() as folder:
+            p=pathlib.Path(folder)/"external.svg"
+            p.write_text('<svg xmlns="http://www.w3.org/2000/svg"><image href="file:///etc/hosts" /></svg>')
+            with self.assertRaises(ValueError): ASSET.load_image(p)
     def test_asset_rejects_wrong_binary_header(self):
         with tempfile.TemporaryDirectory() as folder:
             p=pathlib.Path(folder)/"fake.png";p.write_bytes(b"NOT_A_PNG")
