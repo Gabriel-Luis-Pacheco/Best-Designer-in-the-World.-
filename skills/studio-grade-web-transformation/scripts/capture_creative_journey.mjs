@@ -37,12 +37,22 @@ function validate(cfg) {
       throw new Error('Only explicit click actions supported');
     if (f.scroll_offset_px!==undefined && (!Number.isInteger(f.scroll_offset_px)||Math.abs(f.scroll_offset_px)>2400))
       throw new Error('Scroll offset must be between -2400 and 2400');
+    if (f.intent!==undefined && (typeof f.intent!=='string'||!/^[a-z][a-z0-9_-]{1,60}$/i.test(f.intent)))
+      throw new Error('Invalid semantic scene intent');
+    if (f.action && !f.intent) throw new Error('An action needs a semantic intent for comparative review');
+    if (f.state!==undefined) {
+      if (!f.state || typeof f.state.selector!=='string'||!f.state.selector.trim()||
+          !['text','value','aria-selected'].includes(f.state.property))
+        throw new Error('Invalid state observation spec');
+      if (f.state.expected!==undefined && typeof f.state.expected!=='string')
+        throw new Error('Expected scene state must be a string');
+    }
     if (f.wait_ms!==undefined && (!Number.isInteger(f.wait_ms)||f.wait_ms<0||f.wait_ms>3000))
       throw new Error('Wait must be 0..3000ms');
   }
   return {url:url.href,output:cfg.output,viewports:cfg.viewports,frames:cfg.frames,
           reducedMotion:cfg.reduced_motion===true,
-          allowAnimations:cfg.allow_animations===true};
+          allowAnimations:cfg.allow_animations===true,allowExternal:cfg.allow_external_requests===true};
 }
 function contact(manifest) {
   const heads='<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
@@ -60,7 +70,7 @@ export async function capture(config) {
   await mkdir(join(out,'frames'),{recursive:true});
   const result={status:'CAPTURED_FOR_HUMAN_REVIEW',url:cfg.url,
     created_at:new Date().toISOString(),reduced_motion:cfg.reducedMotion,
-    allow_animations:cfg.allowAnimations,
+    allow_animations:cfg.allowAnimations,allow_external_requests:cfg.allowExternal,
     limits:['Viewport-only snapshots, not full-page rendering proof','Does not measure FPS/UX or creative quality','External assets may load from the locally served page'],
     viewports:cfg.viewports,frames:[],page_errors:[],warnings:[]};
   const browser=await chromium.launch({headless:true});
@@ -69,6 +79,17 @@ export async function capture(config) {
       const page=await browser.newPage({viewport:{width:viewport.width,height:viewport.height},
         deviceScaleFactor:1,reducedMotion:cfg.reducedMotion?'reduce':'no-preference'});
       page.on('pageerror',err=>result.page_errors.push({viewport:viewport.name,error:String(err).slice(0,500)}));
+      if (!cfg.allowExternal) {
+        await page.route('**/*',async route=>{
+          const resource=new URL(route.request().url());
+          if (['127.0.0.1','localhost','[::1]'].includes(resource.hostname) &&
+              ['http:','https:'].includes(resource.protocol)) await route.continue();
+          else {
+            result.warnings.push({type:'EXTERNAL_RESOURCE_BLOCKED',url:resource.origin});
+            await route.abort();
+          }
+        });
+      }
       const response=await page.goto(cfg.url,{waitUntil:'domcontentloaded',timeout:20000});
       if (!response || response.status()>=400) throw new Error('Navigation returned HTTP '+response?.status());
       await page.evaluate(()=>document.fonts.ready);
@@ -94,11 +115,28 @@ export async function capture(config) {
           return {scrollY:Math.round(scrollY),fontStatus:document.fonts.status,elementRect:rect?{top:Math.round(rect.top),height:Math.round(rect.height)}:null,
                   documentWidth:document.documentElement.scrollWidth};
         },frame.selector);
+        let observed = null;
+        if (frame.state) {
+          const observer=page.locator(frame.state.selector).first();
+          if (await observer.count()===0) throw new Error('MISSING_STATE_OBSERVER: '+frame.id);
+          const property=frame.state.property;
+          const value=property==='text'?await observer.innerText():
+                      property==='value'?await observer.inputValue():
+                      await observer.getAttribute('aria-selected');
+          observed={property,value,semantic_intent:frame.intent||null};
+          if (frame.state.expected!==undefined && value!==frame.state.expected)
+            throw new Error('STATE_MISMATCH: '+frame.id+' expected '+frame.state.expected+' got '+value);
+        }
         result.frames.push({id:frame.id,viewport:viewport.name,file,sha256,bytes:binary.length,
-          selector:frame.selector,scroll_offset_px:frame.scroll_offset_px||0,action:frame.action||null,...state});
+          selector:frame.selector,scroll_offset_px:frame.scroll_offset_px||0,
+          intent:frame.intent||null,action:frame.action||null,observed_state:observed,...state});
       }
       await page.close();
     }
+    if (result.page_errors.length)
+      throw new Error('PAGE_RUNTIME_ERRORS: '+result.page_errors.map(e=>e.error).join('; '));
+    if (result.warnings.some(w=>w.type==='EXTERNAL_RESOURCE_BLOCKED'))
+      throw new Error('EXTERNAL_RESOURCES_BLOCKED: opt in explicitly or make sources local');
     await writeFile(join(out,'manifest.json'),JSON.stringify(result,null,2)+'\n');
     await writeFile(join(out,'contact.html'),contact(result));
     return {status:result.status,output:out,count:result.frames.length,warnings:result.warnings.length};
