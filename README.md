@@ -2,8 +2,29 @@
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
+## Versão ativa — 11.1.0
+
+A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
+
+**Instalação:**
+```bash
+npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-grade-web-transformation
+```
+
+**Arquivo ativo:** [SKILL.md](skills/studio-grade-web-transformation/SKILL.md).
+**Estudos práticos:** [Cenários comerciais, artísticos e operacionais](docs/CASE_STUDIES_V11_1.md).
+**Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
+**Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
+
+### Correções V11.1
+- O runner registra `task_input_sha256` do mesmo briefing/fixtures e `assembled_prompt_sha256` de cada condição; **não** exige prompts montados idênticos.
+- Carrega efetivamente as referências novas de assinatura visual e interação em testes criativos; não as injeta em dashboards internos.
+- Captura projetos opt-in com configs e assets além do código, hash por arquivo e limites para controle de segredos.
+- A captura de cenas falha se encontrar erros JavaScript ou dependências externas bloqueadas e exige intenção semântica/estado para ações; o comparador verifica equivalência.
+- Acrescenta Ledger, dashboard operacional com dados fictícios, busca, filtros e exportação, com testes desktop/mobile.
+
 ## Histórico — V9.8 Creative Commerce sem perder a V9.7
-O teste RESONANCE foi relatado pelo usuário como uma vitória expressiva da skill, mas os artefatos e logs da nova execução ainda não foram enviados, portanto **não se alega validação independente**. Esta atualização é deliberadamente focada em proteção contra regressões: diferencia experiência artística pura, landing comercial imersiva e sistemas/checkout; classifica criação nova como construção em vez de refinamento; prioriza referências realmente úteis; sincroniza versões e fortalece testes. Consulte `references/experiential-commerce.md` dentro da skill.
+Este é um registro histórico da V9.8. A comparação posterior de artefatos RESONANCE da **V6.1** indicou vantagem visual da condição sem skill, mas não estabeleceu efeito causal controlado; consulte `docs/RESONANCE_LESSONS_V11.md`. Esta atualização é deliberadamente focada em proteção contra regressões: diferencia experiência artística pura, landing comercial imersiva e sistemas/checkout; classifica criação nova como construção em vez de refinamento; prioriza referências realmente úteis; sincroniza versões e fortalece testes. Consulte `references/experiential-commerce.md` dentro da skill.
 
 **61 casos de avaliação**, sem benchmark cego independente publicado.
 
