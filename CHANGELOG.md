@@ -1,3 +1,13 @@
+## 11.0.0 — 2026-10-17 — RESONANCE creative ceiling
+
+- Treats the provided RESONANCE V6.1-vs-no-skill comparison as an ARTISTIC DIAGNOSTIC, **not causal proof or a V10/V11 benchmark**.
+- Adds three creative specialist references: formal/material/behavioral signature, interaction dramaturgy + contextual payoff, reproducible evidence across five scenes.
+- Makes the core creative route challenge two genuinely different rendered theses and reject hero-only brilliance, repeated title/widget panels and endings that fail to repay attention.
+- Adds optional portable Playwright `scripts/capture_creative_journey.mjs` supporting scripted scene selectors, clicks, scroll offsets, fixed viewport capture, hashes, warnings and contact.html. It captures locally served pages only and is NOT an automatic art grader.
+- Adds VESPER, an original fictional multi-scene responsive HTML/CSS/JS light-object example whose gesture affects the final scene. Uses no original RESONANCE assets.
+- Adds `FIVE_FRAME_CREATIVE_REVIEW.md` and a detailed no-fake-causality RESONANCE learning report. Expands 50 → **57 evaluation scenarios** with synthetic creative-object fixture.
+- Extends browser CI to test new example, keyboard/reduced motion/scene capture. No claim of superior art, Awwwards wins, conversions or user outcomes without independent matched trials.
+
 ## 10.0.0 — 2026-10-17
 - Rewrote the entry skill to privilege real visual execution, whole-page craft and a second rendered revision; shorter main guide, legacy specialist materials preserved.
 - Added three new expert references: production loop, canonical brand comparison, and design diagnosis→reconstruction.
