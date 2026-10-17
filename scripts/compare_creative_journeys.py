@@ -14,6 +14,10 @@ def verify_manifest(path:Path)->dict:
     data=json.loads(path.read_text(encoding="utf-8"))
     if data.get("status")!="CAPTURED_FOR_HUMAN_REVIEW":
         raise ValueError("Capture status missing or not complete")
+    if data.get("page_errors"):
+        raise ValueError("Runtime errors present in capture")
+    if any(w.get("type")=="EXTERNAL_RESOURCE_BLOCKED" for w in data.get("warnings", [])):
+        raise ValueError("Capture blocked external resources; images may be inaccurate")
     viewports=data.get("viewports")
     frames=data.get("frames")
     if not isinstance(viewports,list) or not viewports or not isinstance(frames,list) or not frames:
@@ -40,7 +44,16 @@ def verify_manifest(path:Path)->dict:
             raise ValueError("PNG dimensions incompatible with declared viewport: "+str(key))
         sha=hashlib.sha256(raw).hexdigest()
         if f.get("sha256")!=sha:raise ValueError("SHA mismatch: "+str(key))
-        verified[key]={"path":src,"sha256":sha,"bytes":len(raw),"height":height}
+        action=f.get("action")
+        intent=f.get("intent")
+        observed=f.get("observed_state")
+        if action is not None and (not isinstance(intent,str) or not intent or not isinstance(observed,dict)):
+            raise ValueError("Action capture lacks comparable semantic intent/state: "+str(key))
+        verified[key]={"path":src,"sha256":sha,"bytes":len(raw),"height":height,
+                       "intent":intent,"action_kind":action.get("type") if isinstance(action,dict) else None,
+                       "observed_property":observed.get("property") if isinstance(observed,dict) else None,
+                       "observed_state":observed.get("value") if isinstance(observed,dict) else None,
+                       "scroll_offset_px":f.get("scroll_offset_px",0)}
     return {"frames":verified,"viewports":vp,"config":{"reduced_motion":data.get("reduced_motion"),
              "allow_animations":data.get("allow_animations")},"source":path}
 
@@ -50,6 +63,13 @@ def compare(left_path:Path,right_path:Path,out:Path)->dict:
         raise ValueError("Mismatched viewport or motion capture conditions")
     if set(a["frames"])!=set(b["frames"]):
         raise ValueError("Mismatched scene coverage: recapture equivalent beats")
+    for key in a["frames"]:
+        left,right=a["frames"][key],b["frames"][key]
+        for field in ("intent","action_kind","observed_property","scroll_offset_px"):
+            if left[field]!=right[field]:
+                raise ValueError(f"Mismatched semantic action/state capture for {key}: {field}")
+        if left["intent"] is not None and (left["observed_state"] is None or right["observed_state"] is None):
+            raise ValueError(f"Unobserved interactive result for {key}")
     out=out.resolve()
     out.mkdir(parents=True,exist_ok=True)
     images=out/"images";images.mkdir(exist_ok=True)
@@ -79,6 +99,7 @@ figure{margin:0;min-width:0}img{width:100%;height:auto;border:1px solid #64706a;
             "scene_pairs":len(a["frames"]),
             "viewports":a["viewports"],
             "motion_conditions":a["config"],
+            "interaction_contract":"MATCHED_SEMANTIC_INTENT_ACTION_KIND_AND_STATE_PROPERTY",
             "not_proven":["skill superiority","artistic quality","randomized or controlled A/B","accessibility","commercial outcomes"]}
     (out/"verification.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
     # Variant mapping is in the invoker's CLI invocation, not in the public review HTML.
