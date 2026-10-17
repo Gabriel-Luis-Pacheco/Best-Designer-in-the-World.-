@@ -2,8 +2,8 @@
 
 **Contrato de produção.** Em REDESIGN/REBUILD, a deliverable is a functioning page or prototype, not a strategy PDF. Never exhaust the execution budget making templates. During substantial implementation, reserve approximate attention for: 10% product/constraints, 15% benchmark + two theses, 45% build, 25% inspect/rebuild, 5% clear handoff. These are **planning heuristics, not timers or quotas**; move effort to implementation whenever the project is clear.
 
-## 1 — Two materially different creative hypotheses
-A hypothesis is NOT an alternate palette. For each, sketch a 5-second opener, **middle proof**, ending/decision, mobile adaptation and signature interaction. Change at least two of: the content model, spatial grammar, method of proof, narrative rhythm, animation metaphor. State why the idea is specific to this product. Choose quickly; never force three ideas for a patch.
+## 1 — Distinct hypotheses proportionate to scope
+A hypothesis is NOT an alternate palette. For high ART sketch up to three briefly and render two proofs where feasible; for other REDESIGN compare two; PATCH does not need this ritual. For each retained candidate, sketch a 5-second opener, **middle proof**, ending/decision, mobile adaptation and signature interaction. Change at least two of: the content model, spatial grammar, method of proof, narrative rhythm, animation metaphor. State why the idea is specific to this product. Choose quickly; never force three ideas for a patch.
 
 ## 2 — Build a vertical slice
 Implement a *representative* hero, middle section and closing/action in one coherent CSS/image system; add a mobile composition. In a new artistic project the slice must include the **climax**, not only the opener. Use real product facts/assets; concept assets must be labeled. A site that only looks good in its first 900px fails the slice.
