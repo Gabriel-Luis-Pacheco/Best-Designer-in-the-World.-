@@ -89,6 +89,28 @@ class RunnerTests(unittest.TestCase):
             self.assertIn("references/applied-design-decisions.md",second["loaded_portable_references"])
             self.assertTrue(first["workspace_isolated"])
             self.assertTrue(second["workspace_isolated"])
+    def test_capture_reproducible_project_assets_and_reject_secret_files(self):
+        with tempfile.TemporaryDirectory() as d:
+            code=(
+                "import pathlib, json; "
+                "pathlib.Path('package.json').write_text(json.dumps({'name':'fixture-app'})); "
+                "pathlib.Path('vite.config.ts').write_text('export default {}'); "
+                "pathlib.Path('model.glb').write_bytes(b'glTF\\x02\\x00\\x00\\x00'); "
+                "pathlib.Path('.env').write_text('SECRET=hidden'); "
+                "pathlib.Path('api-key.json').write_text('SECRET=hidden'); "
+                "pathlib.Path('app.tsx').write_text('export const x=1')"
+            )
+            run=execute(self.case,"with_skill",[sys.executable,"-c",code],20,pathlib.Path(d),True)
+            payload=json.loads(pathlib.Path(run["path"]).read_text(encoding="utf-8"))
+            self.assertIn("package.json"," ".join(payload["captured_artifacts"]))
+            self.assertIn("model.glb"," ".join(payload["captured_artifacts"]))
+            self.assertIn("vite.config.ts"," ".join(payload["captured_artifacts"]))
+            self.assertNotIn(".env"," ".join(payload["captured_artifacts"]))
+            self.assertNotIn("api-key.json"," ".join(payload["captured_artifacts"]))
+            manifest=json.loads((pathlib.Path(d)/payload["artifact_manifest"]).read_text())
+            self.assertEqual(manifest["status"],"PARTIAL_REPRODUCIBILITY_NEEDS_TRUSTED_DEPENDENCY_INSTALL")
+            self.assertTrue(all(len(x["sha256"])==64 for x in manifest["artifacts"].values()))
+
     def test_records_outputs_without_grading(self):
         with tempfile.TemporaryDirectory() as d:
             output=execute(self.case,"without_skill",
