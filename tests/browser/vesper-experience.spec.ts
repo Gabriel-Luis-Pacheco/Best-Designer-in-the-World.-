@@ -24,6 +24,13 @@ for(const width of [390,1440]){
     await page.getByRole('button',{name:/Return to balance/}).click();
     await expect(page.locator('#light-reading')).toContainText('28°');
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+    if(overflow>2){
+      const offenders=await page.evaluate(()=>[...document.querySelectorAll('body *')].map(el=>{
+        const r=el.getBoundingClientRect();return {tag:el.tagName,className:String(el.className).slice(0,60),
+          right:Math.round(r.right),left:Math.round(r.left),width:Math.round(r.width)};
+      }).filter(x=>x.right>window.innerWidth+2).sort((a,b)=>b.right-a.right).slice(0,12));
+      console.log('OVERFLOW_DIAG_'+width,JSON.stringify(offenders));
+    }
     expect(overflow).toBeLessThanOrEqual(2);
   });
 }
