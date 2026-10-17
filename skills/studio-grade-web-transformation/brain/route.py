@@ -293,7 +293,20 @@ def route(context):
     if not facts:unknown.append("Project facts are not supplied; inspect actual code/site and ask only if blocked.")
     if "web" not in tools and "browser" not in tools and refs_selected:
         unknown.append("Curated references selected offline; none were visited.")
-    return {"schema_version":"9.8",
+    # The router can expose its uncertainty, never erase it. This is deterministic
+    # keyword triage, not project understanding or a replacement for agent judgment.
+    inferred_fields=[key for key,src in (
+        ("surface",surface_source),("vertical",vertical_source),
+        ("mode",mode_source),("goal",goal_source))
+        if src!="explicit"]
+    context_gaps=[]
+    if not audience:context_gaps.append("audience")
+    if not facts:context_gaps.append("verified_product_facts")
+    if surface_source!="explicit" and len(surfaces)>1:
+        context_gaps.append("multiple_inferred_surfaces")
+    if policy in {"ART_DIRECTOR_FIRST","EXPERIENTIAL_COMMERCE"}:
+        context_gaps.append("visual_art_direction_must_be_proven_in_render")
+    return {"schema_version":"10.0",
       "task":task,
       "product":{"name":product,"audience":audience or "UNKNOWN","vertical":vertical,"vertical_source":vertical_source,
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
@@ -316,6 +329,11 @@ def route(context):
                                   ["artistic_impact","product_clarity","desire","action_integrity","mobile","performance"]
                                   if policy=="EXPERIENTIAL_COMMERCE" else
                                   ["task_accuracy","data_integrity","accessibility","efficiency"])},
+      "triage_review":{"interpretation":"HYPOTHESIS_ONLY",
+                       "inferred_fields":inferred_fields,
+                       "context_gaps":context_gaps,
+                       "must_validate_against":"actual user brief, code, canonical assets and rendered behavior",
+                       "approval":"NOT_AUTHORIZED_TO_EDIT_FROM_THIS_OUTPUT"},
       "tool_routing":{"selected_skill_refs":["references/"+x for x in refs],
                       "research_candidates":refs_selected,
                       "research_questions":research_questions,
