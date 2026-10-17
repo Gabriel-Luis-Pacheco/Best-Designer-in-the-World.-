@@ -44,6 +44,11 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Test browser fixtures
         run: npm run test:browser
+      - name: Create before/after screenshot boards (manual review only)
+        run: |
+          python skills/studio-grade-web-transformation/scripts/visual_review_packet.py --before test-results/review-390-before.png --after test-results/review-390-after.png --out test-results/comparison-390.html --label "Mobile 390px"
+          python skills/studio-grade-web-transformation/scripts/visual_review_packet.py --before test-results/review-1440-before.png --after test-results/review-1440-after.png --out test-results/comparison-1440.html --label "Desktop 1440px"
+          python skills/studio-grade-web-transformation/scripts/asset_board.py --original skills/studio-grade-web-transformation/fixtures/brand-original.svg --candidate skills/studio-grade-web-transformation/fixtures/brand-intentionally-offbrand.svg --out test-results/brand-comparison.html
       - uses: actions/upload-artifact@v4
         if: always()
         with:
