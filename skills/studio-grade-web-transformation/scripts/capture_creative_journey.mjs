@@ -76,7 +76,10 @@ export async function capture(config) {
       for (const frame of cfg.frames) {
         const target=page.locator(frame.selector).first();
         if (await target.count()===0) throw new Error('MISSING_SCENE: '+frame.id+' / '+frame.selector);
-        await target.scrollIntoViewIfNeeded({timeout:10000});
+        if (!(await target.isVisible())) throw new Error('HIDDEN_SCENE: '+frame.id+' / '+frame.selector);
+        // Align the beginning of tall scenes; scrollIntoViewIfNeeded may start
+        // midway through a long WebGL/GSAP section and produce misleading frames.
+        await target.evaluate(el=>el.scrollIntoView({block:'start',inline:'nearest',behavior:'instant'}));
         if (frame.scroll_offset_px) await page.mouse.wheel(0,frame.scroll_offset_px);
         if (frame.action) await page.locator(frame.action.selector).first().click({timeout:10000});
         await page.waitForTimeout(frame.wait_ms??350);
