@@ -31,7 +31,7 @@ class PairedCreativeTests(unittest.TestCase):
     def test_tampering_is_rejected(self):
         with tempfile.TemporaryDirectory() as t:
             d=pathlib.Path(t);a=make_manifest(d/"a");b=make_manifest(d/"b")
-            (d/"b/frames/test.png").write_bytes(png(390,500))
+            (d/"b/frames/test.png").write_bytes(png(390,844)+b"tamper")
             with self.assertRaisesRegex(ValueError,"SHA mismatch"):mod.compare(a,b,d/"bad")
     def test_different_scenes_rejected(self):
         with tempfile.TemporaryDirectory() as t:
