@@ -1,4 +1,4 @@
-# Human review rubric — v10.0
+# Human review rubric — v11.0
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -25,3 +25,6 @@ Severidade em separado: P0 (falha central, falsidade, perda de dados), P1 (preju
 Campos mínimos por revisão: caso, `pair_id` igual para as duas condições do mesmo par, condição (`with_skill`/`without_skill`), identificador de execução, revisor, dimensões avaliadas 0–3, `evidence` com links/caminhos ou comandos e resultados PASS/FAIL/UNKNOWN. Avaliação cega é preferível; registrar se houve. Não converter notas de uma pessoa em resultado de usuários reais.
 
 Roteiro: primeiro screenshot inteira sem conhecer variante; segundo revisar ações, estados e mobile; terceiro anotar pior elo e riscos; quarto conferir evidência independente. Comparar dois artefatos da MESMA tarefa. Não afirmar ganho estatístico com amostra mínima.
+
+## Creative-ceiling review (v11.0, applies to art/immersive commerce only)
+Beyond functional correctness, compare formal signature, materiality, meaningful action, scene-to-scene transformation, middle-page originality and contextual payoff. Treat labels of with/without skill as blinded in genuine experiments. A technically passing site that visually loses to a stronger alternative has a CREATIVE_REWORK requirement, not automatic success. Do not penalize minimalism when authored and appropriate; no required download, WebGL or animation. Require actual frames, not self-reported creative scores.
