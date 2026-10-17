@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="260" viewBox="0 0 240 260" role="img" aria-label="Variante propositalmente descaracterizada da mascote fictícia para testes">
+<rect x="35" y="25" width="175" height="204" rx="24" fill="#fbd18b" stroke="#4f4b53" stroke-width="3"/>
+<circle cx="85" cy="105" r="15" fill="#142f4f"/><circle cx="155" cy="105" r="15" fill="#142f4f"/>
+<path d="M83 155 L157 155" stroke="#142f4f" stroke-width="5" stroke-linecap="square"/>
+<path d="M80 225 L80 253 M165 225 L165 253" stroke="#142f4f" stroke-width="5"/>
+</svg>
