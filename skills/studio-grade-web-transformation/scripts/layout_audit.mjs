@@ -129,11 +129,14 @@ export async function runAudit(options) {
 
 const direct = process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href;
 if (direct) {
-  try {
-    const opts=parseArgs(process.argv.slice(2));
-    const report=await runAudit(opts);
-    await mkdir(dirname(opts.out),{recursive:true});
-    await writeFile(opts.out,JSON.stringify(report,null,2)+'\n','utf8');
-    process.stdout.write(JSON.stringify({out:opts.out,status:report.status})+'\n');
-  } catch (err) {process.stderr.write(String(err)+'\n');process.exitCode=2;}
+  // Avoid top-level await: Playwright's TS runner may import ESM through require().
+  (async () => {
+    try {
+      const opts=parseArgs(process.argv.slice(2));
+      const report=await runAudit(opts);
+      await mkdir(dirname(opts.out),{recursive:true});
+      await writeFile(opts.out,JSON.stringify(report,null,2)+'\n','utf8');
+      process.stdout.write(JSON.stringify({out:opts.out,status:report.status})+'\n');
+    } catch (err) {process.stderr.write(String(err)+'\n');process.exitCode=2;}
+  })();
 }
