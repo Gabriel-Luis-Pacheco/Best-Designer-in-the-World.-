@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { inspectPage } from '../../skills/studio-grade-web-transformation/scripts/layout_audit.mjs';
+const { inspectPage } = require('../../skills/studio-grade-web-transformation/scripts/layout_scanner.cjs');
 
 test('rendered layout scan detects horizontal overflow without assigning design score', async ({ page }) => {
   await page.setViewportSize({ width:390, height:844 });
