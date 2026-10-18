@@ -1,0 +1,13 @@
+# Site launch and owner handoff
+- Product and target surface:
+- Source branch/commit:
+- Actual pages/routes built:
+- Actual working CTA/forms/auth flows tested:
+- Brand, fonts, imagery and asset provenance:
+- Mobile, keyboard, touch, zoom and reduced-motion evidence:
+- Console/network and automated test results:
+- Performance: FIELD / LAB / UNKNOWN, hardware/environment:
+- SEO: title/description/canonical/schema/sitemap where applicable:
+- Deploy status: ACTUAL / NOT DONE:
+- Security, permissions, privacy and payment constraints:
+- Rollback if deployed, launch blockers and owner next steps:

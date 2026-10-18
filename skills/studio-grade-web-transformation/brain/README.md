@@ -1,4 +1,4 @@
-# Design OS Brain v11.2 — heuristic router, not creative authority
+# Design OS Brain v11.3 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -45,3 +45,6 @@ Creative challenger, 3D craft guide, journey board and context-aware A/B runner 
 
 ## v11.2 specialty packs
 LANDING receives landing-page-evidence-and-cro; EXPERIENCE receives awwwards-studio-production and award-readiness. Technical pack creative-technology-playbook is conditional on explicit high-effect cues; specialist-skills-orchestration activates for skill-selection intents. All outputs remain hypotheses until the agent reads files and inspects the real product. None auto-installs third-party software.
+
+## v11.3 optional specialist router
+Use python brain/specialist_router.py context.json ONLY when actual external technical guidance is useful. It reads research/specialist_catalog.json and returns at most 3 advisory references. Sources are NOT installed/inspected nor code executed. The primary router remains brain/route.py; specialized packs are hypotheses, no mandatory external requests.

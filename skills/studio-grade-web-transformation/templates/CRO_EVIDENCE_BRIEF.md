@@ -1,0 +1,11 @@
+# Qualified conversion strategy
+- Customer group/real language and evidence:
+- Product mechanism, differentiated offer and limitations:
+- Verified price/terms/checkout path:
+- Primary useful action and next surface:
+- Objections: evidence vs speculation:
+- Content proof/demo available:
+- Copy review: clarity/voice/so-what/proof/specificity/emotion/risk:
+- Event definition/denominator/window/guardrails:
+- A/B validity or UNKNOWN:
+- Implemented changes, mobile/focus/CTA test results:

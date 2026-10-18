@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "description": "Expert sources only: NOT bundled/installed agents. IDs curated from individual comparisons on 2026-10-18; URLs & licenses require recheck at runtime.",
+  "specialists": [
+    {
+      "id": "ui-craft",
+      "url": "https://github.com/educlopez/ui-craft",
+      "skill_path": ".agents/skills/ui-craft/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [
+        "landing",
+        "product",
+        "dashboard"
+      ],
+      "triggers": [
+        "anti-slop",
+        "anti ai slop",
+        "ui audit",
+        "design audit"
+      ],
+      "purpose": "Static/run-time UI craft audit; avoid generic layouts."
+    },
+    {
+      "id": "impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "skill_path": "plugin/skills/impeccable/SKILL.md",
+      "license_reported": "Apache-2.0",
+      "surfaces": [
+        "landing",
+        "product"
+      ],
+      "triggers": [
+        "polish",
+        "critique",
+        "refine",
+        "auditoria visual"
+      ],
+      "purpose": "Focus operations: critique, harden, simplify, polish."
+    },
+    {
+      "id": "uiux-pro-max",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "skill_path": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "design system",
+        "paleta",
+        "tipografia",
+        "font pairing"
+      ],
+      "purpose": "Search structured product/style/font recommendations."
+    },
+    {
+      "id": "taste",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "skill_path": "skills/taste-skill/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [
+        "experience"
+      ],
+      "triggers": [
+        "awwwards",
+        "direção de arte",
+        "art direction"
+      ],
+      "purpose": "Curated art direction references, hypothesis-to-render loop."
+    },
+    {
+      "id": "marketing-copy",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "skill_path": "skills/copywriting/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [
+        "landing"
+      ],
+      "triggers": [
+        "copywriting",
+        "headline",
+        "cta",
+        "copy"
+      ],
+      "purpose": "Page writing with evidence and audience specificity.",
+      "only_marketing": true
+    },
+    {
+      "id": "marketing-cro",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "skill_path": "skills/cro/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "cro",
+        "conversion",
+        "conversão",
+        "landing page"
+      ],
+      "purpose": "Conversion hypotheses, objections, user action and measurement.",
+      "only_marketing": true
+    },
+    {
+      "id": "gsap",
+      "url": "https://github.com/greensock/gsap-skills",
+      "skill_path": "skills/gsap-scrolltrigger/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "gsap",
+        "scrolltrigger",
+        "scroll cinematic",
+        "pinning"
+      ],
+      "purpose": "Official GSAP API/lifecycle guidance."
+    },
+    {
+      "id": "threejs",
+      "url": "https://github.com/Picaresco/threejs-skill",
+      "skill_path": "SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "three.js",
+        "webgpu",
+        "tsl",
+        "webgl",
+        "3d"
+      ],
+      "purpose": "Version-aware 3D renderer, shaders and WebGPU/TSL."
+    },
+    {
+      "id": "r3f",
+      "url": "https://github.com/lklyne/skills",
+      "skill_path": "react-three-fiber/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "react three fiber",
+        "r3f",
+        "useframe"
+      ],
+      "purpose": "R3F performance, refs, uniforms and lifecycle."
+    },
+    {
+      "id": "tokens",
+      "url": "https://github.com/ilikescience/design-tokens-skill",
+      "skill_path": "SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "dtcg",
+        "design tokens",
+        "token validator",
+        "theming"
+      ],
+      "purpose": "DTCG types, aliases, resolvers and platform transformations."
+    },
+    {
+      "id": "responsive",
+      "url": "https://github.com/JayKim88/claude-ai-engineering",
+      "skill_path": "plugins/frontend-toolkit/skills/responsive-design/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "responsividade",
+        "mobile first",
+        "container queries",
+        "dvh"
+      ],
+      "purpose": "Mobile first details, dynamic viewport units, fluid type."
+    },
+    {
+      "id": "webperf",
+      "url": "https://github.com/cloudflare/skills",
+      "skill_path": "skills/web-perf/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "performance",
+        "lcp",
+        "inp",
+        "cls",
+        "lighthouse",
+        "web vitals"
+      ],
+      "purpose": "Evidence-driven performance, network and frame timing."
+    },
+    {
+      "id": "seo",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "skill_path": "skills/seo-audit/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "seo",
+        "indexação",
+        "canonical",
+        "hreflang"
+      ],
+      "purpose": "Technical SEO/information architecture.",
+      "only_marketing": true
+    },
+    {
+      "id": "website",
+      "url": "https://github.com/karero/croftweaver",
+      "skill_path": "skills/new-website/SKILL.md",
+      "license_reported": "MIT",
+      "surfaces": [],
+      "triggers": [
+        "site completo",
+        "multipágina",
+        "new website",
+        "publicação"
+      ],
+      "purpose": "Site build-to-launch planning, ownership and handoff."
+    },
+    {
+      "id": "playwright",
+      "url": "https://github.com/openai/skills",
+      "skill_path": "skills/.curated/playwright/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "playwright",
+        "e2e",
+        "teste de navegador"
+      ],
+      "purpose": "Real browser automation and interaction checks."
+    }
+  ]
+}

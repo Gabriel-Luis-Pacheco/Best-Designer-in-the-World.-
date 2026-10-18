@@ -1,8 +1,8 @@
-# Design OS Prime v11.2 — Best Designer in the World
+# Design OS Prime v11.3 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão ativa — 11.2.0
+## Versão ativa — 11.3.0
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
 
@@ -15,6 +15,15 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 **Estudos práticos:** [Cenários comerciais, artísticos e operacionais](docs/CASE_STUDIES_V11_1.md).
 **Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
 **Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
+
+### V11.3 — competências especializadas e ferramentas executáveis
+- Auditor HTML de craft/anti-slop com achados como hipóteses, nunca nota estética.
+- Validador estrutural de uma parte da especificação DTCG (aliases/ciclos), com limites explícitos.
+- Roteador auxiliar de especialistas externos (15 fontes), limitado a 0–3 sugestões e sem instalação automática.
+- Cinco playbooks novos: memória visual/tokens/fontes, QA visual, marketing e funil, engenharia de motion/3D, entrega de sites multipágina.
+- Três templates opcionais para canon, conversão e handoff.
+- Testes negativos específicos dos novos scripts e do roteador; cobertura estrutural não prova beleza, conversão ou desempenho.
+- Relatório de frentes e atribuições em docs/WORKSTREAM_IMPLEMENTATION_V11_3.md.
 
 ### Novidades V11.2 — pesquisa Awwwards integrada sem inflar a execução
 - Cinco módulos opt-in para pipeline de estúdios criativos, landing/CRO, decisões de tecnologia GSAP/3D, seleção de skills externas e evidência de qualidade.

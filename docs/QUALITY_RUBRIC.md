@@ -1,4 +1,4 @@
-# Human review rubric — v11.2
+# Human review rubric — v11.3
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -37,3 +37,6 @@ For ART/EXPERIENTIAL_COMMERCE, additionally compare FORMAL signature, MATERIAL s
 
 ## Field-backed checks — v11.2
 For creative-technology work, record real visual states and frame pacing/device/browser (or UNKNOWN); a Three.js import is not proof of a smooth immersive experience. For commercial LPs, keep artistic distinction separate from product clarity, truthful CTA, activation and measured conversion (or UNKNOWN). Historical award weights do not override product goals. See references/award-readiness-and-qa.md and references/landing-page-evidence-and-cro.md; never invent an award or audited UX outcome.
+
+## v11.3 specialty evidence boundaries
+Text/markup heuristics: REVIEW (never automatic aesthetic FAIL). DTCG aliases: partial structural checks, no automatic contrast pass. Specialist candidates: NOT_INSTALLED and NOT_READ until a true execution trace proves otherwise. For site handoff, distinguish deployed/working from proposal. In marketing, separate measured qualified conversion from the design agent's A/B win rate.

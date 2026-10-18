@@ -208,3 +208,18 @@ class BrainTests(unittest.TestCase):
         d=brain.route({"task":"Corrija apenas filtro de tabela","surface":"internal","vertical":"fintech"})
         self.assertNotIn("references/awwwards-studio-production.md",
                          d["tool_routing"]["selected_skill_refs"])
+
+    def test_experience_design_evidence_pack(self):
+        d=brain.route({"task":"Crie um museu Awwwards imersivo","surface":"experience","mode":"REBUILD"})
+        refs=d["tool_routing"]["selected_skill_refs"]
+        self.assertIn("references/persistent-design-knowledge.md",refs)
+        self.assertNotIn("references/marketing-research-and-experiments.md",refs)
+    def test_landing_cro_research_selected(self):
+        d=brain.route({"task":"Refaça landing que precisa de conversão","surface":"landing","mode":"REDESIGN","goals":["conversion"]})
+        self.assertIn("references/marketing-research-and-experiments.md",d["tool_routing"]["selected_skill_refs"])
+    def test_internal_patch_no_new_arts_packs(self):
+        d=brain.route({"task":"Corrija só filtro no painel","surface":"internal","mode":"PATCH"})
+        paths=d["tool_routing"]["selected_skill_refs"]
+        self.assertNotIn("references/design-audit-execution.md",paths)
+        self.assertNotIn("references/persistent-design-knowledge.md",paths)
+        self.assertNotIn("references/motion-3d-engineering-cookbook.md",paths)

@@ -1,0 +1,12 @@
+# Project DESIGN.md (proposal until approved)
+- Real product, audience and objective:
+- Canonical brand files/rights:
+- Formal/material/behavioral visual signature:
+- Type roles, source, glyph/fallback and loading:
+- Semantic color, focus/errors, contrast:
+- Layout rhythm and justified variations:
+- Artwork/photo/3D source and license:
+- Interaction/gesture, keyboard, touch and reduced motion:
+- Existing decisions vs proposed edits:
+- Page-level rules/overrides:
+- Evidence links and review date:

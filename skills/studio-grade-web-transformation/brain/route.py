@@ -269,6 +269,20 @@ def route(context):
            ["orquestração de skills", "orquestracao de skills", "seleção de skills",
             "selecao de skills", "skills externas", "skill router"]):
         refs.append("specialist-skills-orchestration.md")
+    # Select specialized knowledge by actual task; never load it for every project.
+    if mode in {"AUDIT","REFINE","REDESIGN"} and any(s in surfaces for s in ("landing","experience","product")):
+        refs.append("design-audit-execution.md")
+    if mode in {"REDESIGN","REBUILD"} and any(s in surfaces for s in ("landing","experience","product")):
+        refs.append("persistent-design-knowledge.md")
+    if "landing" in surfaces and any(g in goals for g in ("conversion","activation","trust")):
+        refs.append("marketing-research-and-experiments.md")
+    if any(contains_phrase(content, term) for term in
+           ["three.js","webgl","webgpu","r3f","gsap","rive","shader","shaders","motion complexo","3d"]):
+        refs.append("motion-3d-engineering-cookbook.md")
+    if any(contains_phrase(content, term) for term in
+           ["site completo","site multipágina","site multipagina","multipágina",
+            "multipagina","publicação","publicacao","deploy","launch website"]):
+        refs.append("site-build-to-handoff.md")
     refs=list(dict.fromkeys(refs))
     missing=[x for x in refs if not (ROOT/"references"/x).is_file()]
     if missing:raise ValueError("missing skill pack: "+", ".join(missing))
