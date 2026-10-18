@@ -16,7 +16,7 @@ def phrase(haystack,needle):
     text=haystack.casefold()
     for match in re.finditer(r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)",text):
         prior=re.split(r"[.!?;\n]",text[max(0,match.start()-90):match.start()])[-1]
-        if re.search(r"(?:não|nao|sem|without|avoid|no|do not|don't)\s+(?:(?:quero|usar|use|add|adicionar|inclua|com|using)\s+)?$",prior):
+        if re.search(r"(?:não|nao|sem|without|avoid|do not|don't)\s+(?:(?:quero|usar|use|add|adicionar|inclua|com|using)\s+)?$",prior):
             continue
         return True
     return False

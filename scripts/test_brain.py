@@ -242,3 +242,9 @@ class BrainTests(unittest.TestCase):
                        "surface":"landing"})
         self.assertNotIn("references/motion-3d-engineering-cookbook.md",
                          d["tool_routing"]["selected_skill_refs"])
+
+    def test_portuguese_preposition_no_webgl_is_positive(self):
+        d=brain.route({"task":"Crie uma experiência no WebGL com animação",
+                       "surface":"experience"})
+        self.assertIn("references/creative-technology-playbook.md",
+                      d["tool_routing"]["selected_skill_refs"])

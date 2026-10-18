@@ -62,7 +62,7 @@ def positive_tech_mention(text, phrase):
     for found in re.finditer(r"(?<!\w)"+re.escape(phrase.casefold())+r"(?!\w)",low):
         before=re.split(r"[.!?;\n]",low[max(0,found.start()-70):found.start()])[-1]
         before=re.split(r",\s*(?:mas\s+)?",before)[-1]
-        denial=r"(?:sem|without|avoid|avoiding|evite|evitar|dispensa|dispensar|no|not|não|nao)"
+        denial=r"(?:sem|without|avoid|avoiding|evite|evitar|dispensa|dispensar|not|não|nao)"
         filler=r"(?:(?:usar|use|utilizar|using|quero|want|add|adicionar|inclua|coloque|with|com)\s+){0,2}"
         if re.search(denial+r"\s+"+filler+r"$",before):
             continue

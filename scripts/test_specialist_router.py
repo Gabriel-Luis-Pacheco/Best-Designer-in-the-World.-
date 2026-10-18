@@ -30,6 +30,11 @@ class SpecialistRouterTests(unittest.TestCase):
     def test_max_zero(self):
         x=m.suggest({"task":"GSAP","max_specialists":0})
         self.assertEqual(x["specialists"],[])
+    def test_portuguese_preposition_no_webgl_is_positive(self):
+        d=m.suggest({"task":"Crie uma experiência no WebGL",
+                     "surface":"experience"})
+        self.assertIn("threejs",{x["id"] for x in d["specialists"]})
+
     def test_cannot_run_unbounded(self):
         with self.assertRaises(ValueError):m.suggest({"task":"GSAP","max_specialists":99})
 if __name__=="__main__":unittest.main()
