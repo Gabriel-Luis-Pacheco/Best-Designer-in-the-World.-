@@ -30,8 +30,8 @@ export async function runAudit(options) {
   const browser=await chromium.launch({headless:true});
   try {
     const captures=[];
-    for (const width of [390, 1440]) {
-      const height=width===390?844:900;
+    for (const width of [320, 390, 768, 1440]) {
+      const height=width===320?700:width===390?844:width===768?1024:900;
       const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
       let blockedExternal=0;
       if (!options.allowExternal) {

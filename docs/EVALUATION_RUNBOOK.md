@@ -1,4 +1,4 @@
-# Design OS Prime v11.4 — guia de avaliação
+# Design OS Prime v11.5 — guia de avaliação
 
 ## Validade antes da qualidade
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
@@ -79,3 +79,6 @@ scripts/craft_audit.py gives source heuristics, and scripts/validate_tokens.py g
 
 ## v11.4 — compare specialist competitors instead of declaring supremacy
 \`python scripts/compare_skill_league.py study/reviews.json\` reads blinded human reviews and compares Design OS vs named competing skills at equal case/model/assets/tools/budget. It never runs competitors, fetches their skills, or gives an aesthetic score. In mixed visual/UX outcomes it returns MIXED_TRADEOFF, not a winner. Review evidence must exist and should be validated separately with verify_review_evidence.py; blind status is declared by submitter. Real trial instructions and JSON schema: docs/COMPETITIVE_TRIAL_PROTOCOL_V11_4.md. New layout auditor inspects browser DOM geometry but not animations over time, WCAG conformance, or creative quality.
+
+## v11.5 — audit actual reference loading
+Run \`python scripts/audit_eval_routing.py\` on the repository to verify all 61 synthetic eval briefs have consistent reference routing and *assembled* injection. The report lists selected guides, prompt length, and control warnings. A passing report tests only source-level prompt construction, not a real agent's comprehension. Human study remains mandatory for comparisons with Impeccable, Taste, UI Craft or no skill.

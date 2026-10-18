@@ -50,6 +50,25 @@ def negated_mention(text, phrase):
             return True
     return False
 
+def positive_tech_mention(text, phrase):
+    """Positive technology cue, excluding simple explicit refusal.
+
+    Deterministic, intentionally narrow (not full natural language parsing).
+    The NO-* patterns are examined only near the exact cue, and a later
+    positive request still activates the tech. A generic term in a product
+    description is never treated as permission to introduce a new stack.
+    """
+    low=text.casefold()
+    for found in re.finditer(r"(?<!\w)"+re.escape(phrase.casefold())+r"(?!\w)",low):
+        before=re.split(r"[.!?;\n]",low[max(0,found.start()-70):found.start()])[-1]
+        before=re.split(r",\s*(?:mas\s+)?",before)[-1]
+        denial=r"(?:sem|without|avoid|avoiding|evite|evitar|dispensa|dispensar|no|not|não|nao)"
+        filler=r"(?:(?:usar|use|utilizar|using|quero|want|add|adicionar|inclua|coloque|with|com)\s+){0,2}"
+        if re.search(denial+r"\s+"+filler+r"$",before):
+            continue
+        return True
+    return False
+
 def infer_aliases(text, aliases):
     return [label for label, words in aliases.items()
             if any(contains_phrase(text,word) and not negated_mention(text,word) for word in words)]
@@ -259,7 +278,7 @@ def route(context):
     creative_tech_terms = ["webgl", "webgpu", "three.js", "react three fiber",
         "shader", "shaders", "3d", "r3f", "gsap", "rive", "scroll cinematográfico",
         "scroll cinematografico", "câmera 3d", "camera 3d", "motion complexo"]
-    if any(contains_phrase(content, term) for term in creative_tech_terms):
+    if any(positive_tech_mention(content, term) for term in creative_tech_terms):
         refs.append("creative-technology-playbook.md")
     if "experience" in surfaces or ("landing" in surfaces and
             any(contains_phrase(content,term) for term in
@@ -276,7 +295,7 @@ def route(context):
         refs.append("persistent-design-knowledge.md")
     if "landing" in surfaces and any(g in goals for g in ("conversion","activation","trust")):
         refs.append("marketing-research-and-experiments.md")
-    if any(contains_phrase(content, term) for term in
+    if any(positive_tech_mention(content, term) for term in
            ["three.js","webgl","webgpu","r3f","gsap","rive","shader","shaders","motion complexo","3d"]):
         refs.append("motion-3d-engineering-cookbook.md")
     if any(contains_phrase(content, term) for term in

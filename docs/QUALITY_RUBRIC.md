@@ -1,4 +1,4 @@
-# Human review rubric — v11.4
+# Human review rubric — v11.5
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -43,3 +43,6 @@ Text/markup heuristics: REVIEW (never automatic aesthetic FAIL). DTCG aliases: p
 
 ## v11.4 competition integrity
 Pair competitor reviews only with the same task SHA, asset/model/tool/budget controls and rating axes. A mixed tradeoff is never an overall win; a P0/P1 on one condition takes precedence over pixel taste. Layout audit findings are REVIEW not WCAG failures. Multiple projects, repeat runs, actual blinded raters and ability to reproduce artifacts are necessary to support claims of consistent superiority.
+
+## v11.5 avoid false technological assumptions
+A user's refusal of WebGL/GSAP or a request to preserve the visual character must be respected. A product noun alone does not justify a GPU renderer. Browser layout flags—including resource failures when external assets were intentionally blocked—are review candidates, never instant artistic/accessibility judgment. Positive injected-guide coverage still does not measure a model's actual behavior.

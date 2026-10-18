@@ -97,6 +97,19 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/marketing-research-and-experiments.md", prompt)
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/awwwards-studio-production.md", prompt)
 
+    def test_explicit_refusal_of_gl_does_not_trigger_heavy_3d_pack(self):
+        case={"prompt":"Crie uma experiência artística sem WebGL e sem GSAP usando SVG",
+              "files":[],"meta":{"surface":"experience"}}
+        p=build_prompt(case,"with_skill")
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md",p)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/motion-3d-engineering-cookbook.md",p)
+
+    def test_3d_engineering_not_chosen_by_product_noun(self):
+        case={"prompt":"Crie uma landing para uma caixa de som com CSS e fotos",
+              "files":[],"meta":{"surface":"landing"}}
+        p=build_prompt(case,"with_skill")
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/motion-3d-engineering-cookbook.md",p)
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "

@@ -36,3 +36,6 @@ Parallel investigative workstreams compared specialist sources against the exist
 
 ## v11.4 18/10/2026 — critical deficit identified
 The optional evaluator selected context by prepending historical references and truncating, so new v11.3 specialty packs could be absent despite being advertised. Fixed category-aware injection with explicit regression tests. Added a locally scoped real-browser layout audit to complement static anti-slop checks, plus a Pareto/blind cross-skill comparator to expose mixed tradeoffs rather than guarantee a win. We cannot assert universal aesthetic dominance without controlled human-tested outputs.
+
+## v11.5 — corrective rather than additive
+Fixed two failure modes: intentional refusals of WebGL/GSAP being misread as requests by the primary brain, and product nouns (speaker) causing the optional evaluation adapter to inject 3D techniques without technical need. Improved real-browser source evidence (four responsive viewports and visible loaded-image failures). Added a full 61-case synthetic routing injection consistency audit. No new aesthetic leaderboard claim or unverified user study.

@@ -22,3 +22,11 @@ test('tiny target is a review candidate, not accessibility certification', async
   expect(result.flags.some((x:any)=>x.code==='TARGET_BELOW_24PX_REVIEW')).toBeTruthy();
   expect(result.limitations.join(' ')).toContain('not automatic WCAG');
 });
+
+test('broken visible image becomes evidence candidate, never automatic visual score', async ({ page }) => {
+  await page.setContent('<html><body><img alt="Produto" src="data:image/png;base64,invalid" style="width:140px;height:140px"></body></html>');
+  await page.waitForFunction(() => document.querySelector('img')?.complete);
+  const result=await inspectPage(page);
+  expect(result.flags.some((x:any)=>x.code==='IMAGE_RESOURCE_FAILED_REVIEW')).toBeTruthy();
+  expect(result).not.toHaveProperty('aesthetic_score');
+});

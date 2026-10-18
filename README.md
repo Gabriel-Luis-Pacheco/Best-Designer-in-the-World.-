@@ -1,8 +1,8 @@
-# Design OS Prime v11.4 — Best Designer in the World
+# Design OS Prime v11.5 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão ativa — 11.4.0
+## Versão ativa — 11.5.0
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
 
@@ -15,6 +15,13 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 **Estudos práticos:** [Cenários comerciais, artísticos e operacionais](docs/CASE_STUDIES_V11_1.md).
 **Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
 **Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
+
+### V11.5 — menos falso positivo, mais prova de execução
+- Roteador de tecnologias distingue pedidos positivos de recusas explícitas (sem WebGL/GSAP), preservando a interpretação do português.
+- Avaliador deixa de inventar 3D porque o produto é uma caixa de som: tecnologia deve ser explicitamente solicitada ou escolhida com justificativa real.
+- Auditor de navegador agora inclui 320/390/768/1440px e candidatos a imagem quebrada, além de overflow e botões pequenos.
+- Novo auditor executável testa se as referências realmente são injetadas para todos os 61 cenários sintéticos, sem transformar esses testes em "nota de beleza".
+- Testes negativos para recusa de tecnologia, casos multilíngues e imagem visivelmente quebrada, mantendo fluxos legados.
 
 ### V11.4 — evidence-driven superiority, not more instructions
 - Fix in evaluation reference injection: specialty modules for CRO, studio Awwwards, and motion/3D are not silently displaced by old generic guides.

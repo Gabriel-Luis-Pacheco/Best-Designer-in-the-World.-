@@ -4,10 +4,10 @@ description: Direção de arte, pesquisa, UX/UI e implementação de landing pag
 compatibility: Requer acesso autorizado ao projeto para editar; browser para inspecionar visualmente. Scripts são auxiliares opcionais. Sem ferramentas, indicar NÃO VERIFICADO. Não inventar resultados.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "11.4.0"
+  version: "11.5.0"
 ---
 
-# Design OS Prime v11.4 — signature → scenes → gesture → payoff → review
+# Design OS Prime v11.5 — signature → scenes → gesture → payoff → review
 
 ## Outcome
 The deliverable is a distinctive, coherent, functioning experience **on the actual product**. An elegant plan is not the deliverable. Optimize for the user's goal, not the number of components, documents or tool calls. Reconstruct **100% of the page if warranted**, while preserving real product truth, canonical assets, permissions and working flows. Never claim awards, conversion improvement or independent QA not performed.
@@ -65,6 +65,13 @@ Source provenance, exclusions and implementation status: docs/WORKSTREAM_IMPLEME
 - **Head-to-head evidence:** the full repo's \`scripts/compare_skill_league.py\` accepts blinded human reviews for Design OS vs named competitors under the *same task/model/tools/budget/assets* and marks differences as Pareto improvements, regressions, ties, or tradeoffs. Do not claim to beat a skill based on synthetic fixtures or metadata.
 - **Counterfactual review:** if an unskilled baseline or rival produces a more memorable product-specific scene, treat that as a learning signal. Identify exactly what to preserve/change and rerender. A production-ready dashboard can be excellent without a cinematic climax. See \`references/creative-advantage-loop.md\`.
 - Process economy: no extra references for PATCH; for ART prioritize studio concept + meaningful gesture + mobile; for LANDING prioritize product clarity, proof and qualified action; for INTERNAL prioritize data truth. Stop expanding instruction text when the bottleneck is actual pixel quality or broken behavior.
+
+## Reliability and creative execution — v11.5
+- **Do not confuse technology *mentions* with requested implementation.** A visitor saying "sem WebGL / without GSAP" is explicitly opting out. Likewise, "caixa de som / speaker" is a product identity, not an instruction to ship Three.js. Creative stack choices need affirmative evidence and current runtime support. In PT-BR, "no WebGL" may mean *in WebGL*, not English "no WebGL"; preserve language semantics and user constraints.
+- **Visual validation at useful viewports:** the optional \`scripts/layout_audit.mjs\` samples 320 / 390 / 768 / 1440px, detects horizontal overflow, small touch-target candidates and fully failed visible images. An unverified external image or pending lazy load is NOT a proven bug. Confirm all results against actual runtime and the meaningful page journey.
+- **Evaluation instrumentation:** the full repo's \`scripts/audit_eval_routing.py\` checks all synthetic briefs for reference-selection/injection consistency. This doesn't prove an actual model followed the instructions; however it can prevent references from being listed and then silently dropped in the evaluation prompt.
+- **No checklist theater:** for PATCH, do exactly the protected change and test it; for full creative work, create real differentiated artifacts and review them in-browser. Keep the strongest existing scene. Do not replace user-specific visual language with large generic matrices; a 'bigger' skill is not proof of better designs.
+- **Evidence integrity:** only a real blind, repeated, balanced comparison with functional sites can support claims of superiority over any named specialist. Record weaknesses as well as wins; never claim perfection or automatic Awwwards achievement.
 
 ## The actual production loop (REDESIGN and REBUILD)
 1. **Autopsy before CSS.** Inspect actual code and running site if accessible. Capture the **entire scroll**, hero, middle, bottom and 390px mobile; record the most generic/weak section, repetitive text, mismatched assets, false demos, broken interaction and narrative gaps. Decide `PRESERVE / ELEVATE / FUSE / DELETE / REBUILD` per section. If defects share a mistaken concept, prefer **global rebuild**, not 40 cosmetic tweaks. See `references/visual-diagnosis-to-redesign.md`.

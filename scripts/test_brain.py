@@ -223,3 +223,22 @@ class BrainTests(unittest.TestCase):
         self.assertNotIn("references/design-audit-execution.md",paths)
         self.assertNotIn("references/persistent-design-knowledge.md",paths)
         self.assertNotIn("references/motion-3d-engineering-cookbook.md",paths)
+
+    def test_no_3d_if_user_explicitly_refuses_webgl(self):
+        d=brain.route({"task":"Crie uma experiência artística sem WebGL e sem GSAP usando SVG",
+                       "surface":"experience"})
+        refs=d["tool_routing"]["selected_skill_refs"]
+        self.assertNotIn("references/creative-technology-playbook.md",refs)
+        self.assertNotIn("references/motion-3d-engineering-cookbook.md",refs)
+
+    def test_positive_3d_after_negation_is_kept(self):
+        d=brain.route({"task":"Sem WebGL, mas quero Three.js com WebGPU",
+                       "surface":"experience"})
+        self.assertIn("references/creative-technology-playbook.md",
+                      d["tool_routing"]["selected_skill_refs"])
+
+    def test_no_heavy_stack_for_simple_photo_product(self):
+        d=brain.route({"task":"Crie landing de caixa de som com fotografias e CSS",
+                       "surface":"landing"})
+        self.assertNotIn("references/motion-3d-engineering-cookbook.md",
+                         d["tool_routing"]["selected_skill_refs"])

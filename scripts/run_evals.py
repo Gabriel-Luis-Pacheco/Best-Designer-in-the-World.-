@@ -49,10 +49,8 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     goals = [plan["strategy"]["primary_goal"]] + plan["strategy"]["secondary_goals"]
     task = case["prompt"].casefold()
     candidate = set(plan["tool_routing"]["selected_skill_refs"])
-    high_effect = any(term in task for term in (
-        "three.js", "webgl", "webgpu", "gsap", "rive", "shader", "3d",
-        "speaker", "alto-falante", "caixa de som", "objeto cinético"
-    ))
+    # A product noun is NOT permission for 3D; consult the main validated route.
+    high_effect = "references/motion-3d-engineering-cookbook.md" in candidate
     award = any(term in task for term in ("awwwards", "site of the day", "site of the year"))
     need_fullsite = "references/site-build-to-handoff.md" in candidate
     audit_only = mode == "AUDIT"

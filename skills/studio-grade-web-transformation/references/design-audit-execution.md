@@ -19,3 +19,6 @@ Optional scripts are advisory (STATIC_SOURCE_ONLY_NOT_RENDERED), not equivalent 
 
 ## Real layout check — v11.4
 When a *local running site* exists, use \`node scripts/layout_audit.mjs --url http://127.0.0.1:3000 --out layout-review.json\` from the installed skill directory if Playwright is available. It checks DOM geometry at two viewport widths with reduced motion; it is not an accessibility certification. Use visual scene capture scripts to inspect temporal interactions, pinned canvases, mid-page transitions and the ending. A static markup audit cannot see rendered horizontal overflow; this script cannot judge art direction.
+
+## v11.5 broader rendered review
+The local-only layout audit inspects 320px, 390px, 768px and 1440px in reduced-motion mode, flags failed visible images only when the browser reports load completion and naturalWidth 0, plus overlap risks already inferred by overflow. If external requests were blocked, the reported image failure is conditional on that test mode, not proof a production image is broken. It still does not inspect scene timing, real device GPU or artistic quality.

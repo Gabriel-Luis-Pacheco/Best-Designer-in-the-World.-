@@ -1,4 +1,4 @@
-# Design OS Brain v11.4 — heuristic router, not creative authority
+# Design OS Brain v11.5 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -51,3 +51,6 @@ Use python brain/specialist_router.py context.json ONLY when actual external tec
 
 ## v11.4 actual loading matters
 The static runner selects a bounded set of references based on *purpose*. Previous v11.3 packs could be truncated by older general-purpose references; scripts/run_evals.py now gives new specialty content a chance to affect actual outputs. The deterministic router remains a hypothesis tool, not a browsing agent or taste scorer.
+
+## v11.5 negative-intent interpretation
+Tech mentions explicitly refused by the user must not trigger the associated expensive WebGL/GSAP/Rive playbooks. PT-BR "no WebGL" can mean *using WebGL*; direct user constraints trump regex guesses. Synthetic routing coverage and actual injection audits are available in the root scripts. Treat these as hypotheses and source tests, not creative verdicts.
