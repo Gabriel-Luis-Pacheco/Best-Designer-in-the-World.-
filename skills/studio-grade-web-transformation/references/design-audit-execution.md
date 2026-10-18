@@ -16,3 +16,6 @@ For each defect: preserve-worthy components; screenshot/state; causal diagnosis;
 Return evidence and UNKNOWN for untested behavior.
 
 Optional scripts are advisory (STATIC_SOURCE_ONLY_NOT_RENDERED), not equivalent to a browser, user research or aesthetic evaluator. Do not force Tailwind, image gradients, or prescribed motion libraries regardless of product context.
+
+## Real layout check — v11.4
+When a *local running site* exists, use \`node scripts/layout_audit.mjs --url http://127.0.0.1:3000 --out layout-review.json\` from the installed skill directory if Playwright is available. It checks DOM geometry at two viewport widths with reduced motion; it is not an accessibility certification. Use visual scene capture scripts to inspect temporal interactions, pinned canvases, mid-page transitions and the ending. A static markup audit cannot see rendered horizontal overflow; this script cannot judge art direction.

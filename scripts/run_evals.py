@@ -36,47 +36,98 @@ def common_task_sha256(case: dict) -> str:
 
 
 def selected_contextual_references(case: dict, plan: dict) -> list[str]:
-    """Select relevant portable guides and prefer current V11 creative material."""
+    """Select a SMALL set of actually injected context guides.
+
+    Version 11.3 had a silent treatment gap: newly-routed specialist references
+    were appended AFTER old generic lists, then truncated. This prioritizes
+    purpose-fit references without loading every pack or biasing toward art.
+    The selected list MUST match the content inserted by build_prompt().
+    """
     policy = plan["strategy"]["creative_authority"]
     mode = plan["strategy"]["mode"]
-    surfaces = plan["product"]["surfaces"]
+    surfaces = set(plan["product"]["surfaces"])
+    goals = [plan["strategy"]["primary_goal"]] + plan["strategy"]["secondary_goals"]
     task = case["prompt"].casefold()
-    needs_3d = any(term in task for term in
-                   ("3d", "three.js", "webgl", "speaker", "alto-falante", "caixa de som", "escultura interativa", "objeto cinético"))
-    evidence = any(term in task for term in
-                   ("screenshot", "captura", "webgl scroll", "frame", "comparação visual", "capture"))
-    if policy == "EXPERIENTIAL_COMMERCE":
-        choices = ["references/experiential-commerce.md",
-                   "references/product-truth.md",
-                   "references/creative-advantage-loop.md",
-                   "references/creative-signature-and-form.md",
-                   "references/interaction-dramaturgy-and-payoff.md",
-                   "references/immersive-3d-product-direction.md" if needs_3d
-                   else "references/creative-production-loop.md"]
-    elif policy == "ART_DIRECTOR_FIRST":
-        choices = ["references/creative-experience-direction.md",
-                   "references/creative-advantage-loop.md",
-                   "references/creative-signature-and-form.md",
-                   "references/interaction-dramaturgy-and-payoff.md",
-                   "references/immersive-3d-product-direction.md" if needs_3d
-                   else "references/full-page-craft-review.md"]
-    elif policy in {"COMMERCE_FIRST_ART_SUPPORT", "OPERATIONAL_FIRST_ART_SUPPORT",
-                    "PRODUCT_FIRST_ART_SUPPORT"}:
-        choices = ["references/product-truth.md",
-                   "references/advanced-product-ux-operations.md"]
+    candidate = set(plan["tool_routing"]["selected_skill_refs"])
+    high_effect = any(term in task for term in (
+        "three.js", "webgl", "webgpu", "gsap", "rive", "shader", "3d",
+        "speaker", "alto-falante", "caixa de som", "objeto cinético"
+    ))
+    award = any(term in task for term in ("awwwards", "site of the day", "site of the year"))
+    need_fullsite = "references/site-build-to-handoff.md" in candidate
+    audit_only = mode == "AUDIT"
+    refs = []
+    def add(*items):
+        for item in items:
+            if item and item not in refs and (SK / item).is_file():
+                refs.append(item)
+
+    if policy == "ART_DIRECTOR_FIRST":
+        add("references/creative-experience-direction.md",
+            "references/creative-advantage-loop.md",
+            "references/creative-signature-and-form.md",
+            "references/interaction-dramaturgy-and-payoff.md")
+        if award: add("references/awwwards-studio-production.md")
+        if high_effect:
+            add("references/immersive-3d-product-direction.md",
+                "references/motion-3d-engineering-cookbook.md")
+        if audit_only: add("references/design-audit-execution.md")
+        add("references/award-readiness-and-qa.md")
+    elif policy == "EXPERIENTIAL_COMMERCE":
+        add("references/experiential-commerce.md",
+            "references/product-truth.md",
+            "references/creative-advantage-loop.md",
+            "references/creative-signature-and-form.md",
+            "references/interaction-dramaturgy-and-payoff.md")
+        if award: add("references/awwwards-studio-production.md")
+        if high_effect:
+            add("references/immersive-3d-product-direction.md",
+                "references/motion-3d-engineering-cookbook.md")
+        add("references/landing-page-evidence-and-cro.md")
+    elif policy == "OPERATIONAL_FIRST_ART_SUPPORT":
+        add("references/product-truth.md",
+            "references/advanced-product-ux-operations.md",
+            "references/quality-gates-and-evidence.md")
+    elif policy == "COMMERCE_FIRST_ART_SUPPORT":
+        add("references/product-truth.md",
+            "references/interaction-and-content.md",
+            "references/quality-gates-and-evidence.md")
     else:
-        choices = ["references/product-intelligence-playbook.md"]
-    if evidence and policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"}:
-        choices.append("references/creative-evidence-journey.md")
-    if mode in {"REDESIGN", "REBUILD"} and "experience" not in surfaces:
-        choices.append("references/applied-design-decisions.md")
-    if "internal" in surfaces or "dashboard" in surfaces:
-        choices.append("references/advanced-product-ux-operations.md")
-    elif "landing" in surfaces:
-        choices.append("references/anti-slop-composition.md")
-    choices.extend(plan["tool_routing"]["selected_skill_refs"])
-    limit = 7 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 5
-    return list(dict.fromkeys(choices))[:limit]
+        add("references/product-intelligence-playbook.md")
+        if "landing" in surfaces:
+            add("references/product-truth.md",
+                "references/landing-page-evidence-and-cro.md",
+                "references/marketing-research-and-experiments.md")
+        elif "product" in surfaces or "mobile" in surfaces:
+            add("references/interaction-and-content.md")
+        if "dashboard" in surfaces or "internal" in surfaces:
+            add("references/advanced-product-ux-operations.md")
+        if mode in {"REDESIGN", "REBUILD"}:
+            add("references/applied-design-decisions.md")
+        if mode in {"AUDIT", "REFINE"} and "landing" in surfaces:
+            add("references/design-audit-execution.md")
+        if high_effect and "references/motion-3d-engineering-cookbook.md" in candidate:
+            add("references/motion-3d-engineering-cookbook.md")
+        if need_fullsite: add("references/site-build-to-handoff.md")
+        if "landing" in surfaces: add("references/anti-slop-composition.md")
+    if mode == "PATCH":
+        # A patch must not inherit full design/marketing ceremonies.
+        keep = ["references/product-truth.md", "references/advanced-product-ux-operations.md",
+                "references/interaction-and-content.md", "references/quality-gates-and-evidence.md"]
+        if high_effect: keep.append("references/motion-3d-engineering-cookbook.md")
+        refs = [x for x in refs if x in keep]
+
+    # Supplemental routed material fits only after purpose-critical guides.
+    if mode != "PATCH":
+        for item in plan["tool_routing"]["selected_skill_refs"]:
+            if item in {"references/marketing-research-and-experiments.md",
+                        "references/site-build-to-handoff.md",
+                        "references/motion-3d-engineering-cookbook.md",
+                        "references/design-audit-execution.md"}:
+                add(item)
+    limit = 9 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 6
+    if mode == "PATCH": limit = 2
+    return refs[:limit]
 
 
 def build_prompt(case: dict, variant: str) -> str:

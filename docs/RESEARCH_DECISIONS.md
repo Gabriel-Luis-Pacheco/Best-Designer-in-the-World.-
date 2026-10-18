@@ -33,3 +33,6 @@ Adotar como módulos opt-in: relato de produção de estúdios, seleção propor
 
 ## 18/10/2026 — research-to-implementation v11.3
 Parallel investigative workstreams compared specialist sources against the existing OS. Adopted original executable mechanisms: limited source craft audit, DTCG structural alias validation, bounded specialist suggestions, durable design canon, qualified marketing funnel, version-aware 3D/motion engineering and site launch handoff. No external SKILL.md was copied or automatically installed. Each source was inspected for relevant mechanism; self-reported benchmark claims were not reproduced. Follow-up real visual A/B required. See WORKSTREAM_IMPLEMENTATION_V11_3.md.
+
+## v11.4 18/10/2026 — critical deficit identified
+The optional evaluator selected context by prepending historical references and truncating, so new v11.3 specialty packs could be absent despite being advertised. Fixed category-aware injection with explicit regression tests. Added a locally scoped real-browser layout audit to complement static anti-slop checks, plus a Pareto/blind cross-skill comparator to expose mixed tradeoffs rather than guarantee a win. We cannot assert universal aesthetic dominance without controlled human-tested outputs.

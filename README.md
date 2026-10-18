@@ -1,8 +1,8 @@
-# Design OS Prime v11.3 — Best Designer in the World
+# Design OS Prime v11.4 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão ativa — 11.3.0
+## Versão ativa — 11.4.0
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
 
@@ -15,6 +15,13 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 **Estudos práticos:** [Cenários comerciais, artísticos e operacionais](docs/CASE_STUDIES_V11_1.md).
 **Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
 **Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
+
+### V11.4 — evidence-driven superiority, not more instructions
+- Fix in evaluation reference injection: specialty modules for CRO, studio Awwwards, and motion/3D are not silently displaced by old generic guides.
+- Real Chromium layout inspector (390px/1440px, review-only for overflow/tap targets, localhost-only).
+- Multi-skill blind evaluation comparator (Pareto wins/losses, tradeoffs, blocker priority; no fabricated automatic aesthetic grades).
+- Regression tests for new route loading, rival-review fairness and browser geometry.
+- Relative priority of *actual rendered creativity and usefulness* over compliance paperwork. See docs/COMPETITIVE_TRIAL_PROTOCOL_V11_4.md for honest win requirements.
 
 ### V11.3 — competências especializadas e ferramentas executáveis
 - Auditor HTML de craft/anti-slop com achados como hipóteses, nunca nota estética.

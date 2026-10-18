@@ -1,6 +1,6 @@
 {
   "name": "design-os-prime-evidence-harness",
-  "version": "11.3.0",
+  "version": "11.4.0",
   "private": true,
   "description": "Optional Playwright browser smoke tests for synthetic fixtures and authorized target environments",
   "scripts": {
@@ -8,7 +8,8 @@
     "test:browser:fixtures": "playwright test tests/browser",
     "test:browser:target": "playwright test examples/playwright-visual.spec.ts",
     "capture:journey": "node scripts/capture_creative_journey.mjs --config tests/browser/creative-journey.sample.json",
-    "capture:vesper": "node scripts/capture_creative_journey.mjs --config tests/browser/vesper-journey.sample.json"
+    "capture:vesper": "node scripts/capture_creative_journey.mjs --config tests/browser/vesper-journey.sample.json",
+    "audit:layout": "node skills/studio-grade-web-transformation/scripts/layout_audit.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1"

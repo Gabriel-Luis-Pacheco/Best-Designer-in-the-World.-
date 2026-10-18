@@ -1,4 +1,4 @@
-# Human review rubric — v11.3
+# Human review rubric — v11.4
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -40,3 +40,6 @@ For creative-technology work, record real visual states and frame pacing/device/
 
 ## v11.3 specialty evidence boundaries
 Text/markup heuristics: REVIEW (never automatic aesthetic FAIL). DTCG aliases: partial structural checks, no automatic contrast pass. Specialist candidates: NOT_INSTALLED and NOT_READ until a true execution trace proves otherwise. For site handoff, distinguish deployed/working from proposal. In marketing, separate measured qualified conversion from the design agent's A/B win rate.
+
+## v11.4 competition integrity
+Pair competitor reviews only with the same task SHA, asset/model/tool/budget controls and rating axes. A mixed tradeoff is never an overall win; a P0/P1 on one condition takes precedence over pixel taste. Layout audit findings are REVIEW not WCAG failures. Multiple projects, repeat runs, actual blinded raters and ability to reproduce artifacts are necessary to support claims of consistent superiority.

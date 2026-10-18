@@ -70,6 +70,33 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/creative-signature-and-form.md",
                          build_prompt(case,"without_skill"))
 
+    def test_v113_commercial_expertise_is_actually_injected(self):
+        prompt = build_prompt(self.case, "with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/landing-page-evidence-and-cro.md", prompt)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/marketing-research-and-experiments.md", prompt)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md", prompt)
+
+    def test_awwwards_receives_studio_method_not_only_museum_metaphors(self):
+        case = {"prompt": "Crie um museu digital Awwwards sem vendas",
+                "files": [], "meta": {"surface": "experience"}}
+        prompt = build_prompt(case, "with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/awwwards-studio-production.md", prompt)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/marketing-research-and-experiments.md", prompt)
+
+    def test_gsap_experience_loads_actual_specialist_technical_playbook(self):
+        case = {"prompt": "Crie experiência imersiva GSAP e WebGL",
+                "files": [], "meta": {"surface": "experience"}}
+        prompt = build_prompt(case, "with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md", prompt)
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/motion-3d-engineering-cookbook.md", prompt)
+
+    def test_narrow_patch_not_flooded_with_marketing(self):
+        case = {"prompt": "Corrija só o link quebrado na landing page",
+                "files": [], "meta": {"surface": "landing"}}
+        prompt = build_prompt(case, "with_skill")
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/marketing-research-and-experiments.md", prompt)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/awwwards-studio-production.md", prompt)
+
     def test_isolated_workspaces_do_not_share_mutations(self):
         with tempfile.TemporaryDirectory() as d:
             code = ("import pathlib,sys; p=pathlib.Path('mutation.txt'); "

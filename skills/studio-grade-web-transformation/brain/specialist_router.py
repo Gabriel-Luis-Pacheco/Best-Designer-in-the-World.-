@@ -9,7 +9,17 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 CATALOG=ROOT/"research/specialist_catalog.json"
 def phrase(haystack,needle):
-    return bool(re.search(r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)",haystack.casefold()))
+    """Positive mention only. Skip nearby explicit denials such as 'sem WebGL'.
+
+    Narrow textual exclusion, not comprehensive natural-language understanding.
+    """
+    text=haystack.casefold()
+    for match in re.finditer(r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)",text):
+        prior=re.split(r"[.!?;\n]",text[max(0,match.start()-90):match.start()])[-1]
+        if re.search(r"(?:não|nao|sem|without|avoid|no|do not|don't)\s+(?:(?:quero|usar|use|add|adicionar|inclua|com|using)\s+)?$",prior):
+            continue
+        return True
+    return False
 
 def suggest(context:dict,catalog=None)->dict:
     if not isinstance(context,dict):raise ValueError("Context must be a JSON object")

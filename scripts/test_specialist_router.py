@@ -21,6 +21,12 @@ class SpecialistRouterTests(unittest.TestCase):
     def test_internal_not_marketing(self):
         x=m.suggest({"task":"Melhore dashboard de dados","surface":"internal"})
         self.assertFalse(any(v["id"].startswith("marketing") for v in x["specialists"]))
+    def test_negated_3d_request_not_a_positive_signal(self):
+        d=m.suggest({"task":"Faça uma landing sem WebGL","max_specialists":3})
+        self.assertNotIn("threejs",{x["id"] for x in d["specialists"]})
+    def test_negated_gsap_not_a_positive_signal(self):
+        d=m.suggest({"task":"Quero interface sem GSAP","max_specialists":3})
+        self.assertNotIn("gsap",{x["id"] for x in d["specialists"]})
     def test_max_zero(self):
         x=m.suggest({"task":"GSAP","max_specialists":0})
         self.assertEqual(x["specialists"],[])
