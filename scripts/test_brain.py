@@ -31,7 +31,7 @@ class BrainTests(unittest.TestCase):
         self.assertEqual(d["product"]["surfaces"],["read"])
         self.assertEqual(d["strategy"]["primary_goal"],"comprehension")
         self.assertNotIn("conversion",d["strategy"]["secondary_goals"])
-        self.assertIn("typography-layout-craft.md",d["tool_routing"]["selected_skill_refs"])
+        self.assertIn("references/typography-layout-craft.md",d["tool_routing"]["selected_skill_refs"])
 
     def test_luxury_experiential_landing_preserves_both_goals(self):
         d=brain.route({"task":"Crie uma landing page comercial experimental nível Awwwards para "
