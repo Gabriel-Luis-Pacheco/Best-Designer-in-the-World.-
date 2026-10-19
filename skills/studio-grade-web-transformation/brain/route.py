@@ -272,7 +272,9 @@ def route(context):
         if goal in {"conversion","trust"}:refs.append("visual-storytelling.md")
     if mode in {"REDESIGN","REBUILD"}:
         # Operational products must not inherit an art-gallery agenda by default.
-        if policy in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
+        if any(s in surfaces for s in ("internal","dashboard","checkout")):
+            # Surface type, not an ART-only policy, governs operational references.
+            # This also covers ordinary backoffices with no "experience" label.
             refs.extend(["advanced-product-ux-operations.md","typography-layout-craft.md"])
         else:
             refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
