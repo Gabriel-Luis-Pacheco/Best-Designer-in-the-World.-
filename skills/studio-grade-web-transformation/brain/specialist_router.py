@@ -9,15 +9,25 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 CATALOG=ROOT/"research/specialist_catalog.json"
 def phrase(haystack,needle):
-    """Positive mention only. Skip nearby explicit denials such as 'sem WebGL'.
+    """Find a positive mention, excluding common nearby negatives, even in lists.
 
-    Narrow textual exclusion, not comprehensive natural-language understanding.
+    Lightweight text heuristic only, not NLU. Portuguese 'no WebGL' means
+    'in WebGL', therefore bare 'no' is deliberately not treated as negation.
     """
     text=haystack.casefold()
-    for match in re.finditer(r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)",text):
-        prior=re.split(r"[.!?;\n]",text[max(0,match.start()-90):match.start()])[-1]
-        if re.search(r"(?:não|nao|sem|without|avoid|do not|don't)\s+(?:(?:quero|usar|use|add|adicionar|inclua|com|using)\s+)?$",prior):
-            continue
+    token=r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)"
+    for match in re.finditer(token,text):
+        prefix=text[max(0,match.start()-130):match.start()]
+        clause=re.split(r"[.!?;\n]|\b(?:mas|porém|porem|but|however|instead)\b",prefix)[-1]
+        neg=re.search(
+            r"(?<!\w)(?:sem|without|avoid|não\s+(?:quero|use|usar)|nao\s+(?:quero|use|usar)|"
+            r"do\s+not\s+(?:use|add)|don't\s+(?:use|add))\b[^.!?;\n]{0,85}$",
+            clause
+        )
+        if neg:
+            tail=neg.group(0)
+            if not re.search(r"\b(?:com|with|incluindo|including|usando|using)\b",tail):
+                continue
         return True
     return False
 
