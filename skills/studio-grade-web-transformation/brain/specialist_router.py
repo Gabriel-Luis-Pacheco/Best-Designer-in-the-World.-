@@ -15,18 +15,18 @@ def phrase(haystack,needle):
     'in WebGL', therefore bare 'no' is deliberately not treated as negation.
     """
     text=haystack.casefold()
-    token=r"(?<!\\w)"+re.escape(needle.casefold())+r"(?!\\w)"
+    token=r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)"
     for match in re.finditer(token,text):
         prefix=text[max(0,match.start()-130):match.start()]
-        clause=re.split(r"[.!?;\\n]|\\b(?:mas|porém|porem|but|however|instead)\\b",prefix)[-1]
+        clause=re.split(r"[.!?;\n]|\b(?:mas|porém|porem|but|however|instead)\b",prefix)[-1]
         neg=re.search(
-            r"(?<!\\w)(?:sem|without|avoid|não\\s+(?:quero|use|usar)|nao\\s+(?:quero|use|usar)|"
-            r"do\\s+not\\s+(?:use|add)|don't\\s+(?:use|add))\\b[^.!?;\\n]{0,85}$",
+            r"(?<!\w)(?:sem|without|avoid|não\s+(?:quero|use|usar)|nao\s+(?:quero|use|usar)|"
+            r"do\s+not\s+(?:use|add)|don't\s+(?:use|add))\b[^.!?;\n]{0,85}$",
             clause
         )
         if neg:
             tail=neg.group(0)
-            if not re.search(r"\\b(?:com|with|incluindo|including|usando|using)\\b",tail):
+            if not re.search(r"\b(?:com|with|incluindo|including|usando|using)\b",tail):
                 continue
         return True
     return False
