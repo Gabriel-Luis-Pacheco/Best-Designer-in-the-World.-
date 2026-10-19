@@ -70,6 +70,8 @@ For an app redesign, verify each affected route and task rather than only the la
 
 Verify build, actual critical routes/CTA, data and price integrity, keyboard/focus, zoom/reflow, reduced motion, loading/error/empty/success and affected regressions. Measure performance before claiming numbers. For animated/scroll scenes, capture comparable semantic states rather than trusting a single full-page image. A screenshot proves appearance only at its captured state.
 
+For product/mobile reviews, independently assess **shared-flow ownership**, **medium fit** (is copy/emoji masquerading as the task UI?) and **explanatory redundancy**. These are evidence-based review dimensions, not automatic aesthetic scores. Consult `references/quality-rubric.md` when scoring the whole product.
+
 Name the weakest observed part and correct its cause:
 - Wrong story or repeated content → change architecture, fuse or delete sections.
 - Incoherent visual language → revise direction and composition.

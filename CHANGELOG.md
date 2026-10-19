@@ -3,6 +3,7 @@
 - Require real visual and interactive mechanisms for learning paths, editors, progress and conversation experiences rather than emoji/paragraph stand-ins; preserve text-first reading surfaces.
 - Add portable visual-first product guide, declared-inventory checker, negative unit tests and static HTML review cues for excessive copy/emoji-as-placeholders.
 - Inject the product guide into the actual with-skill evaluator context for product/mobile redesigns, including TASK_FIRST route decisions; regression-test presence.
+- Extend the human quality rubric with multi-screen ownership, medium fitness and explanation economy, preserving UNKNOWN when uninspected.
 - These are improvements to instructions and advisory QA. They do not prove that a generated site was visually reviewed or that the skill wins independently.
 
 # v11.7.0 — focused execution and grounded structural hypotheses

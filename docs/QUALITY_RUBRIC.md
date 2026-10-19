@@ -11,6 +11,8 @@ Escala consistente para TODAS as dimensões:
 
 Dimensões gerais: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
 
+Para **PRODUCT/MOBILE multitelas**, acrescentar quando observável `propriedade_fluxos`, `adequacao_do_meio` e `economia_explicativa`. Avaliar separadamente: (a) uma tarefa aparece em dois lugares com estado e regras inconsistentes; (b) a UI usa texto/emoji como substituto de um mapa, prévia, ferramenta ou visualização realmente necessária; (c) explicações redundantes forçam leitura sem ajudar a tarefa. Esses sinais são hipóteses a observar, não uma proibição de texto ou de múltiplas rotas legítimas. Marcar UNKNOWN quando código/rotas/pixels não foram inspecionados. Não tirar média que esconda um fluxo central duplicado e quebrado.
+
 Em ART/EXPERIENCE/EXPERIENTIAL_COMMERCE, acrescentar quando observável `reconhecimento_produto`, `continuidade_cenas`, `agencia_interativa`, `climax_encerramento`. Elas são opcionais para dashboards, patches e páginas sem narrativa: não penalize o projeto por uma métrica irrelevante. Não use média para esconder uma falha de reconhecimento do produto vendido, funcionalidade ou acesso.
 Marcar `UNKNOWN` como valor `null` ou omitir a dimensão, documentando por quê. Não atribuir 3 só por estética pessoal; relacionar cada nota a observação e artefato.
 
@@ -21,6 +23,9 @@ Exemplos de ancoragem:
 - Funcionalidade 0: CTA quebrado; 2: fluxos testados e utilizáveis; 3: fluxos, recuperação e estados críticos muito bem resolvidos.
 - Acessibilidade 0: barreira severa comprovada; 2: testes essenciais realizados sem barreiras conhecidas; 3: verificação ampliada com tecnologias assistivas e evidências.
 - Performance: UNKNOWN sem medida; 2 apenas com ambiente e métricas registradas.
+- Propriedade dos fluxos (produto multitelas): 0 quando a mesma tarefa tem implementações conflitantes com prejuízo demonstrado; 2 quando entradas distintas compartilham comportamento, dados e retorno coerentes; 3 quando a arquitetura reduz passos e redundância mantendo expectativas. Não confundir dois pontos de entrada legítimos com duplicidade.
+- Adequação do meio: 0 quando a ação central depende de um substituto inadequado (ex.: trilha só com emoji, editor sem prévia real); 2 quando o mecanismo visual ou textual ajuda a tarefa e funciona; 3 quando forma, interação e informação se reforçam de modo específico ao produto.
+- Economia explicativa: 0 quando repetição impede encontrar ou executar a tarefa; 2 quando instruções e provas são concisas, acessíveis e suficientes; 3 quando a UI ensina pelo funcionamento real sem ocultar informação relevante. Páginas de leitura podem legitimamente conter muitos parágrafos.
 - Reconhecimento do produto: 0 se uma página comercial faz o produto parecer um objeto diferente; 2 se forma, texto e prova tornam seu uso evidente; 3 se reconhecimento e singularidade estética se reforçam. Para arte abstrata sem produto, omitida.
 - Continuidade de cenas: 0 quando cada trecho parece outro template; 2 para transições com vocabulário visual consistente; 3 para narrativa autoral que progride sem repetição.
 - Agência interativa: 0 quando controle é ornamental ou inacessível; 2 quando modifica algo compreensível e reversível; 3 quando o gesto revela a ideia central do projeto.
