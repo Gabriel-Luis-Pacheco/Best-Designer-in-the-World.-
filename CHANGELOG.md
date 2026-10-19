@@ -1,4 +1,5 @@
 ## 11.6.1 — 2026-10-19 — competitive review and source routing
+- Replaced repository-home links in the 30-skill comparison plan with individually verified `SKILL.md` entrypoints; rechecked all 30 source paths on 2026-10-19. The trials remain unperformed, and every future run must pin commit and content hashes.
 - Directly checked six current competitor skill entrypoints and recorded transferable mechanisms with explicit boundaries; source inspection is not an output-quality benchmark.
 - Added an individually task-matched 30-skill head-to-head plan without inventing results or universal winners.
 - Fixed the Impeccable skill path and added verified-path candidate entries for GOATED UI, Ultra Frontend and dawitlabs UI Skills; licenses remain UNVERIFIED until checked at use time.
