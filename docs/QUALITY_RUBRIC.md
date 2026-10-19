@@ -1,4 +1,4 @@
-# Human review rubric — v11.5
+# Human review rubric — v11.6
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -46,3 +46,9 @@ Pair competitor reviews only with the same task SHA, asset/model/tool/budget con
 
 ## v11.5 avoid false technological assumptions
 A user's refusal of WebGL/GSAP or a request to preserve the visual character must be respected. A product noun alone does not justify a GPU renderer. Browser layout flags—including resource failures when external assets were intentionally blocked—are review candidates, never instant artistic/accessibility judgment. Positive injected-guide coverage still does not measure a model's actual behavior.
+
+## v11.6 — evidence limitations
+With `--evidence-root`, local files must exist and be non-empty. This never
+authenticates their contents, the correctness of a test assertion, or a reviewer
+being blind. An analysis+implementation task must be judged on executed output,
+not text-only audit conclusions.

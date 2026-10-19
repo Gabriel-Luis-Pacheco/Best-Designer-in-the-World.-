@@ -1,3 +1,9 @@
+## v11.6 — validação complementar
+O comparador aceita `--evidence-root` para rejeitar capturas ausentes ou vazias.
+O `scripts/verify_change_scope.py` inspeciona paths realmente alterados por git;
+esse teste não comprova contratos em nível de campo. Para uma comparação
+completa e honesta, seguir `docs/REAL_WORLD_BENCHMARK_V11_6.md`.
+
 # Design OS Prime v11.5 — guia de avaliação
 
 ## Validade antes da qualidade

@@ -15,7 +15,8 @@ def validate():
     docs={"README.md":ROOT/"README.md",
           "SKILL.md":SK/"SKILL.md",
           "EVALUATION_RUNBOOK.md":ROOT/"docs/EVALUATION_RUNBOOK.md",
-          "BRAIN_README.md":SK/"brain/README.md"}
+          "BRAIN_README.md":SK/"brain/README.md",
+          "START_HERE.md":ROOT/"docs/START_HERE.md"}
     contents={name:path.read_text(encoding="utf-8") for name,path in docs.items()}
     for name,body in contents.items():
         if release not in body:

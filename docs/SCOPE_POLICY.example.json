@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "allowed_paths": ["src/components/*", "src/styles/*"],
+  "protected_paths": ["src/payments/*", "src/database/*", "src/auth/*"]
+}
