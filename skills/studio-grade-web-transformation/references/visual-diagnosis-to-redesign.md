@@ -21,6 +21,10 @@ Do not turn paragraphs into equally textual cards or tabs. Demonstrate the *mech
 ## BataTalk anti-example (general principle)
 "Student hesitates" + "Tato suggests" + "student retries" is ONE pedagogical action, not three oversized marketing chapters. With official Tato assets and verified product behavior, choreograph hesitation → relevant help → attempt → useful feedback. Without those assets/features, propose a clearly labeled storyboard instead of faking a screen.
 
+## Multi-route product reconstruction
+
+A full product can have a visually polished page and still contain two independent avatar editors, a text-only learning journey or redundant navigation. Inventory real routes and group them by **user job**, not URL/name. Find the canonical component and shared state; justify legitimate variants, preserve deep links and recovery, and reconstruct the actual visual mechanism where words/emoji stand in for an interactive task. Inspect full journeys across mobile and desktop, including errors/empty states. See `visual-first-product-architecture.md`.
+
 ## Hard creative review
 The visual review must identify **which exact section to redesign, what it becomes, and what disappears**. Change source files and compare screenshots; a markdown recommendation alone is only an AUDIT. A P1 must be tied to a real user/brand/product impact, not one reviewer's private taste. Use `references/creative-production-loop.md` to drive correction.
 

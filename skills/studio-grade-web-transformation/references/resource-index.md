@@ -62,6 +62,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/visual-diagnosis-to-redesign.md` | Visual diagnosis → reconstruction, not more text |
 | `references/visual-regression-harness.md` | Harness de teste visual e funcional |
 | `references/visual-storytelling.md` | Narrativa visual sem paredes de texto |
+| `references/visual-first-product-architecture.md` | Visual-first product architecture, route/job ownership, real task visuals |
 
 ## Optional tools
 
@@ -76,6 +77,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 - `scripts/visual_review_packet.py`: before/after screenshot board.
 - `scripts/journey_board.py`: optional scene review board.
 - `scripts/section_rhythm.py`, `scripts/craft_audit.py`, `scripts/inspect_html.py`: static hypotheses requiring runtime review.
+- `scripts/surface_map_audit.py inventory.json`: flags possible duplicate user-job owners and weak declared visual mechanisms; cannot inspect app code or render.
 - `scripts/validate_tokens.py`: partial token-structure checks; not complete DTCG conformance.
 - `scripts/contract_engine.py`, `scripts/release_gate.py --evidence-root path`: declared checks and nonempty evidence-file checks; do not interpret truth or quality.
 

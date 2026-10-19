@@ -1,0 +1,51 @@
+{
+  "description": "Synthetic declared UI issues; review actual code/runtime before action",
+  "surfaces": [
+    {
+      "id": "onboarding-avatar",
+      "route": "/welcome/avatar",
+      "job": "edit_avatar",
+      "surface_type": "product",
+      "primary_representation": "text",
+      "interaction_required": true,
+      "canonical": true,
+      "content_blocks": [
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph"
+      ]
+    },
+    {
+      "id": "profile-avatar",
+      "route": "/profile/avatar",
+      "job": "edit_avatar",
+      "surface_type": "product",
+      "primary_representation": "emoji",
+      "interaction_required": true,
+      "canonical": true
+    },
+    {
+      "id": "learning-path",
+      "route": "/learn",
+      "job": "choose_lesson",
+      "surface_type": "product",
+      "primary_representation": "emoji",
+      "interaction_required": true,
+      "canonical": true
+    },
+    {
+      "id": "terms",
+      "route": "/terms",
+      "job": "read_terms",
+      "surface_type": "read",
+      "primary_representation": "text",
+      "content_blocks": [
+        "paragraph",
+        "paragraph",
+        "paragraph",
+        "paragraph"
+      ]
+    }
+  ]
+}

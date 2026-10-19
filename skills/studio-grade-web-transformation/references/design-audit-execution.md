@@ -2,6 +2,10 @@
 
 Specialist practices studied: UI Craft anti-slop checker; Impeccable task commands; gstack atomic fix/reverify; Vercel Web Guidelines; StyleSeed render→evaluate→revise. The mechanism is adapted, not cloned.
 
+## Pre-pass for products: surface ownership and actual mechanisms
+
+Before individual page critiques, inspect the app's real routes, user jobs and shared state. Mark overlapping flows that should share a component, where the central user action is being described instead of constructed, and where emoji substitute for functional maps or selectors. Optional `scripts/surface_map_audit.py` uses a **declared** inventory, not source-code discovery; it cannot independently establish duplication or visual quality.
+
 ## Three independent passes
 1. **Source:** Run inspect_html.py, section_rhythm.py or the new craft_audit.py on authorized static HTML. Detect generic claims, repeated sections and risky autoplay as candidate issues; no number certifies aesthetic quality.
 2. **Real pixels:** Open the actual site. Capture first impression, middle, closure, visual transformation and mobile/reduced-motion. Audit hierarchy, typography, image quality and original subject. A long screenshot often misrepresents pinned canvas.

@@ -57,12 +57,16 @@ Create a coherent grammar of type, spacing, shape, imagery, materials, states an
 
 For ART/EXPERIENTIAL_COMMERCE, define **FORMAL / MATERIAL / BEHAVIORAL SIGNATURE**: recognizable shape/type physics, consistent material language and a gesture with a contextual consequence. Keep the product recognizable in commercial work. An authored experience can use DOM/CSS/SVG; use GSAP, WebGL, Three.js or Rive only when the request or a justified mechanism needs them. Respect explicit technology vetoes. Provide user control, reduced motion and a useful fallback.
 
+**Mandatory for multi-screen redesigns:** Map affected routes, entry points, distinct user jobs, shared components and canonical data owners BEFORE restyling. Detect repeated flows such as avatar editing in onboarding and profile; share the actual component/state where appropriate, or justify separate journeys while preserving navigation and saved state. For every major interactive screen, design its **real visual or working interaction mechanism before expanding copy**. A learning path needs authored nodes, connections and progress states, not emoji and text labels. An avatar editor needs actual preview and choices, not parallel textual screens. Remove repeated explanation at the architecture level; don't replace paragraphs with equally textual cards. Emoji may decorate but cannot replace a central product mechanism. Text appropriately leads on reading/legal surfaces. Follow `references/visual-first-product-architecture.md` without burdening the user with paperwork.
+
 For existing products, use the real stack and conventions. Keep working routes and backend contracts. New visible controls need truthful behavior; mark prototypes and simulated data clearly. Avoid dead CTAs, fabricated testimonials and decorative fake software screenshots. For multipage work, verify navigation, deep links, forms and relevant metadata in the actual runtime.
 
 Use `references/creative-production-loop.md` for substantial production and `references/typography-layout-craft.md` for craft. Templates are optional working aids; do not fill them instead of implementing.
 
 ## 4. Inspect pixels, behavior and the weakest link
 Run the implementation when possible. Inspect the whole page/task plus opening, middle, ending and meaningful interactive states. Review at five scales: whole-page silhouette, transitions, sections, components/assets/states and mobile. Check representative narrow/wide viewports (typically 320/390/768/1440px), long content and relevant states; sample proportionally for PATCH.
+
+For an app redesign, verify each affected route and task rather than only the landing/hero: duplicate ownership, shared state, intended distinctness, real visual mechanisms, concise content, error/empty/success states and deliberately designed mobile. A claim of visual quality remains **NOT VERIFIED** until the rendered result is inspected.
 
 Verify build, actual critical routes/CTA, data and price integrity, keyboard/focus, zoom/reflow, reduced motion, loading/error/empty/success and affected regressions. Measure performance before claiming numbers. For animated/scroll scenes, capture comparable semantic states rather than trusting a single full-page image. A screenshot proves appearance only at its captured state.
 
@@ -94,6 +98,7 @@ All paths below are relative to this installed skill. Start with the smallest re
 | Expressive commerce | `references/experiential-commerce.md`, `references/creative-advantage-loop.md` |
 | Landing / business evidence | `references/landing-page-evidence-and-cro.md`, `references/marketing-research-and-experiments.md` |
 | Operations / product UX | `references/advanced-product-ux-operations.md`, `references/product-ux-versus-marketing.md` |
+| Multi-screen UX, duplicate flows, emoji/text-heavy product UI | `references/visual-first-product-architecture.md` |
 | Reading / documentation | `references/reading-and-information-design.md` |
 | Typography / motion | `references/typography-layout-craft.md`, `references/motion-and-interaction-direction.md` |
 | Actual motion / 3D engineering | `references/motion-3d-engineering-cookbook.md`, `references/immersive-3d-product-direction.md` |

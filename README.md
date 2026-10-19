@@ -10,6 +10,18 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Reforço visual-first para produtos completos
+
+A revisão de produto agora começa identificando todas as rotas, as tarefas e o proprietário de cada fluxo. Ela exige construir trilhas visuais com estados reais, seletores com prévia, exercícios com interação e componentes reutilizáveis onde apropriado, sem substituir interface por emoji ou paredes de texto. Telas repetidas (por exemplo, dois editores de avatar) precisam ser justificadas ou consolidadas sem perder navegação e dados. Leitura e dados densos continuam tendo a representação adequada ao objetivo.
+
+[Protocolo visual-first](skills/studio-grade-web-transformation/references/visual-first-product-architecture.md). Triagem opcional de inventário declarado:
+
+```bash
+python skills/studio-grade-web-transformation/scripts/surface_map_audit.py skills/studio-grade-web-transformation/fixtures/surface-map-anti-example.json
+```
+
+O auditor não inspeciona React ou screenshots sozinho, e seus sinais não são uma nota de beleza. É preciso implementar, renderizar e testar o produto real.
+
 ## O que esta versão melhora
 
 - **Execução mais clara:** núcleo reduzido de aproximadamente 3.622 para 1.611 palavras, com uma sequência única de investigação, escolha, implementação, inspeção e correção. Histórico de releases fica no [CHANGELOG](CHANGELOG.md).
