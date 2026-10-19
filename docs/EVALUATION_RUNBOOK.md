@@ -1,3 +1,9 @@
+## v11.7 — revisão do núcleo e cobertura de leitura
+A seleção de referências de READ agora injeta o guia de informação/leitura de fato,
+inclusive em auditoria e refinamento. O núcleo foi consolidado, sem transformar
+mudanças de instrução em prova de qualidade. O laboratório criativo considera
+superfície e evidência declarada; não gera resultados visuais.
+
 ## v11.6.1 — validação complementar
 O comparador aceita `--evidence-root` para rejeitar capturas ausentes ou vazias.
 O `scripts/verify_change_scope.py` inspeciona paths realmente alterados por git;

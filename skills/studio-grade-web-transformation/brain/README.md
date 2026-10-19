@@ -1,4 +1,4 @@
-# Design OS Brain v11.6.1 — heuristic router, not creative authority
+# Design OS Brain v11.7.0 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -60,3 +60,13 @@ Analyze **and implement** requests route to REFINE unless a stronger explicit
 PATCH, REDESIGN or REBUILD mode is present. An audit-only request remains AUDIT.
 Structural operational redesigns do not automatically load editorial art direction.
 The proposed route does not authorize files, prove user intent or execute code.
+
+## v11.7 — contextual proposals without creative authority
+The optional `creative_direction_lab.py` accepts ten surfaces, declared evidence types,
+product facts, user jobs and available assets. It selects two structural hypotheses,
+retains supplied grounding as unverified and lists missing context. PATCH/AUDIT and
+locked directions produce no alternatives; REFINE requires `explore_directions: true`.
+Read `references/product-grounded-direction.md` relative to the skill for the schema.
+The selector does not verify evidence, invent a feature or understand a business.
+READ now uses a dedicated information-design pack in routing and actual runner injection.
+Natural-language veto handling is deliberately narrow; explicit context and real inspection win.

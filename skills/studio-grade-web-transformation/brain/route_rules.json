@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "description": "Contextual deterministic strategy: pure artistic experiences, commercially useful immersive pages and safety-first operational work each have distinct priorities. Candidate hypotheses, not model judgments. V11.2 adds award-production and conversion modules to the appropriate surfaces. V11.3 adds optional knowledge packs without automatic specialist installation. V11.6.1 adds READ as a distinct informational surface so documentation is not forced into a conversion funnel.",
+  "version": 7,
+  "description": "Surface-aware deterministic triage. Explicit context wins. Inferred routes remain low-confidence proposals; v11.7 adds reading guidance and command-veto regressions.",
   "surface_aliases": {
     "experience": [
       "site experimental",
@@ -85,7 +85,13 @@
       "base de conhecimento",
       "knowledge base",
       "developer docs",
-      "technical documentation"
+      "technical documentation",
+      "documentation",
+      "docs",
+      "help centre",
+      "central de suporte",
+      "manual técnico",
+      "manual tecnico"
     ]
   },
   "vertical_aliases": {
@@ -245,6 +251,7 @@
     "read": {
       "primary_goal": "comprehension",
       "refs": [
+        "reading-and-information-design.md",
         "interaction-and-content.md",
         "typography-layout-craft.md",
         "quality-gates-and-evidence.md"

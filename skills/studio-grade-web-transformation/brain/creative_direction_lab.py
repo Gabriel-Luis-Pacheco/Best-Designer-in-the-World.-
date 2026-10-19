@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Generate two buildable, non-identical art-direction hypotheses from declared facts.
+"""Propose surface-aware structural hypotheses from declared evidence, without I/O.
 
-This is a deterministic creative preflight, NOT a taste engine, reference browser,
-site builder, image generator, or guarantee of beauty. No network or side effects.
+This bounded pattern selector is NOT a creative intelligence, source verifier,
+site builder or aesthetic evaluator. An agent must inspect and override it.
 """
 from __future__ import annotations
 
@@ -10,9 +10,82 @@ import argparse
 import json
 from pathlib import Path
 
-SURFACES = {"landing", "product", "dashboard", "internal", "experience", "commerce"}
+SURFACES = {"landing", "product", "dashboard", "internal", "experience", "commerce",
+            "read", "mobile", "checkout", "experiential_commerce"}
 TECHNOLOGIES = {"gsap", "webgl", "webgpu", "three.js", "rive", "css", "svg"}
+EVIDENCE_TYPES = {"demo", "photography", "records", "process", "collection",
+                  "narrative", "comparison", "documentation"}
 SCENE_KEYS = ("opening", "recognition", "middle", "interaction", "closure")
+
+# Different structures, not random palette/brand-name substitutions. Evidence
+# requirements are declared availability, never independent source verification.
+PATTERNS = {
+    "task-first": ("Task-first density", "Organize around the next costly operation.",
+                   "compact task-oriented grid", "Move through real task states with context retained."),
+    "evidence-first": ("Evidence-first workbench", "Organize source evidence before decisions.",
+                       "document-led split workbench", "Inspect a source and return to the same record."),
+    "search-first": ("Question-led reference", "Organize by the reader's question and stable topic paths.",
+                     "search and topic index with readable article rail", "Find an answer and preserve the return path."),
+    "guided-reading": ("Guided explanation", "Sequence prerequisite knowledge before advanced detail.",
+                       "progressive reading path with contextual examples", "Follow an example and navigate back without losing place."),
+    "guided-task": ("Progressive task", "Expose the minimum useful next decision and its consequences.",
+                    "sequential task canvas with persistent summary", "Complete a real step and recover without restarting."),
+    "workspace": ("Direct workspace", "Keep the working object and its controls in one context.",
+                  "object-centered workspace with adjacent tools", "Edit a permitted state with visible feedback and recovery."),
+    "review-first": ("Review and confirm", "Make selected items, totals and terms inspectable before commitment.",
+                     "order summary beside the transaction form", "Correct a choice before a real confirmation."),
+    "recovery-first": ("Resilient purchase path", "Order purchase decisions around continuity and error recovery.",
+                        "progressive transaction steps with persistent total", "Recover a failed step without losing valid choices."),
+    "catalog-first": ("Browse and narrow", "Organize verified items around meaningful selection criteria.",
+                      "browsable catalog followed by focused item detail", "Narrow real items and inspect a preserved selection."),
+    "product-proof": ("Product demonstration", "Make actual behavior the main explanation of value.",
+                      "demonstration stage with adjacent evidence and next action", "Try only the behavior the real product supports."),
+    "editorial-proof": ("Editorial demonstration", "Explain a distinctive product property through type, crop and pacing.",
+                        "editorial chapters organized around a real product property", "Reveal the evidence supporting one concrete claim."),
+    "living-artifact": ("Evolving artifact", "Explore a supplied object or concept through connected states.",
+                        "continuous spatial sequence centered on a supplied artifact", "Propose a reversible transformation only if the runtime supports it."),
+    "process-led": ("Visible process", "Use a declared sequence to explain cause and consequence.",
+                    "connected process stages with progressive evidence", "Inspect a real stage and its inputs or outputs."),
+    "comparison-led": ("Decision through comparison", "Organize around supplied differences and decision criteria.",
+                       "aligned comparison followed by a focused recommendation space", "Compare verified alternatives without concealing conditions."),
+    "collection-led": ("Curated collection", "Use relationships between supplied items as the narrative.",
+                       "collection index linked to focused object studies", "Explore an item and retain collection context."),
+    "narrative-led": ("Authored narrative", "Compose a supplied story as connected reveals and resolution.",
+                      "paced narrative scenes with a contextual ending", "Offer agency that changes understanding of the supplied story."),
+    "image-led": ("Material close study", "Let authorized photography demonstrate a tangible property.",
+                  "large image studies with precise product annotations", "Inspect real details without substituting invented product imagery."),
+}
+DEFAULTS = {
+    "internal": ("task-first", "evidence-first"),
+    "dashboard": ("task-first", "evidence-first"),
+    "read": ("search-first", "guided-reading"),
+    "product": ("guided-task", "workspace"),
+    "mobile": ("guided-task", "workspace"),
+    "checkout": ("review-first", "recovery-first"),
+    "commerce": ("product-proof", "catalog-first"),
+    "landing": ("editorial-proof", "product-proof"),
+    "experience": ("editorial-proof", "living-artifact"),
+    "experiential_commerce": ("product-proof", "living-artifact"),
+}
+EVIDENCE_PATTERNS = {
+    "demo": "product-proof", "photography": "image-led", "records": "evidence-first",
+    "process": "process-led", "collection": "collection-led", "narrative": "narrative-led",
+    "comparison": "comparison-led", "documentation": "guided-reading",
+}
+# Scope beats an exciting but irrelevant evidence type: do not suggest a
+# photographic art showcase for a checkout or operational record task.
+ELIGIBLE_EVIDENCE = {
+    "internal": ("records", "process", "comparison"),
+    "dashboard": ("records", "comparison", "process"),
+    "read": ("documentation", "process", "comparison"),
+    "product": ("process", "records", "comparison"),
+    "mobile": ("process", "records", "comparison"),
+    "checkout": (),
+    "commerce": ("photography", "comparison", "demo", "collection", "process"),
+    "landing": ("demo", "photography", "process", "comparison", "collection", "narrative"),
+    "experience": ("collection", "narrative", "photography", "process", "demo"),
+    "experiential_commerce": ("photography", "demo", "narrative", "collection", "process", "comparison"),
+}
 
 
 def _string(value, name, required=False):
@@ -29,50 +102,59 @@ def _strings(value, name, limit=20):
         return []
     if not isinstance(value, list) or len(value) > limit:
         raise ValueError(name + " must be an array of at most " + str(limit))
-    return [_string(x, name + " item", True) for x in value]
+    return list(dict.fromkeys(_string(x, name + " item", True) for x in value))
 
 
-def _make_concept(key, label, direction, gesture, layout, brief, operational):
+def _boolean(data, name):
+    value = data.get(name, False)
+    if not isinstance(value, bool):
+        raise ValueError(name + " must be a boolean")
+    return value
+
+
+def _make_concept(key, brief, surface, evidence):
+    label, thesis, layout, gesture = PATTERNS[key]
     product = brief["product"]
     action = brief["real_action"] or "UNKNOWN — verify the actual user action before implementation"
-    if operational:
-        scene_map = {
-            "opening": "Show the task, current state and next actionable step, not a cinematic hero.",
-            "recognition": "Make " + product + " and the authorized data source unambiguous.",
-            "middle": "Show actual records, cases and density states; never invent live data.",
-            "interaction": "Complete and reverse a REAL permitted task: " + action,
-            "closure": "Confirm outcome, next action, recovery and auditability; no fake success."
-        }
-    else:
-        scene_map = {
-            "opening": "Make " + product + " recognizable through this specific " + layout + " language.",
-            "recognition": "Demonstrate a real property of " + product + ", not a stock illustration.",
-            "middle": "Progress the argument with a visibly different but connected scene.",
-            "interaction": "Let visitors meaningfully perform: " + action + ". " + gesture,
-            "closure": "Resolve the opening idea and present only a truthful existing next action."
-        }
+    facts = brief["product_facts"]
+    jobs = brief["user_jobs"]
+    assets = brief["available_assets"]
+    grounding = {"product_facts_supplied_unverified": facts,
+                 "user_jobs_supplied_unverified": jobs,
+                 "assets_supplied_unverified": assets,
+                 "objective_supplied_unverified": brief["objective"] or "UNKNOWN",
+                 "audience_supplied_unverified": brief["audience"] or "UNKNOWN"}
+    focus = facts[0] if facts else "UNKNOWN — inspect a distinctive product fact"
+    need = jobs[0] if jobs else "UNKNOWN — inspect the actual user job"
+    asset = assets[0] if assets else "UNKNOWN — inspect authorized original assets"
+    opening = "Introduce " + product + " around: " + need + ". Proposed structure: " + layout + "."
+    middle = "Develop this supplied fact: " + focus + ". Proposed evidence mechanism: " + thesis
+    closure = "Resolve the opening and present only the verified next action: " + action
+    if surface in {"internal", "dashboard"}:
+        opening = "Show the actual task and current state for " + product + ": " + need
+        middle = "Inspect real records and source evidence for: " + focus + ". " + thesis
+        closure = "Confirm real outcome, recovery and source trace; never invent success: " + action
+    elif surface == "read":
+        opening = "Orient the reader of " + product + " to: " + need + ". " + layout
+        closure = "Provide a stable related topic or return path; do not add a sales funnel."
+    elif surface == "checkout":
+        opening = "Show actual selection, price and terms for " + product + ". " + layout
+        closure = "Confirm only a real transaction outcome and recovery path; never simulate payment success."
     return {
-        "id": key,
-        "title": label,
-        "visual_thesis": direction,
-        "composition": layout,
-        "signature_gesture": gesture,
-        "product_grounding": action,
-        "scenes": {k: scene_map[k] for k in SCENE_KEYS},
-        "mobile_direction": (
-            "Recompose at 320/390px: task first, persistent context, keyboard/zoom safe."
-            if operational else
-            "Author a 320/390px sequence, not a squeezed desktop canvas. Preserve recognition and payoff."
-        ),
+        "id": key, "title": label, "visual_thesis": thesis,
+        "composition": layout, "signature_gesture": gesture,
+        "product_grounding": action, "declared_grounding": grounding,
+        "fit_basis": ["surface=" + surface] + ["declared evidence=" + e for e in evidence
+                                                  if EVIDENCE_PATTERNS[e] == key],
+        "scenes": dict(zip(SCENE_KEYS, (
+            opening, "Keep " + product + " recognizable using: " + asset,
+            middle, "Only if verified: " + action + ". Proposed behavior: " + gesture, closure))),
+        "mobile_direction": "Recompose at 320/390px around the same user job; retain context, keyboard/zoom and recovery.",
         "preserve": brief["brand_invariants"] + brief["protected_flows"],
-        "proof_required": [
-            "Two or more ACTUAL rendered frames showing the proposed visual mechanism",
-            "Real interaction before/after and reduced-motion fallback",
-            "360-degree whole-page critique: opener, middle, ending, mobile",
-            "Working product fact/CTA checks; otherwise mark UNKNOWN"
-        ],
-        "risk": ("Data, permissions, table accuracy and state recovery" if operational
-                 else "Visual originality without losing product recognition and task clarity")
+        "proof_required": ["Inspect supplied facts, original assets and real capability before implementation",
+                           "Render representative opening, middle, ending and mobile states",
+                           "Test the real task, error recovery and reduced motion where applicable"],
+        "risk": "A reusable pattern can still be generic or wrong; verify the actual product and replace it when needed.",
     }
 
 
@@ -81,71 +163,45 @@ def propose(input_data):
         raise ValueError("brief must be a JSON object")
     if len(json.dumps(input_data, ensure_ascii=False)) > 20000:
         raise ValueError("brief too large")
-    task = _string(input_data.get("task", ""), "task", True)
-    product = _string(input_data.get("product", ""), "product", True)
+    brief = {name: _string(input_data.get(name, ""), name, name in {"task", "product"})
+             for name in ("task", "product", "objective", "audience", "real_action", "existing_direction")}
+    for name in ("brand_invariants", "protected_flows", "product_facts", "user_jobs", "available_assets"):
+        brief[name] = _strings(input_data.get(name), name)
     surface = _string(input_data.get("surface", "landing"), "surface").lower() or "landing"
     if surface not in SURFACES:
         raise ValueError("surface must be one of " + ", ".join(sorted(SURFACES)))
     mode = _string(input_data.get("mode", "REBUILD"), "mode").upper()
     if mode not in {"PATCH", "AUDIT", "REFINE", "REDESIGN", "REBUILD"}:
         raise ValueError("invalid mode")
-    objective = _string(input_data.get("objective", ""), "objective")
-    audience = _string(input_data.get("audience", ""), "audience")
-    action = _string(input_data.get("real_action", ""), "real_action")
-    locked = _strings(input_data.get("brand_invariants"), "brand_invariants")
-    flows = _strings(input_data.get("protected_flows"), "protected_flows")
+    locked = _boolean(input_data, "direction_locked")
+    explore = _boolean(input_data, "explore_directions")
+    evidence = _strings(input_data.get("evidence_types"), "evidence_types")
+    if set(evidence) - EVIDENCE_TYPES:
+        raise ValueError("unknown evidence_types; use " + ", ".join(sorted(EVIDENCE_TYPES)))
     prohibited = _strings(input_data.get("prohibited_technologies"), "prohibited_technologies")
     requested = _strings(input_data.get("requested_technologies"), "requested_technologies")
     allowed = sorted({t.lower() for t in requested if t.lower() in TECHNOLOGIES}
                      - {t.lower() for t in prohibited})
-    brief = {"product": product, "real_action": action,
-             "brand_invariants": locked, "protected_flows": flows}
-    ops = surface in ("internal", "dashboard")
-    if mode in ("PATCH", "AUDIT"):
-        return {
-            "status": "NO_CREATIVE_REBUILD_REQUIRED",
-            "product": product, "surface": surface, "mode": mode,
-            "concepts": [],
-            "next": "Inspect the requested scope; do not force alternatives or redesign.",
-            "limits": "No code, research, pixels or tests were executed."
-        }
-    if ops:
-        concepts = [
-            _make_concept("task-first", "Task-first density",
-                          "Information hierarchy follows the most costly real operation.",
-                          "The next state appears inside the workflow with undo/recovery.",
-                          "compact task-oriented grid", brief, True),
-            _make_concept("evidence-first", "Evidence-first workbench",
-                          "The interface organizes evidence and comparisons before actions.",
-                          "Inspect source evidence and return to the exact record.",
-                          "document-led split workbench", brief, True)
-        ]
-    else:
-        concepts = [
-            _make_concept("editorial-proof", "Editorial demonstration",
-                          "Use product-specific typography, crop and pacing as a demonstration.",
-                          "One true action reorders the story and reveals new information.",
-                          "editorial chapters with deliberate asymmetry", brief, False),
-            _make_concept("living-artifact", "Living artifact",
-                          "Build a recognizable artifact whose state evolves across the page.",
-                          "The visitor changes a real, reversible property of the artifact.",
-                          "continuous spatial sequence with evolving object", brief, False)
-        ]
-    return {
-        "status": "PROPOSALS_NOT_RENDERED_NOT_TESTED",
-        "task": task,
-        "product": product,
-        "surface": surface,
-        "mode": mode,
-        "primary_objective": objective or "UNKNOWN — establish the outcome from user/product evidence",
-        "audience": audience or "UNKNOWN — verify rather than invent personas",
-        "requested_technologies_allowed": allowed,
-        "no_implicit_3d_or_animation_stack": True,
-        "concepts": concepts,
-        "selection_rule": "Build two materially different opener+middle proofs if scope allows; choose by product truth, real pixels, usability and unique signature. Never claim a win without rendered comparison.",
-        "next": "Inspect the actual project, original assets and real references; implement and evaluate. A deterministic suggestion is NOT a creative verdict.",
-        "limits": "No sources retrieved, no asset created, no implementation, no screenshots, no user research."
-    }
+    base = {"task": brief["task"], "product": brief["product"], "surface": surface, "mode": mode,
+            "requested_technologies_allowed": allowed, "no_implicit_3d_or_animation_stack": True,
+            "preserve": brief["brand_invariants"] + brief["protected_flows"],
+            "existing_direction": brief["existing_direction"] or "UNKNOWN",
+            "limits": "Deterministic pattern selection only; supplied evidence remains unverified. No sources retrieved, implementation, pixels or user research."}
+    if mode in {"PATCH", "AUDIT"} or locked or (mode == "REFINE" and not explore):
+        return dict(base, status="NO_CREATIVE_REBUILD_REQUIRED", concepts=[],
+                    next="Inspect the requested scope and preserve the existing direction; no forced alternatives.")
+    eligible = ELIGIBLE_EVIDENCE[surface]
+    keys = [EVIDENCE_PATTERNS[e] for e in eligible if e in evidence]
+    keys = list(dict.fromkeys(keys + list(DEFAULTS[surface])))[:2]
+    concepts = [_make_concept(k, brief, surface, evidence) for k in keys]
+    gaps = [field for field in ("product_facts", "user_jobs", "available_assets", "real_action", "objective", "audience")
+            if not brief[field]]
+    return dict(base, status="PROPOSALS_NOT_RENDERED_NOT_TESTED", concepts=concepts,
+                primary_objective=brief["objective"] or "UNKNOWN — establish the outcome",
+                audience=brief["audience"] or "UNKNOWN — verify rather than invent personas",
+                context_gaps=gaps, evidence_types_supplied_unverified=evidence,
+                selection_rule="No winner or preferred order. Inspect actual evidence; compare materially different rendered proofs when scope allows. Preserve losses and replace generic patterns.",
+                next="Author a product-specific mechanism beyond these structural hypotheses; implement and inspect it.")
 
 
 def main():

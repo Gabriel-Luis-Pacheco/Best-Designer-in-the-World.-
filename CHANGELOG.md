@@ -1,3 +1,13 @@
+# v11.7.0 — focused execution and grounded structural hypotheses
+
+- Consolidate the active SKILL.md to one production workflow, reducing approximately 3,622 to 1,611 words; retain existing optional resources through an index.
+- Replace the public-page fixed pair with surface-aware structural selection for ten surfaces, informed by declared evidence types; carry supplied facts/jobs/assets into scene prompts without marking them verified.
+- Preserve selected directions and keep REFINE exploration opt-in; retain constraints on PATCH/AUDIT outputs.
+- Add product-grounded concept reasoning and reading/information design guides. READ routing and the evaluation runner actually load the latter.
+- Add narrow PT/EN command-veto and surface-preservation handling, including negative regressions for build-artifact nouns.
+- Simplify the public README and synchronize release metadata; keep historical methods and existing fixtures.
+- Add regression coverage for new branches, invalid inputs and surface/evidence combinations. No new independent visual superiority or conversion result is claimed.
+
 ## 11.6.1 — 2026-10-19 — competitive review and source routing
 - Replaced repository-home links in the 30-skill comparison plan with individually verified `SKILL.md` entrypoints; rechecked all 30 source paths on 2026-10-19. The trials remain unperformed, and every future run must pin commit and content hashes.
 - Directly checked six current competitor skill entrypoints and recorded transferable mechanisms with explicit boundaries; source inspection is not an output-quality benchmark.

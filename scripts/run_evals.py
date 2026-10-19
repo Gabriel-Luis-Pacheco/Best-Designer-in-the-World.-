@@ -90,6 +90,12 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
         add("references/product-truth.md",
             "references/interaction-and-content.md",
             "references/quality-gates-and-evidence.md")
+    elif "read" in surfaces and not {"landing", "experience", "internal", "dashboard"}.intersection(surfaces):
+        add("references/reading-and-information-design.md",
+            "references/typography-layout-craft.md",
+            "references/product-truth.md",
+            "references/interaction-and-content.md",
+            "references/quality-gates-and-evidence.md")
     else:
         add("references/product-intelligence-playbook.md")
         if "landing" in surfaces:

@@ -41,13 +41,35 @@ def negated_mention(text, phrase):
     denied category as positive evidence.
     """
     low=text.casefold()
-    for match in re.finditer(re.escape(phrase.casefold()),low):
+    denied=[]
+    for match in re.finditer(r"(?<!\w)"+re.escape(phrase.strip().casefold())+r"(?!\w)",low):
         prefix=low[max(0,match.start()-180):match.start()]
         prefix=re.split(r"[.!?;\n]",prefix)[-1]
         # Positive contrast begins a new clause: "not a landing, it IS an experience".
         prefix=re.split(r"(?:,\s*|\bmas\s+)(?:é|e|será|sera)\s+",prefix)[-1]
-        if re.search(r"(?:não|nao)\s+(?:estamos\s+)?(?:criando|fazendo|é|e|quero|sera|será|deve\s+ser)\b|(?:sem\s+ser)\b",prefix):
-            return True
+        prefix=re.split(r"\b(?:but|mas|porém|porem)\b",prefix)[-1]
+        # Negating a surface is different from preserving its behavior:
+        # "not a checkout" excludes it; "without changing checkout" does not.
+        pt = (r"(?:não|nao)\s+(?:estamos\s+)?(?:criando|fazendo)\b|"
+              r"(?:(?:não|nao)\s+(?:é|e|quero(?:\s+(?:criar|fazer|construir|ter))?|sera|será|deve\s+ser)|sem\s+ser)\s+"
+              r"(?:(?:um|uma|o|a|outro|outra|novo|nova)\s+){0,2}$")
+        en = (r"\b(?:(?:not|without)(?:\s+(?:creating|building|making))?|"
+              r"(?:don't|don’t|do\s+not)\s+(?:want(?:\s+to\s+(?:create|build|make))?|create|build|make))\s+"
+              r"(?:(?:a|an|the|another|new|commercial|sales|generic|marketing|immersive)\s+){0,3}$")
+        denied.append(bool(re.search(pt, prefix) or re.search(en, prefix)))
+    return bool(denied) and all(denied)
+
+def affirmative_task_cue(text, phrase):
+    """Reject nearby explicit vetoes; a later affirmative occurrence can count.
+
+    Narrow PT/EN heuristic only. Explicit structured mode still wins, and
+    complex or conflicting natural language requires actual agent judgment.
+    """
+    for match in re.finditer(r"(?<!\w)"+re.escape(phrase)+r"(?!\w)",text.casefold()):
+        prefix=re.split(r"[.!?;,\n]|\b(?:mas|but|porém|porem)\b",text.casefold()[max(0,match.start()-80):match.start()])[-1]
+        if re.search(r"(?:não|nao|sem|not|never|without|don't|don’t)\s+(?:(?:quero|que|você|voce|deve|deveria|precisa|to|want|you|should|ever|um|uma|a|an|o|novo|nova|faça|faca|fazer|do|perform|execute|realize|any|crie|criar|build|create)\s+){0,4}$",prefix):
+            continue
+        return True
     return False
 
 def positive_tech_mention(text, phrase):
@@ -81,16 +103,18 @@ def classify_mode(data,task):
     low=task.casefold()
     limited=any(contains_phrase(low,x) for x in
                 ["só","somente","apenas","mínimo","pontual","localizada","isolado"])
-    patch=any(contains_phrase(low,x) for x in
+    patch=any(affirmative_task_cue(low,x) for x in
               ["corrija","corrigir","conserte","consertar","fix","patch","bug"])
-    rebuild=any(contains_phrase(low,x) for x in
+    rebuild=any(affirmative_task_cue(low,x) for x in
                 ["reconstrua","rebuild","do zero","recrie tudo"])
-    redesign=any(contains_phrase(low,x) for x in
+    redesign=any(affirmative_task_cue(low,x) for x in
                  ["redesign","redesenhe","redesenhar","reformule","refaça","nova linguagem","recrie a landing"])
-    audit=any(contains_phrase(low,x) for x in
-              ["audite","auditar","analise","análise","análise crítica","critique","diagnóstico"])
-    implementation=any(contains_phrase(low,x) for x in
-                       ["implemente","implementar","aplique","aplicar","construa","construir","faça","fazer"])
+    audit=any(affirmative_task_cue(low,x) for x in
+              ["audite","auditar","analise","análise","análise crítica","critique","diagnóstico","audit","review","inspect","analyze"])
+    implementation=any(affirmative_task_cue(low,x) for x in
+                       ["implemente","implementar","aplique","aplicar","construa","construir","faça","fazer","implement","apply"])
+    build_action = bool(re.search(r"(?:^|[.!?;]\s*|\b(?:and|then|please)\s+)build\b", low))
+    implementation = implementation or (build_action and affirmative_task_cue(low, "build"))
     if patch and limited:return "PATCH","task_inferred_limited"
     if rebuild:return "REBUILD","task_inferred"
     if redesign:return "REDESIGN","task_inferred"
@@ -149,7 +173,7 @@ def intent_policy(task,surfaces):
 
 def new_project_request(task):
     """Avoid treating a fresh commissioned website as a refinement of an existing one."""
-    build=any(contains_phrase(task,p) for p in
+    build=any(affirmative_task_cue(task,p) for p in
               ["crie","criar","cria","construa","construir","desenvolva","desenvolver",
                "do zero","from scratch","build a","create a"])
     existing=any(contains_phrase(task,p) for p in
@@ -169,6 +193,8 @@ def choose_sources(tags,mode,tools):
               else "research")
         if kind=="visual" and ({"internal","dashboard"} & tags) and "landing" not in tags:
             continue  # Avoid marketing-gallery suggestions for data-dense tools.
+        if kind=="visual" and "read" in tags and not {"landing","experience"}.intersection(tags):
+            continue  # Informational work needs information design, not gallery defaults.
         candidates.append((len(matching),kind,row))
     budget={"AUDIT":4,"REFINE":5,"REDESIGN":7,"REBUILD":7}.get(mode,4)
     candidates.sort(key=lambda x:(-x[0],x[2]["id"]))
@@ -282,6 +308,8 @@ def route(context):
             # Surface type, not an ART-only policy, governs operational references.
             # This also covers ordinary backoffices with no "experience" label.
             refs.extend(["advanced-product-ux-operations.md","typography-layout-craft.md"])
+        elif "read" in surfaces and not {"landing","experience"}.intersection(surfaces):
+            refs.extend(["reading-and-information-design.md","typography-layout-craft.md"])
         else:
             refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
             if "experience" in surfaces and policy not in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
@@ -369,7 +397,7 @@ def route(context):
         context_gaps.append("multiple_inferred_surfaces")
     if policy in {"ART_DIRECTOR_FIRST","EXPERIENTIAL_COMMERCE"}:
         context_gaps.append("visual_art_direction_must_be_proven_in_render")
-    return {"schema_version":"11.6",
+    return {"schema_version":"11.7",
       "task":task,
       "product":{"name":product,"audience":audience or "UNKNOWN","vertical":vertical,"vertical_source":vertical_source,
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
