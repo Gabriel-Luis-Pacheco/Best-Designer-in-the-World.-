@@ -22,8 +22,8 @@ RIVALS = (
 )
 
 
-def assess(data):
-    reviewed = evaluate(data)
+def assess(data, evidence_root=None):
+    reviewed = evaluate(data, evidence_root)
     by_rival = defaultdict(list)
     for row in reviewed["comparisons"]:
         by_rival[row["competitor"]].append(row)
@@ -69,6 +69,7 @@ def assess(data):
             for row in results.values()
         ),
         "excluded_pairs": reviewed["excluded"],
+        "evidence_files_verified": reviewed["evidence_files_verified"],
         "unknown_rivals": unknown_rivals,
         "limitations": [
             "Submitted reviews, reviewer independence, blindness and source artifacts are NOT authenticated",
@@ -83,10 +84,12 @@ def assess(data):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("reviews", type=Path)
+    parser.add_argument("--evidence-root", type=Path,
+                        help="Require nonempty local artifacts inside this approved root")
     args = parser.parse_args()
     try:
         data = json.loads(args.reviews.read_text(encoding="utf-8"))
-        print(json.dumps(assess(data), ensure_ascii=False, indent=2))
+        print(json.dumps(assess(data, args.evidence_root), ensure_ascii=False, indent=2))
     except (OSError, ValueError, TypeError) as exc:
         parser.exit(2, "INVALID REVIEWS: " + str(exc) + "\n")
 
