@@ -115,6 +115,12 @@ class BrainTests(unittest.TestCase):
                        "surface":"internal","mode":"REDESIGN"})
         self.assertNotIn("references/editorial-art-direction-lab.md",
                          d["tool_routing"]["selected_skill_refs"])
+    def test_analyze_and_fix_broadly_is_not_a_small_patch(self):
+        d=brain.route({"task":"Analise tudo e corrija todos os problemas","surface":"landing"})
+        self.assertEqual(d["strategy"]["mode"],"REFINE")
+    def test_normal_internal_is_operational_without_awwwards_cue(self):
+        d=brain.route({"task":"Redesenhe sistema interno de conciliação","surface":"internal"})
+        self.assertEqual(d["strategy"]["creative_authority"],"OPERATIONAL_FIRST_ART_SUPPORT")
     def test_only_fix_is_patch(self):
         d=brain.route({"task":"Corrija só o botão de feedback","surface":"product"})
         self.assertEqual(d["strategy"]["mode"],"PATCH")
