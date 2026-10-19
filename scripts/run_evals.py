@@ -63,7 +63,7 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     # Product-only multi-route refactoring needs real screen/task ownership and visuals.
     # Put this first so it survives the limited injected-context budget.
     if (mode in {"AUDIT", "REFINE", "REDESIGN", "REBUILD"}
-            and policy == "PRODUCT_FIRST_ART_SUPPORT"
+            and policy not in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"}
             and {"product", "mobile"}.intersection(surfaces)):
         add("references/visual-first-product-architecture.md")
 

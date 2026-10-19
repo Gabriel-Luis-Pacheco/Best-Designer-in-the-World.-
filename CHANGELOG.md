@@ -1,3 +1,10 @@
+## Unreleased — 2026-10-19 — visual-first product architecture hardening
+- Map route/user-job ownership before full-app redesigns; distinguish legitimate entry points from duplicate implementations (e.g. avatar editors).
+- Require real visual and interactive mechanisms for learning paths, editors, progress and conversation experiences rather than emoji/paragraph stand-ins; preserve text-first reading surfaces.
+- Add portable visual-first product guide, declared-inventory checker, negative unit tests and static HTML review cues for excessive copy/emoji-as-placeholders.
+- Inject the product guide into the actual with-skill evaluator context for product/mobile redesigns, including TASK_FIRST route decisions; regression-test presence.
+- These are improvements to instructions and advisory QA. They do not prove that a generated site was visually reviewed or that the skill wins independently.
+
 # v11.7.0 — focused execution and grounded structural hypotheses
 
 - Consolidate the active SKILL.md to one production workflow, reducing approximately 3,622 to 1,611 words; retain existing optional resources through an index.

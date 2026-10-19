@@ -54,5 +54,11 @@ class SurfaceMapTests(unittest.TestCase):
             m.inspect({"surfaces": [screen("a", "/a", "a"), screen("a", "/b", "b")]})
         with self.assertRaises(ValueError):
             m.inspect({"surfaces": "invalid"})
+        with self.assertRaises(ValueError):
+            m.inspect({"surfaces": [screen("a", "/a", "avatar"),
+                                   screen("b", "/b", "avatar", variant_of="a")]})
+        with self.assertRaises(ValueError):
+            m.inspect({"surfaces": [screen("a", "/a", "avatar", canonical=True),
+                                   screen("b", "/b", "lesson", variant_of="a")]})
 if __name__ == "__main__":
     unittest.main()

@@ -68,9 +68,16 @@ def inspect(payload):
                 if s["id"] != owner and s.get("variant_of") != owner and not s.get("distinct_reason", "").strip():
                     review("UNEXPLAINED_PARALLEL_SCREEN_REVIEW", [owner, s["id"]],
                            f"Job {job} has another screen with no declared reused flow or distinct purpose.")
+    by_id = {s["id"]: s for s in surfaces}
     for s in surfaces:
-        if s.get("variant_of") and s["variant_of"] not in known:
+        ref = s.get("variant_of")
+        if not ref:
+            continue
+        owner = by_id.get(ref)
+        if owner is None:
             raise ValueError(f"variant_of points to missing ID on {s['id']}")
+        if not owner.get("canonical") or s["job"].casefold().strip() != owner["job"].casefold().strip():
+            raise ValueError(f"variant_of must reference a canonical screen with the same user job on {s['id']}")
 
     return {"status": "REVIEW_REQUIRED" if findings else "NO_DECLARED_FLAGS",
             "surfaces_seen": len(surfaces), "jobs_compared": len(jobs), "findings": findings,
