@@ -7,6 +7,7 @@ Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand
 ### V11.6.1 — competitive learning, 30 task-matched skill probes
 - Directly checked current source files for six high-value skills; corrected the Impeccable catalog entrypoint and added specialist candidates for implementation recipes and reusable frontend design systems.
 - Added a 30-skill, task-matched comparison plan. It records no completed wins; quality claims still require real, repeated blind trials.
+- Follow-up audit replaced broad repository links with exact `SKILL.md` entrypoints and verified all 30 paths; comparisons remain planned, not executed. Actual runs must pin source commit/content hashes.
 
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
