@@ -96,7 +96,8 @@ def classify_mode(data,task):
     if redesign:return "REDESIGN","task_inferred"
     # Mixed inspection+implementation is an execution request, not audit-only.
     # Structural redesign/rebuild and explicitly bounded patches are handled above.
-    if audit and implementation:return "REFINE","task_inferred_analysis_and_execution"
+    if audit and (implementation or (patch and not limited)):
+        return "REFINE","task_inferred_analysis_and_execution"
     if audit and not implementation and not patch:return "AUDIT","task_inferred"
     if patch:return "PATCH","task_inferred"
     if audit:return "AUDIT","task_inferred"
@@ -133,12 +134,13 @@ def infer_goals(task):
 
 def intent_policy(task,surfaces):
     """Choose art/commerce/operational emphasis as a hypothesis, not a verdict."""
-    if "experience" not in surfaces:
-        return "TASK_FIRST"
+    # Protect operational and purchase workflows even without art-keyword cues.
     if any(s in surfaces for s in ("internal","dashboard")):
         return "OPERATIONAL_FIRST_ART_SUPPORT"
     if "checkout" in surfaces:
         return "COMMERCE_FIRST_ART_SUPPORT"
+    if "experience" not in surfaces:
+        return "TASK_FIRST"
     if "landing" in surfaces:
         return "EXPERIENTIAL_COMMERCE"
     if "product" in surfaces:
@@ -259,13 +261,17 @@ def route(context):
         if not isinstance(value,list) or len(value)>100 or any(not isinstance(x,str) or len(x)>2000 for x in value):
             raise ValueError(label+" must be a bounded list of strings")
     refs=(["creative-experience-direction.md","motion-and-interaction-direction.md"]
-          if "experience" in surfaces else
+          if "experience" in surfaces and policy not in
+          {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"} else
           ["product-truth.md","brand-canon.md","design-proof-and-decision-records.md"])
     if policy=="EXPERIENTIAL_COMMERCE":
         refs.extend(["experiential-commerce.md","product-truth.md","full-page-craft-review.md"])
     if policy=="OPERATIONAL_FIRST_ART_SUPPORT":
         refs.extend(["advanced-product-ux-operations.md","product-truth.md"])
-    for surface in surfaces:refs.extend(RULES["surfaces"][surface]["refs"])
+    for surface in surfaces:
+        if surface=="experience" and policy in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
+            continue  # Artistic labels cannot override data/payment contracts.
+        refs.extend(RULES["surfaces"][surface]["refs"])
     refs.extend(RULES["verticals"][vertical]["refs"])
     for goal in goals:
         if goal in {"learning","retention","engagement"}:refs.append("user-research-and-proof.md")
@@ -278,7 +284,7 @@ def route(context):
             refs.extend(["advanced-product-ux-operations.md","typography-layout-craft.md"])
         else:
             refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
-            if "experience" in surfaces:
+            if "experience" in surfaces and policy not in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
                 refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
             else:
                 refs.append("applied-design-decisions.md")
