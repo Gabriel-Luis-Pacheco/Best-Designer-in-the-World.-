@@ -16,6 +16,21 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 **Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
 **Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
 
+### Extensão competitiva da v11.5 — laboratório prático, não 20 promessas
+- [Creative Direction Lab](skills/studio-grade-web-transformation/brain/creative_direction_lab.py): propõe duas direções substancialmente distintas a partir dos fatos declarados; não gera páginas nem presume 3D.
+- [Competitive Production Lab](skills/studio-grade-web-transformation/references/competitive-production-lab.md): procedimentos acionáveis para arte, craft, Figma, motion, React, marketing e testes, ativados conforme a necessidade.
+- Catálogo opt-in de **26 especialistas candidatos**, com verificação obrigatória de links, versões e licenças. O roteador não instala nem executa código de terceiros.
+- [Matriz de confrontos 1 a 1](docs/HEAD_TO_HEAD_20_SKILLS.md): 20 testes específicos com critérios verificáveis, ainda não realizados.
+- [League Claim Gate](scripts/league_claim_gate.py): separa ausência de testes, amostras insuficientes, derrotas e evidências favoráveis declaradas — nenhuma opção equivale a vitória universal.
+- Testes unitários novos para autonomia criativa, preservação de requisitos, decisões tecnológicas e proibição de vitória automática.
+
+```bash
+python skills/studio-grade-web-transformation/brain/creative_direction_lab.py caminho/brief.json
+python skills/studio-grade-web-transformation/brain/specialist_router.py caminho/contexto.json
+python scripts/league_claim_gate.py caminho/reviews.json
+python -m unittest scripts/test_creative_direction_lab.py scripts/test_league_claim_gate.py
+```
+
 ### V11.5 — menos falso positivo, mais prova de execução
 - Roteador de tecnologias distingue pedidos positivos de recusas explícitas (sem WebGL/GSAP), preservando a interpretação do português.
 - Avaliador deixa de inventar 3D porque o produto é uma caixa de som: tecnologia deve ser explicitamente solicitada ou escolhida com justificativa real.
