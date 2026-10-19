@@ -1,8 +1,8 @@
-# Design OS Prime v11.5 — Best Designer in the World
+# Design OS Prime v11.6 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão ativa — 11.5.0
+## Versão ativa — 11.6.0
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
 
@@ -15,6 +15,17 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 **Estudos práticos:** [Cenários comerciais, artísticos e operacionais](docs/CASE_STUDIES_V11_1.md).
 **Metodologia de avaliação:** [Runbook](docs/EVALUATION_RUNBOOK.md), [protocolo externo](docs/EXTERNAL_EVALUATION_PROTOCOL.md).
 **Estado científico:** 61 cenários de avaliação definidos; **não** existe benchmark independente comprovando vitória estética ou conversão. GitHub Actions valida estrutura e comportamento de protótipos.
+
+### V11.6 — melhor roteamento, escopo real e evidências
+- Pedidos compostos de análise **e implementação** não param em auditoria.
+- `scripts/verify_change_scope.py` verifica o diff real, respeita paths protegidos
+  e inclui ambos os lados de renomes; ainda requer revisão semântica humana.
+- Comparador entre skills e gate de release aceitam `--evidence-root` para rejeitar
+  arquivos de evidência inexistentes/vazios, sem afirmar que o conteúdo é válido.
+- Auditor local opcional salva screenshots 320/390/768/1440 e bloqueia navegação
+  offsite, independentemente da opção de assets externos.
+- `docs/REAL_WORLD_BENCHMARK_V11_6.md` define um protocolo para avaliações reais.
+  **Nenhum novo benchmark visual independente foi realizado nesta versão.**
 
 ### V11.5 — menos falso positivo, mais prova de execução
 - Roteador de tecnologias distingue pedidos positivos de recusas explícitas (sem WebGL/GSAP), preservando a interpretação do português.
@@ -142,7 +153,7 @@ Os 61 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-
 ## Princípios
 Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
 
-**Status:** v11.0 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
+**Status:** v11.6.0 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
 
 Histórico: `CHANGELOG.md`. Licença: `LICENSE`.
 

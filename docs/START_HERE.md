@@ -1,4 +1,4 @@
-# Design OS Prime v11.1 — Start here
+# Design OS Prime v11.6 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
@@ -30,3 +30,10 @@ For artistic REDESIGN/REBUILD, choose two different *formal* hypotheses, build a
 
 ## V10.1 methods preserved
 For authored interactive products also consult creative-advantage-loop.md, immersive-3d-product-direction.md and SCENE_CHALLENGE.md. Offline journey_board.py complements the reproducible capture and pair-review V11 tools.
+
+## V11.6 — resultado verificável
+- Um pedido `analise e implemente` precisa de implementação real.
+- Antes de prometer escopo protegido, inspecione o diff e rode o verificador
+  com `docs/SCOPE_POLICY.example.json` adaptado ao projeto.
+- Faça revisões comparativas com `--evidence-root` quando os arquivos existirem.
+- Execute benchmark real de acordo com `docs/REAL_WORLD_BENCHMARK_V11_6.md`.

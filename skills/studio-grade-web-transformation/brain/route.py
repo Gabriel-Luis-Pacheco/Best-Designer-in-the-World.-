@@ -94,7 +94,11 @@ def classify_mode(data,task):
     if patch and limited:return "PATCH","task_inferred_limited"
     if rebuild:return "REBUILD","task_inferred"
     if redesign:return "REDESIGN","task_inferred"
-    if audit and not implementation:return "AUDIT","task_inferred"
+    # Mixed inspection+implementation is an execution request, not audit-only.
+    # Structural redesign/rebuild and explicitly bounded patches are handled above.
+    if audit and (implementation or (patch and not limited)):
+        return "REFINE","task_inferred_analysis_and_execution"
+    if audit and not implementation and not patch:return "AUDIT","task_inferred"
     if patch:return "PATCH","task_inferred"
     if audit:return "AUDIT","task_inferred"
     return "REFINE","default_low_confidence"
@@ -130,12 +134,13 @@ def infer_goals(task):
 
 def intent_policy(task,surfaces):
     """Choose art/commerce/operational emphasis as a hypothesis, not a verdict."""
-    if "experience" not in surfaces:
-        return "TASK_FIRST"
+    # Protect operational and purchase workflows even without art-keyword cues.
     if any(s in surfaces for s in ("internal","dashboard")):
         return "OPERATIONAL_FIRST_ART_SUPPORT"
     if "checkout" in surfaces:
         return "COMMERCE_FIRST_ART_SUPPORT"
+    if "experience" not in surfaces:
+        return "TASK_FIRST"
     if "landing" in surfaces:
         return "EXPERIENTIAL_COMMERCE"
     if "product" in surfaces:
@@ -256,23 +261,33 @@ def route(context):
         if not isinstance(value,list) or len(value)>100 or any(not isinstance(x,str) or len(x)>2000 for x in value):
             raise ValueError(label+" must be a bounded list of strings")
     refs=(["creative-experience-direction.md","motion-and-interaction-direction.md"]
-          if "experience" in surfaces else
+          if "experience" in surfaces and policy not in
+          {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"} else
           ["product-truth.md","brand-canon.md","design-proof-and-decision-records.md"])
     if policy=="EXPERIENTIAL_COMMERCE":
         refs.extend(["experiential-commerce.md","product-truth.md","full-page-craft-review.md"])
     if policy=="OPERATIONAL_FIRST_ART_SUPPORT":
         refs.extend(["advanced-product-ux-operations.md","product-truth.md"])
-    for surface in surfaces:refs.extend(RULES["surfaces"][surface]["refs"])
+    for surface in surfaces:
+        if surface=="experience" and policy in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
+            continue  # Artistic labels cannot override data/payment contracts.
+        refs.extend(RULES["surfaces"][surface]["refs"])
     refs.extend(RULES["verticals"][vertical]["refs"])
     for goal in goals:
         if goal in {"learning","retention","engagement"}:refs.append("user-research-and-proof.md")
         if goal in {"conversion","trust"}:refs.append("visual-storytelling.md")
     if mode in {"REDESIGN","REBUILD"}:
-        refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
-        if "experience" in surfaces:
-            refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
+        # Operational products must not inherit an art-gallery agenda by default.
+        if any(s in surfaces for s in ("internal","dashboard","checkout")):
+            # Surface type, not an ART-only policy, governs operational references.
+            # This also covers ordinary backoffices with no "experience" label.
+            refs.extend(["advanced-product-ux-operations.md","typography-layout-craft.md"])
         else:
-            refs.append("applied-design-decisions.md")
+            refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
+            if "experience" in surfaces and policy not in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
+                refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
+            else:
+                refs.append("applied-design-decisions.md")
     # A high-effect brief triggers the technology playbook; ordinary landing/product
     # work does not inherit 3D dependencies. Keywords are provisional only.
     creative_tech_terms = ["webgl", "webgpu", "three.js", "react three fiber",
@@ -354,7 +369,7 @@ def route(context):
         context_gaps.append("multiple_inferred_surfaces")
     if policy in {"ART_DIRECTOR_FIRST","EXPERIENTIAL_COMMERCE"}:
         context_gaps.append("visual_art_direction_must_be_proven_in_render")
-    return {"schema_version":"10.0",
+    return {"schema_version":"11.6",
       "task":task,
       "product":{"name":product,"audience":audience or "UNKNOWN","vertical":vertical,"vertical_source":vertical_source,
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
@@ -378,6 +393,8 @@ def route(context):
                                   if policy=="EXPERIENTIAL_COMMERCE" else
                                   ["task_accuracy","data_integrity","accessibility","efficiency"])},
       "triage_review":{"interpretation":"HYPOTHESIS_ONLY",
+                       "execution_intent":("ANALYZE_AND_IMPLEMENT" if mode_source=="task_inferred_analysis_and_execution"
+                                           else "ANALYSIS_ONLY" if mode=="AUDIT" else "IMPLEMENTATION_OR_PLANNING"),
                        "inferred_fields":inferred_fields,
                        "context_gaps":context_gaps,
                        "must_validate_against":"actual user brief, code, canonical assets and rendered behavior",

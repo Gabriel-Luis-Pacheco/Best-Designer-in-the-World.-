@@ -1,3 +1,9 @@
+## v11.6 — validação complementar
+O comparador aceita `--evidence-root` para rejeitar capturas ausentes ou vazias.
+O `scripts/verify_change_scope.py` inspeciona paths realmente alterados por git;
+esse teste não comprova contratos em nível de campo. Para uma comparação
+completa e honesta, seguir `docs/REAL_WORLD_BENCHMARK_V11_6.md`.
+
 # Design OS Prime v11.5 — guia de avaliação
 
 ## Validade antes da qualidade
@@ -21,7 +27,7 @@ Para gerar SAÍDAS (não notas) de um CLI de agente confiável, capaz de ler pro
 ```bash
 python scripts/run_evals.py --case 1 --variant both --command "SEU_CLI_DE_AGENTE" --out output/eval-runs
 ```
-Cada execução recebe um diretório temporário limpo contendo apenas suas fixtures. Isso não isola credenciais globais, rede ou configuração de agente. Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md, uma hipótese de roteamento e até quatro referências portáteis selecionadas por objetivo, modo e superfície; não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
+Cada execução recebe um diretório temporário limpo contendo apenas suas fixtures. Isso não isola credenciais globais, rede ou configuração de agente. Inputs de fixture são iguais em ambas as variantes; a condição `with_skill` acrescenta SKILL.md. O adaptador injeta SKILL.md, uma hipótese de roteamento e até nove referências portáteis (limite adaptativo por projeto) selecionadas por objetivo, modo e superfície; não substitui carregamento dinâmico em um agente com acesso a arquivos. Informar esse limite.
 
 A avaliação precisa de `pair_id` comum às variantes do mesmo caso, o mesmo revisor, dimensões idênticas e run_id diferentes. Comparações inválidas são excluídas, não promediadas. O runner só captura arquivos gerados com opt-in `--capture-workspace`; revise segredos antes de compartilhar.
 
@@ -50,7 +56,7 @@ Não usar URLs inventadas, entrevistas simuladas, screenshots falsas, dados inex
 
 
 ## V9.8 — contexto artístico, comercial e operacional integrados
-O runner injeta um plano determinístico de intenção e seleção contextual de até quatro referências portáteis na condição com skill. A condição sem skill recebe o mesmo prompt e fixtures, mas não recebe o motor. Os dois workspaces são separados; isso não isola contas de agente, rede ou sistema operacional. O arquivo emitido é uma hipótese, nunca observação de negócio. Para medir qualidade visual, rode o agente, implemente o resultado num browser autorizado e peça avaliação humana cega dos artefatos equivalentes.
+O runner injeta um plano determinístico de intenção e seleção contextual de até nove referências portáteis (limite adaptativo por projeto) na condição com skill. A condição sem skill recebe o mesmo prompt e fixtures, mas não recebe o motor. Os dois workspaces são separados; isso não isola contas de agente, rede ou sistema operacional. O arquivo emitido é uma hipótese, nunca observação de negócio. Para medir qualidade visual, rode o agente, implemente o resultado num browser autorizado e peça avaliação humana cega dos artefatos equivalentes.
 
 ## V11.0 — evidence boards
 A revisão visual deve incluir ao menos abertura, seção média, encerramento e mobile com **duas iterações renderizadas** quando for uma reconstrução importante. Use `scripts/visual_review_packet.py` na skill instalada para montar comparação de PNGs; o painel não julga estética. Use `scripts/asset_board.py` para investigar mascotes e imagens canônicas. Uma comparação A/B da skill exige execução isolada por variante e avaliação humana cega; não use o conceito fictício como prova de superioridade comercial.

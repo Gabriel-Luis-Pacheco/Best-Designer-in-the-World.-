@@ -85,10 +85,20 @@ def _compare(ours, theirs):
         "evidence": {"ours": ours["evidence"], "competitor": theirs["evidence"]}
     }, None
 
-def evaluate(data):
+def evaluate(data, evidence_root=None):
     if not isinstance(data, dict) or not isinstance(data.get("reviews"), list):
         raise ValueError("expected object containing reviews array")
     rows = [validate_review(r) for r in data["reviews"]]
+    verified_files=0
+    if evidence_root is not None:
+        root=Path(evidence_root).resolve()
+        for row in rows:
+            for evidence in row["evidence"]:
+                rel=Path(evidence)
+                dest=(root/rel).resolve()
+                if rel.is_absolute() or not dest.is_relative_to(root) or not dest.is_file() or dest.stat().st_size==0:
+                    raise ValueError("missing/unsafe/empty review evidence: "+evidence)
+                verified_files+=1
     buckets = collections.defaultdict(list)
     for row in rows:
         key = (row["trial_id"], row["case_id"], row["reviewer"], row["system"])
@@ -114,12 +124,15 @@ def evaluate(data):
         totals[r["competitor"]][r["outcome"]] += 1
     return {
         "status":"DESCRIPTIVE_HUMAN_REVIEWS_ONLY_NO_GLOBAL_WINNER",
+        "evidence_files_verified":verified_files if evidence_root is not None else None,
         "comparisons":result,
         "excluded":excluded,
         "by_competitor":{k:dict(v) for k,v in sorted(totals.items())},
         "valid_pairs":len(result),
         "limits":[
-          "All controls/evidence and blind status are declared by submitter, not independently verified",
+          ("Evidence paths and nonempty files validated, NOT contents/blindness"
+           if evidence_root is not None else
+           "All controls/evidence and blind status are declared by submitter, not independently verified"),
           "Scores are subjective human observations, not award judgment or randomized user trials",
           "Pareto comparison avoids hiding regressions; MIXED_TRADEOFF is not a win",
           "Repeated reviewer judgments or cases are not statistically independent",
@@ -130,10 +143,11 @@ def evaluate(data):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("reviews", type=Path)
+    p.add_argument("--evidence-root",type=Path,help="Reject missing or unsafe local review evidence")
     args=p.parse_args()
     try:
         d=json.loads(args.reviews.read_text(encoding="utf-8"))
-        print(json.dumps(evaluate(d),ensure_ascii=False,indent=2))
+        print(json.dumps(evaluate(d,args.evidence_root),ensure_ascii=False,indent=2))
     except (OSError,ValueError,json.JSONDecodeError) as exc:
         p.exit(2,"INVALID REVIEW INPUT: "+str(exc)+"\n")
 if __name__=="__main__":

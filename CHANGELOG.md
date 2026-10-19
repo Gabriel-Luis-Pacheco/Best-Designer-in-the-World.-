@@ -1,3 +1,14 @@
+## 11.6.0 — 2026-10-19 — realistic proof, intent routing and path scope
+
+- Fix compound analyze+implement routing instead of producing audit-only text.
+- Keep operational redesigns free of automatic editorial-art references.
+- Optional on-disk evidence validation for release gates and blinded comparisons.
+- New path-level scope guard checks actual git diffs, including renamed paths,
+  backed by negative and real-git tests (not semantic/contract verification).
+- Optional browser viewport screenshots and offsite redirect protection.
+- Real-world held-out benchmark protocol, clear test limitations, version alignment.
+- No claims of awards, independent A/B superiority, or increased conversions.
+
 ## 11.1.0 — 2026-10-17 — A/B integrity + meaningful visual evidence
 - FIX CRITICAL: compare common `task_input_sha256` rather than treatment-specific full prompt; store different assembled prompts separately. Inline skill injection is NOT a verified agent skill read.
 - Contextually load V11 artistic references for actual evaluator inputs without contaminating operations dashboards.

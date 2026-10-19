@@ -97,6 +97,30 @@ class BrainTests(unittest.TestCase):
         d=brain.route({"task":"Analise a landing e proponha um redesign completo","surface":"landing"})
         self.assertEqual(d["strategy"]["mode"],"REDESIGN")
 
+    def test_compound_analysis_and_implementation_routes_to_execution(self):
+        d=brain.route({"task":"Analise esta landing e implemente todas as melhorias necessárias",
+                       "surface":"landing"})
+        self.assertEqual(d["strategy"]["mode"],"REFINE")
+        self.assertEqual(d["triage_review"]["execution_intent"],"ANALYZE_AND_IMPLEMENT")
+    def test_inspection_only_remains_audit(self):
+        d=brain.route({"task":"Analise esta landing e descreva as melhorias",
+                       "surface":"landing"})
+        self.assertEqual(d["strategy"]["mode"],"AUDIT")
+    def test_compound_small_patch_remains_patch(self):
+        d=brain.route({"task":"Analise e corrija apenas o botão de feedback",
+                       "surface":"product"})
+        self.assertEqual(d["strategy"]["mode"],"PATCH")
+    def test_operational_redesign_avoids_editorial_reference(self):
+        d=brain.route({"task":"Redesenhe sistema interno de conciliação",
+                       "surface":"internal","mode":"REDESIGN"})
+        self.assertNotIn("references/editorial-art-direction-lab.md",
+                         d["tool_routing"]["selected_skill_refs"])
+    def test_analyze_and_fix_broadly_is_not_a_small_patch(self):
+        d=brain.route({"task":"Analise tudo e corrija todos os problemas","surface":"landing"})
+        self.assertEqual(d["strategy"]["mode"],"REFINE")
+    def test_normal_internal_is_operational_without_awwwards_cue(self):
+        d=brain.route({"task":"Redesenhe sistema interno de conciliação","surface":"internal"})
+        self.assertEqual(d["strategy"]["creative_authority"],"OPERATIONAL_FIRST_ART_SUPPORT")
     def test_only_fix_is_patch(self):
         d=brain.route({"task":"Corrija só o botão de feedback","surface":"product"})
         self.assertEqual(d["strategy"]["mode"],"PATCH")
