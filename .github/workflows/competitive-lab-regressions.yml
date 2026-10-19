@@ -26,6 +26,8 @@ jobs:
         run: python -m unittest discover -s scripts -p 'test_creative_direction_lab.py' -v
       - name: Twenty-rival evidence gate
         run: python -m unittest discover -s scripts -p 'test_league_claim_gate.py' -v
+      - name: Verified local specialist references
+        run: python -m unittest discover -s scripts -p 'test_expert_context.py' -v
       - name: Specialist routing negative tests
         run: python -m unittest discover -s scripts -p 'test_specialist_router.py' -v
       - name: Portable package structural validation

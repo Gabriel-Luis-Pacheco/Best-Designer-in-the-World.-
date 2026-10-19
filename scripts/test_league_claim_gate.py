@@ -1,5 +1,7 @@
 """No automatic wins from absent, thin, tied or cherry-picked comparisons."""
 import unittest
+import tempfile
+from pathlib import Path
 from league_claim_gate import assess, RIVALS
 
 
@@ -66,6 +68,23 @@ class LeagueClaimGateTests(unittest.TestCase):
         row["blind"] = False
         with self.assertRaises(ValueError):
             assess({"reviews": [row]})
+
+    def test_missing_declared_evidence_is_rejected_with_root(self):
+        rows = [make_review("taste", "c1", "r1", "design-os", 3),
+                make_review("taste", "c1", "r1", "taste", 2)]
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(ValueError, "evidence"):
+                assess({"reviews": rows}, tmp)
+
+    def test_real_nonempty_local_evidence_is_counted_not_certified(self):
+        rows = [make_review("taste", "c1", "r1", "design-os", 3),
+                make_review("taste", "c1", "r1", "taste", 2)]
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, "artifact path to verify separately").write_text("sample bytes")
+            result = assess({"reviews": rows}, tmp)
+            self.assertEqual(result["evidence_files_verified"], 2)
+            self.assertEqual(result["rivals"]["taste"]["status"],
+                             "INSUFFICIENT_INDEPENDENT_EVIDENCE")
 
     def test_rival_names_unique(self):
         self.assertEqual(len(set(RIVALS)), 20)

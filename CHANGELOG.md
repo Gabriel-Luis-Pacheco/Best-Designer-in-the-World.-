@@ -1,3 +1,9 @@
+## 11.6.0 addition — 2026-10-19 — verified expert source loading
+- Implements opt-in, locally pinned specialist-reference assembly with SHA-256, directory confinement, strict UTF-8 and bounded file sizes; no download, installation, privileged instructions or external execution.
+- Fixes missing `--evidence-root` support in the 20-rival readiness CLI and adds negative tests for absent artifacts.
+- Extends current v11.6 without changing existing fixtures, build conventions or forcing specialist loading into PATCH.
+- NOT a claim of 20 tested wins, independent agent execution, awarded aesthetics or conversion lift.
+
 ## 11.6.0 — 2026-10-19 — realistic proof, intent routing and path scope
 
 - Fix compound analyze+implement routing instead of producing audit-only text.
