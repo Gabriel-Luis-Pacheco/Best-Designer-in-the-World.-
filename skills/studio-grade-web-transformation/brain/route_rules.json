@@ -378,6 +378,11 @@
       "action": "fazer tipografia, ambiente, gestos e transições formarem uma única experiência",
       "metric": "revisão cega da continuidade espacial, resposta a gestos e ritmo narrativo",
       "guardrail": "preservar controle, desempenho e alternativas para movimento reduzido"
+    },
+    "comprehension": {
+      "action": "tornar informação correta fácil de encontrar, entender e retomar",
+      "metric": "sucesso em tarefas de localização e compreensão, observado com usuários ou tarefas reais",
+      "guardrail": "não converter leitura informativa em funil ou atribuir compreensão sem avaliação"
     }
   }
 }
