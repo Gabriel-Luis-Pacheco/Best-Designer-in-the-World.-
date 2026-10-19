@@ -98,6 +98,19 @@ def inspect(markup:str)->dict:
                      f"Adjacent sections {i}–{i+1} each contain >=3 articles and paragraphs.",
                      "Repetitive card architecture may flatten the page.",
                      "Compare rendered sections; vary the visual mechanism only if meaningfully stronger.")
+        # Purely static clues: emoji can be intentional and controls may be JavaScript-driven.
+        # Review only when emoji appear to substitute for custom media in a major block.
+        emoji_count = len(re.findall(r"[\U0001F300-\U0001FAFF]", body))
+        if emoji_count >= 3 and s["media"] == 0:
+            flag("EMOJI_AS_VISUAL_PLACEHOLDER_REVIEW", s["line"],
+                 f"{emoji_count} emoji codepoints, no img/svg/video/canvas markup",
+                 "Emojis may be replacing an important map, illustration or custom product UI.",
+                 "Inspect the rendered screen and user job; build real product visuals where necessary.")
+        if len(body)>700 and s["media"]==0 and s["controls"]<=2 and s["paragraphs"]>=4:
+            flag("TEXT_DOMINATED_SECTION_REVIEW", s["line"],
+                 f"{len(body)} characters, {s['paragraphs']} paragraphs, {s['controls']} controls",
+                 "Long explanations without declared media may be replacing a demonstration.",
+                 "Assess the task and turn verified interactions into a real scene; preserve appropriate reading content.")
         if len(body)>1150 and s["media"]==0 and s["controls"]==0 and s["paragraphs"]>=4:
             flag("DENSE_SECTION_REVIEW",s["line"],f"{len(body)} chars, {s['paragraphs']} paragraphs",
                  "Text density warrants a comprehension check, but editorial pages may be intentional.",

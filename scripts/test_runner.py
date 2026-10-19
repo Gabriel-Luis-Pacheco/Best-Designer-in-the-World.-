@@ -26,6 +26,14 @@ class RunnerTests(unittest.TestCase):
         b=build_prompt(self.case,"with_skill")
         self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/applied-design-decisions.md",b)
 
+    def test_product_redesign_receives_visual_first_guide(self):
+        case = {"prompt": "REDESIGN: refatore a trilha visual, as duas telas de avatar e as rotas repetidas",
+                "files": [], "meta": {"surface": "product", "goals": ["learning", "retention"]}}
+        b = build_prompt(case, "with_skill")
+        self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/visual-first-product-architecture.md", b)
+        self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/visual-first-product-architecture.md",
+                         build_prompt(case, "without_skill"))
+
     def test_operational_case_prioritizes_data_dense_ui_knowledge(self):
         cases=json.loads((ROOT / "evals/evals.json").read_text(encoding="utf-8"))["evals"]
         case=next(c for c in cases if c["id"]==22)
