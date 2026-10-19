@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Expert sources only: NOT bundled/installed agents. IDs curated from individual comparisons on 2026-10-18; URLs & licenses require recheck at runtime.",
+  "description": "Candidate sources only (catalog v1 schema); paths, licenses, installs and versions must be verified when used. Updated 2026-10-19; NOT executed or validated for superiority.",
   "specialists": [
     {
       "id": "ui-craft",
@@ -225,6 +225,161 @@
         "teste de navegador"
       ],
       "purpose": "Real browser automation and interaction checks."
+    },
+    {
+      "id": "frontend-design",
+      "url": "https://github.com/anthropics/skills",
+      "skill_path": "skills/frontend-design/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [
+        "landing",
+        "experience"
+      ],
+      "triggers": [
+        "art direction",
+        "direção criativa",
+        "identity system",
+        "creative direction"
+      ],
+      "purpose": "Distinctive frontend direction with concise implementation focus."
+    },
+    {
+      "id": "web-guidelines",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "skill_path": "skills/web-design-guidelines/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "accessibility",
+        "a11y",
+        "focus ring",
+        "keyboard nav",
+        "web guidelines"
+      ],
+      "purpose": "Interaction, accessibility and interface correctness review."
+    },
+    {
+      "id": "figma-design-to-code",
+      "url": "https://github.com/figma/mcp-server-guide",
+      "skill_path": "skills/figma-design-to-code/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "figma",
+        "design handoff",
+        "dev mode",
+        "design to code"
+      ],
+      "purpose": "Actual design-node/assets handoff into source code."
+    },
+    {
+      "id": "lottie-motion",
+      "url": "https://github.com/LottieFiles/motion-design-skill",
+      "skill_path": "SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "lottie",
+        "motion design",
+        "easing",
+        "choreography"
+      ],
+      "purpose": "Motion craft and animation identity."
+    },
+    {
+      "id": "react-best-practices",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "skill_path": "skills/react-best-practices/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "react performance",
+        "nextjs performance",
+        "hydration",
+        "bundle size"
+      ],
+      "purpose": "React / Next.js performance and render engineering."
+    },
+    {
+      "id": "react-composition",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "skill_path": "skills/composition-patterns/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "component composition",
+        "compound components",
+        "react architecture",
+        "state ownership"
+      ],
+      "purpose": "React component API and shared state architecture."
+    },
+    {
+      "id": "view-transitions",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "skill_path": "skills/react-view-transitions/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "view transitions",
+        "shared element",
+        "route transitions"
+      ],
+      "purpose": "Browser and React route transitions with accessible states."
+    },
+    {
+      "id": "shadcn",
+      "url": "https://github.com/shadcn-ui/ui",
+      "skill_path": "skills/shadcn/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "shadcn",
+        "registry",
+        "radix"
+      ],
+      "purpose": "Version-aware component library integration."
+    },
+    {
+      "id": "marketing-ab",
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "skill_path": "skills/ab-testing/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "marketing experiment",
+        "ab testing",
+        "a/b test",
+        "statistical power"
+      ],
+      "purpose": "Controlled experiment design and conversion measurement."
+    },
+    {
+      "id": "webapp-testing",
+      "url": "https://github.com/anthropics/skills",
+      "skill_path": "skills/webapp-testing/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "webapp testing",
+        "playwright tests",
+        "browser automation",
+        "e2e testing"
+      ],
+      "purpose": "Automated real browser flows and interaction debugging."
+    },
+    {
+      "id": "frontend-review",
+      "url": "https://github.com/microsoft/skills",
+      "skill_path": ".github/skills/frontend-design-review/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [],
+      "triggers": [
+        "pull request review",
+        "frontend review",
+        "ui regression"
+      ],
+      "purpose": "Frontend change review with actionable defect triage."
     }
   ]
 }

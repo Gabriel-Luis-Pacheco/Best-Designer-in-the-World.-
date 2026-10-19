@@ -9,6 +9,14 @@
 - Real-world held-out benchmark protocol, clear test limitations, version alignment.
 - No claims of awards, independent A/B superiority, or increased conversions.
 
+## 11.6.0 addition — 2026-10-19 — targeted competitive lab
+- Adds a portable product-grounded creative challenger: two meaningful unrendered alternatives, explicit protected flows, no invented action or forced 3D, and bounded PATCH.
+- Adds a selective specialist production playbook and expands opt-in candidate catalog from 15 to 26; catalog entries require external source/license/version verification before use.
+- Adds a specific 20-rival head-to-head protocol with actual-browser/artifact and independent blind-review requirements.
+- Adds a conservative league readiness CLI which never produces a universal-winner claim; unit tests check zero/single/repeated runs and competitor advantages.
+- Improves the optional router's ability to exclude coordinated technology negatives, including Portuguese conjunctions and explicit refusals.
+- This is an **additive workflow improvement**, not independently observed design superiority. No head-to-head run or creative browser evaluation claimed.
+
 ## 11.1.0 — 2026-10-17 — A/B integrity + meaningful visual evidence
 - FIX CRITICAL: compare common `task_input_sha256` rather than treatment-specific full prompt; store different assembled prompts separately. Inline skill injection is NOT a verified agent skill read.
 - Contextually load V11 artistic references for actual evaluator inputs without contaminating operations dashboards.

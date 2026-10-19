@@ -35,6 +35,24 @@ class SpecialistRouterTests(unittest.TestCase):
                      "surface":"experience"})
         self.assertIn("threejs",{x["id"] for x in d["specialists"]})
 
+    def test_conjoined_technology_vetoes(self):
+        d=m.suggest({"task":"Construa site sem WebGL e GSAP","max_specialists":3})
+        ids={x["id"] for x in d["specialists"]}
+        self.assertNotIn("gsap",ids)
+        self.assertNotIn("threejs",ids)
+
+    def test_negative_request_verb(self):
+        d=m.suggest({"task":"Não quero usar GSAP nem Three.js","max_specialists":3})
+        ids={x["id"] for x in d["specialists"]}
+        self.assertNotIn("gsap",ids)
+        self.assertNotIn("threejs",ids)
+
+    def test_contrast_clause_allows_explicit_tool(self):
+        d=m.suggest({"task":"Sem WebGL, mas use GSAP na landing","max_specialists":3})
+        ids={x["id"] for x in d["specialists"]}
+        self.assertNotIn("threejs",ids)
+        self.assertIn("gsap",ids)
+
     def test_cannot_run_unbounded(self):
         with self.assertRaises(ValueError):m.suggest({"task":"GSAP","max_specialists":99})
 if __name__=="__main__":unittest.main()
