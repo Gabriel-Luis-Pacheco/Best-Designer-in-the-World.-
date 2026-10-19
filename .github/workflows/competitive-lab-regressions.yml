@@ -1,0 +1,32 @@
+name: Competitive lab regressions
+on:
+  pull_request:
+    paths:
+      - 'skills/studio-grade-web-transformation/**'
+      - 'scripts/**'
+      - 'docs/HEAD_TO_HEAD_20_SKILLS.md'
+      - '.github/workflows/competitive-lab-regressions.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/studio-grade-web-transformation/**'
+      - 'scripts/**'
+      - '.github/workflows/competitive-lab-regressions.yml'
+permissions:
+  contents: read
+jobs:
+  portable-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Creative directions and protected scope
+        run: python -m unittest discover -s scripts -p 'test_creative_direction_lab.py' -v
+      - name: Twenty-rival evidence gate
+        run: python -m unittest discover -s scripts -p 'test_league_claim_gate.py' -v
+      - name: Specialist routing negative tests
+        run: python -m unittest discover -s scripts -p 'test_specialist_router.py' -v
+      - name: Portable package structural validation
+        run: python skills/studio-grade-web-transformation/scripts/validate.py
