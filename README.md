@@ -42,6 +42,12 @@ python scripts/league_claim_gate.py caminho/reviews.json
 python -m unittest discover -s scripts -p "test_*.py" -v
 ```
 
+### Referências especialistas locais verificadas — 2026-10-19
+- [Verified expert context loader](skills/studio-grade-web-transformation/brain/expert_context.py): passa de sugestões para **leitura real de Markdown local** de especialistas aprovados, com SHA-256 fixo, limite de três arquivos, limites de tamanho e isolamento de diretório.
+- [Manual seguro](docs/VERIFIED_LOCAL_EXPERTS.md): seleção, hash, montagem e limites de confiança. **Não instala nem executa** especialistas e não confere superioridade.
+- `league_claim_gate.py --evidence-root` agora confere existência e tamanho das evidências também na matriz de 20 competidores; não interpreta qualidade visual nem autenticidade de revisores.
+- Testes negativos cobrem alteração de fonte, hash errado, path traversal, symlink externo, tamanho, duplicidade e referência maliciosa sem execução.
+
 ### V11.5 — menos falso positivo, mais prova de execução
 - Roteador de tecnologias distingue pedidos positivos de recusas explícitas (sem WebGL/GSAP), preservando a interpretação do português.
 - Avaliador deixa de inventar 3D porque o produto é uma caixa de som: tecnologia deve ser explicitamente solicitada ou escolhida com justificativa real.
