@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "description": "Contextual deterministic strategy: pure artistic experiences, commercially useful immersive pages and safety-first operational work each have distinct priorities. Candidate hypotheses, not model judgments. V11.2 adds award-production and conversion modules to the appropriate surfaces. V11.3 adds optional knowledge packs without automatic specialist installation.",
+  "description": "Contextual deterministic strategy: pure artistic experiences, commercially useful immersive pages and safety-first operational work each have distinct priorities. Candidate hypotheses, not model judgments. V11.2 adds award-production and conversion modules to the appropriate surfaces. V11.3 adds optional knowledge packs without automatic specialist installation. V11.6.1 adds READ as a distinct informational surface so documentation is not forced into a conversion funnel.",
   "surface_aliases": {
     "experience": [
       "site experimental",
@@ -72,6 +72,20 @@
       "aplicativo móvel",
       "aplicativo movel",
       "react native"
+    ],
+    "read": [
+      "documentação",
+      "documentacao",
+      "documentação técnica",
+      "documentacao tecnica",
+      "portal de documentação",
+      "portal de documentacao",
+      "central de ajuda",
+      "help center",
+      "base de conhecimento",
+      "knowledge base",
+      "developer docs",
+      "technical documentation"
     ]
   },
   "vertical_aliases": {
@@ -227,6 +241,20 @@
         "recuperar de falhas"
       ],
       "metric": "conclusão de tarefa em mobile"
+    },
+    "read": {
+      "primary_goal": "comprehension",
+      "refs": [
+        "interaction-and-content.md",
+        "typography-layout-craft.md",
+        "quality-gates-and-evidence.md"
+      ],
+      "jobs": [
+        "encontrar o conteúdo certo",
+        "entender instruções sem ambiguidade",
+        "retomar a leitura sem perder contexto"
+      ],
+      "metric": "sucesso em tarefas de localização e compreensão, avaliado com tarefas reais; NÃO conversão por padrão"
     }
   },
   "verticals": {
@@ -350,6 +378,11 @@
       "action": "fazer tipografia, ambiente, gestos e transições formarem uma única experiência",
       "metric": "revisão cega da continuidade espacial, resposta a gestos e ritmo narrativo",
       "guardrail": "preservar controle, desempenho e alternativas para movimento reduzido"
+    },
+    "comprehension": {
+      "action": "tornar informação correta fácil de encontrar, entender e retomar",
+      "metric": "sucesso em tarefas de localização e compreensão, observado com usuários ou tarefas reais",
+      "guardrail": "não converter leitura informativa em funil ou atribuir compreensão sem avaliação"
     }
   }
 }

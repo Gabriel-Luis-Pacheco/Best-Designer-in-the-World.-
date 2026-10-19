@@ -1,4 +1,4 @@
-## v11.6 — validação complementar
+## v11.6.1 — validação complementar
 O comparador aceita `--evidence-root` para rejeitar capturas ausentes ou vazias.
 O `scripts/verify_change_scope.py` inspeciona paths realmente alterados por git;
 esse teste não comprova contratos em nível de campo. Para uma comparação

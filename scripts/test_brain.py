@@ -25,6 +25,14 @@ class BrainTests(unittest.TestCase):
         self.assertEqual(d["triage_review"]["context_gaps"],[])
         self.assertEqual(d["triage_review"]["interpretation"],"HYPOTHESIS_ONLY")
 
+    def test_documentation_routes_to_read_without_a_sales_funnel(self):
+        d=brain.route({"task":"Redesenhe o portal de documentação técnica para as pessoas encontrarem respostas",
+                       "surface":"read","goals":["comprehension"]})
+        self.assertEqual(d["product"]["surfaces"],["read"])
+        self.assertEqual(d["strategy"]["primary_goal"],"comprehension")
+        self.assertNotIn("conversion",d["strategy"]["secondary_goals"])
+        self.assertIn("references/typography-layout-craft.md",d["tool_routing"]["selected_skill_refs"])
+
     def test_luxury_experiential_landing_preserves_both_goals(self):
         d=brain.route({"task":"Crie uma landing page comercial experimental nível Awwwards para "
                        "caixa de som escultural de luxo. A experiência visual é o diferencial."})

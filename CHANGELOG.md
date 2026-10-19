@@ -1,3 +1,10 @@
+## 11.6.1 — 2026-10-19 — competitive review and source routing
+- Directly checked six current competitor skill entrypoints and recorded transferable mechanisms with explicit boundaries; source inspection is not an output-quality benchmark.
+- Added an individually task-matched 30-skill head-to-head plan without inventing results or universal winners.
+- Fixed the Impeccable skill path and added verified-path candidate entries for GOATED UI, Ultra Frontend and dawitlabs UI Skills; licenses remain UNVERIFIED until checked at use time.
+- Added READ as a surface priority for legibility, content hierarchy and findability without imposing a conversion funnel.
+- Synced release metadata and the portable/repository rubrics.
+
 ## 11.6.0 addition — 2026-10-19 — verified expert source loading
 - Implements opt-in, locally pinned specialist-reference assembly with SHA-256, directory confinement, strict UTF-8 and bounded file sizes; no download, installation, privileged instructions or external execution.
 - Fixes missing `--evidence-root` support in the 20-rival readiness CLI and adds negative tests for absent artifacts.

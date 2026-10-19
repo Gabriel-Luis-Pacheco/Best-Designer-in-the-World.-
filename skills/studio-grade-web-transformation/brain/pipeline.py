@@ -26,7 +26,7 @@ def compose(payload,project=None):
     context=payload["context"]
     strategy=(load_module("project_intake").build_plan(context,project)
               if project is not None else load_module("route").route(context))
-    result={"version":"11.6.0","strategy":strategy,
+    result={"version":"11.6.1","strategy":strategy,
             "research_state":"CANDIDATES_NOT_VISITED",
             "execution_state":"PLAN_ONLY_NOT_EXECUTED",
             "source_evidence":"NO_RUNTIME_BROWSER_OR_USER_EVIDENCE"}

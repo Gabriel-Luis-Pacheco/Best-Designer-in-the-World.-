@@ -1,8 +1,13 @@
-# Design OS Prime v11.6 — Best Designer in the World
+# Design OS Prime v11.6.1 — Best Designer in the World
 
 Skill aberta para agentes de IA trabalharem com direção de arte, UX, UI, brand fidelity, implementação e crítica baseada em evidência. O nome é uma ambição criativa, **não** promessa de prêmio, aumento de conversão ou melhor resultado do mundo.
 
-## Versão ativa — 11.6.0
+## Versão ativa — 11.6.1
+
+### V11.6.1 — competitive learning, 30 task-matched skill probes
+- Directly checked current source files for six high-value skills; corrected the Impeccable catalog entrypoint and added specialist candidates for implementation recipes and reusable frontend design systems.
+- Added a 30-skill, task-matched comparison plan. It records no completed wins; quality claims still require real, repeated blind trials.
+
 
 A skill faz direção de arte, UX/UI e implementação com rotas proporcionais: PATCH, AUDIT, REFINE, REDESIGN e REBUILD. Para projetos visuais, constrói, inspeciona o navegador, corrige a pior cena e documenta o que ficou **não verificado**. Para sistemas operacionais, clareza, precisão e fluxos importam mais que espetáculo.
 
@@ -174,7 +179,7 @@ Os 61 casos estão em `evals/evals.json`, com entradas sob `skills/studio-grade-
 ## Princípios
 Nenhum depoimento, métrica ou funcionalidade inventada. Assets externos e scripts remotos só com licença/segurança verificada. Nunca publicar dados internos ou segredos. Não declarar que testes não executados passaram.
 
-**Status:** v11.6.0 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
+**Status:** v11.6.1 possui CI de estrutura/fixtures e melhorias no roteador. Superioridade visual, comercial e em UX diante de um agente sem skill permanece NÃO COMPROVADA por A/B real.
 
 Histórico: `CHANGELOG.md`. Licença: `LICENSE`.
 

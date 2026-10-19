@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Candidate sources only (catalog v1 schema); paths, licenses, installs and versions must be verified when used. Updated 2026-10-19; NOT executed or validated for superiority.",
+  "description": "Candidate sources only (catalog v1 schema); paths, licenses, installs and versions must be verified when used. Updated 2026-10-19 after direct source-path checks; NOT executed or validated for superiority.",
   "specialists": [
     {
       "id": "ui-craft",
@@ -23,7 +23,7 @@
     {
       "id": "impeccable",
       "url": "https://github.com/pbakaus/impeccable",
-      "skill_path": "plugin/skills/impeccable/SKILL.md",
+      "skill_path": ".agent/skills/impeccable/SKILL.md",
       "license_reported": "Apache-2.0",
       "surfaces": [
         "landing",
@@ -380,6 +380,78 @@
         "ui regression"
       ],
       "purpose": "Frontend change review with actionable defect triage."
+    },
+    {
+      "id": "frontend-atlas",
+      "url": "https://github.com/flash-hero/GOATED-UI-SKILL",
+      "skill_path": "skills/frontend-atlas/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [
+        "landing",
+        "experience",
+        "product"
+      ],
+      "triggers": [
+        "premium frontend",
+        "scroll effects",
+        "webgl",
+        "gsap recipes",
+        "parallax"
+      ],
+      "purpose": "Large implementation cookbook with version-pinned UI, motion, CSS and 3D recipes; use only when its recipes match the installed stack."
+    },
+    {
+      "id": "ultra-frontend",
+      "url": "https://github.com/namanmehta96/ultra-frontend-skill",
+      "skill_path": "ultra-frontend/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [
+        "landing",
+        "experience",
+        "product"
+      ],
+      "triggers": [
+        "frontend archetype",
+        "design tokens",
+        "gsap cookbook",
+        "framer motion"
+      ],
+      "purpose": "Aesthetic archetypes, frontend recipes and scaffold/audit helpers; compare its chosen visual thesis and rendered result, not archetype count."
+    },
+    {
+      "id": "dawitlabs-ui-skills",
+      "url": "https://github.com/dawitlabs/ui-skills",
+      "skill_path": "skills/uiux/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [
+        "landing",
+        "product"
+      ],
+      "triggers": [
+        "screen redesign",
+        "color audit",
+        "design brief",
+        "landing"
+      ],
+      "purpose": "Composable UI skills for visual direction, screen redesign, color, motion, copy, accessibility and tokens; select one relevant operation at a time."
+    },
+    {
+      "id": "full-stack-design-skills",
+      "url": "https://github.com/plugin87/full-stack-design-skills",
+      "skill_path": "skills/ui-design/SKILL.md",
+      "license_reported": "UNVERIFIED",
+      "surfaces": [
+        "product",
+        "dashboard"
+      ],
+      "triggers": [
+        "design system implementation",
+        "tailwind",
+        "material 3",
+        "bootstrap",
+        "component library"
+      ],
+      "purpose": "Framework-agnostic design curriculum with comparative component examples; use for system/component consistency, not as a standalone art-direction judge."
     }
   ]
 }

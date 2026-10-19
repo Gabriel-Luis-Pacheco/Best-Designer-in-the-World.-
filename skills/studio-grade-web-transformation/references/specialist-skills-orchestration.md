@@ -26,7 +26,22 @@ Use when picking an external agent skill or planning a large multi-disciplinary 
 | SEO / growth | Marketing Skills SEO, architecture, programmatic SEO when content strategy warrants it | Technical SEO and intent-specific page architecture |
 | Product retention | Onboarding, churn-prevention, analytics; HEART goals/signals/metrics | Relevant task success and outcomes, no dark patterns |
 
-### Domain-specific exceptions
+### Current direct competitors — inspected 2026-10-19
+
+Treat these as independent sources to check for a specific gap, not authorities to copy wholesale:
+
+| Source | Exact current entrypoint inspected | Useful mechanism | Apply when |
+|---|---|---|---|
+| Anthropic Frontend Design | `anthropics/skills/skills/frontend-design/SKILL.md` | Subject-specific art direction and memorable first frame | New or structurally redesigned public UI |
+| Impeccable v4.6.0 | `pbakaus/impeccable/.agent/skills/impeccable/SKILL.md` | Named refinement operations, mode-specific ambition, visual iteration | Focused critique or polish; verify any external CLI before use |
+| Taste Skill v2 | `Leonxlnx/taste-skill/skills/taste-skill/SKILL.md` | Separate page/app workflows, browser inspection, source-aware imagery | Marketing pages or app screens needing visual iteration |
+| UI/UX Pro Max | `nextlevelbuilder/ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max/SKILL.md` | Searchable design data for product/style/stack guidance | Unfamiliar vertical or missing palette/type/system knowledge |
+| Vercel Guidelines | `vercel-labs/agent-skills/skills/web-design-guidelines/SKILL.md` | Fetch current rules for a code review | UX/a11y review where current web guidance matters |
+| GSAP Skills | `greensock/gsap-skills/skills/*/SKILL.md` | Official API-specific implementation knowledge | The project already uses or explicitly requests GSAP |
+
+The entrypoints were checked in their public default branches on the date above. This verifies source content and paths only; it does not verify their licenses, installation, agent behavior or design outcomes. Recheck exact versions and license before use.
+
+## Domain-specific exceptions
 - Internal fintech/ops: product truth, dense tables, permissions, traces and task success outrank creative spectacle. No marketing gallery needed.
 - Healthcare, social impact, education: require domain truth/consent/ethics; don’t infer outcomes from visual inspiration.
 - Art-only: no obligatory pricing, waitlist, chatbot, generic cards or artificial conversion funnel.

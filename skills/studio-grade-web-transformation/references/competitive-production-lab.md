@@ -67,6 +67,22 @@ Read `docs/HEAD_TO_HEAD_20_SKILLS.md` from the source repository for rival-by-ri
 
 Portable quality checks and a `league_claim_gate.py` only flag whether comparisons are *adequate for further review*. They do not award superior taste. Never call a synthetic fixture, route-planner output, or green CI build an aesthetic victory.
 
+
+## Direct source comparison — 2026-10-19
+
+This was a source-level review of current default-branch files, not an output benchmark. Sources checked: [Anthropic Frontend Design](https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md), [Impeccable v4.6.0](https://github.com/pbakaus/impeccable/blob/main/.agent/skills/impeccable/SKILL.md), [Taste Skill v2](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md), [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md), [Vercel Web Design Guidelines](https://github.com/vercel-labs/agent-skills/blob/main/skills/web-design-guidelines/SKILL.md), and [official GSAP skills](https://github.com/greensock/gsap-skills). Paths and contents can change; verify them again at use time.
+
+| Source strength observed | Transferable improvement | Boundary |
+|---|---|---|
+| Anthropic Frontend Design grounds choices in the actual subject and makes the first frame characteristic. | Start from the product's distinctive action/material/content; make the opening unmistakably relevant before adding effects. | Do not force a bold aesthetic when the product needs a quiet operational interface. |
+| Impeccable makes refinement actionable with named operations, contextual modes and a rendered look-and-fix cycle. | Route critique into one observed operation (critique, distill, intensify, harmonize, harden or systemize), then rerender once. | Its CLI/hooks are external software; inspect/install only through the project's authorized process. |
+| Taste Skill separates pages from app screens and uses a real-browser inspection loop; its current skill describes a direction library and image sourcing. | Choose the right surface-specific design rules and verify at multiple widths; preserve image provenance and complete section content. | The skill's researched counts and house style are its own claims; do not treat them as independent quality evidence or impose its look. |
+| UI/UX Pro Max provides searchable, task-specific design guidance. | Query a bounded source for a relevant vertical/style/state when unfamiliar, then validate recommendations against product facts and rendered output. | A large catalog does not choose the right answer automatically; avoid copying generic style presets. |
+| Vercel's guideline skill fetches current review rules before auditing. | For rapidly changing framework/browser rules, verify current official docs during the task and cite the version/date in review notes. | A text review is not a browser test or full accessibility certification. |
+| GSAP's official skill set is split by API area and framework. | Load narrow, current technical guidance only for the chosen animation stack; keep implementation expertise separate from art direction. | A verified recipe cannot establish that the motion improves the product or runs well on target devices. |
+
+These mechanisms are now represented in the existing product-first, specialty-routing and evidence loops; this review does not establish that our implementation is equal or superior. Individual test briefs are in `docs/HEAD_TO_HEAD_30_SKILLS.md`.
+
 ## Stop condition and handoff
 
 Stop adding references when they delay the real work. Ship the best verified site available, explain what was materially improved, what stayed untouched, where browser evidence is recorded, and what is UNKNOWN. If a rival produces a better scene, preserve the lesson and rerender — do not add an anti-rival paragraph as a substitute.
