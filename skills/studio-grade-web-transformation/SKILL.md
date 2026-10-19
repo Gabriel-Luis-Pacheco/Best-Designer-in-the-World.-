@@ -4,13 +4,18 @@ description: Direção de arte, pesquisa, UX/UI e implementação de landing pag
 compatibility: Requer acesso autorizado ao projeto para editar; browser para inspecionar visualmente. Scripts são auxiliares opcionais. Sem ferramentas, indicar NÃO VERIFICADO. Não inventar resultados.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "11.6.0"
+  version: "11.6.1"
 ---
 
-# Design OS Prime v11.6 — product truth → signature → build → evidence → correction
+# Design OS Prime v11.6.1 — product truth → signature → build → evidence → correction
 
 ## Outcome
 The deliverable is a distinctive, coherent, functioning experience **on the actual product**. An elegant plan is not the deliverable. Optimize for the user's goal, not the number of components, documents or tool calls. Reconstruct **100% of the page if warranted**, while preserving real product truth, canonical assets, permissions and working flows. Never claim awards, conversion improvement or independent QA not performed.
+
+## V11.6.1: competitive learning without false winner claims
+- Compared current source files for Anthropic Frontend Design, Impeccable, Taste Skill, UI/UX Pro Max, Vercel Web Design Guidelines and official GSAP skills. Their strengths map to subject-led art direction, scoped critique operations, real-browser iteration, searchable design guidance, fresh rule retrieval and version-specific implementation.
+- Borrow the mechanism that fits the task; do not copy a rival's whole prompt, house style or unverified claims. The comparison plan names each of the 30 listed skills and a task suited to its specialty. It is a test plan, not evidence that any skill has won.
+- READ surfaces prioritize reading rhythm, findability, legibility and content integrity. Do not add a conversion funnel unless the user asks for one.
 
 ## V11.6: execution integrity without checklist theater
 - Requests to **analyze and implement** require an actual implementation, not an AUDIT-only report. Explicit scope and PATCH/REDESIGN/REBUILD instructions win over router hypotheses.
@@ -34,7 +39,7 @@ Product truth, rights, accessibility, permissions and working flows are hard bou
 | REDESIGN | Narrative, visual language or architecture weak | two plausible directions, choose, redesign page, inspect/revise |
 | REBUILD | Blank project or systemic weakness | new concept + end-to-end implementation + visual/functional verification |
 
-**Surface is not the same as goal:** PRODUCT/backoffice prizes accurate tasks and states; MARKETING demonstrates value and truthful conversion; ART/EXPERIENCE prizes authorial composition, agency and climax; EXPERIENTIAL_COMMERCE must achieve artistic distinctiveness **and** truthful product comprehension/action. Do not force pricing/cards into a museum, or immersive spectacle into a fiscal dashboard. User intent overrides deterministic router guesses. For fintech/social/health/education, preserve the corresponding domain constraints.
+**Surface is not the same as goal:** PRODUCT/backoffice prizes accurate tasks and states; READ surfaces prioritize legibility, hierarchy and findability; MARKETING demonstrates value and truthful conversion; ART/EXPERIENCE prizes authorial composition, agency and climax; EXPERIENTIAL_COMMERCE must achieve artistic distinctiveness **and** truthful product comprehension/action. Do not force pricing/cards into a museum, or immersive spectacle into a fiscal dashboard. User intent overrides deterministic router guesses. For fintech/social/health/education, preserve the corresponding domain constraints.
 
 ## Creative ceiling gate — use only for artistic / immersive / expressive commerce projects
 **The RESONANCE lesson:** a page can be technically sound, satisfy every QA checklist and still lose creatively to an unconstrained alternative. Do not reward obedience to templates over authored form.
@@ -91,7 +96,7 @@ A specialist skill can beat a generalist in its own domain. Do not respond by co
 **For actual rival comparisons:** see `docs/HEAD_TO_HEAD_20_SKILLS.md` in the source repository. `scripts/league_claim_gate.py` reports untested competitors, observed losses and declared review adequacy. Even its favorable state is NOT proof of victory without independent repeated executions, verified source artifacts and blind human judgment. Test the real site rather than gaming the evaluator. Do not claim universal superiority, Awwwards, statistical conversion, performance or accessibility certification.
 
 ## Verified local expertise — additive capability
-The optional specialist router proposes sources; **proposal is not execution**. When the user has explicitly approved local skill references, `brain/expert_context.py` can read 0–3 **pinned local Markdown files** under an approved root with exact SHA-256, max file/total byte limits and path-safety checks. See `docs/VERIFIED_LOCAL_EXPERTS.md` in the source repository. It makes verified *bytes* available for model reference; it does NOT install, execute, browse, validate licenses or grant higher authority to third-party instructions. Resolve advice conflicts against actual product truth, user constraints and source version; continue to render and test the output. For unknown or unverified skills, use the built-in references instead. When doing the 20-rival report, use `scripts/league_claim_gate.py --evidence-root` so missing evidence files are rejected, while remembering that existing files alone cannot establish artistic superiority.
+The optional specialist router proposes sources; **proposal is not execution**. When the user has explicitly approved local skill references, `brain/expert_context.py` can read 0–3 **pinned local Markdown files** under an approved root with exact SHA-256, max file/total byte limits and path-safety checks. See `docs/VERIFIED_LOCAL_EXPERTS.md` in the source repository. It makes verified *bytes* available for model reference; it does NOT install, execute, browse, validate licenses or grant higher authority to third-party instructions. Resolve advice conflicts against actual product truth, user constraints and source version; continue to render and test the output. For unknown or unverified skills, use the built-in references instead. When doing the competitive report, use `scripts/league_claim_gate.py --evidence-root` so missing evidence files are rejected, while remembering that existing files alone cannot establish artistic superiority.
 
 ## The actual production loop (REDESIGN and REBUILD)
 1. **Autopsy before CSS.** Inspect actual code and running site if accessible. Capture the **entire scroll**, hero, middle, bottom and 390px mobile; record the most generic/weak section, repetitive text, mismatched assets, false demos, broken interaction and narrative gaps. Decide `PRESERVE / ELEVATE / FUSE / DELETE / REBUILD` per section. If defects share a mistaken concept, prefer **global rebuild**, not 40 cosmetic tweaks. See `references/visual-diagnosis-to-redesign.md`.
