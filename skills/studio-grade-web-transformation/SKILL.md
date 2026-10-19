@@ -4,13 +4,21 @@ description: Direção de arte, pesquisa, UX/UI e implementação de landing pag
 compatibility: Requer acesso autorizado ao projeto para editar; browser para inspecionar visualmente. Scripts são auxiliares opcionais. Sem ferramentas, indicar NÃO VERIFICADO. Não inventar resultados.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "11.5.0"
+  version: "11.6.0"
 ---
 
-# Design OS Prime v11.5 — signature → scenes → gesture → payoff → review
+# Design OS Prime v11.6 — product truth → signature → build → evidence → correction
 
 ## Outcome
 The deliverable is a distinctive, coherent, functioning experience **on the actual product**. An elegant plan is not the deliverable. Optimize for the user's goal, not the number of components, documents or tool calls. Reconstruct **100% of the page if warranted**, while preserving real product truth, canonical assets, permissions and working flows. Never claim awards, conversion improvement or independent QA not performed.
+
+## V11.6: execution integrity without checklist theater
+- Requests to **analyze and implement** require an actual implementation, not an AUDIT-only report. Explicit scope and PATCH/REDESIGN/REBUILD instructions win over router hypotheses.
+- Treat deterministic routing as triage; compare it to the user brief, actual code and working product before editing. Protect changes in the real diff, not just proposed JSON IDs. Optional full-repo `scripts/verify_change_scope.py` checks filename allow/protect rules and rename paths, but cannot certify semantic safety.
+- For substantial design tasks, prioritize working visual artifacts, a real browser journey, critical flow and mobile evidence, and a causal correction of the weakest rendered scene. Do not spend the whole budget on research matrices or paperwork.
+- Optional local `scripts/layout_audit.mjs --url http://127.0.0.1:3000 --out review.json --screenshots captures/` captures 320/390/768/1440px. Its output is a review candidate, not visual or accessibility certification. Offsite frame redirects stay blocked even when external assets are permitted.
+- Evidence references alone are not proof: optional `scripts/release_gate.py --evidence-root path` verifies that PASS evidence files exist and are nonempty, never their truth. Release requires human interpretation.
+- Activate only relevant packs: PATCH minimal; INTERNAL data/state; LANDING real product/proof/action; ART original form, meaningful interaction and climax. No extra module merely to raise the guide count.
 
 ## Creative freedom versus minimum compliance — V10.1 preserved
 Product truth, rights, accessibility, permissions and working flows are hard boundaries; conventions of typography, spacing and layout are hypotheses. A passing build is the FLOOR, not the artistic ceiling. A commercial artwork must combine singular form with **recognizable product identity**: an exquisite unidentified object is not sufficient when selling a real speaker. See `references/creative-advantage-loop.md`, and for actual WebGL `references/immersive-3d-product-direction.md`.

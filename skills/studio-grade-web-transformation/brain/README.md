@@ -1,4 +1,4 @@
-# Design OS Brain v11.5 — heuristic router, not creative authority
+# Design OS Brain v11.6 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
@@ -54,3 +54,9 @@ The static runner selects a bounded set of references based on *purpose*. Previo
 
 ## v11.5 negative-intent interpretation
 Tech mentions explicitly refused by the user must not trigger the associated expensive WebGL/GSAP/Rive playbooks. PT-BR "no WebGL" can mean *using WebGL*; direct user constraints trump regex guesses. Synthetic routing coverage and actual injection audits are available in the root scripts. Treat these as hypotheses and source tests, not creative verdicts.
+
+## V11.6 — mixed intent and priority protection
+Analyze **and implement** requests route to REFINE unless a stronger explicit
+PATCH, REDESIGN or REBUILD mode is present. An audit-only request remains AUDIT.
+Structural operational redesigns do not automatically load editorial art direction.
+The proposed route does not authorize files, prove user intent or execute code.

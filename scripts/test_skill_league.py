@@ -29,6 +29,19 @@ class LeagueTests(unittest.TestCase):
     def test_missing_comparison_no_winner(self):
         r=m.evaluate({"reviews":[row("competitor",{"mobile":1})]})
         self.assertEqual(r["valid_pairs"],0)
+    def test_optional_evidence_verification(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as folder:
+            root=pathlib.Path(folder)
+            data={"reviews":[row("design-os",{"mobile":3}),row("taste",{"mobile":2},run="run2")]}
+            with self.assertRaises(ValueError):m.evaluate(data,root)
+            dest=root/"actual/path/picture.png"
+            dest.parent.mkdir(parents=True)
+            dest.write_bytes(b"sample")
+            result=m.evaluate(data,root)
+            self.assertEqual(result["evidence_files_verified"],2)
+            data["reviews"][0]["evidence"]=["../../etc/passwd"]
+            with self.assertRaises(ValueError):m.evaluate(data,root)
     def test_blind_is_required(self):
         a=row("design-os",{"mobile":2});a["blind"]=False
         with self.assertRaises(ValueError):m.evaluate({"reviews":[a]})

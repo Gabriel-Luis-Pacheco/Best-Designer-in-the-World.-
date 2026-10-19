@@ -94,7 +94,10 @@ def classify_mode(data,task):
     if patch and limited:return "PATCH","task_inferred_limited"
     if rebuild:return "REBUILD","task_inferred"
     if redesign:return "REDESIGN","task_inferred"
-    if audit and not implementation:return "AUDIT","task_inferred"
+    # Mixed inspection+implementation is an execution request, not audit-only.
+    # Structural redesign/rebuild and explicitly bounded patches are handled above.
+    if audit and implementation:return "REFINE","task_inferred_analysis_and_execution"
+    if audit and not implementation and not patch:return "AUDIT","task_inferred"
     if patch:return "PATCH","task_inferred"
     if audit:return "AUDIT","task_inferred"
     return "REFINE","default_low_confidence"
@@ -268,11 +271,15 @@ def route(context):
         if goal in {"learning","retention","engagement"}:refs.append("user-research-and-proof.md")
         if goal in {"conversion","trust"}:refs.append("visual-storytelling.md")
     if mode in {"REDESIGN","REBUILD"}:
-        refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
-        if "experience" in surfaces:
-            refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
+        # Operational products must not inherit an art-gallery agenda by default.
+        if policy in {"OPERATIONAL_FIRST_ART_SUPPORT","COMMERCE_FIRST_ART_SUPPORT"}:
+            refs.extend(["advanced-product-ux-operations.md","typography-layout-craft.md"])
         else:
-            refs.append("applied-design-decisions.md")
+            refs.extend(["editorial-art-direction-lab.md","typography-layout-craft.md"])
+            if "experience" in surfaces:
+                refs.extend(["creative-experience-direction.md","full-page-craft-review.md"])
+            else:
+                refs.append("applied-design-decisions.md")
     # A high-effect brief triggers the technology playbook; ordinary landing/product
     # work does not inherit 3D dependencies. Keywords are provisional only.
     creative_tech_terms = ["webgl", "webgpu", "three.js", "react three fiber",
@@ -354,7 +361,7 @@ def route(context):
         context_gaps.append("multiple_inferred_surfaces")
     if policy in {"ART_DIRECTOR_FIRST","EXPERIENTIAL_COMMERCE"}:
         context_gaps.append("visual_art_direction_must_be_proven_in_render")
-    return {"schema_version":"10.0",
+    return {"schema_version":"11.6",
       "task":task,
       "product":{"name":product,"audience":audience or "UNKNOWN","vertical":vertical,"vertical_source":vertical_source,
                  "surfaces":surfaces,"surface_source":surface_source,"facts_provided_unverified":facts},
@@ -378,6 +385,8 @@ def route(context):
                                   if policy=="EXPERIENTIAL_COMMERCE" else
                                   ["task_accuracy","data_integrity","accessibility","efficiency"])},
       "triage_review":{"interpretation":"HYPOTHESIS_ONLY",
+                       "execution_intent":("ANALYZE_AND_IMPLEMENT" if mode_source=="task_inferred_analysis_and_execution"
+                                           else "ANALYSIS_ONLY" if mode=="AUDIT" else "IMPLEMENTATION_OR_PLANNING"),
                        "inferred_fields":inferred_fields,
                        "context_gaps":context_gaps,
                        "must_validate_against":"actual user brief, code, canonical assets and rendered behavior",
