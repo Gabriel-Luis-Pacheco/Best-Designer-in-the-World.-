@@ -42,6 +42,11 @@ jobs:
           python-version: '3.12'
       - name: Install pinned Playwright dependency
         run: npm install --no-audit --no-fund
+      - name: Record exact npm dependency resolution for lockfile
+        run: |
+          echo DESIGN_LOCK_BEGIN
+          cat package-lock.json
+          echo DESIGN_LOCK_END
       - name: Install Chromium for browser fixture tests
         run: npx playwright install --with-deps chromium
       - name: Validate portable journey capture syntax
