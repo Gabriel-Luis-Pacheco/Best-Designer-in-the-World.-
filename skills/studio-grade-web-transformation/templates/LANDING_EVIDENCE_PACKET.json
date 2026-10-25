@@ -1,0 +1,70 @@
+{
+  "$comment": "SYNTHETIC CONCEPT ONLY — replace with real product sources before production; passing checker does not prove claims or beauty.",
+  "mode": "concept",
+  "project": "Fictional speaking tutor demonstration",
+  "audience": {
+    "segment": "learners evaluating conversation tools",
+    "job": "preview one practice exercise",
+    "traffic_intent": "discovery"
+  },
+  "promise": {
+    "outcome": "view a guided practice concept",
+    "mechanism": "illustrative dialogue and feedback",
+    "differentiator": "no asserted market advantage"
+  },
+  "evidence": [
+    {
+      "id": "prototype",
+      "status": "concept",
+      "type": "demo",
+      "source": "synthetic fixture",
+      "rights": "example-only"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Preview an illustrative conversation",
+      "evidence_ids": [
+        "prototype"
+      ],
+      "placement": "hero"
+    }
+  ],
+  "primary_cta": {
+    "label": "View concept",
+    "href": "/concept"
+  },
+  "scenes": [
+    {
+      "id": "hero",
+      "question": "What is this?",
+      "new_information": "Conceptual dialogue preview",
+      "medium": "product_demo",
+      "evidence_ids": [
+        "prototype"
+      ]
+    },
+    {
+      "id": "decision",
+      "question": "Can I use it?",
+      "new_information": "Prototype is explicitly not a live subscription",
+      "medium": "editorial",
+      "evidence_ids": [
+        "prototype"
+      ]
+    }
+  ],
+  "creative_direction": {
+    "signature": "dialogue turns define composition",
+    "mobile_recomposition": "dialogue stack with visible CTA",
+    "motion_purpose": "illustrate feedback cause and effect"
+  },
+  "measurement": {
+    "primary_event": "demo_started",
+    "denominator": "landing_sessions",
+    "guardrails": [
+      "demo_errors"
+    ],
+    "status": "hypothesis_only"
+  }
+}
