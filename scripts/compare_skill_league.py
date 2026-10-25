@@ -10,13 +10,9 @@ import argparse
 import collections
 import json
 from pathlib import Path
+from quality_schema import dimensions
 
-ALLOWED_DIMENSIONS = frozenset({
-    "clareza", "direcao_arte", "narrativa", "identidade", "composicao",
-    "microcraft", "mobile", "funcionalidade", "acessibilidade",
-    "conteudo_credibilidade", "performance", "reconhecimento_produto",
-    "continuidade_cenas", "agencia_interativa", "climax_encerramento"
-})
+ALLOWED_DIMENSIONS = dimensions()
 HEX = frozenset("0123456789abcdef")
 
 def _valid_sha(value):

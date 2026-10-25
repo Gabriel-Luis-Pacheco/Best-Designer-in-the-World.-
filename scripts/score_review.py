@@ -4,11 +4,12 @@ from __future__ import annotations
 import json
 import pathlib
 import sys
+from quality_schema import dimensions
 
 VALID_VARIANTS = {"with_skill", "without_skill"}
 VALID_RESULTS = {"PASS", "FAIL", "UNKNOWN"}
 VALID_SEVERITIES = {"P0", "P1", "P2"}
-VALID_DIMENSIONS = {"clareza", "direcao_arte", "narrativa", "identidade", "composicao", "microcraft", "mobile", "funcionalidade", "acessibilidade", "conteudo_credibilidade", "performance", "reconhecimento_produto", "continuidade_cenas", "agencia_interativa", "climax_encerramento"}
+VALID_DIMENSIONS = dimensions()
 
 def validate_review(d: dict) -> dict:
     if not isinstance(d, dict):
