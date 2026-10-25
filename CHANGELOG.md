@@ -1,3 +1,11 @@
+# v11.7.1 — 2026-10-25 — clearer attention, memorable brand, ethical first value
+
+- Add three portable decision guides for lower-clutter commercial pages, distinctive believable brand affinity and ethical activation/retention, plus optional one-screen planning template.
+- Inject attention hierarchy, CUT/MERGE/DEFER and honest conversion-to-first-value requirements into the active skill, CRO, anti-slop and marketing references.
+- Reject automatic piles of cards, redundant benefit scenes and decorative social proof without banning necessary information or expressive design.
+- Extend human quality review dimensions and add four adversarial evaluation scenarios in both manifests.
+- These edits improve **guidance and test coverage only**; live conversion, retention and real agent output improvements remain UNVERIFIED.
+
 ## Unreleased — 2026-10-19 — visual-first product architecture hardening
 - Map route/user-job ownership before full-app redesigns; distinguish legitimate entry points from duplicate implementations (e.g. avatar editors).
 - Require real visual and interactive mechanisms for learning paths, editors, progress and conversation experiences rather than emoji/paragraph stand-ins; preserve text-first reading surfaces.
