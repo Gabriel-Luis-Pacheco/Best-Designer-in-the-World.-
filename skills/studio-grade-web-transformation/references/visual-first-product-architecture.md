@@ -2,6 +2,12 @@
 
 Use on full product redesigns, education journeys, avatar editors, multi-route dashboards, onboarding and apps whose generated screens are dominated by paragraphs, emojis or repeated structures. **Do the work in the actual product.** The inventory is a short planning aid, never the deliverable.
 
+## Evidence workflow: route hypotheses → actual UX
+
+Use `python brain/route_inventory.py --project /project --out route-candidates.json` (from the skill directory) to gather a **read-only** set of candidate file routes, likely parallel jobs and source-level emoji hints. A flagged pair of avatar routes is a question to investigate, never a verdict: check which component handles each route, what state is shared, whether both have different legitimate entry jobs, and whether user data persists.
+
+When the project runs locally, curate `routes-to-check.json` with `{"paths":["/","/profile/avatar","/onboarding/avatar"]}`, replacing route parameters with real, safe local test values. Run `node scripts/route_matrix_audit.mjs --url http://127.0.0.1:3000 --manifest routes-to-check.json --out review.json --screenshots captures`. Review the browser evidence across four viewports. The matrix covers *only* visited initial states, not modal tasks, authenticated sessions, dynamic values, or full accessibility. Record explicit untested routes and test actual tasks manually. If no browser is available, the result remains **NOT VERIFIED**; don't promote static hints to observed flaws.
+
 ## A. Map every user job before drawing
 Inspect real routes, modals, tabs, onboarding, settings, permission-gated views, mobile-only entries, deep links and shared state. Record for each: route, core user job, unique purpose, actual representation, state owner, reusable component, keep/merge/rebuild decision and test evidence. Compare **user jobs**, not titles alone. Two avatar pages may be legitimate *entry points* to one editor, but should not become two inconsistent editors. Preserve navigation history, saved data, permissions, loading and error states while consolidating.
 
