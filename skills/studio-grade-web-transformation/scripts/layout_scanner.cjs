@@ -56,7 +56,8 @@ async function inspectPage(page) {
       if (headings.length >= 30) break;
     }
     return {
-      viewport_css_px: viewport,
+      prefers_reduced_motion:window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+       viewport_css_px: viewport,
       document_scroll_width_css_px: root.scrollWidth,
       horizontal_overflow_px: overflow,
       flags: [
