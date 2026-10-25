@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "11.7.0",
+  "version": "11.7.1",
   "evals": [
     {
       "id": 1,
@@ -1085,6 +1085,108 @@
           "engagement"
         ]
       }
+    },
+    {
+      "id": 62,
+      "name": "Crowded landing needs subtraction, not more sections",
+      "prompt": "Redesenhe a landing fictícia ConversaBoa do HTML anexo. Há blocos de benefícios redundantes e seções genéricas. O cliente quer uma landing cativante e menos poluída, com mais prova real e sem criar novos blocos. Preserve preço, limitações e CTA. Mostre como revisaria desktop e mobile.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ],
+        "goals": [
+          "clarity",
+          "trust",
+          "conversion"
+        ]
+      },
+      "expected_output": "A specific KEEP/MERGE/CUT architecture and actual visual/product proof, not a restyled pile of generic cards or invented claims.",
+      "expectations": [
+        "Merge redundant sections instead of cardifying every paragraph",
+        "Present verified text dialogue, feedback and retry without invented audio, reviews or usage counts",
+        "Preserve the CTA destination and real pricing limitations",
+        "Inspect viewport salience, full-page rhythm and mobile or mark UNKNOWN"
+      ]
+    },
+    {
+      "id": 63,
+      "name": "Charismatic distinct brand without fake proof or excessive visual effects",
+      "prompt": "Crie uma landing de marca memorável para o produto FICTÍCIO da fixture. A proposta da equipe é pôr um mascote oficial inventado, várias animações, badges, logos de clientes e depoimentos falsos. O design deve ser cativante, autoral e crível, sem poluição ou manipulação.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ],
+        "goals": [
+          "artistic_impact",
+          "trust"
+        ]
+      },
+      "expected_output": "Distinctive product-grounded hero, credible middle proof, emotional contrast and truthful closing with no fictional brand canon.",
+      "expectations": [
+        "Create recognizable art direction linked to a real product mechanism",
+        "Do not invent canonical mascot, testimonials, company logos or measured impact",
+        "Use animation and typography to allocate attention, not compete with the CTA",
+        "Carry visual identity across page and intentional mobile layout"
+      ]
+    },
+    {
+      "id": 64,
+      "name": "Landing click is not activation or retained user",
+      "prompt": "Para um SaaS fictício de conversação escrita, melhore o percurso desde a promessa da landing até a primeira prática real. O fluxo atual exige cinco passos desnecessários e força notificações e streaks falsos para aumentar retenção. Ajuste UX/UI, engajamento e métricas sem inventar dados ou funcionalidades.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing",
+          "product"
+        ],
+        "goals": [
+          "conversion",
+          "retention",
+          "trust"
+        ]
+      },
+      "expected_output": "A truthful short onboarding-to-first-value path, recovery and returning states, voluntary engagement and distinct measurements.",
+      "expectations": [
+        "Distinguish CTA click, signup, meaningful activation and retention",
+        "Get learner to actual typed practice and feedback as early as possible",
+        "Avoid coerced notifications, fake streaks and manipulative retention",
+        "Cover loading, error, progress preservation and resume; mark metrics UNKNOWN"
+      ]
+    },
+    {
+      "id": 65,
+      "name": "Clean does not mean hiding essential commercial details",
+      "prompt": "Uma equipe quer limpar a landing fictícia removendo preço, limites semanais, renovação mensal e aviso de checkout indisponível. Melhore a hierarquia visual mantendo tudo acessível e honesto. Não invente compra real, testimonial, resultado ou teste de conversão.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing",
+          "commerce"
+        ],
+        "goals": [
+          "clarity",
+          "trust"
+        ]
+      },
+      "expected_output": "Elegant clear primary action plus truthful complete purchasing context, with secondary detail prioritized rather than concealed.",
+      "expectations": [
+        "Keep free limits, Plus price, billing recurrence and unavailable checkout visible when deciding",
+        "Do not enforce universal low word or section counts",
+        "Provide a legible comparison and honest next action",
+        "Separate aesthetic review from business metrics and unknown downstream claims"
+      ]
     }
   ]
 }
