@@ -60,6 +60,14 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             if item and item not in refs and (SK / item).is_file():
                 refs.append(item)
 
+    # Actual contextual injection, not merely catalog metadata. Keep PATCH/AUDIT lean.
+    vague = mode in {"REFINE","REDESIGN","REBUILD"} and (
+        len(task.split()) <= 11 or any(q in task for q in (
+            "sem briefing","briefing ruim","me surpreenda","melhore tudo",
+            "faz um site foda","make it amazing","do whatever it takes")))
+    if vague:
+        add("references/prompt-rescue-and-autonomous-direction.md")
+
     # Product-only multi-route refactoring needs real screen/task ownership and visuals.
     # Put this first so it survives the limited injected-context budget.
     if (mode in {"AUDIT", "REFINE", "REDESIGN", "REBUILD"}

@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "11.7.1",
+  "version": "11.7.2",
   "evals": [
     {
       "id": 1,
@@ -1186,6 +1186,168 @@
         "Do not enforce universal low word or section counts",
         "Provide a legible comparison and honest next action",
         "Separate aesthetic review from business metrics and unknown downstream claims"
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Rescue terse new website",
+      "prompt": "Faz um site foda para uma startup de conversação. Me surpreenda sem me mandar questionário.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Infer decisions, choose a specific direction and implement whole experience",
+        "Preserve real information and label unverified claims",
+        "Recompose mobile and identify weakest link",
+        "Don't force user to approve every design decision"
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Rescue broad redesign",
+      "prompt": "Melhore tudo nessa landing existente, não só a hero, e deixe visualmente incrível sem perder nenhum fato real.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Inspect and preserve working strengths",
+        "Fix redundant scenes and fake visual proof structurally",
+        "Deliver opening, purposeful middle and ending",
+        "Report rendered checks or mark UNKNOWN"
+      ]
+    },
+    {
+      "id": 68,
+      "name": "Rescue art without sales",
+      "prompt": "Crie um museu digital experimental. Quero algo Awwwards, inacreditável e artístico; não quero uma landing comercial.",
+      "files": [
+        "fixtures/kinetic-object-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "experience"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "No pricing, testimonials or artificial CTA funnel",
+        "Authored form, interaction, climax and closure",
+        "Motion meaningful to actual concept with fallbacks",
+        "Full-journey review including mobile"
+      ]
+    },
+    {
+      "id": 69,
+      "name": "Rescue zero social proof",
+      "prompt": "Crie landing para lançamento sem nenhum cliente ou depoimento, nem dados de conversão disponíveis.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Don't invent numbers, logos or clients",
+        "Use actual product demo or label concept",
+        "Do not promise uplift or guaranteed conversion",
+        "Show truthful next action and guardrails"
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Rescue operational UX",
+      "prompt": "Dá um tapa no painel fiscal e me surpreenda, mas não altere nenhuma coluna, valor, regra ou export.",
+      "files": [
+        "fixtures/dashboard-generic.html",
+        "fixtures/dashboard-data-contract.md"
+      ],
+      "meta": {
+        "surface": [
+          "dashboard"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Preserve exact data and business rules",
+        "Choose dense productive UI rather than landing showcase",
+        "Improve filters, navigation, error feedback and recovery",
+        "Test actual task and mark UNKNOWN when impossible"
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Rescue constrained audit only",
+      "prompt": "Faça uma crítica geral desse site e priorize problemas, mas não edite nenhum arquivo nem implemente mudanças.",
+      "files": [
+        "fixtures/landing-generic.html"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Audit only, no unauthorized implementation",
+        "Root-cause diagnoses for full page, not decorative nitpicks",
+        "Propose prioritized corrections with concrete evidence",
+        "Explicitly distinguish unseen browser evidence"
+      ]
+    },
+    {
+      "id": 72,
+      "name": "Rescue absent official brand asset",
+      "prompt": "Faça um redesign premium mantendo mascote original perfeito, mas não recebi o asset oficial, apenas o briefing.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "landing"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Do not hallucinate a canonical mascot",
+        "Proceed on independent reversible design work",
+        "Only request official asset if exact reproduction is essential",
+        "No fake brand ownership, license or approval"
+      ]
+    },
+    {
+      "id": 73,
+      "name": "Rescue docs without sales template",
+      "prompt": "Faça a documentação técnica mais linda, legível e útil que puder, decida por mim a composição.",
+      "files": [
+        "fixtures/fictional-product-brief.md"
+      ],
+      "meta": {
+        "surface": [
+          "read"
+        ]
+      },
+      "expected_output": "Specific, feasible and truthful response with concrete implementation or audit, not empty aesthetic claims; appropriate to user scope and evidence.",
+      "expectations": [
+        "Prioritize finding/reading information over conversion",
+        "Choose readable hierarchy, examples and navigation",
+        "No generic SaaS sales layout or fake technical facts",
+        "Proactive improvement while respecting actual content"
       ]
     }
   ]

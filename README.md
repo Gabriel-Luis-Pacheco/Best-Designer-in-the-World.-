@@ -1,4 +1,4 @@
-# Design OS Prime v11.7.1
+# Design OS Prime v11.7.2
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -9,6 +9,9 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 ```
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
+
+## Proatividade e resgate de prompts vagos (v11.7.2)
+A skill agora tem um [protocolo de recuperação de briefing](skills/studio-grade-web-transformation/references/prompt-rescue-and-autonomous-direction.md). Para "faz um site foda", "melhore tudo" ou "me surpreenda", o agente deve inspecionar materiais disponíveis, fazer decisões criativas reversíveis, construir cenas reais, verificar mobile e corrigir o elo mais fraco. Não substitui verdade, respeito ao escopo ou autorização para mudanças irreversíveis. O roteamento é hipotético, não uma permissão. Oito testes adversariais sintéticos cobrem arte, landing, dados, documentos, limites de implantação e marcas.
 
 ## Landing pages cativantes, sem poluição visual
 A skill passou a exigir **hierarquia de atenção, propósito único por seção e revisão por subtração**. A IA não deve empilhar automaticamente cards de benefícios, depoimentos, métricas, animações, FAQs e CTAs. Primeiro vem o produto, a promessa específica, a demonstração autêntica, a marca reconhecível e a decisão honesta. O minimalismo também não pode esconder preço, condições ou informações essenciais.
@@ -124,7 +127,7 @@ Os testes técnicos verificam fatos e regressões definidos. Não certificam bel
 
 ## Evidência e limites
 
-Existem **65 casos de avaliação** definidos e exemplos fictícios comerciais, artísticos e operacionais. O [runbook](docs/EVALUATION_RUNBOOK.md) explica o runner de agentes, captura de artefatos e revisão cega. Os [estudos de aplicação](docs/CASE_STUDIES_V11_1.md) registram limites dos protótipos.
+Existem **73 casos de avaliação** definidos e exemplos fictícios comerciais, artísticos e operacionais. O [runbook](docs/EVALUATION_RUNBOOK.md) explica o runner de agentes, captura de artefatos e revisão cega. Os [estudos de aplicação](docs/CASE_STUDIES_V11_1.md) registram limites dos protótipos.
 
 A [matriz de 30 skills](docs/HEAD_TO_HEAD_30_SKILLS.md) descreve confrontos planejados, não vitórias. O [protocolo de projetos reais](docs/REAL_WORLD_BENCHMARK_V11_6.md) exige condições comparáveis, repetições, artefatos funcionando e avaliadores cegos. O baseline sem skill pode vencer; perdas e resultados mistos devem permanecer no relatório.
 
