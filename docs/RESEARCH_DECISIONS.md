@@ -39,3 +39,7 @@ The optional evaluator selected context by prepending historical references and 
 
 ## v11.5 — corrective rather than additive
 Fixed two failure modes: intentional refusals of WebGL/GSAP being misread as requests by the primary brain, and product nouns (speaker) causing the optional evaluation adapter to inject 3D techniques without technical need. Improved real-browser source evidence (four responsive viewports and visible loaded-image failures). Added a full 61-case synthetic routing injection consistency audit. No new aesthetic leaderboard claim or unverified user study.
+
+
+## 25/10/2026 — pesquisa aprofundada integrada
+Adotamos a ligação evidência → mensagem → cena → CTA → primeiro valor, 10+10 mecanismos de benchmark, integridade do design assistido por IA e distinção entre heurística, teste de navegador, CWV de campo e conversão real. Novo verificador estático opcional foi incluído com seis regressões. Não adotamos blocos LP universais, meta de conversão de outros segmentos ou promessa de prêmio. Ver docs/RESEARCH_TO_SKILL_MAPPING_2026-10-25.md.

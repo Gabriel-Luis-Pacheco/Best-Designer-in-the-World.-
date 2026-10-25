@@ -14,6 +14,17 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 A skill passou a exigir **hierarquia de atenção, propósito único por seção e revisão por subtração**. A IA não deve empilhar automaticamente cards de benefícios, depoimentos, métricas, animações, FAQs e CTAs. Primeiro vem o produto, a promessa específica, a demonstração autêntica, a marca reconhecível e a decisão honesta. O minimalismo também não pode esconder preço, condições ou informações essenciais.
 
 Três guias novos: [atenção e densidade](skills/studio-grade-web-transformation/references/attention-architecture-and-density.md), [marca cativante](skills/studio-grade-web-transformation/references/brand-affinity-and-desire.md) e [ativação/retorno éticos](skills/studio-grade-web-transformation/references/activation-retention-and-ethical-engagement.md). A continuidade entre marketing, primeira experiência, engajamento e retenção é tratada como jornada real — sem confundir clique com venda nem cadastro com usuário retido.
+## Integração da pesquisa aprofundada (25/10/2026)
+A pesquisa foi convertida em decisões aplicáveis — **sem adicionar seções e efeitos obrigatórios**. Novo [protocolo evidência → cena](skills/studio-grade-web-transformation/references/evidence-to-scene-protocol.md), [atlas Awwwards × grandes empresas](skills/studio-grade-web-transformation/references/award-business-reference-atlas.md), [criação com IA e UX de IA](skills/studio-grade-web-transformation/references/ai-creative-integrity-and-ux.md) e [qualidade mensurável de lançamento](skills/studio-grade-web-transformation/references/commercial-launch-evidence.md).
+
+Use o exemplo sintético de briefing e o teste opcional de consistência:
+
+```bash
+python skills/studio-grade-web-transformation/scripts/landing_truth_gate.py skills/studio-grade-web-transformation/templates/LANDING_EVIDENCE_PACKET.json --json
+```
+
+Ele não verifica visual, fontes externas nem conversão. O [mapeamento de adoção](docs/RESEARCH_TO_SKILL_MAPPING_2026-10-25.md) registra o que foi incorporado, adaptado ou rejeitado.
+
 ## Reforço visual-first para produtos completos
 
 A revisão de produto agora começa identificando todas as rotas, as tarefas e o proprietário de cada fluxo. Ela exige construir trilhas visuais com estados reais, seletores com prévia, exercícios com interação e componentes reutilizáveis onde apropriado, sem substituir interface por emoji ou paredes de texto. Telas repetidas (por exemplo, dois editores de avatar) precisam ser justificadas ou consolidadas sem perder navegação e dados. Leitura e dados densos continuam tendo a representação adequada ao objetivo.
