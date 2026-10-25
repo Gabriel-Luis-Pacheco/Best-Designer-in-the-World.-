@@ -161,6 +161,52 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                 add(item)
     limit = 9 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 6
     if mode == "PATCH": limit = 2
+    # Explicitly relevant 2026 research gets *actual* injected context.
+    # Preserve the core functional and commercial packs; avoid overflowing
+    # AUDIT/PATCH and avoid a 66-reference context dump.
+    if mode != "PATCH":
+        requested=[]
+        if "landing" in surfaces and any(w in task for w in
+            ("evidência","evidence","prova","proof","cenas","scenes","landing completa")):
+            requested.append("references/evidence-to-scene-protocol.md")
+        if "landing" in surfaces and any(w in task for w in
+            ("lançamento","lancamento","launch","publicar","release","analytics","seo")):
+            requested.append("references/commercial-launch-evidence.md")
+        if {"landing","product","experience"} & surfaces and any(w in task for w in
+            ("design de ia","inteligência artificial","artificial intelligence","ai ux","ai slop","anti-ai")):
+            requested.append("references/ai-creative-integrity-and-ux.md")
+        if {"landing","experience"} & surfaces and any(w in task for w in
+            ("awwwards","sites premiados","award winning","grandes empresas")):
+            requested.append("references/award-business-reference-atlas.md")
+        protected={
+            "references/creative-experience-direction.md",
+            "references/creative-advantage-loop.md",
+            "references/experiential-commerce.md",
+            "references/product-truth.md",
+            "references/landing-page-evidence-and-cro.md",
+            "references/attention-architecture-and-density.md",
+            "references/marketing-research-and-experiments.md",
+            "references/reading-and-information-design.md",
+            "references/visual-first-product-architecture.md",
+            "references/advanced-product-ux-operations.md",
+            "references/brand-affinity-and-desire.md",
+            "references/activation-retention-and-ethical-engagement.md",
+            "references/awwwards-studio-production.md",
+            "references/immersive-3d-product-direction.md",
+            "references/motion-3d-engineering-cookbook.md",
+            "references/creative-signature-and-form.md",
+            "references/interaction-dramaturgy-and-payoff.md",
+            "references/applied-design-decisions.md",
+        }
+        for item in requested:
+            if item in refs or not (SK/item).is_file():
+                continue
+            if len(refs)>=limit:
+                victim=next((i for i in range(len(refs)-1,-1,-1)
+                             if refs[i] not in protected),None)
+                if victim is None:continue
+                refs.pop(victim)
+            refs.append(item)
     return refs[:limit]
 
 
