@@ -161,6 +161,7 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                 add(item)
     limit = 9 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 6
     if mode == "PATCH": limit = 2
+    refs = refs[:limit]  # trim legacy optional packs before honoring explicit specialist requests
     # Explicitly relevant 2026 research gets *actual* injected context.
     # Preserve the core functional and commercial packs; avoid overflowing
     # AUDIT/PATCH and avoid a 66-reference context dump.
