@@ -1099,10 +1099,10 @@
           "landing"
         ],
         "goals": [
-          "clarity",
-          "trust",
-          "conversion"
-        ]
+        "comprehension",
+        "trust",
+        "conversion"
+      ]
       },
       "expected_output": "A specific KEEP/MERGE/CUT architecture and actual visual/product proof, not a restyled pile of generic cards or invented claims.",
       "expectations": [
@@ -1172,9 +1172,9 @@
       ],
       "meta": {
         "surface": [
-          "landing",
-          "commerce"
-        ],
+        "landing",
+        "checkout"
+      ],
         "goals": [
           "clarity",
           "trust"
