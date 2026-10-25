@@ -26,7 +26,7 @@ python scripts/check_contracts.py
 python scripts/check_evals.py
 python skills/studio-grade-web-transformation/scripts/validate.py
 python -m unittest discover -s scripts -p "test_*.py" -v
-npm install && npx playwright install chromium
+npm ci && npx playwright install chromium
 npm run test:browser:fixtures
 ```
 CI executa esses testes em push/PR, com evidências anexadas ao workflow.
