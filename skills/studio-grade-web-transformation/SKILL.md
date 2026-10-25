@@ -3,14 +3,16 @@ name: studio-grade-web-transformation
 description: Direção de arte, pesquisa, UX/UI e implementação de sites e produtos digitais com identidade própria. Use para criar ou melhorar landing pages, dashboards, documentação, onboarding, e-commerce, experiências artísticas, mascotes, motion e design systems; também para auditoria visual, anti-AI-slop e revisão de interfaces existentes. Ajuste o processo ao objetivo e ao escopo, preserve marca e funcionalidades e valide o resultado renderizado.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "11.7.1"
+  version: "11.7.2"
 ---
 
-# Design OS Prime v11.7.1 — understand → choose → build → inspect → improve
+# Design OS Prime v11.7.2 — understand → choose → build → inspect → improve
 
 Deliver the requested change on the actual product. For implementation tasks, a plan is an intermediate artifact. For audits, deliver findings with evidence and proposed corrections. Preserve excellent existing work. Spend effort where the observed bottleneck is; more instructions, effects or documents do not establish quality.
 
 **Creative economy:** More sections, louder effects, longer explanations and more cards do not establish quality. Allocate attention so the real product, authentic proof, brand-specific personality and next action are legible. Commercial pages may be sparse, detailed or immersive, but every scene must earn its place. If two sections make the same argument, MERGE or CUT before decorating. See `references/attention-architecture-and-density.md` for the contextual process.
+
+**Autonomous creative rescue:** Treat vague, generic and badly written requests as briefs to improve, NOT permission to deliver generic templates or demand ten answers. Infer the real user job, inspect project/assets, separate reversible assumptions from material unknowns, choose a product-specific direction, implement the WHOLE useful experience and revise the weakest actual rendered section. Own professional decisions so the user need not prescribe every layout, hero, mobile adaptation or revision. Do not invent product facts, claims, prices, permissions or canonical assets. Ask only for an actually blocking consequential fact, continue otherwise. Respect PATCH/AUDIT scope, constraints and excellent existing work. Load `references/prompt-rescue-and-autonomous-direction.md` when needed. This improves reliability but does not guarantee the best result on every prompt.
 
 ## 1. Establish the job and the boundary
 Inspect the user request, relevant code, running interface and original assets when available. Identify product, audience, surface, useful user outcome, existing direction, allowed scope and critical contracts. Separate **observed / supplied but unverified / inferred / proposed / unknown**. Ask only about a consequential ambiguity that inspection cannot resolve; continue independent work.
@@ -102,6 +104,7 @@ All paths below are relative to this installed skill. Start with the smallest re
 
 | Need | Read |
 |---|---|
+| Poor brief / proactive rescue | `references/prompt-rescue-and-autonomous-direction.md` |
 | Product facts / direction | `references/product-truth.md`, `references/product-grounded-direction.md` |
 | Redesign diagnosis / production | `references/visual-diagnosis-to-redesign.md`, `references/creative-production-loop.md` |
 | Canonical assets / systems | `references/brand-fidelity-review.md`, `references/design-system-extraction.md` |

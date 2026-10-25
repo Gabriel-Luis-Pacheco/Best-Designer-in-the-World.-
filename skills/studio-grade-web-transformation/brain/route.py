@@ -171,11 +171,37 @@ def intent_policy(task,surfaces):
         return "PRODUCT_FIRST_ART_SUPPORT"
     return "ART_DIRECTOR_FIRST"
 
+def autonomy_guidance(mode, audience, facts):
+    """Non-authoritative, bounded next actions for a weak brief, never permission."""
+    if mode=="AUDIT":
+        actions=["Inspect real assets/code and identify evidence-based faults",
+                 "Report prioritized corrections without implementing"]
+    elif mode=="PATCH":
+        actions=["Inspect exact defect and protected contracts",
+                 "Apply smallest authorized fix and verify affected states"]
+    else:
+        actions=["Inspect existing product, brand, sources and critical workflows",
+                 "Choose a justified ownable direction with reversible defaults",
+                 "Build full key journey and intentional mobile composition",
+                 "Render, critique weakest part, correct and retest"]
+        if not facts:
+            actions.insert(1,"If truth remains unavailable, label concepts/sample content, never invent real commercial proof")
+    return {
+        "status":"ADVICE_ONLY_NOT_PERMISSION",
+        "brief_state":"UNDERSPECIFIED_OR_UNVERIFIED" if not facts or not audience else "SUPPLIED_NOT_INDEPENDENTLY_VERIFIED",
+        "agent_owned_next_actions":actions,
+        "reversible_defaults":["hierarchy","spacing","responsive visual composition","clearly labeled prototype"],
+        "must_not_infer":["real capabilities","testimonials","sales metrics","prices/payment terms",
+                          "brand asset rights","authorization for destructive changes"],
+        "clarify_only_if":"Material blocking unknown cannot be inspected or safely represented as a labeled hypothesis"
+    }
+
+
 def new_project_request(task):
     """Avoid treating a fresh commissioned website as a refinement of an existing one."""
     build=any(affirmative_task_cue(task,p) for p in
               ["crie","criar","cria","construa","construir","desenvolva","desenvolver",
-               "do zero","from scratch","build a","create a"])
+               "do zero","from scratch","build a","create a","faça um","faça uma","faz um","faz uma","make me a"])
     existing=any(contains_phrase(task,p) for p in
                  ["existente","atual","corrija","corrigir","melhore","melhorar",
                   "refine","ajuste","ajustar","conserte","bug","apenas","só"])
@@ -420,6 +446,7 @@ def route(context):
                                   ["artistic_impact","product_clarity","desire","action_integrity","mobile","performance"]
                                   if policy=="EXPERIENTIAL_COMMERCE" else
                                   ["task_accuracy","data_integrity","accessibility","efficiency"])},
+      "autonomy_guidance":autonomy_guidance(mode,audience,facts),
       "triage_review":{"interpretation":"HYPOTHESIS_ONLY",
                        "execution_intent":("ANALYZE_AND_IMPLEMENT" if mode_source=="task_inferred_analysis_and_execution"
                                            else "ANALYSIS_ONLY" if mode=="AUDIT" else "IMPLEMENTATION_OR_PLANNING"),

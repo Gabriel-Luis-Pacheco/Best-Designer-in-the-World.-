@@ -1,3 +1,9 @@
+## v11.7.2 — Proactive prompt rescue (2026-10-25)
+- Creative recovery protocol for vague briefs, explicit reversible assumptions, full-journey visual execution and weak-link correction.
+- Preserves pricing, data contracts, canonical brands, permissions and audit/patch scope.
+- Router exposes advisory autonomy steps (never authorization), with eight adversarial synthetic evaluation cases and injection regressions.
+- No claim of universal design superiority or guaranteed conversion.
+
 # v11.7.1 — 2026-10-25 — clearer attention, memorable brand, ethical first value
 
 - Add three portable decision guides for lower-clutter commercial pages, distinctive believable brand affinity and ethical activation/retention, plus optional one-screen planning template.
