@@ -14,17 +14,19 @@ function parseArgs(argv) {
   for (let i=0;i<argv.length;i++) {
     const key=argv[i];
     if (key === '--allow-external-assets') { args.allowExternal=true; continue; }
+    if (key === '--motion' && argv[i+1]) { args.motion=argv[++i]; continue; }
     if (!['--url','--out','--screenshots'].includes(key) || !argv[i+1]) throw new Error('Unknown or incomplete argument: '+key);
     args[key.slice(2)]=argv[++i];
   }
-  if (!args.url || !args.out) throw new Error('Usage: --url LOCAL_URL --out report.json [--screenshots DIR] [--allow-external-assets]');
+  if (!args.url || !args.out) throw new Error('Usage: --url LOCAL_URL --out report.json [--screenshots DIR] [--motion normal|reduce]');
+  if (args.motion && !['normal','reduce'].includes(args.motion)) throw new Error('motion must be normal or reduce');
   const url=new URL(args.url);
   if (!['http:','https:'].includes(url.protocol) ||
       !['localhost','127.0.0.1','[::1]'].includes(url.hostname) ||
       url.username || url.password) throw new Error('Only local development URLs without credentials permitted');
   if (typeof args.out !== 'string' || !args.out.endsWith('.json')) throw new Error('Use JSON output');
   return {url:url.href,out:resolve(args.out),screenshots:args.screenshots?resolve(args.screenshots):null,
-    allowExternal:args.allowExternal===true};
+    allowExternal:args.allowExternal===true,motion:args.motion||'reduce'};
 }
 
 export async function runAudit(options) {
@@ -33,7 +35,7 @@ export async function runAudit(options) {
     const captures=[];
     for (const width of [320, 390, 768, 1440]) {
       const height=width===320?700:width===390?844:width===768?1024:900;
-      const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
+      const context=await browser.newContext({viewport:{width,height},reducedMotion:options.motion==='normal'?'no-preference':'reduce'});
       let blockedExternal=0;
       // Local origin may redirect offsite. External asset opt-in cannot
       // authorize browser frame navigation away from localhost.
@@ -64,7 +66,7 @@ export async function runAudit(options) {
         if (options.screenshots) {
           await mkdir(options.screenshots,{recursive:true});
           screenshot=resolve(options.screenshots,'layout-'+width+'.png');
-          await page.screenshot({path:screenshot,fullPage:true,animations:'disabled'});
+          await page.screenshot({path:screenshot,fullPage:true,animations:options.motion==='normal'?'allow':'disabled'});
         }
         captures.push({width,height,navigation,blocked_external_requests:blockedExternal,
           screenshot,errors, ...measured});
@@ -75,9 +77,10 @@ export async function runAudit(options) {
       } finally {await context.close();}
     }
     return {status:'RENDERED_LAYOUT_CANDIDATES_NOT_AESTHETIC_APPROVAL',
-      target:'localhost_only',viewports:captures,
+      target:'localhost_only',motion_mode:options.motion||'reduce',viewports:captures,
       limitations:['Real browser DOM measurements at one time/state per viewport',
         'External asset opt-in never grants off-site navigation; blocked assets may affect layout',
+        'Normal-motion screenshots are only sampled moments, not proof of choreography; use scripted journeys',
         'Mobile device emulation is not physical device performance',
         'No claim of conversion, awards, WCAG conformance or actual device testing']};
   } finally {await browser.close();}

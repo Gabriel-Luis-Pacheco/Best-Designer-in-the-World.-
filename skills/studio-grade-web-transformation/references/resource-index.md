@@ -6,6 +6,12 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/ai-creative-integrity-and-ux.md` | IA e anti-slop: confiança, licença, UX probabilística |
+| `references/award-business-reference-atlas.md` | Awwwards × grandes empresas, mecanismos sem clonagem |
+| `references/commercial-launch-evidence.md` | CWV, acessibilidade, release e métricas reais |
+| `references/evidence-to-scene-protocol.md` | Verdade do produto → evidência → cena e ação |
+| `references/prompt-rescue-and-autonomous-direction.md` | Autonomia e recuperação de briefings vagos |
+| `references/render-critique-repair-contract.md` | Fechar ciclo implementação → pixels → crítica → reparo |
 | `references/attention-architecture-and-density.md` | Landing sem poluição, atenção hierarquizada, seção com função e corte/fusão |
 | `references/brand-affinity-and-desire.md` | Marca cativante e reconhecível, emoção com prova |
 | `references/activation-retention-and-ethical-engagement.md` | Da promessa ao primeiro valor e retorno voluntário |
@@ -52,7 +58,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/product-truth.md` | Verdade do produto e invariantes de funcionamento |
 | `references/product-ux-versus-marketing.md` | UX de sistemas internos ≠ landing marketing |
 | `references/quality-gates-and-evidence.md` | Gates operacionais e registro de evidências |
-| `references/quality-rubric.md` | Human review rubric — v11.6.1 |
+| `references/quality-rubric.md` | Human review rubric — v11.8.0 |
 | `references/reading-and-information-design.md` | Reading and information design |
 | `references/research-provenance.md` | Benchmark causal e rastreável |
 | `references/research-selection-playbook.md` | Seleção contextual de referências (não coletar sem propósito) |

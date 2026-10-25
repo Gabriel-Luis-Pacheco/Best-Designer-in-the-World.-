@@ -41,7 +41,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install pinned Playwright dependency
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Install Chromium for browser fixture tests
         run: npx playwright install --with-deps chromium
       - name: Validate portable journey capture syntax

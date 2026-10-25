@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "scale": {
+    "min": 0,
+    "max": 3,
+    "unknown": "omit_dimension"
+  },
+  "dimensions": {
+    "general": [
+      "clareza",
+      "direcao_arte",
+      "narrativa",
+      "identidade",
+      "composicao",
+      "microcraft",
+      "mobile",
+      "funcionalidade",
+      "acessibilidade",
+      "conteudo_credibilidade",
+      "performance"
+    ],
+    "landing": [
+      "hierarquia_de_atencao",
+      "proposito_das_cenas",
+      "diferenciacao_crivel",
+      "continuidade_promessa_ativacao"
+    ],
+    "product": [
+      "propriedade_fluxos",
+      "adequacao_do_meio",
+      "economia_explicativa"
+    ],
+    "art": [
+      "reconhecimento_produto",
+      "continuidade_cenas",
+      "agencia_interativa",
+      "climax_encerramento"
+    ]
+  }
+}

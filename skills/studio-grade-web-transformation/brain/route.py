@@ -104,7 +104,7 @@ def classify_mode(data,task):
     limited=any(contains_phrase(low,x) for x in
                 ["só","somente","apenas","mínimo","pontual","localizada","isolado"])
     patch=any(affirmative_task_cue(low,x) for x in
-              ["corrija","corrigir","conserte","consertar","fix","patch","bug"])
+              ["corrija","corrige","corrigir","conserte","consertar","fix","patch","bug"])
     rebuild=any(affirmative_task_cue(low,x) for x in
                 ["reconstrua","rebuild","do zero","recrie tudo"])
     redesign=any(affirmative_task_cue(low,x) for x in
@@ -204,7 +204,7 @@ def new_project_request(task):
                "do zero","from scratch","build a","create a","faça um","faça uma","faz um","faz uma","make me a"])
     existing=any(contains_phrase(task,p) for p in
                  ["existente","atual","corrija","corrigir","melhore","melhorar",
-                  "refine","ajuste","ajustar","conserte","bug","apenas","só"])
+                  "refine","ajuste","ajustar","conserte","bug"])
     return build and not existing
 
 def choose_sources(tags,mode,tools):

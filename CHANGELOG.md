@@ -1,3 +1,11 @@
+## v11.8.0 — Audit hardening and active expertise (2026-10-25)
+- One source of truth for 22 human-rated quality dimensions; explicit review format adapter.
+- Robust declaration gate for malformed evidence JSON and invalid CTA placeholders.
+- New site creation intent survives technical "só/apenas" constraints.
+- 2026 research guides are injected for relevant experimental prompts, with reachability tests.
+- Version and reference discovery checks; rendered correction contract and motion-mode coverage.
+- No promise of universal artistic, performance or conversion success.
+
 ## v11.7.2 — Proactive prompt rescue (2026-10-25)
 - Creative recovery protocol for vague briefs, explicit reversible assumptions, full-journey visual execution and weak-link correction.
 - Preserves pricing, data contracts, canonical brands, permissions and audit/patch scope.

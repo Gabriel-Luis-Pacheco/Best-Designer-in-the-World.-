@@ -1,3 +1,5 @@
+# Design OS Prime v11.8.0 — avaliação, não ranking automático
+
 ## v11.7 — revisão do núcleo e cobertura de leitura
 A seleção de referências de READ agora injeta o guia de informação/leitura de fato,
 inclusive em auditoria e refinamento. O núcleo foi consolidado, sem transformar
@@ -24,7 +26,7 @@ python scripts/check_contracts.py
 python scripts/check_evals.py
 python skills/studio-grade-web-transformation/scripts/validate.py
 python -m unittest discover -s scripts -p "test_*.py" -v
-npm install && npx playwright install chromium
+npm ci && npx playwright install chromium
 npm run test:browser:fixtures
 ```
 CI executa esses testes em push/PR, com evidências anexadas ao workflow.

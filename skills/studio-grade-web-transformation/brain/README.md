@@ -1,4 +1,4 @@
-# Design OS Brain v11.7.0 — heuristic router, not creative authority
+# Design OS Brain v11.8.0 — heuristic router, not creative authority
 
 O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo fornece uma hipótese estruturada reproduzível; o programa não lê seu repositório automaticamente, não faz web browsing, não edita arquivos e não garante que tenha entendido um produto.
 
