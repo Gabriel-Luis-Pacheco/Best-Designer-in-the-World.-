@@ -22,8 +22,8 @@ JOBS = {
     "onboarding": {"onboarding", "welcome", "boas-vindas"},
 }
 EMOJI_RE = re.compile("[\\U0001F300-\\U0001FAFF]")
-CONTROL_RE = re.compile(r"<(?:button|input|textarea|select)\\b", re.I)
-VISUAL_RE = re.compile(r"<(?:svg|canvas|img|picture|video|AvatarPreview|Progress|LearningPath|Chart|Map)\\b", re.I)
+CONTROL_RE = re.compile(r"<(?:button|input|textarea|select)\b", re.I)
+VISUAL_RE = re.compile(r"<(?:svg|canvas|img|picture|video|AvatarPreview|Progress|LearningPath|Chart|Map)\b", re.I)
 
 
 def route_for_file(filename: str) -> tuple[str, str] | None:
