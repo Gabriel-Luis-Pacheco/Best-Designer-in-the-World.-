@@ -1,3 +1,5 @@
+# Design OS Prime v11.8.0 — avaliação, não ranking automático
+
 ## v11.7 — revisão do núcleo e cobertura de leitura
 A seleção de referências de READ agora injeta o guia de informação/leitura de fato,
 inclusive em auditoria e refinamento. O núcleo foi consolidado, sem transformar

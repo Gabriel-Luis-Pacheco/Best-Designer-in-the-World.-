@@ -1,4 +1,4 @@
-# Design OS Prime v11.7.2
+# Design OS Prime v11.8.0
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -9,6 +9,11 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 ```
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
+
+## Engenharia de confiabilidade v11.8.0
+Após a auditoria, os 22 critérios humanos passaram a compartilhar um único schema e os dois comparadores podem transportar avaliações com proveniência explícita. O briefing de landing rejeita tipos inválidos e uma âncora CTA vazia. Quatro guias da pesquisa são efetivamente selecionados para prompts pertinentes, sem inundar PATCH. O [protocolo render → crítica → reparo](skills/studio-grade-web-transformation/references/render-critique-repair-contract.md) descreve o que o agente deve executar e como provar — ou declarar UNKNOWN.
+
+**Limites:** existem 73 casos de avaliação **declarados**, não 73 websites produzidos por modelos. CI de suporte não prova design nível Awwwards, vitória universal, conversão ou acessibilidade total. Ver [log de reparos](docs/QUALITY_REPAIR_LOG_2026-10-25.md).
 
 ## Proatividade e resgate de prompts vagos (v11.7.2)
 A skill agora tem um [protocolo de recuperação de briefing](skills/studio-grade-web-transformation/references/prompt-rescue-and-autonomous-direction.md). Para "faz um site foda", "melhore tudo" ou "me surpreenda", o agente deve inspecionar materiais disponíveis, fazer decisões criativas reversíveis, construir cenas reais, verificar mobile e corrigir o elo mais fraco. Não substitui verdade, respeito ao escopo ou autorização para mudanças irreversíveis. O roteamento é hipotético, não uma permissão. Oito testes adversariais sintéticos cobrem arte, landing, dados, documentos, limites de implantação e marcas.
