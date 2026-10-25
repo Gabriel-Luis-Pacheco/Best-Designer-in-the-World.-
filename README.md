@@ -22,6 +22,19 @@ python skills/studio-grade-web-transformation/scripts/surface_map_audit.py skill
 
 O auditor não inspeciona React ou screenshots sozinho, e seus sinais não são uma nota de beleza. É preciso implementar, renderizar e testar o produto real.
 
+## Auditoria de rotas de um projeto real (opcional)
+
+A diferença entre instruções de design e resultado verificado é importante: a skill pode agora extrair **candidatos** a rotas de um projeto local e oferecer uma matriz de inspeção do navegador para caminhos concretos. Isso ajuda a localizar possíveis jornadas duplicadas (como dois editores de avatar), sem afirmar que são o mesmo componente ou que um visual está ruim sem ver pixels.
+
+```bash
+python skills/studio-grade-web-transformation/brain/route_inventory.py --project /caminho/projeto --out route-candidates.json
+# Revise os caminhos, adicione valores reais para rotas dinâmicas e escolha as telas críticas:
+# routes-to-check.json: {"paths":["/","/onboarding/avatar","/profile/avatar"]}
+node skills/studio-grade-web-transformation/scripts/route_matrix_audit.mjs --url http://127.0.0.1:3000 --manifest routes-to-check.json --out route-review.json --screenshots route-captures
+```
+
+O app deve estar rodando localmente. O inventário cobre convenções de rotas baseadas em arquivos, não modais nem todos os roteadores programáticos; a matriz visita até 12 rotas fornecidas em 320/390/768/1440 px, e marca rotas dinâmicas ou excedentes como não testadas. Capturas e sinais de layout exigem revisão humana; **não** provam usabilidade, marca, conversão, acessibilidade integral nem qualidade artística. O processo continua exigindo clicar fluxos e testar estados reais.
+
 ## O que esta versão melhora
 
 - **Execução mais clara:** núcleo reduzido de aproximadamente 3.622 para 1.611 palavras, com uma sequência única de investigação, escolha, implementação, inspeção e correção. Histórico de releases fica no [CHANGELOG](CHANGELOG.md).
