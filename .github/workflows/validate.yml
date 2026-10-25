@@ -49,6 +49,7 @@ jobs:
           node --check scripts/capture_creative_journey.mjs
           node --check skills/studio-grade-web-transformation/scripts/capture_creative_journey.mjs
           node --check skills/studio-grade-web-transformation/scripts/layout_audit.mjs
+          node --check skills/studio-grade-web-transformation/scripts/route_matrix_audit.mjs
           node --check skills/studio-grade-web-transformation/scripts/layout_scanner.cjs
       - name: Test browser fixtures
         run: npm run test:browser

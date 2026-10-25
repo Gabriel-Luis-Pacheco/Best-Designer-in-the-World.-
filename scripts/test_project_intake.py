@@ -28,6 +28,8 @@ class IntakeTests(unittest.TestCase):
             result=mod.inspect_project(root)
             self.assertIn("Next.js",result["framework_hints"])
             self.assertIn("src/app/page.tsx",result["route_file_candidates"])
+            self.assertEqual(result["route_evidence"]["routes"][0]["route"],"/")
+            self.assertEqual(result["route_evidence"]["method"],"FILE_PATHS_AND_BOUNDED_SOURCE_HINTS_ONLY")
             self.assertIn("public/logo.svg",result["brand_asset_candidates"])
             self.assertIn("test",result["package_script_names"])
             self.assertNotIn("do-not-print",str(result))

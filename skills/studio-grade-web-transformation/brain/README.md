@@ -8,6 +8,10 @@ O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo forn
 ## Project intake opcional
 `brain/project_intake.py --project caminho/do/projeto` identifica candidatos a rotas, assets e arquivos de tokens em modo somente leitura. Com `--context brief.json`, acrescenta inventário ao plano. Não executa o produto nem prova compreensão, métricas ou qualidade. Nunca interpretar a existência de uma rota como verificação de um fluxo.
 
+## Revisão de rotas reais (v11.7 opcional)
+
+`brain/route_inventory.py --project /caminho/projeto --out routes.json` procura candidatos a rotas baseadas em arquivos, colisões de caminhos e nomes de tarefas possivelmente repetidas; lê somente pequenos trechos locais para contagens de sinais, sem reproduzir o conteúdo no relatório. `project_intake.py` integra o campo `route_evidence` com esses sinais. Um alerta de duas rotas com avatar **não prova** dois componentes ou um bug. O agente ainda precisa seguir os imports e o estado real. Em projeto executando localmente, a ferramenta complementar `scripts/route_matrix_audit.mjs` inspeciona as rotas fornecidas no navegador; ela não descobre rotas, nem testa estados ocultos automaticamente.
+
 ## Execute
 Da raiz do repositório:
 ```bash

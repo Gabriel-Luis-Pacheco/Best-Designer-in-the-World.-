@@ -44,17 +44,21 @@ def inspect_project(root: str | Path) -> dict:
             paths.append(relative.as_posix())
         if truncated:
             break
-    routes=[]
+    # Evidence-based route candidates are derived from recognized file-router conventions.
+    # This does not inspect route ownership, dynamic router tables or the browser.
+    route_spec=importlib.util.spec_from_file_location("design_os_route_inventory",Path(__file__).with_name("route_inventory.py"))
+    if route_spec is None or route_spec.loader is None:
+        raise ValueError("route inventory unavailable")
+    route_module=importlib.util.module_from_spec(route_spec)
+    route_spec.loader.exec_module(route_module)
+    route_evidence=route_module.inspect_routes(root,paths)
+    routes=[r["file"] for r in route_evidence["routes"]]
     style=[]
     assets=[]
     tests=[]
     for rel in paths:
         p=Path(rel)
         n=p.name.lower()
-        if p.suffix.lower() in CODE_SUFFIXES and (
-            n in {"page.tsx","page.jsx","page.ts","page.js","index.html"}
-            or "pages" in p.parts or "routes" in p.parts):
-            routes.append(rel)
         if p.suffix.lower() in {".css",".scss",".sass",".less"} or n in {"design.md","tokens.json","tailwind.config.js","tailwind.config.ts"}:
             style.append(rel)
         if p.suffix.lower() in ASSET_SUFFIXES:
@@ -84,13 +88,15 @@ def inspect_project(root: str | Path) -> dict:
         "file_count_sampled":len(paths),
         "framework_hints":hints,
         "route_file_candidates":routes[:MAX_ITEMS],
+        "route_evidence":route_evidence,
         "style_token_candidates":style[:MAX_ITEMS],
         "brand_asset_candidates":assets[:MAX_ITEMS],
         "test_file_candidates":tests[:MAX_ITEMS],
         "package_script_names":scripts,
         "limits":["No rendered UI inspection","No user metrics or flow verification",
                   "No contents or secrets exported","Hidden and generated directories skipped",
-                  "File list is capped; labels are hypotheses, not proof of behavior"]
+                  "File list is capped; labels are hypotheses, not proof of behavior",
+                  "Route and repeated-job candidates are based on filenames, not flow ownership"]
     }
 
 def build_plan(context: dict, root: str | Path) -> dict:
