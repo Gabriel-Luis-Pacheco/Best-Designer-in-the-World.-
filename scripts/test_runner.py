@@ -84,6 +84,20 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/marketing-research-and-experiments.md", prompt)
         self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/immersive-3d-product-direction.md", prompt)
 
+    def test_v1171_attention_brand_and_first_value_guides_reach_agent(self):
+        cases=json.loads((ROOT/"evals/evals.json").read_text(encoding="utf-8"))["evals"]
+        for case_id,guide in (
+            (62,"attention-architecture-and-density.md"),
+            (63,"brand-affinity-and-desire.md"),
+            (64,"activation-retention-and-ethical-engagement.md"),
+            (65,"attention-architecture-and-density.md"),
+        ):
+            case=next(c for c in cases if c["id"]==case_id)
+            title="TRUSTED CONTEXTUAL REFERENCE: references/"+guide
+            with self.subTest(case=case_id):
+                self.assertIn(title,build_prompt(case,"with_skill"))
+                self.assertNotIn(title,build_prompt(case,"without_skill"))
+
     def test_awwwards_receives_studio_method_not_only_museum_metaphors(self):
         case = {"prompt": "Crie um museu digital Awwwards sem vendas",
                 "files": [], "meta": {"surface": "experience"}}
