@@ -1,4 +1,4 @@
-# Design OS Prime v11.7.0
+# Design OS Prime v11.7.1
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -10,6 +10,10 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Landing pages cativantes, sem poluição visual
+A skill passou a exigir **hierarquia de atenção, propósito único por seção e revisão por subtração**. A IA não deve empilhar automaticamente cards de benefícios, depoimentos, métricas, animações, FAQs e CTAs. Primeiro vem o produto, a promessa específica, a demonstração autêntica, a marca reconhecível e a decisão honesta. O minimalismo também não pode esconder preço, condições ou informações essenciais.
+
+Três guias novos: [atenção e densidade](skills/studio-grade-web-transformation/references/attention-architecture-and-density.md), [marca cativante](skills/studio-grade-web-transformation/references/brand-affinity-and-desire.md) e [ativação/retorno éticos](skills/studio-grade-web-transformation/references/activation-retention-and-ethical-engagement.md). A continuidade entre marketing, primeira experiência, engajamento e retenção é tratada como jornada real — sem confundir clique com venda nem cadastro com usuário retido.
 ## Reforço visual-first para produtos completos
 
 A revisão de produto agora começa identificando todas as rotas, as tarefas e o proprietário de cada fluxo. Ela exige construir trilhas visuais com estados reais, seletores com prévia, exercícios com interação e componentes reutilizáveis onde apropriado, sem substituir interface por emoji ou paredes de texto. Telas repetidas (por exemplo, dois editores de avatar) precisam ser justificadas ou consolidadas sem perder navegação e dados. Leitura e dados densos continuam tendo a representação adequada ao objetivo.
@@ -109,7 +113,7 @@ Os testes técnicos verificam fatos e regressões definidos. Não certificam bel
 
 ## Evidência e limites
 
-Existem **61 casos de avaliação** definidos e exemplos fictícios comerciais, artísticos e operacionais. O [runbook](docs/EVALUATION_RUNBOOK.md) explica o runner de agentes, captura de artefatos e revisão cega. Os [estudos de aplicação](docs/CASE_STUDIES_V11_1.md) registram limites dos protótipos.
+Existem **65 casos de avaliação** definidos e exemplos fictícios comerciais, artísticos e operacionais. O [runbook](docs/EVALUATION_RUNBOOK.md) explica o runner de agentes, captura de artefatos e revisão cega. Os [estudos de aplicação](docs/CASE_STUDIES_V11_1.md) registram limites dos protótipos.
 
 A [matriz de 30 skills](docs/HEAD_TO_HEAD_30_SKILLS.md) descreve confrontos planejados, não vitórias. O [protocolo de projetos reais](docs/REAL_WORLD_BENCHMARK_V11_6.md) exige condições comparáveis, repetições, artefatos funcionando e avaliadores cegos. O baseline sem skill pode vencer; perdas e resultados mistos devem permanecer no relatório.
 

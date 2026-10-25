@@ -1,4 +1,4 @@
-# Human review rubric — v11.7.0
+# Human review rubric — v11.7.1
 # Rubrica de qualidade visual, funcional e de produto (v9.8)
 
 Este documento dá critérios para humanos compararem artefatos, não substitui testes observados. Sem projeto executável ou capturas integrais, a dimensão correspondente é `UNKNOWN`.
@@ -10,6 +10,8 @@ Escala consistente para TODAS as dimensões:
 - `3 EXCEPCIONAL`: solução distintiva e refinada, apoiada em exemplos concretos e contexto.
 
 Dimensões gerais: `clareza`, `direcao_arte`, `narrativa`, `identidade`, `composicao`, `microcraft`, `mobile`, `funcionalidade`, `acessibilidade`, `conteudo_credibilidade`, `performance`.
+
+Para **LANDING/MARKETING**, avaliar quando observado: `hierarquia_de_atencao`, `proposito_das_cenas`, `diferenciacao_crivel` e, apenas com fluxo real verificado, `continuidade_promessa_ativacao`. Uma página curta também pode ser confusa; texto longo pode ser necessário para decisão informada. Verificar competing focus por viewport, benefício repetido, prova ligada à promessa e CTA com destino coerente. Sem visual/fluxo inspecionado = UNKNOWN, nunca aprovação estética, conversão ou retenção.
 
 Para **PRODUCT/MOBILE multitelas**, acrescentar quando observável `propriedade_fluxos`, `adequacao_do_meio` e `economia_explicativa`. Avaliar separadamente: (a) uma tarefa aparece em dois lugares com estado e regras inconsistentes; (b) a UI usa texto/emoji como substituto de um mapa, prévia, ferramenta ou visualização realmente necessária; (c) explicações redundantes forçam leitura sem ajudar a tarefa. Esses sinais são hipóteses a observar, não uma proibição de texto ou de múltiplas rotas legítimas. Marcar UNKNOWN quando código/rotas/pixels não foram inspecionados. Não tirar média que esconda um fluxo central duplicado e quebrado.
 
@@ -26,6 +28,9 @@ Exemplos de ancoragem:
 - Propriedade dos fluxos (produto multitelas): 0 quando a mesma tarefa tem implementações conflitantes com prejuízo demonstrado; 2 quando entradas distintas compartilham comportamento, dados e retorno coerentes; 3 quando a arquitetura reduz passos e redundância mantendo expectativas. Não confundir dois pontos de entrada legítimos com duplicidade.
 - Adequação do meio: 0 quando a ação central depende de um substituto inadequado (ex.: trilha só com emoji, editor sem prévia real); 2 quando o mecanismo visual ou textual ajuda a tarefa e funciona; 3 quando forma, interação e informação se reforçam de modo específico ao produto.
 - Economia explicativa: 0 quando repetição impede encontrar ou executar a tarefa; 2 quando instruções e provas são concisas, acessíveis e suficientes; 3 quando a UI ensina pelo funcionamento real sem ocultar informação relevante. Páginas de leitura podem legitimamente conter muitos parágrafos.
+- Hierarquia de atenção (landing): 0 se títulos, CTAs e efeitos concorrentes impedem localizar oferta ou ação; 2 se produto/prova/ação seguem uma prioridade legível; 3 se esse foco é autoral, coerente e permanece claro no mobile.
+- Propósito das cenas (landing): 0 quando blocos repetidos impedem encontrar prova; 2 quando cenas acrescentam compreensão, emoção autêntica, prova ou decisão; 3 quando a página inteira mostra variedade funcional e economia editorial sem esconder o importante.
+- Continuidade promessa-ativação: 0 quando a ação comercial leva a um bloqueio enganoso ou grave; 2 quando o primeiro valor real é alcançável, testado e recuperável; 3 quando o fluxo, contexto de retorno e liberdade do usuário são coerentes. UNKNOWN sem acesso ao produto.
 - Reconhecimento do produto: 0 se uma página comercial faz o produto parecer um objeto diferente; 2 se forma, texto e prova tornam seu uso evidente; 3 se reconhecimento e singularidade estética se reforçam. Para arte abstrata sem produto, omitida.
 - Continuidade de cenas: 0 quando cada trecho parece outro template; 2 para transições com vocabulário visual consistente; 3 para narrativa autoral que progride sem repetição.
 - Agência interativa: 0 quando controle é ornamental ou inacessível; 2 quando modifica algo compreensível e reversível; 3 quando o gesto revela a ideia central do projeto.

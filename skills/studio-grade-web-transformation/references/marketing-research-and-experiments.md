@@ -11,8 +11,10 @@ Show what product actually does, whom it helps, concrete demonstration, conditio
 ## Seven fast copy passes
 1. Clarity (what, for whom), 2. voice, 3. why care, 4. proof, 5. specificity, 6. human emotion and conviction, 7. ethical risk/claims review. Run in the context of layout and visual story, not as a bureaucratic standalone multi-document exercise.
 
+## Coerência entre marca, prova e ação
+Uma landing que converte sem poluir escolhe um foco dominante por viewport, um CTA prioritário por decisão e provas localizadas junto das promessas. Se dois módulos reafirmam o mesmo benefício, MERGE/CUT antes de adicionar mais cards. O visual deve possuir uma assinatura ligada ao produto, com emoção e confiança, sem perder as condições da oferta. Consulte `attention-architecture-and-density.md` e `brand-affinity-and-desire.md`.
 ## End-to-end journey
-Follow primary CTA through signup fields, social auth when real, errors, activation and first useful action. A CTA click is not a qualified subscriber and a signup does not equal retention. Optimize one actual bottleneck; protect user autonomy, accessibility and privacy.
+Follow primary CTA through signup fields, social auth when real, errors, activation and first useful action. A CTA click is not a qualified subscriber and a signup does not equal retention. Design the shortest honest path from promised feature to first useful task, then a voluntary natural return path when product scope allows. For engagement and metric distinctions, consult `activation-retention-and-ethical-engagement.md`. Optimize one actual bottleneck; protect user autonomy, accessibility and privacy.
 
 ## Measurement
 Hypothesis = for [segment], [mechanism] improves [qualified metric] because [evidence]. Record event/denominator, observation period, attribution, consent, guardrails, device and sample-size limits.

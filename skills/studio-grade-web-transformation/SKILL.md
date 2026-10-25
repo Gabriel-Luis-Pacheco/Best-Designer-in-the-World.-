@@ -3,12 +3,14 @@ name: studio-grade-web-transformation
 description: Direção de arte, pesquisa, UX/UI e implementação de sites e produtos digitais com identidade própria. Use para criar ou melhorar landing pages, dashboards, documentação, onboarding, e-commerce, experiências artísticas, mascotes, motion e design systems; também para auditoria visual, anti-AI-slop e revisão de interfaces existentes. Ajuste o processo ao objetivo e ao escopo, preserve marca e funcionalidades e valide o resultado renderizado.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "11.7.0"
+  version: "11.7.1"
 ---
 
-# Design OS Prime v11.7 — understand → choose → build → inspect → improve
+# Design OS Prime v11.7.1 — understand → choose → build → inspect → improve
 
 Deliver the requested change on the actual product. For implementation tasks, a plan is an intermediate artifact. For audits, deliver findings with evidence and proposed corrections. Preserve excellent existing work. Spend effort where the observed bottleneck is; more instructions, effects or documents do not establish quality.
+
+**Creative economy:** More sections, louder effects, longer explanations and more cards do not establish quality. Allocate attention so the real product, authentic proof, brand-specific personality and next action are legible. Commercial pages may be sparse, detailed or immersive, but every scene must earn its place. If two sections make the same argument, MERGE or CUT before decorating. See `references/attention-architecture-and-density.md` for the contextual process.
 
 ## 1. Establish the job and the boundary
 Inspect the user request, relevant code, running interface and original assets when available. Identify product, audience, surface, useful user outcome, existing direction, allowed scope and critical contracts. Separate **observed / supplied but unverified / inferred / proposed / unknown**. Ask only about a consequential ambiguity that inspection cannot resolve; continue independent work.
@@ -39,6 +41,7 @@ Select priorities by the actual surface:
 
 Goals may differ inside the same product. Keep acquisition, activation, retention, learning and operational correctness distinct. Do not turn documentation into a sales funnel or a financial table into a gallery.
 
+**For LANDING/MARKETING:** establish visitor intent → truthful specific promise → real proof → primary next action → first useful product value where in scope. Never automatically generate hero + logos + three generic benefit cards + stats + testimonials + FAQ + repeated CTA; no component is obligatory. Each scene must answer a distinct question, reveal authentic behavior or create meaningful emotional progress. Prefer a recognizable product action over a paragraph disguised as a card. Do not use arbitrary section/word quotas or hide decision-critical detail for 'minimalism'. For memorable brand direction consult `references/brand-affinity-and-desire.md`; for first use and ethical return consult `references/activation-retention-and-ethical-engagement.md` when relevant.
 ## 2. Ground the direction
 Locate true product behavior, authorized assets, brand rules and relevant content before drawing. Use canonical originals for mascots, logos and product images; preserve silhouette, anatomy, palette, stroke, texture and personality. No official Tato asset means no invented official replacement. Compare proposed changes at equal sizes and in real desktop/mobile context. Use `references/brand-fidelity-review.md` when identity is at stake.
 
@@ -53,7 +56,7 @@ Use `references/product-grounded-direction.md` for weak briefs, competing concep
 ## 3. Build the whole experience
 Implement a representative opening, meaningful middle and ending early, with a deliberate mobile composition. For expressive work include the payoff/climax. For product work include the central task and recovery. Do not polish a hero while leaving the rest as placeholder sections.
 
-Create a coherent grammar of type, spacing, shape, imagery, materials, states and movement. Show the real product or content doing useful work. Write concrete copy in the audience's language; remove repeated explanations and vague promises. Do not replace paragraphs with endless cards, tabs or badges. Choose a card when independent comparison or grouping requires one, not by habit. Large type, asymmetry, gradients and motion need a compositional purpose, not a blanket ban.
+Create a coherent grammar of type, spacing, shape, imagery, materials, states and movement. Show the real product or content doing useful work. Write concrete copy in the audience's language; remove repeated explanations and vague promises. Design a clear first/second/third attention priority for every major viewport; keep secondary controls quieter. Recompose mobile deliberately. Genuine decision-critical detail takes priority over visual emptiness. Do not replace paragraphs with endless cards, tabs or badges. Choose a card when independent comparison or grouping requires one, not by habit. Large type, asymmetry, gradients and motion need a compositional purpose, not a blanket ban.
 
 For ART/EXPERIENTIAL_COMMERCE, define **FORMAL / MATERIAL / BEHAVIORAL SIGNATURE**: recognizable shape/type physics, consistent material language and a gesture with a contextual consequence. Keep the product recognizable in commercial work. An authored experience can use DOM/CSS/SVG; use GSAP, WebGL, Three.js or Rive only when the request or a justified mechanism needs them. Respect explicit technology vetoes. Provide user control, reduced motion and a useful fallback.
 
@@ -72,7 +75,7 @@ For an app redesign, verify each affected route and task rather than only the la
 
 Verify build, actual critical routes/CTA, data and price integrity, keyboard/focus, zoom/reflow, reduced motion, loading/error/empty/success and affected regressions. Measure performance before claiming numbers. For animated/scroll scenes, capture comparable semantic states rather than trusting a single full-page image. A screenshot proves appearance only at its captured state.
 
-For product/mobile reviews, independently assess **shared-flow ownership**, **medium fit** (is copy/emoji masquerading as the task UI?) and **explanatory redundancy**. These are evidence-based review dimensions, not automatic aesthetic scores. Consult `references/quality-rubric.md` when scoring the whole product.
+For product/mobile reviews, independently assess **shared-flow ownership**, **medium fit** (is copy/emoji masquerading as the task UI?) and **explanatory redundancy**. For commercial pages also evaluate viewport attention hierarchy, unique scene purpose, credible differentiation, and CTA-to-first-value continuity, marking downstream checks UNKNOWN without access. These are evidence-based review dimensions, not automatic aesthetic scores. Consult `references/quality-rubric.md` when scoring the whole product.
 
 Name the weakest observed part and correct its cause:
 - Wrong story or repeated content → change architecture, fuse or delete sections.
@@ -100,7 +103,9 @@ All paths below are relative to this installed skill. Start with the smallest re
 | Canonical assets / systems | `references/brand-fidelity-review.md`, `references/design-system-extraction.md` |
 | Expressive art | `references/creative-experience-direction.md`, `references/creative-signature-and-form.md`, `references/interaction-dramaturgy-and-payoff.md` |
 | Expressive commerce | `references/experiential-commerce.md`, `references/creative-advantage-loop.md` |
-| Landing / business evidence | `references/landing-page-evidence-and-cro.md`, `references/marketing-research-and-experiments.md` |
+| Landing / business evidence | `references/attention-architecture-and-density.md`, `references/landing-page-evidence-and-cro.md`, `references/marketing-research-and-experiments.md` |
+| Memorable and authentic brand affinity | `references/brand-affinity-and-desire.md` |
+| First value, ethical engagement and retention | `references/activation-retention-and-ethical-engagement.md` |
 | Operations / product UX | `references/advanced-product-ux-operations.md`, `references/product-ux-versus-marketing.md` |
 | Multi-screen UX, duplicate flows, emoji/text-heavy product UI | `references/visual-first-product-architecture.md` |
 | Reading / documentation | `references/reading-and-information-design.md` |

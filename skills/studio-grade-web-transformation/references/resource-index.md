@@ -6,6 +6,9 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/attention-architecture-and-density.md` | Landing sem poluição, atenção hierarquizada, seção com função e corte/fusão |
+| `references/brand-affinity-and-desire.md` | Marca cativante e reconhecível, emoção com prova |
+| `references/activation-retention-and-ethical-engagement.md` | Da promessa ao primeiro valor e retorno voluntário |
 | `references/advanced-product-ux-operations.md` | UX de produto denso e operacional |
 | `references/anti-slop-composition.md` | Criatividade construtiva: método contra design genérico |
 | `references/applied-design-decisions.md` | Decisões de design aplicadas a produto (exemplos fictícios) |
@@ -64,6 +67,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/visual-storytelling.md` | Narrativa visual sem paredes de texto |
 | `references/visual-first-product-architecture.md` | Visual-first product architecture, route/job ownership, real task visuals |
 
+One-screen aid: `templates/ATTENTION_AND_JOURNEY_CARD.md` (optional private planning; never replaces the requested implementation).
 ## Optional tools
 
 - `brain/route.py context.json`: deterministic triage, not product understanding or permission.

@@ -31,5 +31,9 @@ Escolher A se o diferencial verdadeiro é a experiência ao vivo; B se a vantage
 - Hero espetacular e todo o resto padronizado.
 - Motion essencial para compreender conteúdo ou chamar CTA.
 
+## Poluição visual: diagnosticar custo de atenção
+A página pode ser extensa sem estar poluída; pode estar vazia e continuar confusa. Na abertura, miolo, preço e mobile, pergunte o que a pessoa vê primeiro, segundo e terceiro. Não coloque título gigante, ilustração enorme, glow, badge e dois CTAs com a mesma intensidade. Faça uma hierarquia. Se dois blocos têm a mesma prova, una ou remova antes de reduzir fonte ou mudar sombra.
+
+Nunca use 'landing premium' como comando para adicionar 10 seções. Trabalhe com abertura → evidência real específica → decisão, expandindo somente quando o público, a objeção e a complexidade exigirem. Card é meio, não objetivo. Espaço vazio também precisa ter função. Veja `attention-architecture-and-density.md`. Para vínculo emocional com rigor, veja `brand-affinity-and-desire.md`.
 ## Revisão prática
 Desenhar 3 miniaturas de página inteira em preto e branco; avaliar foco, ritmo e densidade. Verificar 390 px sem imagem pesada e reduced motion. Formular pergunta: **qual decisão de design só faria sentido para ESTE produto?** Se a resposta serve para dez SaaS distintos, o conceito ainda é genérico.

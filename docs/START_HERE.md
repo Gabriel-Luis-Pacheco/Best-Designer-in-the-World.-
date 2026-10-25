@@ -1,9 +1,13 @@
-# Design OS Prime v11.7.0 — Start here
+# Design OS Prime v11.7.1 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
 ## Selecione o menor escopo adequado
 PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia; REFINE melhora tela boa; REDESIGN altera arquitetura ou direção; REBUILD reconstrói quando problemas sistêmicos justificam. Distinga MARKETING (clareza, prova, conversão) de PRODUCT (precisão, tarefas, densidade e estados).
+
+## Menos poluição, mais produto e marca
+
+Para landing, priorize: intenção da pessoa → promessa verificável → demonstração concreta → ação honesta. Planeje abertura, miolo e fecho, fundindo ou cortando cenas repetitivas antes do polimento. Ative os guias `references/attention-architecture-and-density.md`, `references/brand-affinity-and-desire.md` e, para jornadas de produto, `references/activation-retention-and-ethical-engagement.md`. O critério não é ter poucas palavras: é cada elemento merecer a atenção que recebe.
 
 ## Processo
 1. Inspecionar produto, rota, assets, identidade, público e invariantes antes de editar.

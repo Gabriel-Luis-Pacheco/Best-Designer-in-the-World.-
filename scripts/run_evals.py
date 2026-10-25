@@ -88,7 +88,8 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
         if high_effect:
             add("references/immersive-3d-product-direction.md",
                 "references/motion-3d-engineering-cookbook.md")
-        add("references/landing-page-evidence-and-cro.md")
+        add("references/landing-page-evidence-and-cro.md",
+            "references/attention-architecture-and-density.md")
     elif policy == "OPERATIONAL_FIRST_ART_SUPPORT":
         add("references/product-truth.md",
             "references/advanced-product-ux-operations.md",
@@ -97,6 +98,8 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
         add("references/product-truth.md",
             "references/interaction-and-content.md",
             "references/quality-gates-and-evidence.md")
+        if "landing" in surfaces:
+            add("references/attention-architecture-and-density.md")
     elif "read" in surfaces and not {"landing", "experience", "internal", "dashboard"}.intersection(surfaces):
         add("references/reading-and-information-design.md",
             "references/typography-layout-craft.md",
@@ -104,13 +107,25 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             "references/interaction-and-content.md",
             "references/quality-gates-and-evidence.md")
     else:
-        add("references/product-intelligence-playbook.md")
+        # Commercial density and genuine proof are primary, not a pile of
+        # generic references. Put the relevant new guides BEFORE truncation.
         if "landing" in surfaces:
-            add("references/product-truth.md",
-                "references/landing-page-evidence-and-cro.md",
-                "references/marketing-research-and-experiments.md")
-        elif "product" in surfaces or "mobile" in surfaces:
-            add("references/interaction-and-content.md")
+            add("references/attention-architecture-and-density.md",
+                "references/product-truth.md",
+                "references/landing-page-evidence-and-cro.md")
+            journey = any(g in {"activation", "retention"} for g in goals) or any(
+                t in task for t in ("onboarding", "primeiro valor", "first value", "retenção", "retention"))
+            branding = "artistic_impact" in goals or any(
+                t in task for t in ("cativant", "brand", "marca", "memorável", "memorable", "identidade"))
+            if journey:
+                add("references/activation-retention-and-ethical-engagement.md")
+            if branding:
+                add("references/brand-affinity-and-desire.md")
+            add("references/marketing-research-and-experiments.md")
+        else:
+            add("references/product-intelligence-playbook.md")
+            if "product" in surfaces or "mobile" in surfaces:
+                add("references/interaction-and-content.md")
         if "dashboard" in surfaces or "internal" in surfaces:
             add("references/advanced-product-ux-operations.md")
         if mode in {"REDESIGN", "REBUILD"}:

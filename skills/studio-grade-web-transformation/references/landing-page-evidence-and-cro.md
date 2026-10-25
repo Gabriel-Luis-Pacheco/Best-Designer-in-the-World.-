@@ -11,6 +11,9 @@ Record in a concise brief:
 - CTA destination and what happens after click; signup, onboarding and purchase terms must really work.
 - Open unknowns and the owner's source of truth for price, trial, restrictions, claims and testimonials.
 
+## Attention, scene purpose and commercial restraint
+The sequence below describes visitor questions, NOT mandatory separate LP sections. Before layout, use the scene ledger in `attention-architecture-and-density.md`: question, authentic new proof, best medium, meaningful next decision, then KEEP/MERGE/CUT/DEFER. Refuse a default stack of benefits, logos, metrics, FAQs and extra CTAs merely to make the page seem complete.
+Keep one leading focal point and primary CTA meaning per decision context, allowing honest secondary paths. Balance an immediate action for ready visitors against inspectable evidence for careful visitors. Demonstrate the real product instead of recarding the same claim. Put evidence adjacent to the claims it actually supports. Let personality create recognition, curiosity, confidence and agency, not noise (see `brand-affinity-and-desire.md`). Continue from CTA to genuine first value where in scope (see `activation-retention-and-ethical-engagement.md`). Dense truthful information may be necessary for complex offers; critical price/limits/terms must remain visible and accessible.
 ## Conversion sequence as hypotheses, not a fixed template
 1. First viewport answers: who is this for, what changes, why believe it, what can I do? A strong experience may reveal some answers through a scene; clarity is still required.
 2. Demonstrate the **actual product** or credible use case; avoid fake dashboards, unearned AI labels and stock imagery presented as evidence.
@@ -38,6 +41,6 @@ Define primary conversion and guardrail metrics before shipping; example: CTA â†
 ## Landing review gates
 - Primary message and product recognition; clarity of price, eligibility, terms and CTA.
 - Evidence and factual integrity; objection coverage without unnecessary length.
-- Opening AND at least one distinctive middle scene; below-the-fold repetition is a creative defect.
+- Opening AND a distinctive truthful middle scene and purposeful ending; repeated claims, competing focal points and unearned ornament need architectural correction, not merely cosmetic restyling.
 - Signup/form errors, keyboard focus, screen-reader labels, mobile thumb reach, touch interactions, reduced motion and recovery.
 - Distinguish factual FAIL from strategic UNKNOWN. If the product is a speculative concept, do not pretend that buying or subscribing works.
