@@ -1360,7 +1360,13 @@
         "Distinguir cenários/testes estruturais de execuções reais e resultados",
         "Não alegar superioridade, prêmio ou ganho comercial sem evidências",
         "Propor condições comparáveis, repetições, saídas renderizadas e revisão cega"
-      ]
+      ],
+      "meta": {
+        "surface": "read",
+        "goals": [
+          "research"
+        ]
+      }
     },
     {
       "id": 75,
@@ -1372,7 +1378,13 @@
         "Priorizar tarefas, integridade de dados, densidade utilizável, filtros e estados",
         "Não aplicar por padrão efeitos, gamificação, marketing ou narrativa de conversão",
         "Selecionar um conjunto pequeno e justificado de referências"
-      ]
+      ],
+      "meta": {
+        "surface": "dashboard",
+        "goals": [
+          "operations"
+        ]
+      }
     },
     {
       "id": 76,
@@ -1384,7 +1396,13 @@
         "Inspecionar hierarquia, redundância, diferenciação e prova real separadamente do acabamento",
         "Recomendar cortar/fundir cenas e demonstrar comportamento autêntico do produto",
         "Não tratar autocrítica do criador como validação independente"
-      ]
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion"
+        ]
+      }
     },
     {
       "id": 77,
@@ -1396,7 +1414,13 @@
         "Rejeitar culpa, urgência enganosa, retenção coerciva e cancelamento difícil",
         "Propor retomada do contexto e próxima tarefa de valor real",
         "Definir hipótese e medição com guardrails sem declarar resultado antecipado"
-      ]
+      ],
+      "meta": {
+        "surface": "product",
+        "goals": [
+          "retention"
+        ]
+      }
     }
   ]
 }
