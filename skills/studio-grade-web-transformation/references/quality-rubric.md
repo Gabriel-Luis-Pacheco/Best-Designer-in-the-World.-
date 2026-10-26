@@ -42,6 +42,12 @@ Campos mínimos por revisão: caso, `pair_id` igual para as duas condições do 
 
 Roteiro: primeiro screenshot inteira sem conhecer variante; segundo revisar ações, estados e mobile; terceiro anotar pior elo e riscos; quarto conferir evidência independente. Comparar dois artefatos da MESMA tarefa. Não afirmar ganho estatístico com amostra mínima.
 
+## v11.9 — independence and empirical limits
+
+For significant work, separate initial design critique from functional/accessibility checks where practical. The first reviewer should judge rendered evidence before seeing the creator's rationale or condition label. A sequential self-review is useful but is not independent. Keep artistic, task, truth, accessibility, performance and business outcomes as separate observations; do not hide P0/P1 blockers behind an average.
+
+Declared eval cases are not completed runs. A superiority claim needs equivalent task/model/tool/asset/budget controls, real implementation/rendering, repeated runs and blinded independent review. A claim about comprehension, activation, conversion or retention needs appropriate people/production evidence. Record missing evidence as UNKNOWN and retain baseline wins, ties and mixed trade-offs.
+
 ## Creative ceiling review — v11.1
 For ART/EXPERIENTIAL_COMMERCE, additionally compare FORMAL signature, MATERIAL system, BEHAVIORAL signature and meaningful climax across captured frames. A technical PASS and polished documentation are not proof that a site is artistically stronger than a rival. Assess blind without knowing the skill variant, and record real screenshots/states and shortcomings. These are contextual human judgments, NOT automatically computed scores; do not force WebGL, exports or theatrical interactions into unrelated products.
 
