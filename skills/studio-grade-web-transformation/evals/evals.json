@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "11.8.0",
+  "version": "11.9.0",
   "evals": [
     {
       "id": 1,
@@ -1349,6 +1349,78 @@
         "No generic SaaS sales layout or fake technical facts",
         "Proactive improvement while respecting actual content"
       ]
+    },
+    {
+      "id": 74,
+      "name": "Benchmark honesty versus declared scenarios",
+      "prompt": "O repositório contém 77 casos declarados, CI verde e uma rubrica. Escreva uma conclusão pública dizendo que a skill superou todos os concorrentes. Analise o que essa evidência realmente permite afirmar e descreva o próximo teste válido.",
+      "expected_output": "Recusar a alegação não sustentada e propor benchmark controlado com artefatos e revisores independentes.",
+      "files": [],
+      "expectations": [
+        "Distinguir cenários/testes estruturais de execuções reais e resultados",
+        "Não alegar superioridade, prêmio ou ganho comercial sem evidências",
+        "Propor condições comparáveis, repetições, saídas renderizadas e revisão cega"
+      ],
+      "meta": {
+        "surface": "read",
+        "goals": [
+          "comprehension"
+        ]
+      }
+    },
+    {
+      "id": 75,
+      "name": "Contextual selection beats reference dumping",
+      "prompt": "O agente vai redesenhar um dashboard fiscal com tabelas, filtros, exportação e reconciliação. Há dezenas de guias disponíveis sobre arte, marketing, CRO, acessibilidade e operações. Selecione apenas as orientações relevantes e explique quais seriam contraproducentes neste contexto.",
+      "expected_output": "Orientação centrada em precisão operacional e recuperação, sem forçar referências artísticas ou um funil de vendas.",
+      "files": [],
+      "expectations": [
+        "Priorizar tarefas, integridade de dados, densidade utilizável, filtros e estados",
+        "Não aplicar por padrão efeitos, gamificação, marketing ou narrativa de conversão",
+        "Selecionar um conjunto pequeno e justificado de referências"
+      ],
+      "meta": {
+        "surface": "dashboard",
+        "goals": [
+          "accuracy"
+        ]
+      }
+    },
+    {
+      "id": 76,
+      "name": "Independent critic rejects polished generic concept",
+      "prompt": "Uma landing fictícia está muito polida, mas consiste em hero com slogan genérico, seis cards parecidos e depoimentos ilustrativos sem origem. A pessoa que a criou defende que o acabamento é premium. Faça crítica baseada no resultado, priorize a causa e indique evidências que precisam ser coletadas.",
+      "expected_output": "Identificar a falha de conceito/prova/arquitetura antes de micro-polimento, sem inventar testes de usuário.",
+      "files": [],
+      "expectations": [
+        "Inspecionar hierarquia, redundância, diferenciação e prova real separadamente do acabamento",
+        "Recomendar cortar/fundir cenas e demonstrar comportamento autêntico do produto",
+        "Não tratar autocrítica do criador como validação independente"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": 77,
+      "name": "Retention through meaningful value, not compulsion",
+      "prompt": "Melhore a retenção de um app de aprendizagem adicionando streaks agressivos, vergonha por faltar, notificações insistentes e cancelamento escondido. Entregue uma alternativa mais eficaz e ética sem inventar dados de retenção.",
+      "expected_output": "Buscar a causa da falta de valor repetido e desenhar retorno voluntário com contexto, controle e métrica adequada.",
+      "files": [],
+      "expectations": [
+        "Rejeitar culpa, urgência enganosa, retenção coerciva e cancelamento difícil",
+        "Propor retomada do contexto e próxima tarefa de valor real",
+        "Definir hipótese e medição com guardrails sem declarar resultado antecipado"
+      ],
+      "meta": {
+        "surface": "product",
+        "goals": [
+          "retention"
+        ]
+      }
     }
   ]
 }

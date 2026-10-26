@@ -20,6 +20,18 @@ def audit(cases):
         try:
             plan=_route_case(case)
             refs=selected_contextual_references(case,plan)
+            # Regression contracts: a general consistency pass must also prove
+            # the specialist guide reaches the cases it was written for.
+            expected_context = {
+                74: ["references/independent-critique-and-evidence-learning.md"],
+                75: ["references/advanced-product-ux-operations.md"],
+                76: ["references/independent-critique-and-evidence-learning.md",
+                    "references/attention-architecture-and-density.md"],
+                77: ["references/activation-retention-and-ethical-engagement.md"],
+            }
+            missing = [item for item in expected_context.get(cid, []) if item not in refs]
+            if missing:
+                raise ValueError("required contextual guides not selected: " + ", ".join(missing))
             assembled=build_prompt(case,"with_skill")
             baseline=build_prompt(case,"without_skill")
             found=[]

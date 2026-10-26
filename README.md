@@ -1,4 +1,4 @@
-# Design OS Prime v11.8.0
+# Design OS Prime v11.9.0
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -10,10 +10,13 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
-## Engenharia de confiabilidade v11.8.0
-Após a auditoria, os 22 critérios humanos passaram a compartilhar um único schema e os dois comparadores podem transportar avaliações com proveniência explícita. O briefing de landing rejeita tipos inválidos e uma âncora CTA vazia. Quatro guias da pesquisa são efetivamente selecionados para prompts pertinentes, sem inundar PATCH. O [protocolo render → crítica → reparo](skills/studio-grade-web-transformation/references/render-critique-repair-contract.md) descreve o que o agente deve executar e como provar — ou declarar UNKNOWN.
+## v11.9.0 — crítica independente e evidência real
 
-**Limites:** existem 73 casos de avaliação **declarados**, não 73 websites produzidos por modelos. CI de suporte não prova design nível Awwwards, vitória universal, conversão ou acessibilidade total. Ver [log de reparos](docs/QUALITY_REPAIR_LOG_2026-10-25.md).
+A nova versão reforça o ciclo de construção → revisão independente → reparo e o protocolo de benchmark com condições comparáveis, execuções repetidas, artefatos renderizados e avaliação cega quando viável. Também diferencia observação de usuário, hipótese, preferência específica de projeto e resultado medido, impedindo que impressões de um modelo virem regra universal.
+
+Guia operacional: [crítica independente, benchmarks e aprendizado](skills/studio-grade-web-transformation/references/independent-critique-and-evidence-learning.md). O método usa os comparadores existentes; não cria uma nota automática de beleza nem promete ganhos antes de medi-los.
+
+**Limites:** existem 77 casos de avaliação definidos, não 77 sites produzidos e avaliados por modelos. Esta versão não reivindica vitória sobre outras skills, aumento de conversão ou superioridade visual independente. A comparação continua dependendo de execuções reais e avaliação documentada. Consulte [o protocolo competitivo](docs/COMPETITIVE_TRIAL_PROTOCOL_V11_4.md) e [o log de reparos](docs/QUALITY_REPAIR_LOG_2026-10-25.md).
 
 ## Proatividade e resgate de prompts vagos (v11.7.2)
 A skill agora tem um [protocolo de recuperação de briefing](skills/studio-grade-web-transformation/references/prompt-rescue-and-autonomous-direction.md). Para "faz um site foda", "melhore tudo" ou "me surpreenda", o agente deve inspecionar materiais disponíveis, fazer decisões criativas reversíveis, construir cenas reais, verificar mobile e corrigir o elo mais fraco. Não substitui verdade, respeito ao escopo ou autorização para mudanças irreversíveis. O roteamento é hipotético, não uma permissão. Oito testes adversariais sintéticos cobrem arte, landing, dados, documentos, limites de implantação e marcas.
@@ -132,7 +135,7 @@ Os testes técnicos verificam fatos e regressões definidos. Não certificam bel
 
 ## Evidência e limites
 
-Existem **73 casos de avaliação** definidos e exemplos fictícios comerciais, artísticos e operacionais. O [runbook](docs/EVALUATION_RUNBOOK.md) explica o runner de agentes, captura de artefatos e revisão cega. Os [estudos de aplicação](docs/CASE_STUDIES_V11_1.md) registram limites dos protótipos.
+Existem **77 casos de avaliação** definidos e exemplos fictícios comerciais, artísticos e operacionais. O [runbook](docs/EVALUATION_RUNBOOK.md) explica o runner de agentes, captura de artefatos e revisão cega. Os [estudos de aplicação](docs/CASE_STUDIES_V11_1.md) registram limites dos protótipos.
 
 A [matriz de 30 skills](docs/HEAD_TO_HEAD_30_SKILLS.md) descreve confrontos planejados, não vitórias. O [protocolo de projetos reais](docs/REAL_WORLD_BENCHMARK_V11_6.md) exige condições comparáveis, repetições, artefatos funcionando e avaliadores cegos. O baseline sem skill pode vencer; perdas e resultados mistos devem permanecer no relatório.
 
