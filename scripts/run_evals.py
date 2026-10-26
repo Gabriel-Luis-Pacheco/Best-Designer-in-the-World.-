@@ -68,6 +68,25 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     if vague:
         add("references/prompt-rescue-and-autonomous-direction.md")
 
+    # These tasks need the evidence protocol, not just another generic design guide.
+    benchmark_or_critique = any(term in task for term in (
+        "benchmark", "comparação de skills", "comparacao de skills", "concorrentes",
+        "crítica", "critica", "review", "revisor", "seleção contextual",
+        "selecione apenas as orientações relevantes", "guias disponíveis", "skill superou"))
+    if mode != "PATCH" and benchmark_or_critique:
+        add("references/independent-critique-and-evidence-learning.md")
+
+    # Retention and activation guidance is also relevant to product journeys,
+    # not only to landing-page work. Keep it away from unrelated dashboards/docs.
+    retention_or_activation = (
+        any(g in {"activation", "retention"} for g in goals) or
+        any(term in task for term in (
+            "retention", "retenção", "retencao", "streak", "engajamento",
+            "ativação", "ativacao", "voltar", "retorno", "first value", "primeiro valor")))
+    if (mode != "PATCH" and retention_or_activation
+            and {"product", "mobile", "landing", "experience"}.intersection(surfaces)):
+        add("references/activation-retention-and-ethical-engagement.md")
+
     # Product-only multi-route refactoring needs real screen/task ownership and visuals.
     # Put this first so it survives the limited injected-context budget.
     if (mode in {"AUDIT", "REFINE", "REDESIGN", "REBUILD"}
