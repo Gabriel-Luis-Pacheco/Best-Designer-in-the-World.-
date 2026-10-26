@@ -1,3 +1,10 @@
+## v11.9.0 — Independent critique and evidence-first learning (2026-10-26)
+- Add a proportionate independent critique protocol for rendered artifacts, separating design judgement from functional/accessibility verification.
+- Clarify a reproducible, blinded benchmark process with pinned skill/model/task/assets/tools/budget, repeated runs, actual browser artifacts and honest mixed/baseline outcomes.
+- Distinguish project-specific preference, user observation, experiment result, hypothesis and general rule before updating the skill.
+- Expand declared adversarial evaluation coverage from 73 to 77 cases; the cases are scenarios, not completed model runs.
+- Keep all superiority, award and commercial-lift claims unverified until supported by independent trials and real outcome evidence.
+
 ## v11.8.0 — Audit hardening and active expertise (2026-10-25)
 - One source of truth for 22 human-rated quality dimensions; explicit review format adapter.
 - Robust declaration gate for malformed evidence JSON and invalid CTA placeholders.
