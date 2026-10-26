@@ -1,4 +1,10 @@
-# Design OS Prime v11.8.0 — avaliação, não ranking automático
+# Design OS Prime v11.9.0 — avaliação, não ranking automático
+
+## v11.9.0 — evidência independente e validade de benchmark
+
+Foram adicionados quatro cenários sintéticos para testar honestidade sobre benchmarking, seleção contextual, crítica do conceito e engajamento ético. O total de casos declarados passou de 73 para 77; isso não significa que 77 agentes/sites tenham sido executados ou avaliados.
+
+Para um estudo real, siga `docs/COMPETITIVE_TRIAL_PROTOCOL_V11_4.md` e `references/independent-critique-and-evidence-learning.md`: fixe hashes/versionamento e condições equivalentes, confirme leitura real da skill, execute repetições em workspaces isolados, renderize os fluxos, obtenha avaliações cegas independentes e publique resultados negativos ou mistos. Modelos não podem certificar sua própria superioridade; métricas comerciais exigem dados reais e método adequado.
 
 ## v11.7 — revisão do núcleo e cobertura de leitura
 A seleção de referências de READ agora injeta o guia de informação/leitura de fato,
@@ -18,7 +24,7 @@ completa e honesta, seguir `docs/REAL_WORLD_BENCHMARK_V11_6.md`.
 O MIRAGE rotulado "com skill" declarou indisponibilidade da `studio-grade-web-transformation` e usou `frontend-design`. Portanto o experimento NÃO foi esta skill contra o baseline. Primeiro verificar leitura real da skill, inexistência de substituição e isolamento de outras skills. Qualquer ausência de prova deve ser marcada como comparação inválida, não derrota nem vitória. Usar `scripts/validate_experiment.py` e `docs/MIRAGE_AB_LESSONS.md`.
 
 ## Estado comprovável
-Existem 73 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
+Existem 77 casos de avaliação, vários com HTML/SVG/brief sintéticos; validadores Python; browser smoke Chromium; rubrica 0–3, resumo de avaliações humanas e adaptador CLI opcional. **Não** há resultados A/B com modelos nem validação estética independente publicada. PASS estrutural NÃO é design aprovado.
 
 ## Execução
 ```bash
