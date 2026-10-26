@@ -1,4 +1,4 @@
-# Design OS Prime v11.8.0 — Start here
+# Design OS Prime v11.9.0 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
@@ -19,6 +19,10 @@ Para landing, priorize: intenção da pessoa → promessa verificável → demon
 
 ## Exemplo de pedido
 "Ative studio-grade-web-transformation. Faça uma auditoria real do meu projeto, preserve fluxos críticos, proponha duas direções de redesign coerentes com minha marca, escolha a mais forte e implemente. Capture página inteira desktop/mobile, teste interações e corrija o pior elo. Não invente resultados."
+
+## Crítica independente e aprendizado com evidências
+
+Em REDESIGN/REBUILD significativos, faça uma revisão independente da saída renderizada quando possível. Separe crítica visual, validação funcional/acessibilidade e evidência de usuários. Uma autocrítica não é uma revisão independente, e avaliações declaradas não são benchmarks executados. Consulte `references/independent-critique-and-evidence-learning.md` para fixar condições, repetir execuções, preservar resultados negativos e registrar o que permanece UNKNOWN.
 
 ## Testes e limites
 `scripts/check_contracts.py` verifica contratos comerciais do exemplo sintético. `scripts/check_evals.py`, `scripts/test_validators.py` e `skills/.../scripts/validate.py` validam só estrutura. `npm run test:browser:fixtures` verifica fixtures sintéticas, não estética. `scripts/run_evals.py` depende de CLI de agente externo. O documento `docs/EVALUATION_RUNBOOK.md` explica avaliação cega. A rubrica também viaja na skill em `references/quality-rubric.md`.
