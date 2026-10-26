@@ -12,6 +12,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/evidence-to-scene-protocol.md` | Verdade do produto → evidência → cena e ação |
 | `references/prompt-rescue-and-autonomous-direction.md` | Autonomia e recuperação de briefings vagos |
 | `references/render-critique-repair-contract.md` | Fechar ciclo implementação → pixels → crítica → reparo |
+| `references/independent-critique-and-evidence-learning.md` | Crítica independente, benchmark válido e aprendizado com evidências |
 | `references/attention-architecture-and-density.md` | Landing sem poluição, atenção hierarquizada, seção com função e corte/fusão |
 | `references/brand-affinity-and-desire.md` | Marca cativante e reconhecível, emoção com prova |
 | `references/activation-retention-and-ethical-engagement.md` | Da promessa ao primeiro valor e retorno voluntário |
