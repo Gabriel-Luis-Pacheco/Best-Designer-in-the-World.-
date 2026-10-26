@@ -1364,7 +1364,7 @@
       "meta": {
         "surface": "read",
         "goals": [
-          "research"
+          "comprehension"
         ]
       }
     },
@@ -1382,7 +1382,7 @@
       "meta": {
         "surface": "dashboard",
         "goals": [
-          "operations"
+          "accuracy"
         ]
       }
     },
