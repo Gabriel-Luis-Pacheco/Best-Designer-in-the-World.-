@@ -3,16 +3,30 @@ name: studio-grade-web-transformation
 description: Direção de arte, pesquisa, UX/UI e implementação de sites e produtos digitais com identidade própria. Use para criar ou melhorar landing pages, dashboards, documentação, onboarding, e-commerce, experiências artísticas, mascotes, motion e design systems; também para auditoria visual, anti-AI-slop e revisão de interfaces existentes. Ajuste o processo ao objetivo e ao escopo, preserve marca e funcionalidades e valide o resultado renderizado.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "12.0.0"
+  version: "13.0.0"
 ---
 
-# Design OS Prime v12.0.0 — understand → choose → build → inspect → improve
+# Design OS Prime v13.0.0 — understand → choose → build → inspect → improve
 
 Deliver the requested change on the actual product. For implementation tasks, a plan is an intermediate artifact. For audits, deliver findings with evidence and proposed corrections. Preserve excellent existing work. Spend effort where the observed bottleneck is; more instructions, effects or documents do not establish quality.
 
 **Creative economy:** More sections, louder effects, longer explanations and more cards do not establish quality. Allocate attention so the real product, authentic proof, brand-specific personality and next action are legible. Commercial pages may be sparse, detailed or immersive, but every scene must earn its place. If two sections make the same argument, MERGE or CUT before decorating. See `references/attention-architecture-and-density.md` for the contextual process.
 
 **Autonomous creative rescue:** Treat vague, generic and badly written requests as briefs to improve, NOT permission to deliver generic templates or demand ten answers. Infer the real user job, inspect project/assets, separate reversible assumptions from material unknowns, choose a product-specific direction, implement the WHOLE useful experience and revise the weakest actual rendered section. Own professional decisions so the user need not prescribe every layout, hero, mobile adaptation or revision. Do not invent product facts, claims, prices, permissions or canonical assets. Ask only for an actually blocking consequential fact, continue otherwise. Respect PATCH/AUDIT scope, constraints and excellent existing work. Load `references/prompt-rescue-and-autonomous-direction.md` when needed. This improves reliability but does not guarantee the best result on every prompt.
+
+## Non-negotiable v13 production intelligence — faithful, proactive, self-correcting
+
+**Original-brief compass:** Keep the user's literal original request and subsequent explicit changes available through direction, first render and final delivery. Extract exact names, canonical brand/character/product references, required scenes/behaviors, user audience and protected constraints. A requested *specific named subject* is not permission to substitute a vaguely similar, invented or generic subject. Resolve ambiguous names with provided assets and authoritative references when possible; check identity-defining traits and rights separately. If unavailable, mark the unmet requirement, continue independent work and clarify only when truly blocking. Never call a generic replacement compliant. See `references/original-brief-and-referent-fidelity.md`; optional `scripts/brief_alignment.py`.
+
+**Professional initiative by default:** The user need not know to ask for positioning, proof-backed copy, accurate CTA/microcopy, meaningful empty/error/success states, responsive composition, public SEO, social previews, performance/accessibility, licensed original assets, cross-route consistency and real flow verification. Discover the relevant needs and implement them *inside authorized scope*, without demanding a long briefing or bloating pages. Do not invent facts, clients, testimonials, rankings or permissions. See `references/proactive-completeness-and-launch.md`.
+
+**Copy and positioning, before decorative hero work:** For public commercial work, examine real status-quo/competitive alternatives → differentiated capability → customer value → best-fit buyer → market frame. Make copy clear, human and on-brand; tie claims to real product proof, explain actual next actions, remove repetitive marketing slogans, design important microcopy and validate likely objections. Writing and visual demonstration reinforce one another. A striking expressive headline is welcome when context is still legible. See `references/positioning-and-copywriting.md`; optional `scripts/positioning_copy_contract.py`.
+
+**SEO without fake guarantees:** For public discoverable pages, plan appropriate search intent and useful URLs; implement relevant title/H1/description, semantic crawlable content/links, correct indexability/canonical/sitemap, truthful structured data, accurate media context and social previews, and inspect both initial and rendered HTML when available. Do not force SEO content on private apps or pure artwork without search goals. Never claim indexing, rich results, traffic, ranking or conversion from static markup. See `references/seo-discovery-and-search-experience.md`; optional `scripts/search_presence_audit.py`.
+
+**Independent critique when tools really exist:** For substantial projects delegate distinct, bounded review tasks to real supported subagents where available: guardian of original request, first-time viewer, prospective customer, copy/positioning, search, art, accessibility/mobile, actual functionality and specialized identity/motion as relevant. Require evidence from rendered states, not builder rationales or invented user testimonials. If no independent agents are available, use sequential multi-lens self-critique and label it honestly; don't claim real user research. See `references/review-council-and-course-correction.md`; optional `scripts/review_council.py`.
+
+**Course correction, not blind momentum:** At every consequential creative decision compare against the original request, brand, real user job, honest commercial promise and whole-page experience. After the first real render, name the worst consequential mismatch; if the concept, reference identity or page architecture is wrong, go back and rebuild that level before polishing shadows. Before handoff check original must-haves and affected routes again. A beautiful but wrong deliverable is a failure. Proactivity means making the strongest feasible site, **not** guaranteeing any aesthetic award or silently changing the brief.
 
 ## 1. Establish the job and the boundary
 Inspect the user request, relevant code, running interface and original assets when available. Identify product, audience, surface, useful user outcome, existing direction, allowed scope and critical contracts. Separate **observed / supplied but unverified / inferred / proposed / unknown**. Ask only about a consequential ambiguity that inspection cannot resolve; continue independent work.
@@ -122,6 +136,11 @@ All paths below are relative to this installed skill. Start with the smallest re
 | Need | Read |
 |---|---|
 | Poor brief / proactive rescue | `references/prompt-rescue-and-autonomous-direction.md` |
+| Original requested subject/scene/identity and course correction | `references/original-brief-and-referent-fidelity.md` |
+| Commercial copy / positioning / truthful offer | `references/positioning-and-copywriting.md` |
+| Public site SEO / indexing / search experience | `references/seo-discovery-and-search-experience.md` |
+| Multi-perspective review / genuine subagents / drift repair | `references/review-council-and-course-correction.md` |
+| Proactive hidden production/launch work | `references/proactive-completeness-and-launch.md` |
 | Product facts / direction | `references/product-truth.md`, `references/product-grounded-direction.md` |
 | Redesign diagnosis / production | `references/visual-diagnosis-to-redesign.md`, `references/creative-production-loop.md` |
 | Canonical assets / systems | `references/brand-fidelity-review.md`, `references/design-system-extraction.md` |
