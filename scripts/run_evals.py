@@ -61,12 +61,47 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                 refs.append(item)
 
     # Actual contextual injection, not merely catalog metadata. Keep PATCH/AUDIT lean.
+    explicit_specialist_need = any(q in task for q in (
+        "seo", "indexação", "indexacao", "posicionamento", "positioning",
+        "copywriting", "copy ", "headline", "subagente", "subagent",
+        "personagem", "character", "canônico", "canonical",
+        "referência nomeada", "referencia nomeada", "original brief",
+        "briefing original", "pedido inicial", "initial request"))
     vague = mode in {"REFINE","REDESIGN","REBUILD"} and (
-        len(task.split()) <= 11 or any(q in task for q in (
+        (len(task.split()) <= 11 and not explicit_specialist_need) or
+        any(q in task for q in (
             "sem briefing","briefing ruim","me surpreenda","melhore tudo",
             "faz um site foda","make it amazing","do whatever it takes")))
     if vague:
         add("references/prompt-rescue-and-autonomous-direction.md")
+
+    # V13: inject the actual task-specific expert protocols, not just mention
+    # them in SKILL.md. Named visual referents and user intent outrank templates.
+    # PATCH keeps its existing two-reference ceiling and avoids marketing rituals.
+    if mode != "PATCH":
+        referent_need = any(q in task for q in (
+            "personagem", "character", "mascote", "named subject",
+            "exact subject", "canonical", "canônico", "canonico",
+            "referência nomeada", "referencia nomeada", "briefing original",
+            "original brief", "pedido inicial", "initial request"))
+        if referent_need:
+            add("references/original-brief-and-referent-fidelity.md")
+        if vague and mode in {"REDESIGN", "REBUILD"}:
+            add("references/proactive-completeness-and-launch.md")
+        if ({"landing", "experience"} & surfaces and any(q in task for q in (
+            "posicionamento", "positioning", "copywriting", "copy ",
+            "headline", "value proposition", "proposta de valor",
+            "commercial offer", "service portfolio", "portfólio de serviços"))):
+            add("references/positioning-and-copywriting.md")
+        if ({"landing", "read", "experience"} & surfaces and any(q in task for q in (
+            "seo", "indexar", "indexação", "indexacao", "search intent",
+            "metadados", "meta description", "buscadores", "search console"))):
+            add("references/seo-discovery-and-search-experience.md")
+        if any(q in task for q in (
+            "subagent", "subagente", "revisores", "review council",
+            "independent criticism", "first-time viewer", "cliente crítico",
+            "prospective buyer", "críticas por papéis")):
+            add("references/review-council-and-course-correction.md")
 
     # These tasks need the evidence protocol, not just another generic design guide.
     benchmark_or_critique = any(term in task for term in (
@@ -179,6 +214,10 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                         "references/design-audit-execution.md"}:
                 add(item)
     limit = 9 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 6
+    # An explicit specialist request deserves its actual focused guide alongside
+    # source/brand truth. A short, well-specified task is not a vague prompt.
+    if mode != "PATCH" and explicit_specialist_need:
+        limit = 9
     if mode == "PATCH": limit = 2
     refs = refs[:limit]  # trim legacy optional packs before honoring explicit specialist requests
     # Explicitly relevant 2026 research gets *actual* injected context.
@@ -217,6 +256,11 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             "references/creative-signature-and-form.md",
             "references/interaction-dramaturgy-and-payoff.md",
             "references/applied-design-decisions.md",
+            "references/original-brief-and-referent-fidelity.md",
+            "references/positioning-and-copywriting.md",
+            "references/seo-discovery-and-search-experience.md",
+            "references/review-council-and-course-correction.md",
+            "references/proactive-completeness-and-launch.md",
         }
         for item in requested:
             if item in refs or not (SK/item).is_file():

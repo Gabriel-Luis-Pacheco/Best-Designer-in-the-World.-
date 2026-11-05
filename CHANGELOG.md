@@ -1,3 +1,13 @@
+## v13.0.0 — Brief fidelity, positioning, copy, SEO and independent critique (2026-11-05)
+- Research Google Search Central, NNGroup, W3C, April Dunford, CXL, Baymard, Anthropic and OpenAI sources. Map findings to operational guides instead of generic marketing/visual rules.
+- Add original-prompt checkpoints (DIRECTION, FIRST_RENDER, RELEASE) and exact named-referent integrity requirements. Generic subject substitution must never be silently accepted.
+- Add buyer-alternative positioning, claim-to-proof ledger, copy/microcopy and differentiated customer-value guidance.
+- Add public-site SEO scope, search intent, HTML metadata, indexability/canonical, JS rendering, structured-data honesty and static review tool; explicit Search Console and runtime limits.
+- Add role-specific critic council, real subagents only when tools actually exist, labelled sequential self-review fallback, grounded findings and causal course correction.
+- Add proactive design coverage for content, missing states, mobile, launch, accessibility and trust without scope creep.
+- Introduce four optional portable validation scripts and two regression suites; verify context-reference injection in the existing agent eval runner.
+- Expand synthetic case manifest from 77 to 82; **new cases are scenarios, not completed model or human studies**. No SEO rankings, award wins, skill superiority or conversion lift claimed.
+
 ## v12.0.0 — Production evidence and creative execution gates (2026-11-05)
 - Add portable creativity-differentiation, asset-provenance, cinematic-plan, production evidence and learning-ledger scripts with unit regressions.
 - Introduce traceable scene-level browser evidence, change review and explicit UNKNOWN/FAIL handling for significant redesigns.

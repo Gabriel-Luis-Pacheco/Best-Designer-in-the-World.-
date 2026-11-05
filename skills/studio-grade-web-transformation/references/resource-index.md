@@ -11,6 +11,11 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/commercial-launch-evidence.md` | CWV, acessibilidade, release e métricas reais |
 | `references/evidence-to-scene-protocol.md` | Verdade do produto → evidência → cena e ação |
 | `references/prompt-rescue-and-autonomous-direction.md` | Autonomia e recuperação de briefings vagos |
+| `references/original-brief-and-referent-fidelity.md` | Briefing literal, referências nomeadas corretas, direitos e checkpoints |
+| `references/positioning-and-copywriting.md` | Posicionamento, proposta de valor, copy e provas verificáveis |
+| `references/seo-discovery-and-search-experience.md` | Search intent, SEO técnico, conteúdo útil e experiência de busca |
+| `references/review-council-and-course-correction.md` | Revisão por perspectivas, subagentes reais e reparo de desvios |
+| `references/proactive-completeness-and-launch.md` | Trabalho proativo relevante sem inventar escopo ou poluir o site |
 | `references/render-critique-repair-contract.md` | Fechar ciclo implementação → pixels → crítica → reparo |
 | `references/independent-critique-and-evidence-learning.md` | Crítica independente, benchmark válido e aprendizado com evidências |
 | `references/attention-architecture-and-density.md` | Landing sem poluição, atenção hierarquizada, seção com função e corte/fusão |
@@ -75,6 +80,9 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/visual-first-product-architecture.md` | Visual-first product architecture, route/job ownership, real task visuals |
 
 One-screen aid: `templates/ATTENTION_AND_JOURNEY_CARD.md` (optional private planning; never replaces the requested implementation).
+## V13 contextual audits
+Use `scripts/brief_alignment.py`, `scripts/positioning_copy_contract.py`, `scripts/search_presence_audit.py` and `scripts/review_council.py` when their problem applies. Their reports validate **declared contracts or source structure**; they cannot authenticate user research, image likeness, actual crawlability or creativity. The active core in SKILL.md tells the agent when to load each guide; don't prepend every guide to every PATCH.
+
 ## V12 portable production validators
 
 Use only if the task benefits. See core `SKILL.md` V12 section. `scripts/creative_concept_gate.py` challenges proposed directions; `scripts/asset_provenance.py` audits declared assets; `scripts/cinematic_timeline.py` checks motion planning; `scripts/production_evidence.py` verifies local evidence packets; `scripts/learning_ledger.py` reviews declared cross-project results. None is an AI judge, automated renderer, license authority, or benchmark winner.
