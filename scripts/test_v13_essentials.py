@@ -148,6 +148,11 @@ class PositioningTests(unittest.TestCase):
         record["competitive_alternatives"] = []
         self.assertEqual(copy.inspect(record)["status"], "INVALID")
 
+    def test_placeholder_primary_cta_is_rejected(self):
+        record = positioning()
+        record["message"]["cta_destination"] = "#"
+        self.assertEqual(copy.inspect(record)["status"], "INVALID")
+
     def test_superlatives_get_review_not_auto_pass(self):
         record = positioning()
         record["message"]["headline"] = "Guaranteed 100% perfect edits"
