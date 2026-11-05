@@ -1,4 +1,8 @@
-# Design OS Prime v11.9.0 — avaliação, não ranking automático
+# Design OS Prime v12.0.0 — avaliação, não ranking automático
+
+## v12.0.0 — contratos de execução e evidência
+
+Cinco validadores portáteis com testes sintéticos foram adicionados para rejeitar direções pouco diferenciadas, proveniência ausente, planos cinematográficos incompletos, capturas/checks declarados sem arquivos e aprendizado generalizado de um único caso. Eles são pré-condições estruturais, não avaliação visual. Manual: [sistema de produção](PRODUCTION_SYSTEM_V12.md). Ainda faltam execuções pareadas reais e críticas independentes para qualquer alegação de superioridade.
 
 ## v11.9.0 — evidência independente e validade de benchmark
 
