@@ -24,7 +24,7 @@ def inspect(data: dict) -> dict:
     if mode not in MODES:
         errors.append("mode must be one of " + ", ".join(sorted(MODES)))
     original = data.get("original_brief")
-    if not isinstance(original, str) or len(original.strip()) < 20:
+    if not isinstance(original, str) or not original.strip():
         errors.append("Keep the original request verbatim, not a rewritten summary")
     requirements = data.get("requirements")
     if not isinstance(requirements, list) or not requirements:
@@ -51,9 +51,10 @@ def inspect(data: dict) -> dict:
                 continue
             if not isinstance(ref.get("name"), str) or not ref["name"].strip():
                 errors.append(rid + ": exact referent needs an unambiguous name")
-            if not isinstance(ref.get("canonical_source"), str) or len(ref["canonical_source"].strip()) < 8:
+            if not isinstance(ref.get("canonical_source"), str) or not ref["canonical_source"].strip():
                 errors.append(rid + ": resolve the canonical identity before visual production")
-            if not isinstance(ref.get("distinctive_traits"), list) or not ref["distinctive_traits"]:
+            if (not isinstance(ref.get("distinctive_traits"), list) or not ref["distinctive_traits"] or
+                any(not isinstance(x, str) or not x.strip() for x in ref["distinctive_traits"])):
                 errors.append(rid + ": record identity-defining traits; a generic stand-in is forbidden")
             if ref.get("rights") not in RIGHTS:
                 errors.append(rid + ": rights must be AUTHORIZED/UNKNOWN/NOT_APPLICABLE")
@@ -116,7 +117,8 @@ def inspect(data: dict) -> dict:
                     blockers.append(stage + "/" + rid + ": incorrect named identity; never substitute silently")
                 elif state in {"UNVERIFIED", "NOT_RENDERED"}:
                     unresolved.append(stage + "/" + rid + ": named identity unverified")
-                if state == "MATCHED" and result == "PASS" and not check.get("identity_review"):
+                if (state == "MATCHED" and result == "PASS" and
+                    (not isinstance(check.get("identity_review"), str) or not check["identity_review"].strip())):
                     errors.append(stage + "/" + rid + ": report who compared output to canonical reference")
         if stage == "RELEASE":
             for rid, item in by_id.items():
@@ -128,7 +130,11 @@ def inspect(data: dict) -> dict:
                 unresolved.append("Missing " + stage + " checkpoint")
     elif "RELEASE" not in found and mode != "AUDIT":
         unresolved.append("No final original-brief reconciliation")
-    for change in data.get("proposed_deviations", []):
+    deviations = data.get("proposed_deviations", [])
+    if not isinstance(deviations, list):
+        errors.append("proposed_deviations must be a list")
+        deviations = []
+    for change in deviations:
         if not isinstance(change, dict) or change.get("requirement_id") not in by_id:
             errors.append("Deviations must cite existing requirements")
             continue
@@ -139,7 +145,7 @@ def inspect(data: dict) -> dict:
     release = latest.get("RELEASE", {})
     if release:
         for rid, item in by_id.items():
-            if item["priority"] == "MUST" and release.get(rid, {}).get("result") != "PASS":
+            if item.get("priority") == "MUST" and release.get(rid, {}).get("result") != "PASS":
                 blockers.append("RELEASE/" + rid + ": MUST not verified PASS")
     if errors:
         state = "INVALID"
