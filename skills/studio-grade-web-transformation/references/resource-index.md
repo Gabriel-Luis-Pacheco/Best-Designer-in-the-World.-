@@ -75,6 +75,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/visual-first-product-architecture.md` | Visual-first product architecture, route/job ownership, real task visuals |
 
 One-screen aid: `templates/ATTENTION_AND_JOURNEY_CARD.md` (optional private planning; never replaces the requested implementation).
+## V12 portable production validators
+
+Use only if the task benefits. See core `SKILL.md` V12 section. `scripts/creative_concept_gate.py` challenges proposed directions; `scripts/asset_provenance.py` audits declared assets; `scripts/cinematic_timeline.py` checks motion planning; `scripts/production_evidence.py` verifies local evidence packets; `scripts/learning_ledger.py` reviews declared cross-project results. None is an AI judge, automated renderer, license authority, or benchmark winner.
+
 ## Optional tools
 
 - `brain/route.py context.json`: deterministic triage, not product understanding or permission.
