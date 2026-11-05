@@ -1,3 +1,9 @@
+## v12.0.0 — Production evidence and creative execution gates (2026-11-05)
+- Add portable creativity-differentiation, asset-provenance, cinematic-plan, production evidence and learning-ledger scripts with unit regressions.
+- Introduce traceable scene-level browser evidence, change review and explicit UNKNOWN/FAIL handling for significant redesigns.
+- Keep visual, legal, performance, conversion and skill-superiority claims outside structural tools' authority.
+- Preserve existing specialist docs and workflows; add a proportionate v12 production guide and update release consistency.
+
 ## v11.9.0 — Independent critique and evidence-first learning (2026-10-26)
 - Add a proportionate independent critique protocol for rendered artifacts, separating design judgement from functional/accessibility verification.
 - Clarify a reproducible, blinded benchmark process with pinned skill/model/task/assets/tools/budget, repeated runs, actual browser artifacts and honest mixed/baseline outcomes.
