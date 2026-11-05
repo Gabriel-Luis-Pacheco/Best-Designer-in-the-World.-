@@ -1,4 +1,4 @@
-# Design OS Prime v11.9.0 — Start here
+# Design OS Prime v12.0.0 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
@@ -8,6 +8,10 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 ## Menos poluição, mais produto e marca
 
 Para landing, priorize: intenção da pessoa → promessa verificável → demonstração concreta → ação honesta. Planeje abertura, miolo e fecho, fundindo ou cortando cenas repetitivas antes do polimento. Ative os guias `references/attention-architecture-and-density.md`, `references/brand-affinity-and-desire.md` e, para jornadas de produto, `references/activation-retention-and-ethical-engagement.md`. O critério não é ter poucas palavras: é cada elemento merecer a atenção que recebe.
+
+## V12: execução real
+
+Os validadores opcionais verificam diversidade estrutural, inventário de assets, plano cinematográfico, pacotes de evidência e aprendizado com contraprovas. Não criam arte, não substituem implementação e não certificam qualidade estética. Instruções e formatos em [PRODUCTION_SYSTEM_V12.md](PRODUCTION_SYSTEM_V12.md). Use conforme o escopo; PATCH simples não exige novos rituais.
 
 ## Processo
 1. Inspecionar produto, rota, assets, identidade, público e invariantes antes de editar.
