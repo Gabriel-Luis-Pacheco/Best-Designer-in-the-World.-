@@ -68,6 +68,34 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     if vague:
         add("references/prompt-rescue-and-autonomous-direction.md")
 
+    # V13: inject the actual task-specific expert protocols, not just mention
+    # them in SKILL.md. Named visual referents and user intent outrank templates.
+    # PATCH keeps its existing two-reference ceiling and avoids marketing rituals.
+    if mode != "PATCH":
+        referent_need = any(q in task for q in (
+            "personagem", "character", "mascote", "named subject",
+            "exact subject", "canonical", "canônico", "canonico",
+            "referência nomeada", "referencia nomeada", "briefing original",
+            "original brief", "pedido inicial", "initial request"))
+        if referent_need:
+            add("references/original-brief-and-referent-fidelity.md")
+        if vague and mode in {"REDESIGN", "REBUILD"}:
+            add("references/proactive-completeness-and-launch.md")
+        if ({"landing", "experience"} & surfaces and any(q in task for q in (
+            "posicionamento", "positioning", "copywriting", "copy ",
+            "headline", "value proposition", "proposta de valor",
+            "commercial offer", "service portfolio", "portfólio de serviços"))):
+            add("references/positioning-and-copywriting.md")
+        if ({"landing", "read", "experience"} & surfaces and any(q in task for q in (
+            "seo", "indexar", "indexação", "indexacao", "search intent",
+            "metadados", "meta description", "buscadores", "search console"))):
+            add("references/seo-discovery-and-search-experience.md")
+        if any(q in task for q in (
+            "subagent", "subagente", "revisores", "review council",
+            "independent criticism", "first-time viewer", "cliente crítico",
+            "prospective buyer", "críticas por papéis")):
+            add("references/review-council-and-course-correction.md")
+
     # These tasks need the evidence protocol, not just another generic design guide.
     benchmark_or_critique = any(term in task for term in (
         "benchmark", "comparação de skills", "comparacao de skills", "concorrentes",
