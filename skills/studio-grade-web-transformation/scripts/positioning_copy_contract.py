@@ -69,6 +69,10 @@ def inspect(payload: dict) -> dict:
     for k in ("headline", "subheadline", "primary_cta", "cta_destination"):
         if not nonempty(message.get(k)):
             errors.append("Missing user-facing " + k)
+    destination = message.get("cta_destination")
+    if isinstance(destination, str) and (destination.strip() == "#" or
+        destination.strip().lower().startswith(("javascript:", "todo", "coming soon"))):
+        errors.append("Primary CTA cannot be a placeholder or JavaScript pseudo-link")
     for k in ("headline", "subheadline"):
         value = message.get(k, "")
         if isinstance(value, str) and ABSOLUTE.search(value):
