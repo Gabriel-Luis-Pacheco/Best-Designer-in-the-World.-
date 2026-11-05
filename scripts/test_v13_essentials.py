@@ -117,6 +117,17 @@ class OriginalBriefTests(unittest.TestCase):
         record["checkpoints"].pop(1)
         self.assertEqual(brief.inspect(record)["status"], "NOT_VERIFIED")
 
+    def test_short_vague_original_is_not_rejected(self):
+        record = briefing()
+        record["original_brief"] = "site foda"
+        self.assertEqual(brief.inspect(record)["status"], "READY_FOR_HUMAN_REVIEW")
+
+    def test_malformed_deviations_and_missing_priority_do_not_crash(self):
+        record = briefing()
+        record["proposed_deviations"] = "invalid"
+        record["requirements"][0].pop("priority")
+        self.assertEqual(brief.inspect(record)["status"], "INVALID")
+
 
 class PositioningTests(unittest.TestCase):
     def test_claims_linked_to_real_proof(self):
