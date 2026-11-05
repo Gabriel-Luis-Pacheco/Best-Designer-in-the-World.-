@@ -2,7 +2,7 @@
 
 ## v13.0.0 — fidelidade e revisão multidisciplinar
 
-A suíte agora contém **82 casos de avaliação declarados**. Novos cenários cobrem referência nomeada exata, retorno ao briefing, posicionamento/copy sustentados por evidências, SEO de páginas públicas e críticas por papéis com proveniência real. Os novos validadores estruturais são testados por `scripts/test_v13_essentials.py`. Eles não medem qualidade artística, conversão nem superioridade sobre outras skills. Estudo: `docs/RESEARCH_DESIGN_GROWTH_2026-11-05.md`.
+A suíte agora contém **82 casos de avaliação declarados**. Novos cenários cobrem referência nomeada exata, retorno ao briefing, posicionamento/copy sustentados por evidências, SEO de páginas públicas e críticas por papéis com proveniência real. Os novos validadores estruturais são testados por `scripts/test_v13_essentials.py`. Eles não medem qualidade artística, conversão nem superioridade sobre outras skills. Estudo: `docs/RESEARCH_DESIGN_GROWTH_2026-11-05.md`; exemplos de execução: `docs/WORKFLOW_CONTRACTS_V13.md`.
 
 ## v12.0.0 — contratos de execução e evidência
 
