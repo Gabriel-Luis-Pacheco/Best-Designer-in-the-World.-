@@ -1,4 +1,4 @@
-# Design OS Prime v12.0.0
+# Design OS Prime v13.0.0
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -9,6 +9,14 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 ```
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
+
+## v13.0.0 — posicionamento, copy, SEO e fidelidade ao pedido
+
+A versão 13 adiciona ao núcleo: fidelidade literal às exigências do briefing (inclusive referências nomeadas), checkpoint de direção/primeiro render/entrega, copywriting amarrado a posicionamento e prova real, SEO público contextualmente correto, revisão por perspectivas com subagentes **somente quando realmente disponíveis** e trabalho proativo para cobrir detalhes importantes que um usuário leigo pode não citar.
+
+Quatro utilitários portáteis verificam contratos declarados: `brief_alignment.py`, `positioning_copy_contract.py`, `search_presence_audit.py` e `review_council.py`. Nenhum deles cria subagentes, reconhece visualmente personagens, consulta Google Search Console, determina beleza ou comprova conversão.
+
+Pesquisa com fontes primárias: [estudo e decisões](docs/RESEARCH_DESIGN_GROWTH_2026-11-05.md). Orientação operacional nas novas referências listadas em [SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Avaliação sintética da skill agora contém **82 casos de avaliação declarados**; não são 82 sites executados ou vencedores.
 
 ## v12.0.0 — production evidence, creative differentiation and safer learning
 
