@@ -17,6 +17,8 @@ Para landing, priorize: intenção da pessoa → promessa verificável → demon
 4. Use agentes revisores independentes quando o ambiente permitir; do contrário, separe papéis e assuma que é autocrítica. Nunca invente usuários.
 5. Consulte o [estudo de 2026-11-05](RESEARCH_DESIGN_GROWTH_2026-11-05.md) e os módulos específicos da SKILL.md, sem carregar toda a biblioteca.
 
+Exemplos JSON/CLI: [WORKFLOW_CONTRACTS_V13.md](WORKFLOW_CONTRACTS_V13.md).
+
 Os scripts `brief_alignment.py`, `positioning_copy_contract.py`, `search_presence_audit.py` e `review_council.py` são verificadores opcionais, não certificados de qualidade.
 
 ## V12: execução real
