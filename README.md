@@ -16,7 +16,7 @@ A versão 13 adiciona ao núcleo: fidelidade literal às exigências do briefing
 
 Quatro utilitários portáteis verificam contratos declarados: `brief_alignment.py`, `positioning_copy_contract.py`, `search_presence_audit.py` e `review_council.py`. Nenhum deles cria subagentes, reconhece visualmente personagens, consulta Google Search Console, determina beleza ou comprova conversão.
 
-Pesquisa com fontes primárias: [estudo e decisões](docs/RESEARCH_DESIGN_GROWTH_2026-11-05.md). Orientação operacional nas novas referências listadas em [SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Avaliação sintética da skill agora contém **82 casos de avaliação declarados**; não são 82 sites executados ou vencedores.
+Pesquisa com fontes primárias: [estudo e decisões](docs/RESEARCH_DESIGN_GROWTH_2026-11-05.md). [Exemplos executáveis dos quatro validadores](docs/WORKFLOW_CONTRACTS_V13.md). Orientação operacional nas novas referências listadas em [SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Avaliação sintética da skill agora contém **82 casos de avaliação declarados**; não são 82 sites executados ou vencedores.
 
 ## v12.0.0 — production evidence, creative differentiation and safer learning
 
