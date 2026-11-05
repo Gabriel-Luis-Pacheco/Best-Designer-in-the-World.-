@@ -1,4 +1,4 @@
-# Design OS Prime v12.0.0 — Start here
+# Design OS Prime v13.0.0 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
@@ -8,6 +8,16 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 ## Menos poluição, mais produto e marca
 
 Para landing, priorize: intenção da pessoa → promessa verificável → demonstração concreta → ação honesta. Planeje abertura, miolo e fecho, fundindo ou cortando cenas repetitivas antes do polimento. Ative os guias `references/attention-architecture-and-density.md`, `references/brand-affinity-and-desire.md` e, para jornadas de produto, `references/activation-retention-and-ethical-engagement.md`. O critério não é ter poucas palavras: é cada elemento merecer a atenção que recebe.
+
+## V13: fidelidade ao pedido e qualidade comercial proativa
+
+1. Guarde o pedido original e preserve personagens, nomes, marcas, cenas e ações específicos. Pesquise referências com fontes confiáveis e verifique a identidade real em vez de substituir por algo genérico.
+2. Para sites públicos: confira posicionamento, proposta de valor, copy, provas concretas, CTAs, SEO e distribuição. Não é um funil obrigatório para arte e sistemas internos.
+3. Revise abertura, meio, final e mobile contra o briefing original; se a direção não corresponde, volte ao conceito em vez de maquiar a tela.
+4. Use agentes revisores independentes quando o ambiente permitir; do contrário, separe papéis e assuma que é autocrítica. Nunca invente usuários.
+5. Consulte o [estudo de 2026-11-05](RESEARCH_DESIGN_GROWTH_2026-11-05.md) e os módulos específicos da SKILL.md, sem carregar toda a biblioteca.
+
+Os scripts `brief_alignment.py`, `positioning_copy_contract.py`, `search_presence_audit.py` e `review_council.py` são verificadores opcionais, não certificados de qualidade.
 
 ## V12: execução real
 
