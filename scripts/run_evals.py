@@ -214,6 +214,10 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                         "references/design-audit-execution.md"}:
                 add(item)
     limit = 9 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 6
+    # An explicit specialist request deserves its actual focused guide alongside
+    # source/brand truth. A short, well-specified task is not a vague prompt.
+    if mode != "PATCH" and explicit_specialist_need:
+        limit = 9
     if mode == "PATCH": limit = 2
     refs = refs[:limit]  # trim legacy optional packs before honoring explicit specialist requests
     # Explicitly relevant 2026 research gets *actual* injected context.
@@ -252,6 +256,11 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             "references/creative-signature-and-form.md",
             "references/interaction-dramaturgy-and-payoff.md",
             "references/applied-design-decisions.md",
+            "references/original-brief-and-referent-fidelity.md",
+            "references/positioning-and-copywriting.md",
+            "references/seo-discovery-and-search-experience.md",
+            "references/review-council-and-course-correction.md",
+            "references/proactive-completeness-and-launch.md",
         }
         for item in requested:
             if item in refs or not (SK/item).is_file():
