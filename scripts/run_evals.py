@@ -61,8 +61,15 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                 refs.append(item)
 
     # Actual contextual injection, not merely catalog metadata. Keep PATCH/AUDIT lean.
+    explicit_specialist_need = any(q in task for q in (
+        "seo", "indexação", "indexacao", "posicionamento", "positioning",
+        "copywriting", "copy ", "headline", "subagente", "subagent",
+        "personagem", "character", "canônico", "canonical",
+        "referência nomeada", "referencia nomeada", "original brief",
+        "briefing original", "pedido inicial", "initial request"))
     vague = mode in {"REFINE","REDESIGN","REBUILD"} and (
-        len(task.split()) <= 11 or any(q in task for q in (
+        (len(task.split()) <= 11 and not explicit_specialist_need) or
+        any(q in task for q in (
             "sem briefing","briefing ruim","me surpreenda","melhore tudo",
             "faz um site foda","make it amazing","do whatever it takes")))
     if vague:
