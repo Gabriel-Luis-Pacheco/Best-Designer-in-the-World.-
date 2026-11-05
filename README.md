@@ -1,4 +1,4 @@
-# Design OS Prime v11.9.0
+# Design OS Prime v12.0.0
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -9,6 +9,12 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 ```
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
+
+## v12.0.0 — production evidence, creative differentiation and safer learning
+
+A v12 adds **optional executable contracts**, not an automatic designer: structural concept-diversity checks, verified local asset/canon inventory, cinematic timeline/accessibility plan, real screenshot/build/interaction evidence packets, and learning-rule review that retains baseline wins. Every tool is transparent about what it cannot judge. The next step is to **run** real paired agent builds and independent blind reviews; no public creative superiority has been established.
+
+See [the V12 production manual](docs/PRODUCTION_SYSTEM_V12.md). The full guide is invoked only for substantial projects; small fixes remain small.
 
 ## v11.9.0 — crítica independente e evidência real
 
