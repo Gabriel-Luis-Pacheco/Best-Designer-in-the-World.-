@@ -1,6 +1,6 @@
 {
   "skill_name": "studio-grade-web-transformation",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "evals": [
     {
       "id": 1,
@@ -1419,6 +1419,118 @@
         "surface": "product",
         "goals": [
           "retention"
+        ]
+      }
+    },
+    {
+      "id": 78,
+      "name": "Exact named subject, no generic replacement",
+      "prompt": "Use the canonical logo/character in the attached original SVG and the identity rules. The user explicitly requires that exact named protagonist in an animated site opening, not a generic lookalike. Design and implement the strongest feasible concept while preserving its identifiable reference traits. If media/rights/implementation cannot be verified, report it rather than silently replacing the subject.",
+      "expected_output": "Evidence-based referent resolution, canonical asset integrity, original request cross-check at direction/render/release, no unapproved substitute and actual rendered output if possible.",
+      "files": [
+        "fixtures/brand-original.svg",
+        "fixtures/brand-rules.md"
+      ],
+      "expectations": [
+        "Preserve an explicitly named visual identity instead of generic character substitution",
+        "Check canonical attributes and asset/rights status before claiming faithful rendering",
+        "Validate opening and whole-page functionality against the original request",
+        "Never fabricate visual inspection or permission"
+      ],
+      "meta": {
+        "surface": "experience",
+        "goals": [
+          "artistic_impact"
+        ]
+      }
+    },
+    {
+      "id": 79,
+      "name": "Revisit original brief after beautiful wrong concept",
+      "prompt": "Redesign the supplied landing into a visually extraordinary product experience, but the initial request requires a real first-value demonstration, working next action and concise explanations. The first art direction became a spectacular but unrelated abstract animation. Return to the exact initial brief, identify why the result drifted and fix the actual concept rather than just retouching effects.",
+      "expected_output": "Original-brief checkpoint, P0/P1 requirements reconciliation, root-cause critique, actual architecture correction and recaptured desktop/mobile evidence when possible.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expectations": [
+        "Return to original request before finalizing creative direction",
+        "Reject a beautiful result that omits the central product behavior",
+        "Rebuild the wrong narrative or layout rather than hiding failure with polish",
+        "Report unverifiable stages as UNKNOWN instead of PASS"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": 80,
+      "name": "Copywriting with honest market positioning",
+      "prompt": "Create a credible value proposition, hero copy and CTA for the supplied fictional product. First identify buyer alternatives, capabilities with real differences, customer value, best-fit audience and category. Do not invent competitor stats, conversion rates, social proof, testimonials or pricing. Match real proof to each significant commercial claim and provide a plan to test copy comprehension.",
+      "expected_output": "Grounded positioning map, differentiator-to-proof table, concise on-brand copy, proof alignment, actual CTA and uncertainty/validation methods.",
+      "files": [
+        "fixtures/fictional-product-brief.md",
+        "fixtures/landing-generic.html"
+      ],
+      "expectations": [
+        "Define alternatives and distinctive supported value before writing the headline",
+        "Keep assertions traceable to supplied or actual product evidence",
+        "Write clear human copy and label untested hypotheses",
+        "Do not claim SEO rank or conversion gains from text alone"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion",
+          "trust"
+        ]
+      }
+    },
+    {
+      "id": 81,
+      "name": "SEO public discovery without false index claims",
+      "prompt": "Inspect the supplied HTML landing and propose actionable SEO improvements that protect the actual public product experience. Include useful search intent, titles, metadata, crawlable links, canonical behavior, structured data only if accurate, JavaScript rendering risks, share preview and Google Search Console verification boundaries. Do not promise indexing, specific search ranking or real traffic without live evidence.",
+      "expected_output": "Scoped static technical SEO findings, user-intent map, appropriate corrections, render/runtime inspection needs and explicitly unknown live indexability.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expectations": [
+        "Distinguish static HTML inspection from actual Google crawl/indexing",
+        "Give useful truthful on-page and social metadata without keyword stuffing",
+        "Avoid fake testimonials or structured-data values",
+        "Do not impose irrelevant pages or SEO ceremonies on private content"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": 82,
+      "name": "Review council without fabricated users",
+      "prompt": "The user asks for strong independent criticism of a redesigned interface from the positions of first-time viewer, prospective buyer, art director, copy/SEO editor, brief guardian and functionality reviewer. Delegate only if actual available agent tools support it; otherwise perform traceable separate self-review passes, clearly labeled. Use real screenshots/flows and evidence for every P0/P1, and return to initial requirements if the site drifted.",
+      "expected_output": "Right-sized role selection, actual subagent traces if supported, explicit self-review fallback if not, evidence-bound findings and causal repair plan.",
+      "files": [
+        "fixtures/landing-generic.html",
+        "fixtures/fictional-product-brief.md"
+      ],
+      "expectations": [
+        "Never invent separate agents, interviewed customers, independent ratings or rendered screenshots",
+        "Give distinct reviewer tasks with precise evidence and actionable severity",
+        "Reconcile the final design with the literal original brief",
+        "Repair the largest causal weakness and recheck the actual output when available"
+      ],
+      "meta": {
+        "surface": "landing",
+        "goals": [
+          "conversion",
+          "trust"
         ]
       }
     }
