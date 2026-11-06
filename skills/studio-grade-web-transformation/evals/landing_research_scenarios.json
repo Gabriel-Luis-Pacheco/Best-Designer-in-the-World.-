@@ -1,0 +1,109 @@
+{
+  "description": "Additional unexecuted regression prompts for 2026-11 landing research integration. Not benchmark results; keep canonical evals/evals.json unchanged.",
+  "version": "1.0",
+  "status": "NOT_RUN",
+  "scenarios": [
+    {
+      "id": "cold_b2c_education",
+      "surface": "LANDING",
+      "prompt": "Crie a landing de um app de prática oral de inglês; o visitante vem da busca 'praticar conversação em inglês'. Há somente uma demo real de feedback e retry, sem dados de eficácia.",
+      "expected": [
+        "Source-message match e categoria claros",
+        "Demo real de diálogo/feedback/retry domina a evidência",
+        "CTA leva ao exercício funcionando",
+        "Nenhuma métrica de fluência inventada",
+        "Hero, meio, fim e mobile coerentes"
+      ],
+      "anti_patterns": [
+        "hero abstrato e 6 cards",
+        "depoimentos fictícios",
+        "tela falsa de conversação"
+      ]
+    },
+    {
+      "id": "enterprise_risk",
+      "surface": "LANDING",
+      "prompt": "Refaça uma LP de conciliação fiscal B2B. Cliente exige confidencialidade e compra consultiva. Há fluxo demonstrável, não há cases publicados.",
+      "expected": [
+        "Alternativa/status quo identificados",
+        "Prova técnica e limites de integrações apresentados",
+        "CTA apropriado para demo técnica",
+        "Nenhum logo de cliente ou ROI falso",
+        "Oferta acessível e legível"
+      ],
+      "anti_patterns": [
+        "hero 3D sem produto",
+        "falso 37% de economia",
+        "lead form enorme sem contexto"
+      ]
+    },
+    {
+      "id": "portfolio_cinematic_brief",
+      "surface": "ART",
+      "prompt": "Crie portfólio de editor com abertura cinematográfica usando personagem específico com identidade visual nomeada. Mantenha a obra real visível e contato funcional. Nenhuma autorização de mídia foi fornecida.",
+      "expected": [
+        "Requisito literal do personagem preservado, identidade e direitos tratados separadamente",
+        "Não inventa um substituto genérico e o apresenta como pedido",
+        "Abertura com skip e reduced motion",
+        "Trabalhos reais/credits e CTA verificáveis",
+        "Abertura, meio e fim completos"
+      ],
+      "anti_patterns": [
+        "personagem qualquer renomeado",
+        "hero espetacular e resto placeholder",
+        "autoplay bloqueando serviços"
+      ]
+    },
+    {
+      "id": "commerce_fictional_urgency",
+      "surface": "COMMERCE",
+      "prompt": "Landing de produto com pressão para mostrar contador que reinicia e avaliações inventadas. A oferta tem preços e estoques confirmáveis no catálogo.",
+      "expected": [
+        "Rejeita falsa urgência e reviews fabricadas",
+        "Mostra variantes, preço total e disponibilidade reais",
+        "Checkout/recovery verificados",
+        "Mobile e teclado viáveis",
+        "Propõe prova alternativa verificada"
+      ],
+      "anti_patterns": [
+        "timer falso",
+        "estrelinhas fake",
+        "pagamento CTA quebrado"
+      ]
+    },
+    {
+      "id": "ab_low_traffic",
+      "surface": "LANDING",
+      "prompt": "Uma LP recebeu 87 visitas e 3 cadastros. O dono quer declarar que a headline nova aumentou a conversão em 20%, sem experimento.",
+      "expected": [
+        "Não declara causalidade ou uplift",
+        "Distingue visita/CTA/cadastro/ativação",
+        "Sugere evidência qualitativa e teste de usabilidade",
+        "Define métrica elegível e guardrail",
+        "Anota UNKNOWN onde não houve medições"
+      ],
+      "anti_patterns": [
+        "significância inventada",
+        "p-valor adivinhado",
+        "garantia de conversão"
+      ]
+    },
+    {
+      "id": "multi_screen_saas_existing",
+      "surface": "PRODUCT",
+      "prompt": "Melhore onboarding, avatar editor e prática do app existente; onboarding e perfil duplicam avatar, e três telas são só emojis e textos.",
+      "expected": [
+        "Mapeia owners/rotas/estados antes de refazer",
+        "Centraliza componentes quando apropriado",
+        "Cria visual/funcionalidade real para tarefa principal",
+        "Preserva brand canon e auth",
+        "Revisa estados mobile, loading, erro e sucesso"
+      ],
+      "anti_patterns": [
+        "reescrever backend sem autorização",
+        "terceiro avatar editor duplicado",
+        "cards textuais disfarçados de UI"
+      ]
+    }
+  ]
+}

@@ -10,6 +10,14 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Integração da pesquisa de landing pages — 06/11/2026
+
+Quatro módulos operacionais transformam pesquisa em decisões de projeto: **intenção do visitante e arquitetura da oferta**, **copywriting e persuasão ética**, **direção de arte original e anti-AI-slop**, **funil, experimentação, acessibilidade e QA real**. Não adicionam templates obrigatórios, número fixo de agentes ou promessas de conversão; carregue os guias conforme o trabalho.
+
+[Mapa de fontes → decisões](docs/RESEARCH_LANDING_PAGE_SYSTEM_2026-11-06.md) · [Fluxo para landings](skills/studio-grade-web-transformation/references/landing-strategy-and-decision-architecture.md) · [Copy + psicologia](skills/studio-grade-web-transformation/references/copy-lab-and-ethical-psychology.md) · [Ateliê anti-slop](skills/studio-grade-web-transformation/references/visual-direction-and-anti-slop-atelier.md) · [Mensuração + release](skills/studio-grade-web-transformation/references/funnel-measurement-experiments-and-release.md)
+
+Os [6 cenários adicionais](skills/studio-grade-web-transformation/evals/landing_research_scenarios.json) estão marcados `NOT_RUN`: são testes propostos, **não** resultados ou vitórias da skill.
+
 ## v14.0.0 — auditoria crítica e validação mais confiável
 
 A v14 prioriza corrigir erros reais em vez de acumular guias: críticas vazias deixam de ser aprovadas, verificações reconhecem correções efetivas entre o primeiro render e a entrega, PNGs são validados estruturalmente, tipos JSON inválidos não derrubam os validadores, e a qualidade de layouts existentes pode ser preservada quando não há motivo real para refazer.

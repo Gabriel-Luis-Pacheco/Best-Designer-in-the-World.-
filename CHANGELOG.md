@@ -1,3 +1,6 @@
+### Integração de pesquisa — 2026-11-06 (sem alteração de versão)
+- Quatro guias operacionais + dois cartões opcionais; sem novos gates universais, benchmarks inventados ou versão alterada.
+
 ## v14.0.0 — Verifiable QA and reliability hardening (2026-11-06)
 - Critical audit of key active instructions, evaluator routing, synthetic CI, production and review validators; documented concrete defects and remaining uncertainties.
 - Require task and artifact references before reviewers can declare no issues; allow P0/P1 closure only with post-fix evidence; choose core and optional specialists proportionately.

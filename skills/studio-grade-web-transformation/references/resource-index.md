@@ -55,6 +55,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/interaction-and-content.md` | UX writing, fluxos e interações com significado |
 | `references/interaction-dramaturgy-and-payoff.md` | Interaction dramaturgy — gesto, transformação, clímax e recompensa |
 | `references/landing-page-evidence-and-cro.md` | Landing pages: conversion, product truth, story, and experimentation |
+| `references/landing-strategy-and-decision-architecture.md` | Landing visitor states, message match and purposeful decision architecture |
+| `references/copy-lab-and-ethical-psychology.md` | Copy lab, human voice, objections, proof and responsible behavioral psychology |
+| `references/visual-direction-and-anti-slop-atelier.md` | Product-derived visual grammar, optical craft and causal anti-slop repair |
+| `references/funnel-measurement-experiments-and-release.md` | Qualified metrics, event definitions, A/B integrity, accessibility and launch QA |
 | `references/marketing-research-and-experiments.md` | Commercial site specialist — customer truth to tested qualified action |
 | `references/motion-3d-engineering-cookbook.md` | Motion / 3D specialist engineering checklist |
 | `references/motion-and-interaction-direction.md` | Direção de movimento: coreografia com função |
