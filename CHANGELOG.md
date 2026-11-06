@@ -1,3 +1,6 @@
+### 2026-11-06 — Organic Discovery OS (v14 patch, no bump)
+- Added four conditional search/AI/authority/measurement guides, offline evidence lint, research map and NOT_RUN scenarios.
+
 ### Integração de pesquisa — 2026-11-06 (sem alteração de versão)
 - Quatro guias operacionais + dois cartões opcionais; sem novos gates universais, benchmarks inventados ou versão alterada.
 

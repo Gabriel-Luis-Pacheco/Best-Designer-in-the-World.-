@@ -53,4 +53,12 @@ Official details:
 - “Every visual project requires a commercial SEO blog.”
 - “An exact brand query must rank immediately after launch.”
 
+## Strategic organic reach — not just technical checks
+
+A public site's SEO can be technically perfect and still have no valuable demand, differentiation, authority or qualified visitors. Before selecting keywords or a blog architecture, follow `organic-discovery-operating-system.md`: actual user intent → current SERP/answer competitors and page types (date/market/device) → authentic capability/evidence gaps → differentiated page/content format → reachable useful task → eligible crawl/index → real measurement. Do not invent ranks, keyword volumes, backlinks or prospective conversion improvements.
+
+For questions answered by Google AI, Copilot and ChatGPT Search, use `ai-answer-and-entity-visibility.md`. These surfaces have provider-specific inclusion controls, bots and metrics; as of Nov 2026 Google Search Console has generative AI impression reporting, Bing has AI citations, and OpenAI distinguishes search crawl from training crawl. Do not insert AI-only files/chunking as universal ranking requirements. For specialized content, original entity trust, local eligibility, products, images/video and international fit use `search-content-and-authority-engine.md`. For exact comparisons and measurable progress use `search-intelligence-measurement-loop.md`. Keep the user-facing experience authored and beautiful while including search-readable content appropriate to its actual purpose.
+
+**No guarantee**: rankings, indexation, Google AI visibility, citations and competitor wins are external, dynamic, market-sensitive results. A passing metadata lint or excellent design proves none of them. Publish ethically, respect explicit opt-outs and owner authorization.
+
 A highly artistic public site can keep a spectacular experience while its crawlable semantic content, controls and links remain clear. Design the opening as enhancement, not as an opaque wall between the visitor, the actual work and search.

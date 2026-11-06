@@ -14,6 +14,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/original-brief-and-referent-fidelity.md` | Briefing literal, referências nomeadas corretas, direitos e checkpoints |
 | `references/positioning-and-copywriting.md` | Posicionamento, proposta de valor, copy e provas verificáveis |
 | `references/seo-discovery-and-search-experience.md` | Search intent, SEO técnico, conteúdo útil e experiência de busca |
+| `references/organic-discovery-operating-system.md` | Estratégia de descoberta orgânica, intenção, concorrentes SERP e diferenciais reais por nicho |
+| `references/ai-answer-and-entity-visibility.md` | GEO/AEO/LLMO, controle de robôs, Google AI, ChatGPT Search e citações Bing |
+| `references/search-content-and-authority-engine.md` | Conteúdo original, autoridade conquistada, SEO local, internacional, vídeo e commerce |
+| `references/search-intelligence-measurement-loop.md` | Search Console, Bing, IA, métricas, evidências e melhoria contínua |
 | `references/review-council-and-course-correction.md` | Revisão por perspectivas, subagentes reais e reparo de desvios |
 | `references/proactive-completeness-and-launch.md` | Trabalho proativo relevante sem inventar escopo ou poluir o site |
 | `references/render-critique-repair-contract.md` | Fechar ciclo implementação → pixels → crítica → reparo |
@@ -84,6 +88,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/visual-first-product-architecture.md` | Visual-first product architecture, route/job ownership, real task visuals |
 
 One-screen aid: `templates/ATTENTION_AND_JOURNEY_CARD.md` (optional private planning; never replaces the requested implementation).
+Organic discovery optional aid: `templates/ORGANIC_DISCOVERY_BRIEF.md` and `templates/ORGANIC_OPPORTUNITY_PACKET.example.json`; deterministic declared-source lint: `scripts/organic_opportunity_audit.py`. No API calls or automatic rank verification. Supplemental cases: `evals/organic_discovery_scenarios.json` (`NOT_RUN`).
 ## V14 unified evidence controller
 
 The optional portable `scripts/quality_controller.py` composes actual available brief, scene captures, critic evidence, positioning, assets, cinematic plan and public HTML checks; it never claims a site is aesthetic, legal or commercially approved. Prefer one proportionate run over many empty paperwork files. It reports BLOCKED/INCOMPLETE separately from an evidence packet ready for human review.

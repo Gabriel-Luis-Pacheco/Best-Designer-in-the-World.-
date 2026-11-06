@@ -18,6 +18,14 @@ Quatro módulos operacionais transformam pesquisa em decisões de projeto: **int
 
 Os [6 cenários adicionais](skills/studio-grade-web-transformation/evals/landing_research_scenarios.json) estão marcados `NOT_RUN`: são testes propostos, **não** resultados ou vitórias da skill.
 
+## Descoberta orgânica competitiva — SEO, GEO, AEO, AI Search e mais (06/11/2026)
+
+A skill agora trata **visibilidade orgânica como parte da estratégia e do produto**, não como tarefa final de metadados. Pesquisa intenção, SERP e concorrentes reais (quando há ferramentas), identifica provas e conteúdos que merecem ser encontrados, decide canais adequados ao nicho, trabalha SEO técnico/semântico, AI Search, conteúdo original, autoridade, local/internacional/mídia e acompanha desempenho em Google Search Console, Bing/AI e conversão qualificada. Sem prometer 1º lugar, manipular crawlers, gerar spam de IA ou sacrificar direção de arte.
+
+[Fluxo principal](skills/studio-grade-web-transformation/references/organic-discovery-operating-system.md) · [GEO/AEO e IA](skills/studio-grade-web-transformation/references/ai-answer-and-entity-visibility.md) · [Conteúdo e autoridade](skills/studio-grade-web-transformation/references/search-content-and-authority-engine.md) · [Medição e concorrentes](skills/studio-grade-web-transformation/references/search-intelligence-measurement-loop.md) · [Pesquisa e fontes](docs/ORGANIC_DISCOVERY_RESEARCH_2026-11-06.md).
+
+Há um validador **opcional e offline** de evidências declaradas e oito novos cenários de regressão **NOT_RUN** (não são resultados ou vitórias medidos). A versão continua v14 e as avaliações anteriores permanecem intactas.
+
 ## v14.0.0 — auditoria crítica e validação mais confiável
 
 A v14 prioriza corrigir erros reais em vez de acumular guias: críticas vazias deixam de ser aprovadas, verificações reconhecem correções efetivas entre o primeiro render e a entrega, PNGs são validados estruturalmente, tipos JSON inválidos não derrubam os validadores, e a qualidade de layouts existentes pode ser preservada quando não há motivo real para refazer.

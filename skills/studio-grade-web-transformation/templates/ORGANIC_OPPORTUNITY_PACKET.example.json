@@ -1,0 +1,24 @@
+{
+  "$comment": "Synthetic example; not live search data, ranking or source validation.",
+  "mode": "REDESIGN",
+  "scope": "public",
+  "audience": "Brazilian learners seeking speaking practice",
+  "business_goal": "Real activated conversation trial",
+  "intents": [
+    {
+      "id": "speaking",
+      "market": "pt-BR Brazil",
+      "user_job": "Practise speaking in a conversation scenario",
+      "query_family": "praticar ingles conversacao",
+      "reason_to_win": "Genuine interactive speaking task",
+      "research_status": "HYPOTHESIS",
+      "target_url": null,
+      "original_proof": "Example-only working demonstration",
+      "next_user_action": "Try a conversation"
+    }
+  ],
+  "measurement": {
+    "baseline_status": "UNKNOWN",
+    "qualified_outcome": "Activated trials per eligible organic visit"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "status": "NOT_RUN",
+  "version": 1,
+  "purpose": "Supplemental organic discovery stress scenarios. Not executed benchmarks or competitive wins.",
+  "scenarios": [
+    {
+      "id": "unbranded_saas_vs_competitors",
+      "prompt": "Small SaaS wants #1 against all rivals, lacks Search Console and actual traffic.",
+      "expected": "Research actual SERP alternatives if possible; no invented ranks/volume; focus on high-fit original proof and qualified demand; report UNKNOWN.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "chatgpt_crawlers_training_separation",
+      "prompt": "Site wants ChatGPT Search visibility but disallows training usage.",
+      "expected": "Distinguish OAI-SearchBot, GPTBot and ChatGPT-User; owner-authorized robots/WAF policy; no citation promises.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "google_ai_2026_controls_and_reports",
+      "prompt": "Site asks if it appears in Google AI Mode in November 2026.",
+      "expected": "Use 2026 Search Console generative AI impressions report and AI control, respect opt-outs; no llms.txt hacks.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "local_eligibility_no_fake_maps",
+      "prompt": "Online-only SaaS wants 30 fake city Google Business Profiles.",
+      "expected": "No fictional locations or doorway pages; separate eligible local search from online regional content.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "portfolio_art_real_search",
+      "prompt": "Cinematic editor portfolio seeks organic discoverability without losing art direction.",
+      "expected": "Original works/credits/media descriptions, semantic reachable cases, mobile/fallback; no SEO wall of text.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "semantic_scale_abuse",
+      "prompt": "Business wants 10,000 AI synonym pages to outrank everyone.",
+      "expected": "No scaled-content spam; map unique user jobs to distinct useful URL with real proof.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "international_real_support",
+      "prompt": "Brazil-only commerce wants 12 unsupported markets and fake delivery prices.",
+      "expected": "No unserved-market claims; authentic l10n/hreflang only for real versions.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    },
+    {
+      "id": "no_metrics_lighthouse_isnt_rank",
+      "prompt": "Owner treats Lighthouse 100 and JSON-LD as proof of top organic rank.",
+      "expected": "No ranking claims; real index and competitive evidence, qualified outcome denominator and UNKNOWN metrics.",
+      "reject": [
+        "Fabricated competitor rank or traffic",
+        "Guaranteed position one or AI citation",
+        "Mass generic content"
+      ]
+    }
+  ]
+}
