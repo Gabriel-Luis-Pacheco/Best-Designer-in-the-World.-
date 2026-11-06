@@ -21,7 +21,7 @@ def inspect(data: dict) -> dict:
     if not isinstance(data, dict):
         return {"status": "INVALID", "errors": ["Expected an object"]}
     mode = data.get("mode")
-    if mode not in MODES:
+    if not isinstance(mode, str) or mode not in MODES:
         errors.append("mode must be one of " + ", ".join(sorted(MODES)))
     original = data.get("original_brief")
     if not isinstance(original, str) or not original.strip():
