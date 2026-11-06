@@ -80,6 +80,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | `references/visual-first-product-architecture.md` | Visual-first product architecture, route/job ownership, real task visuals |
 
 One-screen aid: `templates/ATTENTION_AND_JOURNEY_CARD.md` (optional private planning; never replaces the requested implementation).
+## V14 unified evidence controller
+
+The optional portable `scripts/quality_controller.py` composes actual available brief, scene captures, critic evidence, positioning, assets, cinematic plan and public HTML checks; it never claims a site is aesthetic, legal or commercially approved. Prefer one proportionate run over many empty paperwork files. It reports BLOCKED/INCOMPLETE separately from an evidence packet ready for human review.
+
 ## V13 contextual audits
 Use `scripts/brief_alignment.py`, `scripts/positioning_copy_contract.py`, `scripts/search_presence_audit.py` and `scripts/review_council.py` when their problem applies. Their reports validate **declared contracts or source structure**; they cannot authenticate user research, image likeness, actual crawlability or creativity. The active core in SKILL.md tells the agent when to load each guide; don't prepend every guide to every PATCH.
 
