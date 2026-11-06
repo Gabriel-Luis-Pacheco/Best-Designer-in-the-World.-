@@ -28,15 +28,16 @@ def inspect(data: dict) -> dict:
         sid = scene.get("id")
         if not isinstance(sid, str) or not sid.strip() or sid in ids:
             errors.append(f"Scene {i}: id missing or duplicated")
-        ids.add(sid)
+        if isinstance(sid, str):
+            ids.add(sid)
         beat = scene.get("beat")
         if beat not in BEATS:
             errors.append(f"Scene {i}: invalid narrative beat")
         else:
             beats.append(beat)
-        if scene.get("engine") not in ENGINES:
+        if not isinstance(scene.get("engine"), str) or scene["engine"] not in ENGINES:
             errors.append(f"Scene {i}: engine must be justified explicitly")
-        if scene.get("trigger") not in INPUTS:
+        if not isinstance(scene.get("trigger"), str) or scene["trigger"] not in INPUTS:
             errors.append(f"Scene {i}: unknown trigger")
         duration = scene.get("duration_ms")
         if not isinstance(duration, int) or isinstance(duration, bool) or not 0 <= duration <= 120000:
@@ -82,7 +83,7 @@ def main() -> None:
         if args.timeline.stat().st_size > 100_000:
             raise ValueError("Timeline exceeds 100 KB")
         result = inspect(json.loads(args.timeline.read_text(encoding="utf-8")))
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         p.exit(2, f"INVALID INPUT: {exc}\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if result["errors"]:
