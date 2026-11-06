@@ -62,7 +62,7 @@ def _file_report(root: Path, rel: str) -> dict:
 
 
 def inspect(config: dict, root: Path) -> dict:
-    errors, blockers, missing, warnings, gates = [], [], [], [], []
+    errors, blockers, missing, warnings, gates, review_needed = [], [], [], [], [], []
     if not isinstance(config, dict):
         return {"status": "INVALID", "errors": ["Config must be a JSON object"]}
     root = root.resolve(strict=True)
@@ -77,7 +77,7 @@ def inspect(config: dict, root: Path) -> dict:
     if not isinstance(public, bool):
         errors.append("public must explicitly be true/false; do not infer indexability")
         public = False
-    major = mode in {"REDESIGN", "REBUILD"}
+    major = isinstance(mode, str) and mode in {"REDESIGN", "REBUILD"}
     required = {
         "brief": major,
         "production": major,
@@ -92,11 +92,13 @@ def inspect(config: dict, root: Path) -> dict:
 
     def register(name, status, details=None):
         gates.append({"gate": name, "status": status, "details": details})
+        if status == "REVIEW_NEEDED":
+            review_needed.append(name)
         if status == "INVALID":
             errors.append(name + ": invalid evidence")
         elif status == "BLOCKED":
             blockers.append(name + ": critical requirements or failures remain")
-        elif status in {"MISSING", "UNKNOWN", "INCOMPLETE", "REVIEW_NEEDED"}:
+        elif status in {"MISSING", "UNKNOWN", "INCOMPLETE"}:
             missing.append(name + ": " + status)
 
     for key in ("brief", "production", "reviews", "positioning", "assets", "cinematic"):
@@ -178,6 +180,8 @@ def inspect(config: dict, root: Path) -> dict:
     elif pages:
         warnings.append("Internal/private pages do not require public SEO; no search claim was made")
 
+    if not gates:
+        missing.append("No gate executed; empty checklist cannot certify readiness")
     if errors:
         status = "INVALID"
     elif blockers:
@@ -190,7 +194,7 @@ def inspect(config: dict, root: Path) -> dict:
         "status": status,
         "scope": {"mode": mode, "surface": surface, "public": public},
         "gates": gates, "errors": errors, "blockers": blockers,
-        "unknown_or_review_needed": missing, "warnings": warnings,
+        "unverified_or_missing": missing, "human_review_required": review_needed, "warnings": warnings,
         "limitations": [
             "No source-derived gate authenticates independent reviewers or input truth",
             "No browser was launched by this command",
