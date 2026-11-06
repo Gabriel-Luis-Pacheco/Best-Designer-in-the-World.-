@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 import struct
+import zlib
 from pathlib import Path
 
 MODES = {"PATCH", "AUDIT", "REFINE", "REDESIGN", "REBUILD"}
@@ -17,6 +18,44 @@ STATUS = {"PASS", "FAIL", "UNKNOWN"}
 REQUIRED_SCENES = {"opening", "middle", "closing"}
 CORE_CHECKS = {"build", "primary_flow", "mobile", "keyboard"}
 EXPERIENCE_CHECKS = {"reduced_motion", "scene_interaction"}
+
+
+def png_dimensions(data: bytes) -> tuple[int, int]:
+    """Reject corrupt/truncated screenshot claims, not assess visual quality."""
+    if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+        raise ValueError("Expected PNG signature")
+    pos, width, height = 8, None, None
+    saw_idat, saw_iend, first = False, False, True
+    while pos + 12 <= len(data):
+        length = struct.unpack(">I", data[pos:pos + 4])[0]
+        if length > len(data) - pos - 12:
+            raise ValueError("Truncated PNG chunk")
+        kind = data[pos + 4:pos + 8]
+        payload = data[pos + 8:pos + 8 + length]
+        expected = struct.unpack(">I", data[pos + 8 + length:pos + 12 + length])[0]
+        if zlib.crc32(kind + payload) & 0xFFFFFFFF != expected:
+            raise ValueError("Invalid PNG CRC")
+        if first:
+            if kind != b"IHDR" or length != 13:
+                raise ValueError("IHDR must be first and complete")
+            width, height = struct.unpack(">II", payload[:8])
+            if not 1 <= width <= 12000 or not 1 <= height <= 12000 or width * height > 250_000_000:
+                raise ValueError("Invalid PNG dimensions")
+            first = False
+        elif kind == b"IHDR":
+            raise ValueError("Duplicate PNG IHDR")
+        if kind == b"IDAT":
+            saw_idat = True
+        if kind == b"IEND":
+            if length != 0:
+                raise ValueError("IEND must be empty")
+            saw_iend = True
+            pos += length + 12
+            break
+        pos += length + 12
+    if not (saw_idat and saw_iend and pos == len(data) and width is not None):
+        raise ValueError("PNG missing image data or final IEND")
+    return width, height
 
 
 def artifact(root: Path, name: str, *, png: bool = False) -> dict:
@@ -30,11 +69,10 @@ def artifact(root: Path, name: str, *, png: bool = False) -> dict:
         raise ValueError("Artifact must be nonempty and at most 30 MB: " + name)
     out = {"path": name, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
     if png:
-        if not data.startswith(b"\x89PNG\r\n\x1a\n") or len(data) < 33 or data[12:16] != b"IHDR":
-            raise ValueError("Expected actual PNG header: " + name)
-        width, height = struct.unpack(">II", data[16:24])
-        if width < 1 or height < 1 or width > 12000 or width * height > 250_000_000:
-            raise ValueError("Invalid PNG dimensions: " + name)
+        try:
+            width, height = png_dimensions(data)
+        except ValueError as exc:
+            raise ValueError("Invalid PNG artifact " + name + ": " + str(exc)) from exc
         out["width"], out["height"] = width, height
     return out
 
@@ -96,7 +134,7 @@ def inspect(packet: dict, root: Path) -> dict:
             errors.append("Duplicate check id: " + cid)
         check_ids.add(cid)
         status = check.get("status")
-        if status not in STATUS:
+        if not isinstance(status, str) or status not in STATUS:
             errors.append(cid + ": use PASS/FAIL/UNKNOWN")
             continue
         if status == "FAIL":
@@ -120,11 +158,27 @@ def inspect(packet: dict, root: Path) -> dict:
         absent = required - check_ids
         if absent:
             errors.append("Missing required check declarations: " + ", ".join(sorted(absent)))
-        if expressive and not isinstance(packet.get("motion_fallback"), str):
+        if expressive and (not isinstance(packet.get("motion_fallback"), str)
+                           or len(packet["motion_fallback"].strip()) < 12):
             errors.append("Expressive experiences must describe a non-motion fallback")
         iteration = packet.get("iteration")
         if not isinstance(iteration, dict):
-            errors.append("REDESIGN/REBUILD needs the rendered weakest-link correction")
+            # Do not require fake changes to an already-correct rendering.
+            preservation = packet.get("preserve_decision")
+            if not isinstance(preservation, dict) or preservation.get("decision") != "PRESERVE":
+                errors.append("REDESIGN/REBUILD needs a real correction OR evidenced preservation")
+            else:
+                if not isinstance(preservation.get("reason"), str) or len(preservation["reason"].strip()) < 20:
+                    errors.append("Preservation needs a causal explanation")
+                names = preservation.get("review_evidence")
+                if not isinstance(names, list) or not names:
+                    errors.append("Preservation needs review evidence artifacts")
+                else:
+                    for name in names:
+                        try:
+                            observed.append(artifact(root, name))
+                        except ValueError as exc:
+                            errors.append(str(exc))
         else:
             if iteration.get("scene_id") not in scene_ids:
                 errors.append("Iteration scene_id must match a captured scene")
@@ -142,8 +196,12 @@ def inspect(packet: dict, root: Path) -> dict:
                     errors.append("Iteration screenshots are identical; no visual change evidenced")
             except ValueError as exc:
                 errors.append(str(exc))
-    for blocker in packet.get("blockers", []):
-        if not isinstance(blocker, dict) or blocker.get("severity") not in {"P0", "P1", "P2"}:
+    declared_blockers = packet.get("blockers", [])
+    if not isinstance(declared_blockers, list):
+        errors.append("blockers must be a list")
+        declared_blockers = []
+    for blocker in declared_blockers:
+        if not isinstance(blocker, dict) or not isinstance(blocker.get("severity"), str) or blocker["severity"] not in {"P0", "P1", "P2"}:
             errors.append("Blockers must identify severity P0/P1/P2")
         elif blocker["severity"] in {"P0", "P1"}:
             failed.append("blocker " + blocker["severity"])
@@ -166,7 +224,7 @@ def main() -> None:
         if args.packet.stat().st_size > 200_000:
             raise ValueError("Packet exceeds 200 KB")
         result = inspect(json.loads(args.packet.read_text(encoding="utf-8")), args.root)
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         parser.exit(2, f"INVALID INPUT: {exc}\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if result["status"] != "EVIDENCE_READY_FOR_HUMAN_REVIEW":
