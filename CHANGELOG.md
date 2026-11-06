@@ -1,3 +1,14 @@
+## v14.0.0 — Verifiable QA and reliability hardening (2026-11-06)
+- Critical audit of key active instructions, evaluator routing, synthetic CI, production and review validators; documented concrete defects and remaining uncertainties.
+- Require task and artifact references before reviewers can declare no issues; allow P0/P1 closure only with post-fix evidence; choose core and optional specialists proportionately.
+- Preserve original request and historic failures but allow a truly corrected RELEASE to reconcile earlier bad renders.
+- Validate full PNG chunk/CRC structure (not visual origin); prevent fabricated rework of a sound design through evidenced preserve decisions.
+- Harden malformed JSON/boolean HTML inputs, noindex and social metadata handling; stream large asset hashing instead of reading entire media into memory.
+- Compare creative proposals with conservative lexical overlap so word-order changes do not masquerade as new concepts.
+- Add optional portable quality_controller.py to aggregate per-scope brief, actual file captures, critic evidence bytes, positioning, assets, cinematic and public HTML gates.
+- Add regressions for malformed packets, correction history, false reviewer approvals, no forced edits, PNG CRC, static SEO and controller failure modes.
+- Green synthetic tests do not prove creative superiority, real agent independence, rights, SEO ranking or conversion results; 82 declared eval scenarios remain unchanged.
+
 ## v13.0.0 — Brief fidelity, positioning, copy, SEO and independent critique (2026-11-05)
 - Research Google Search Central, NNGroup, W3C, April Dunford, CXL, Baymard, Anthropic and OpenAI sources. Map findings to operational guides instead of generic marketing/visual rules.
 - Add original-prompt checkpoints (DIRECTION, FIRST_RENDER, RELEASE) and exact named-referent integrity requirements. Generic subject substitution must never be silently accepted.
