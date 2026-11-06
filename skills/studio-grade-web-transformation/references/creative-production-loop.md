@@ -19,8 +19,8 @@ Capture opening, middle, weakest transition, final section and mobile. Compare s
 - **Technical:** unreadable mobile, broken flow, performance => repair and re-test.
 Never solve a macro architecture failure with a dozen shadows or font-size tweaks.
 
-## 5 — A second rendered iteration is the minimum meaningful loop
-After inspection, make a *material* correction to the weakest scene. Capture again and record before/after with the cause of improvement or remaining concern. If the original was already strong, justify preserving it, with adjacent regression tests. **Do not claim a review happened from an unrendered plan.** No hard promise of awards or conversion.
+## 5 — Meaningful rework or evidenced preservation
+After inspection, make a *material* correction to a documented weakness when one exists. Capture again and record comparable before/after evidence. If the current version already satisfies the brief and review finds no consequential defect, preserve it and record the inspection evidence instead of inventing a worse second iteration. **Do not claim a review happened from an unrendered plan.** No hard promise of awards or conversion.
 
 ## Stop conditions
 Stop when product truth, interactions, accessibility, mobile and coherent art direction meet the brief and no actionable P0/P1 is left; or when constrained by time/tools, report outstanding blockers. For product work protect routes and contracts; for pure art, preserve artistic intent and user control. Both require honesty about tests.
@@ -33,7 +33,7 @@ Stop when product truth, interactions, accessibility, mobile and coherent art di
 - Is there a meaningful progression from beginning → middle → ending?
 - Is the mobile composition intentionally redrawn?
 - Does interaction transform understanding, not merely toggle a card?
-- Did the second iteration improve a real observed weakness?
+- Did the correction improve a real observed weakness, or did evidence justify preserving already-correct work?
 
 ## V11 creative ceiling — signature before presentation
 For pure ART and EXPERIENTIAL_COMMERCE, use `creative-signature-and-form.md` to require a formal, material and behavioral identity. Rapidly prototype **opening + middle/climax** for competing theses, not merely descriptions. Plan five distinct beats and a contextual payoff; consult `interaction-dramaturgy-and-payoff.md`. If a polished site feels like oversized headlines and repeated widgets, rework the spatial concept even if automated tests pass. A technical PASS is not an artistic PASS.
