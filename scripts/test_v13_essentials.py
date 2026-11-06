@@ -203,6 +203,9 @@ class CouncilTests(unittest.TestCase):
     def test_critical_observed_problem_blocks(self):
         packet = {"surface": "landing", "mode": "REBUILD",
                   "reviews": [{"role": "brief_guardian", "review_mode": "SEQUENTIAL_SELF_REVIEW",
+                               "task_observed": "Check the brief against the actual captured hero",
+                               "inspected_evidence": ["captures/hero.png"],
+                               "verdict": "ISSUES_FOUND",
                                "findings": [{"severity": "P1",
                                              "observation": "A central promised interaction is missing in the hero",
                                              "evidence": ["captures/hero.png"],
@@ -212,6 +215,41 @@ class CouncilTests(unittest.TestCase):
     def test_unrun_roles_are_only_assignments(self):
         packet = {"surface": "landing", "mode": "REBUILD"}
         self.assertEqual(council.inspect(packet)["status"], "ASSIGNMENTS_ONLY")
+
+    def test_empty_signoff_must_prove_it_inspected_something(self):
+        role = {"role": "brief_guardian", "review_mode": "SEQUENTIAL_SELF_REVIEW",
+                "verdict": "NO_ISSUES_OBSERVED", "findings": []}
+        packet = {"surface": "landing", "mode": "REBUILD", "reviews": [role]}
+        self.assertEqual(council.inspect(packet)["status"], "INVALID")
+        role["task_observed"] = "I checked the hero and working CTA in a real browser"
+        role["inspected_evidence"] = ["captures/hero.png", "traces/cta.json"]
+        self.assertEqual(council.inspect(packet)["status"], "INCOMPLETE")
+
+    def test_verified_correction_can_close_critical_issue(self):
+        role = {"role": "brief_guardian", "review_mode": "SEQUENTIAL_SELF_REVIEW",
+                "task_observed": "Check exact request and post-fix opening",
+                "inspected_evidence": ["captures/hero.png"],
+                "verdict": "ISSUES_FOUND",
+                "findings": [{"severity": "P1",
+                              "observation": "The requested hero subject is absent from the opening",
+                              "evidence": ["captures/hero-before.png"],
+                              "recommendation": "Use the canonical approved subject in the opening",
+                              "resolution": "VERIFIED_FIXED",
+                              "fix_evidence": ["captures/hero-after.png"]}]}
+        packet = {"surface": "landing", "mode": "REBUILD", "reviews": [role]}
+        self.assertEqual(council.inspect(packet)["status"], "INCOMPLETE")
+        role["findings"][0]["fix_evidence"] = []
+        self.assertEqual(council.inspect(packet)["status"], "INVALID")
+
+    def test_weird_role_or_severity_is_invalid_not_exception(self):
+        packet = {"surface": "landing", "mode": "REBUILD",
+                  "reviews": [{"role": ["brief_guardian"], "verdict": {}, "findings": []}]}
+        self.assertEqual(council.inspect(packet)["status"], "INVALID")
+        packet["reviews"][0] = {"role": "brief_guardian", "review_mode": "SEQUENTIAL_SELF_REVIEW",
+                                "task_observed": "Tried a real interaction and checked a screenshot",
+                                "inspected_evidence": ["hero.png"], "verdict": "ISSUES_FOUND",
+                                "findings": [{"severity": [], "evidence": ["hero.png"]}]}
+        self.assertEqual(council.inspect(packet)["status"], "INVALID")
 
 
 if __name__ == "__main__":
