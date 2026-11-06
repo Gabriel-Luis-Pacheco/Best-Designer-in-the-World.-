@@ -126,14 +126,33 @@ def inspect(config: dict, root: Path) -> dict:
                 }.get(raw["status"], "UNKNOWN"), raw)
             elif key == "reviews":
                 raw = _module("review_council").inspect(data)
-                register(key, {
+                review_status = {
                     "INVALID": "INVALID", "BLOCKED": "BLOCKED",
                     "ASSIGNMENTS_ONLY": "INCOMPLETE", "INCOMPLETE": "INCOMPLETE",
                     "REVIEWED_NOT_CERTIFIED": "REVIEW_NEEDED",
-                }.get(raw["status"], "UNKNOWN"), raw)
-                # A declared screenshot is not a verified local screenshot.
-                if raw["status"] == "REVIEWED_NOT_CERTIFIED":
-                    warnings.append("Critic artifacts are asserted; inspect their actual content and provenance")
+                }.get(raw["status"], "UNKNOWN")
+                if review_status == "REVIEW_NEEDED":
+                    # Require real local evidence bytes for critic signoffs;
+                    # timestamps and agent independence still need human audit.
+                    ev_root = _safe_path(root, config.get("evidence_root", "evidence"), directory=True)
+                    checked, unchecked = [], []
+                    for entry in data.get("reviews", []):
+                        references = list(entry.get("inspected_evidence", []))
+                        for finding in entry.get("findings", []):
+                            references += finding.get("evidence", [])
+                            if finding.get("resolution") == "VERIFIED_FIXED":
+                                references += finding.get("fix_evidence", [])
+                        for rel in references:
+                            if rel.startswith(("http://", "https://", "route:")):
+                                unchecked.append(rel)
+                            else:
+                                checked.append(_file_report(ev_root, rel))
+                    if unchecked or not checked:
+                        review_status = "INCOMPLETE"
+                    raw["local_evidence_files_checked"] = checked
+                    raw["unverified_external_or_route_refs"] = unchecked
+                    warnings.append("Verified file bytes do not prove reviewer independence, factual accuracy or visual quality")
+                register(key, review_status, raw)
             elif key == "positioning":
                 raw = _module("positioning_copy_contract").inspect(data)
                 register(key, {"INVALID": "INVALID", "PROOF_GAPS": "INCOMPLETE",
