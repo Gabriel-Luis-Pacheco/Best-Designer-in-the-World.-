@@ -1,4 +1,10 @@
-# Design OS Prime v13.0.0 — avaliação, não ranking automático
+# Design OS Prime v14.0.0 — avaliação, não ranking automático
+
+## v14.0.0 — confiabilidade dos validadores
+
+O ciclo de revisão agora exige evidência inspecionada, reconhece correções bem documentadas de falhas anteriores e evita exigir mudanças cosméticas onde uma implementação já atende ao pedido. Novos testes adversariais exercitam tipos JSON incorretos, HTML válido incompleto, CRCs PNG, conceitos quase idênticos e o controlador integrado. Veja `docs/CRITICAL_AUDIT_V14.md`.
+
+Ainda há **82 casos de avaliação declarados** e não houve benchmark empírico que demonstre superioridade entre versões ou skills.
 
 ## v13.0.0 — fidelidade e revisão multidisciplinar
 
