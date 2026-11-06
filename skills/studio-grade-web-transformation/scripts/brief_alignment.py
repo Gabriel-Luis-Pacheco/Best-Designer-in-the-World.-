@@ -133,7 +133,7 @@ def inspect(data: dict) -> dict:
             for rid, item in by_id.items():
                 if item.get("priority") == "MUST" and rid not in seen:
                     blockers.append("RELEASE/" + rid + ": missing must-have verification")
-    if mode in {"REDESIGN", "REBUILD"}:
+    if isinstance(mode, str) and mode in {"REDESIGN", "REBUILD"}:
         for stage in STAGES:
             if stage not in found:
                 unresolved.append("Missing " + stage + " checkpoint")
