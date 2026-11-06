@@ -31,9 +31,9 @@ def inspect(data: dict, root: Path) -> dict:
             continue
         ids.add(aid)
         role, rights = asset.get("role"), asset.get("rights")
-        if role not in ROLES:
+        if not isinstance(role, str) or role not in ROLES:
             errors.append(aid + ": unknown asset role")
-        if rights not in RIGHTS:
+        if not isinstance(rights, str) or rights not in RIGHTS:
             errors.append(aid + ": rights must use an explicit status")
         elif rights == "unknown":
             unknown.append(aid + ": rights not established")
@@ -60,7 +60,12 @@ def inspect(data: dict, root: Path) -> dict:
             if full.stat().st_size == 0:
                 errors.append(aid + ": empty asset: " + rel)
                 continue
-            digest = hashlib.sha256(full.read_bytes()).hexdigest()
+            # Assets may be multi-gigabyte videos; hash in bounded chunks.
+            digest_state = hashlib.sha256()
+            with full.open("rb") as stream:
+                while chunk := stream.read(1024 * 1024):
+                    digest_state.update(chunk)
+            digest = digest_state.hexdigest()
             inspected.append({"id": aid, "path": rel, "sha256": digest, "bytes": full.stat().st_size})
             if asset.get("canonical"):
                 expected = asset.get("canonical_sha256")
@@ -88,7 +93,7 @@ def main() -> None:
         if args.manifest.stat().st_size > 200_000:
             raise ValueError("Manifest exceeds 200 KB")
         report = inspect(json.loads(args.manifest.read_text(encoding="utf-8")), args.root)
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         parser.exit(2, f"INVALID INPUT: {exc}\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     if report["status"] != "INVENTORY_READY_FOR_RIGHTS_REVIEW":
