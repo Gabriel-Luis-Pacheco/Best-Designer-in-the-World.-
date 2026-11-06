@@ -87,7 +87,7 @@ def inspect(packet: dict, root: Path) -> dict:
         errors.append("mode must be PATCH/AUDIT/REFINE/REDESIGN/REBUILD")
     if not isinstance(surface, str) or not surface.strip():
         errors.append("surface must be supplied")
-    significant = mode in {"REDESIGN", "REBUILD"}
+    significant = isinstance(mode, str) and mode in {"REDESIGN", "REBUILD"}
     expressive = isinstance(surface, str) and surface.casefold() in {"art", "experience", "experiential_commerce"}
     scenes = packet.get("scenes", [])
     if not isinstance(scenes, list):
