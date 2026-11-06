@@ -66,6 +66,16 @@ class ConceptTests(unittest.TestCase):
         b["directions"][0]["evidence_ids"] = ["invented"]
         self.assertEqual(concept.inspect(b)["status"], "INVALID")
 
+    def test_word_order_change_is_not_new_creative_direction(self):
+        b = self.brief()
+        a = b["directions"][0]
+        c = b["directions"][1]
+        for axis in concept.AXES:
+            c[axis] = " ".join(reversed(a[axis].split()))
+        c["product_specific_mechanism"] = " ".join(
+            reversed(a["product_specific_mechanism"].split()))
+        self.assertEqual(concept.inspect(b)["status"], "INVALID")
+
 
 class EvidenceTests(unittest.TestCase):
     def test_production_packet_requires_actual_artifacts(self):
