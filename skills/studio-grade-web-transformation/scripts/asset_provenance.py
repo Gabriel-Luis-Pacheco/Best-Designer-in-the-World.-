@@ -40,7 +40,7 @@ def inspect(data: dict, root: Path) -> dict:
         source = asset.get("source")
         if not isinstance(source, str) or len(source.strip()) < 4:
             errors.append(aid + ": require source, author or generation record")
-        if rights in {"licensed", "permission"} and not asset.get("rights_evidence"):
+        if isinstance(rights, str) and rights in {"licensed", "permission"} and not asset.get("rights_evidence"):
             unknown.append(aid + ": missing license/permission evidence")
         if rights == "generated" and not asset.get("generation_record"):
             unknown.append(aid + ": generated asset lacks model/prompt provenance")
