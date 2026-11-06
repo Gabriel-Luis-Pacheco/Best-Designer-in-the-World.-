@@ -3,10 +3,10 @@ name: studio-grade-web-transformation
 description: Direção de arte, pesquisa, UX/UI e implementação de sites e produtos digitais com identidade própria. Use para criar ou melhorar landing pages, dashboards, documentação, onboarding, e-commerce, experiências artísticas, mascotes, motion e design systems; também para auditoria visual, anti-AI-slop e revisão de interfaces existentes. Ajuste o processo ao objetivo e ao escopo, preserve marca e funcionalidades e valide o resultado renderizado.
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "13.0.0"
+  version: "14.0.0"
 ---
 
-# Design OS Prime v13.0.0 — understand → choose → build → inspect → improve
+# Design OS Prime v14.0.0 — understand → choose → build → inspect → improve
 
 Deliver the requested change on the actual product. For implementation tasks, a plan is an intermediate artifact. For audits, deliver findings with evidence and proposed corrections. Preserve excellent existing work. Spend effort where the observed bottleneck is; more instructions, effects or documents do not establish quality.
 
@@ -14,7 +14,7 @@ Deliver the requested change on the actual product. For implementation tasks, a 
 
 **Autonomous creative rescue:** Treat vague, generic and badly written requests as briefs to improve, NOT permission to deliver generic templates or demand ten answers. Infer the real user job, inspect project/assets, separate reversible assumptions from material unknowns, choose a product-specific direction, implement the WHOLE useful experience and revise the weakest actual rendered section. Own professional decisions so the user need not prescribe every layout, hero, mobile adaptation or revision. Do not invent product facts, claims, prices, permissions or canonical assets. Ask only for an actually blocking consequential fact, continue otherwise. Respect PATCH/AUDIT scope, constraints and excellent existing work. Load `references/prompt-rescue-and-autonomous-direction.md` when needed. This improves reliability but does not guarantee the best result on every prompt.
 
-## Non-negotiable v13 production intelligence — faithful, proactive, self-correcting
+## Non-negotiable production intelligence — faithful, proactive, self-correcting
 
 **Original-brief compass:** Keep the user's literal original request and subsequent explicit changes available through direction, first render and final delivery. Extract exact names, canonical brand/character/product references, required scenes/behaviors, user audience and protected constraints. A requested *specific named subject* is not permission to substitute a vaguely similar, invented or generic subject. Resolve ambiguous names with provided assets and authoritative references when possible; check identity-defining traits and rights separately. If unavailable, mark the unmet requirement, continue independent work and clarify only when truly blocking. Never call a generic replacement compliant. See `references/original-brief-and-referent-fidelity.md`; optional `scripts/brief_alignment.py`.
 
@@ -27,6 +27,10 @@ Deliver the requested change on the actual product. For implementation tasks, a 
 **Independent critique when tools really exist:** For substantial projects delegate distinct, bounded review tasks to real supported subagents where available: guardian of original request, first-time viewer, prospective customer, copy/positioning, search, art, accessibility/mobile, actual functionality and specialized identity/motion as relevant. Require evidence from rendered states, not builder rationales or invented user testimonials. If no independent agents are available, use sequential multi-lens self-critique and label it honestly; don't claim real user research. See `references/review-council-and-course-correction.md`; optional `scripts/review_council.py`.
 
 **Course correction, not blind momentum:** At every consequential creative decision compare against the original request, brand, real user job, honest commercial promise and whole-page experience. After the first real render, name the worst consequential mismatch; if the concept, reference identity or page architecture is wrong, go back and rebuild that level before polishing shadows. Before handoff check original must-haves and affected routes again. A beautiful but wrong deliverable is a failure. Proactivity means making the strongest feasible site, **not** guaranteeing any aesthetic award or silently changing the brief.
+
+**Evidence is not self-certification (v14):** A reviewer who did not identify an actual inspected screenshot/route/task cannot approve a screen. Specialist opinions are task-scoped; genuine independent agents need actual invocation traces. Preserve P0/P1 findings until causal fixes are evidenced and rerendered. After genuine correction, historical failures no longer block release; retain them in the log. A concept that is already strong should be preserved with evidence, not changed just to manufacture a before/after.
+
+**Unified project check (only when justified):** For significant REDESIGN/REBUILD use the optional portable `scripts/quality_controller.py` to reconcile original-brief, production captures, review evidence, positioning, assets and public search. It distinguishes MISSING, BLOCKED, INCOMPLETE and a packet ready for *human* inspection. Never claim it spawned agents, rendered a site, certified likeness, SEO rankings or visual quality. For PATCH/AUDIT run only the relevant checks, never force a full release ritual. Documentation: `references/quality-gates-and-evidence.md`; root repository audit report: `docs/CRITICAL_AUDIT_V14.md` (not included in portable package).
 
 ## 1. Establish the job and the boundary
 Inspect the user request, relevant code, running interface and original assets when available. Identify product, audience, surface, useful user outcome, existing direction, allowed scope and critical contracts. Separate **observed / supplied but unverified / inferred / proposed / unknown**. Ask only about a consequential ambiguity that inspection cannot resolve; continue independent work.
