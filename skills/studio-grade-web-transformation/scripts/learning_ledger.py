@@ -31,7 +31,7 @@ def inspect(data: dict) -> dict:
             continue
         seen.add(key)
         outcome = test.get("outcome")
-        if outcome not in OUTCOMES:
+        if not isinstance(outcome, str) or outcome not in OUTCOMES:
             errors.append(f"Test {i}: unknown outcome")
         if test.get("matched_conditions") is not True or test.get("skill_read_confirmed") is not True:
             errors.append(f"Test {i}: no verified matched baseline and actual skill read")
@@ -71,7 +71,7 @@ def main() -> None:
         if args.ledger.stat().st_size > 200_000:
             raise ValueError("Ledger exceeds 200 KB")
         report = inspect(json.loads(args.ledger.read_text(encoding="utf-8")))
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         p.exit(2, f"INVALID INPUT: {exc}\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
     if report["errors"]:
