@@ -19,6 +19,13 @@ def normalized(value: str) -> str:
     return re.sub(r"\s+", " ", value.strip().casefold())
 
 
+def lexical_overlap(a: str, b: str) -> float:
+    """Conservative word-overlap heuristic, not semantic or visual similarity."""
+    left = set(re.findall(r"\w+", normalized(a), flags=re.UNICODE))
+    right = set(re.findall(r"\w+", normalized(b), flags=re.UNICODE))
+    return len(left & right) / len(left | right) if (left or right) else 1.0
+
+
 def inspect(data: dict) -> dict:
     errors = []
     if not isinstance(data, dict):
@@ -67,21 +74,22 @@ def inspect(data: dict) -> dict:
     for a, b in combinations(valid, 2):
         differences = [axis for axis in AXES if isinstance(a.get(axis), str) and
                        isinstance(b.get(axis), str) and
-                       normalized(a[axis]) != normalized(b[axis])]
+                       normalized(a[axis]) != normalized(b[axis]) and
+                       lexical_overlap(a[axis], b[axis]) < 0.90]
         pair = {"a": a.get("id"), "b": b.get("id"),
                 "different_axes": differences, "count": len(differences)}
         pairs.append(pair)
         if len(differences) < MIN_DIFFERENCES:
             errors.append(f"Directions {a.get('id')} and {b.get('id')} vary on fewer than two structural axes")
-        if normalized(str(a.get("product_specific_mechanism", ""))) == normalized(
-                str(b.get("product_specific_mechanism", ""))):
-            errors.append(f"Directions {a.get('id')} and {b.get('id')} reuse the same product-specific mechanism")
+        if lexical_overlap(str(a.get("product_specific_mechanism", "")),
+                           str(b.get("product_specific_mechanism", ""))) >= 0.90:
+            errors.append(f"Directions {a.get('id')} and {b.get('id')} reuse a near-identical product-specific mechanism")
     return {
         "status": "REVIEW_REQUIRED" if not errors else "INVALID",
         "structural_pairs": pairs,
         "errors": errors,
         "limitations": [
-            "Different words do not prove meaningfully different concepts",
+            "Different word sets do not prove semantically or visually distinct concepts",
             "Facts and references are supplied, not independently verified",
             "No visual quality, user research or successful implementation is certified",
         ],
