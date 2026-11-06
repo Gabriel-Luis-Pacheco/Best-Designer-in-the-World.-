@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 PROOF_STATES = {"VERIFIED", "SUPPLIED_UNVERIFIED", "PROPOSED", "UNKNOWN"}
-ABSOLUTE = re.compile(r"(?i)(\b(?:guaranteed|guarantee|always|never|100%|number one|#1|o melhor do mundo|garantid[oa]|comprovad[oa])\b)")
+ABSOLUTE = re.compile(r"(?i)(?<!\w)(?:guaranteed|guarantee|always|never|100\s?%|number one|\#1|o melhor do mundo|garantid[oa]|comprovad[oa])(?!\w)")
 
 
 def nonempty(value, minimum=4):
@@ -37,7 +37,7 @@ def inspect(payload: dict) -> dict:
             errors.append("proof ids must be unique nonempty strings")
             continue
         known[p["id"]] = p
-        if p.get("status") not in PROOF_STATES:
+        if not isinstance(p.get("status"), str) or p["status"] not in PROOF_STATES:
             errors.append(p["id"] + ": invalid proof status")
         if not nonempty(p.get("source"), 8):
             errors.append(p["id"] + ": include inspectable origin, not invented evidence")
@@ -118,7 +118,7 @@ def main() -> None:
         if args.positioning.stat().st_size > 200_000:
             raise ValueError("Input exceeds 200 KB")
         result = inspect(json.loads(args.positioning.read_text(encoding="utf-8")))
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         p.exit(2, "INVALID INPUT: " + str(exc) + "\n")
     print(json.dumps(result, indent=2, ensure_ascii=False))
     if result["status"] != "READY_FOR_HUMAN_COPY_TEST":
