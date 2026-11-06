@@ -49,11 +49,20 @@ def plan(surface: str, mode: str) -> list[dict]:
         chosen += ["motion_story_editor", "reference_identity"]
     elif surface in {"read", "docs"}:
         chosen += ["search_discovery", "accessibility_mobile"]
-    if mode in {"PATCH", "AUDIT"}:
+    if mode == "PATCH":
         chosen = [x for x in chosen if x in
                   {"brief_guardian", "first_time_viewer", "functional_reviewer", "accessibility_mobile"}]
-    return [{"role": name, "lens": ROLES[name][0], "task": ROLES[name][1]}
-            for name in chosen]
+    # Critical lenses are required; others are optional expert audits.
+    # Do not force seven pseudo-agents onto an ordinary landing page.
+    essential = {"brief_guardian", "functional_reviewer"}
+    if mode != "PATCH":
+        essential |= {"first_time_viewer", "art_director"}
+        if surface in {"landing", "marketing", "commerce", "experiential_commerce"}:
+            essential.add("positioning_copy_editor")
+        if surface in {"product", "mobile", "dashboard", "internal", "checkout"}:
+            essential.add("task_operator")
+    return [{"role": name, "lens": ROLES[name][0], "task": ROLES[name][1],
+             "required": name in essential} for name in chosen]
 
 
 def inspect(data: dict) -> dict:
@@ -68,7 +77,13 @@ def inspect(data: dict) -> dict:
         errors.append("Workflow mode must be PATCH/AUDIT/REFINE/REDESIGN/REBUILD")
         mode = "AUDIT"
     assignments = plan(surface, mode)
-    expected = {r["role"] for r in assignments}
+    available = {r["role"] for r in assignments}
+    expected = {r["role"] for r in assignments if r["required"]}
+    requested = data.get("requested_roles", [])
+    if not isinstance(requested, list) or any(not isinstance(r, str) or r not in available for r in requested):
+        errors.append("requested_roles must list valid selected roles")
+    else:
+        expected.update(requested)
     reviews = data.get("reviews", [])
     if not isinstance(reviews, list):
         errors.append("reviews must be an array")
@@ -79,7 +94,7 @@ def inspect(data: dict) -> dict:
             errors.append("Review must declare a known string role")
             continue
         role = entry["role"]
-        if role not in expected:
+        if role not in available:
             errors.append(role + ": role outside selected scope")
         if role in received:
             errors.append(role + ": repeated reviewer role")
@@ -132,7 +147,7 @@ def inspect(data: dict) -> dict:
             if not substantial(issue.get("recommendation")):
                 errors.append(role + ": recommend a causal fix")
             resolution = issue.get("resolution", "OPEN")
-            if resolution not in {"OPEN", "VERIFIED_FIXED"}:
+            if not isinstance(resolution, str) or resolution not in {"OPEN", "VERIFIED_FIXED"}:
                 errors.append(role + ": finding resolution must be OPEN/VERIFIED_FIXED")
             if severity in {"P0", "P1"}:
                 if resolution == "VERIFIED_FIXED":
@@ -141,6 +156,7 @@ def inspect(data: dict) -> dict:
                 else:
                     blockers.append(role + ": " + str(issue.get("observation", "major issue")))
     missing = sorted(expected - received)
+    optional_missing = sorted(available - expected - received)
     if not reviews and not errors:
         state = "ASSIGNMENTS_ONLY"
     elif errors:
@@ -158,6 +174,7 @@ def inspect(data: dict) -> dict:
         "No automatic certification of visual quality, conversion or accessibility",
     ])
     return {"status": state, "assignments": assignments, "missing_roles": missing,
+            "optional_roles_not_run": optional_missing,
             "incomplete_reviews": incomplete, "errors": errors,
             "blockers": blockers, "limitations": limitations}
 
