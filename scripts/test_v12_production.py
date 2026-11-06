@@ -99,6 +99,41 @@ class EvidenceTests(unittest.TestCase):
                 {"id": "keyboard", "status": "UNKNOWN", "reason": "No runtime was available"}]}
             self.assertEqual(evidence.inspect(packet, Path(d))["status"], "INCOMPLETE_UNKNOWN")
 
+    def test_crc_corrupt_png_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "corrupt.png"
+            good = bytearray(png((10, 10, 10, 255)))
+            good[30] ^= 1
+            p.write_bytes(good)
+            with self.assertRaisesRegex(ValueError, "CRC"):
+                evidence.artifact(Path(d), "corrupt.png", png=True)
+
+    def test_evidenced_preservation_does_not_force_fake_rework(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "real.png").write_bytes(png((255, 0, 0, 255)))
+            (root / "check.log").write_text("Existing scene already passed inspection")
+            packet = {
+                "mode": "REDESIGN", "surface": "landing",
+                "scenes": [{"id": s, "purpose": "Show the genuine product and working action",
+                            "desktop": "real.png", "mobile": "real.png"}
+                           for s in ("opening", "middle", "closing")],
+                "checks": [{"id": c, "status": "PASS", "evidence": ["check.log"]}
+                           for c in evidence.CORE_CHECKS],
+                "preserve_decision": {"decision": "PRESERVE",
+                                      "reason": "Human reviewer inspected the complete useful site and found no material problem",
+                                      "review_evidence": ["real.png", "check.log"]},
+            }
+            self.assertEqual(evidence.inspect(packet, root)["status"], "EVIDENCE_READY_FOR_HUMAN_REVIEW")
+            packet["preserve_decision"]["review_evidence"] = ["missing.png"]
+            self.assertEqual(evidence.inspect(packet, root)["status"], "INVALID")
+
+    def test_wrong_types_report_invalid(self):
+        with tempfile.TemporaryDirectory() as d:
+            packet = {"mode": "PATCH", "surface": "product", "checks": [
+                {"id": "keyboard", "status": ["PASS"]}], "blockers": "bad"}
+            self.assertEqual(evidence.inspect(packet, Path(d))["status"], "INVALID")
+
 
 class AssetTests(unittest.TestCase):
     def test_canonical_byte_integrity(self):
