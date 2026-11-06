@@ -1,4 +1,4 @@
-# Design OS Prime v13.0.0
+# Design OS Prime v14.0.0
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
@@ -9,6 +9,12 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 ```
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
+
+## v14.0.0 — auditoria crítica e validação mais confiável
+
+A v14 prioriza corrigir erros reais em vez de acumular guias: críticas vazias deixam de ser aprovadas, verificações reconhecem correções efetivas entre o primeiro render e a entrega, PNGs são validados estruturalmente, tipos JSON inválidos não derrubam os validadores, e a qualidade de layouts existentes pode ser preservada quando não há motivo real para refazer.
+
+Novo controlador `scripts/quality_controller.py` integra as evidências disponíveis de briefing, renderização, revisores, assets, posicionamento e SEO conforme o escopo. Ele **não** gera sites, chama subagentes ou atribui nota automática de beleza. [Relatório de auditoria e exemplo de uso](docs/CRITICAL_AUDIT_V14.md). Os **82 cenários declarados** permanecem planos de avaliação, não vitórias verificadas.
 
 ## v13.0.0 — posicionamento, copy, SEO e fidelidade ao pedido
 

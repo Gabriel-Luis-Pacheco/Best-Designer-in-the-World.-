@@ -1,4 +1,4 @@
-# Design OS Prime v13.0.0 — Start here
+# Design OS Prime v14.0.0 — Start here
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
@@ -8,6 +8,15 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 ## Menos poluição, mais produto e marca
 
 Para landing, priorize: intenção da pessoa → promessa verificável → demonstração concreta → ação honesta. Planeje abertura, miolo e fecho, fundindo ou cortando cenas repetitivas antes do polimento. Ative os guias `references/attention-architecture-and-density.md`, `references/brand-affinity-and-desire.md` e, para jornadas de produto, `references/activation-retention-and-ethical-engagement.md`. O critério não é ter poucas palavras: é cada elemento merecer a atenção que recebe.
+
+## V14: QA que não aprova sem provas
+
+- Em projetos completos, confronte briefing, capturas reais, críticos, provas, assets e SEO no controlador opcional `scripts/quality_controller.py`. Ele não executa os testes por você; detecta lacunas e falhas no pacote apresentado.
+- Críticas vazias exigem observação e evidência; falhas P0/P1 devem ser corrigidas e recapturadas antes da conclusão.
+- Uma primeira versão ruim pode ser corrigida e aprovada na entrega sem apagar o histórico. Uma parte já excelente não exige uma mudança artificial.
+- Um relatório `EVIDENCE_PACKET_FOR_HUMAN_REVIEW` **não** certifica qualidade estética, acessibilidade nem conversão.
+
+Exemplo e auditoria: [CRITICAL_AUDIT_V14.md](CRITICAL_AUDIT_V14.md).
 
 ## V13: fidelidade ao pedido e qualidade comercial proativa
 

@@ -17,11 +17,11 @@ RIGHTS = {"AUTHORIZED", "UNKNOWN", "NOT_APPLICABLE"}
 
 
 def inspect(data: dict) -> dict:
-    errors, blockers, unresolved, warnings = [], [], [], []
+    errors, blockers, unresolved, warnings, historical = [], [], [], [], []
     if not isinstance(data, dict):
         return {"status": "INVALID", "errors": ["Expected an object"]}
     mode = data.get("mode")
-    if mode not in MODES:
+    if not isinstance(mode, str) or mode not in MODES:
         errors.append("mode must be one of " + ", ".join(sorted(MODES)))
     original = data.get("original_brief")
     if not isinstance(original, str) or not original.strip():
@@ -42,9 +42,9 @@ def inspect(data: dict) -> dict:
         by_id[rid] = item
         if not isinstance(item.get("text"), str) or len(item["text"].strip()) < 8:
             errors.append(rid + ": require recognizable original requirement")
-        if item.get("priority") not in PRIORITIES:
+        if not isinstance(item.get("priority"), str) or item["priority"] not in PRIORITIES:
             errors.append(rid + ": priority must be MUST/SHOULD/OPTIONAL")
-        if item.get("exact_referent"):
+        if "exact_referent" in item:
             ref = item["exact_referent"]
             if not isinstance(ref, dict):
                 errors.append(rid + ": exact_referent must be an object")
@@ -56,7 +56,7 @@ def inspect(data: dict) -> dict:
             if (not isinstance(ref.get("distinctive_traits"), list) or not ref["distinctive_traits"] or
                 any(not isinstance(x, str) or not x.strip() for x in ref["distinctive_traits"])):
                 errors.append(rid + ": record identity-defining traits; a generic stand-in is forbidden")
-            if ref.get("rights") not in RIGHTS:
+            if not isinstance(ref.get("rights"), str) or ref["rights"] not in RIGHTS:
                 errors.append(rid + ": rights must be AUTHORIZED/UNKNOWN/NOT_APPLICABLE")
             elif ref["rights"] == "UNKNOWN":
                 unresolved.append(rid + ": reuse/publication permissions unresolved")
@@ -88,12 +88,12 @@ def inspect(data: dict) -> dict:
                 errors.append(stage + ": check must be an object")
                 continue
             rid = check.get("requirement_id")
-            if rid not in by_id or rid in seen:
+            if not isinstance(rid, str) or rid not in by_id or rid in seen:
                 errors.append(stage + ": unknown or repeated requirement id: " + str(rid))
                 continue
             seen.add(rid)
             result = check.get("result")
-            if result not in RESULTS:
+            if not isinstance(result, str) or result not in RESULTS:
                 errors.append(stage + "/" + rid + ": PASS/FAIL/UNKNOWN required")
                 continue
             latest[stage][rid] = check
@@ -101,22 +101,31 @@ def inspect(data: dict) -> dict:
                 why = check.get("observation")
                 if not isinstance(why, str) or len(why.strip()) < 12:
                     errors.append(stage + "/" + rid + ": explain FAIL/UNKNOWN")
-                if result == "FAIL":
-                    blockers.append(stage + "/" + rid + ": observed requirement failure")
+                if stage == "RELEASE":
+                    if result == "FAIL":
+                        blockers.append(stage + "/" + rid + ": observed requirement failure")
+                    else:
+                        unresolved.append(stage + "/" + rid + ": not yet verified")
                 else:
-                    unresolved.append(stage + "/" + rid + ": not yet verified")
+                    historical.append((stage, rid, result))
             else:
                 if stage != "DIRECTION" and (not isinstance(check.get("evidence"), list) or
                     not check["evidence"] or not all(isinstance(x, str) and x.strip() for x in check["evidence"])):
                     errors.append(stage + "/" + rid + ": rendered PASS needs inspectable evidence references")
             if by_id[rid].get("exact_referent") and stage != "DIRECTION":
                 state = check.get("identity_state")
-                if state not in REFERENT_STATES:
+                if not isinstance(state, str) or state not in REFERENT_STATES:
                     errors.append(stage + "/" + rid + ": explicit identity_state required")
                 elif state == "MISMATCHED":
-                    blockers.append(stage + "/" + rid + ": incorrect named identity; never substitute silently")
+                    if stage == "RELEASE":
+                        blockers.append(stage + "/" + rid + ": incorrect named identity; never substitute silently")
+                    else:
+                        historical.append((stage, rid, "MISMATCHED_IDENTITY"))
                 elif state in {"UNVERIFIED", "NOT_RENDERED"}:
-                    unresolved.append(stage + "/" + rid + ": named identity unverified")
+                    if stage == "RELEASE":
+                        unresolved.append(stage + "/" + rid + ": named identity unverified")
+                    else:
+                        historical.append((stage, rid, state))
                 if (state == "MATCHED" and result == "PASS" and
                     (not isinstance(check.get("identity_review"), str) or not check["identity_review"].strip())):
                     errors.append(stage + "/" + rid + ": report who compared output to canonical reference")
@@ -124,7 +133,7 @@ def inspect(data: dict) -> dict:
             for rid, item in by_id.items():
                 if item.get("priority") == "MUST" and rid not in seen:
                     blockers.append("RELEASE/" + rid + ": missing must-have verification")
-    if mode in {"REDESIGN", "REBUILD"}:
+    if isinstance(mode, str) and mode in {"REDESIGN", "REBUILD"}:
         for stage in STAGES:
             if stage not in found:
                 unresolved.append("Missing " + stage + " checkpoint")
@@ -135,7 +144,7 @@ def inspect(data: dict) -> dict:
         errors.append("proposed_deviations must be a list")
         deviations = []
     for change in deviations:
-        if not isinstance(change, dict) or change.get("requirement_id") not in by_id:
+        if not isinstance(change, dict) or not isinstance(change.get("requirement_id"), str) or change["requirement_id"] not in by_id:
             errors.append("Deviations must cite existing requirements")
             continue
         if not isinstance(change.get("reason"), str) or not change["reason"].strip():
@@ -147,6 +156,16 @@ def inspect(data: dict) -> dict:
         for rid, item in by_id.items():
             if item.get("priority") == "MUST" and release.get(rid, {}).get("result") != "PASS":
                 blockers.append("RELEASE/" + rid + ": MUST not verified PASS")
+    for stage, rid, previous in historical:
+        last = release.get(rid, {})
+        referent = by_id[rid].get("exact_referent")
+        resolved = (last.get("result") == "PASS" and
+                    (not referent or last.get("identity_state") == "MATCHED"))
+        if not resolved:
+            unresolved.append(stage + "/" + rid + ": prior " + previous + " not reconciled at release")
+        else:
+            warnings.append(stage + "/" + rid + ": prior " + previous + " resolved at release (verify evidence)")
+
     if errors:
         state = "INVALID"
     elif blockers:
@@ -157,6 +176,7 @@ def inspect(data: dict) -> dict:
         state = "READY_FOR_HUMAN_REVIEW"
     warnings.append("Check declarations and identity labels are not automatic visual or legal certification")
     return {"status": state, "errors": errors, "blockers": sorted(set(blockers)),
+            "historical_checks": [{"stage": st, "requirement_id": rid, "status": code} for st, rid, code in historical],
             "unresolved": sorted(set(unresolved)), "warnings": warnings,
             "limitations": "Manual evidence review and real product rendering remain essential"}
 
@@ -169,7 +189,7 @@ def main() -> None:
         if args.contract.stat().st_size > 200_000:
             raise ValueError("Contract exceeds 200 KB")
         report = inspect(json.loads(args.contract.read_text(encoding="utf-8")))
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         p.exit(2, "INVALID INPUT: " + str(exc) + "\n")
     print(json.dumps(report, indent=2, ensure_ascii=False))
     if report["status"] != "READY_FOR_HUMAN_REVIEW":
