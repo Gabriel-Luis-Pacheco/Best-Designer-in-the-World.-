@@ -111,6 +111,9 @@ Run: `python skills/studio-grade-web-transformation/scripts/review_council.py re
   "role": "first_time_viewer",
   "review_mode": "SEQUENTIAL_SELF_REVIEW",
   "saw_builder_rationale": false,
+  "task_observed": "Inspected the real first viewport and tried the contact path",
+  "inspected_evidence": ["captures/first-viewport.png", "checks/contact.log"],
+  "verdict": "ISSUES_FOUND",
   "findings": [
     {"severity": "P1",
      "observation": "The hero does not identify the actual service on the first screen",
@@ -119,6 +122,8 @@ Run: `python skills/studio-grade-web-transformation/scripts/review_council.py re
   ]
 }
 ```
+
+A reviewed role with no observed problems must use `verdict: "NO_ISSUES_OBSERVED"` while still documenting its actual task and inspected artifacts. To close an observed P0/P1, use `resolution: "VERIFIED_FIXED"` and list real `fix_evidence`; otherwise the blocker stays open. The roles marked `required` in the plan are the minimum, optional specialists are selected by task, and explicit `requested_roles` remain mandatory when given. The v14 `quality_controller.py` can check the referenced files exist inside an authorized evidence directory.
 
 Include a unique actual invocation ID for `INDEPENDENT_AGENT`, or a real recruitment/session trace for `REAL_USER`. Do not claim that an agent's buyer role is observed customer data. Merge a fix only after rechecking rendered evidence and original must-haves.
 
