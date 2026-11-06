@@ -10,7 +10,7 @@ This guide is **optional tooling** for significant redesigns, expressive sites a
 | New LANDING / REDESIGN | Collect true facts, compare materially distinct directions | `creative_concept_gate.py` |
 | New or edited brand imagery | Locate canonical assets and permissions; prevent silent replacement | `asset_provenance.py` |
 | Cinematic / interactive ART | Author opening, middle, climax and closure with device/interaction fallbacks | `cinematic_timeline.py` |
-| Substantial REDESIGN / REBUILD | Render opening, middle, closing on desktop/mobile; fix the weakest link | `production_evidence.py` |
+| Substantial REDESIGN / REBUILD | Render opening, middle, closing on desktop/mobile; fix actual weaknesses or justify preservation with evidence | `production_evidence.py` |
 | Competitor/no-skill research | Run matched agent builds and blinded human review | Existing `scripts/run_evals.py`, `scripts/validate_experiment.py`, `scripts/compare_skill_league.py` |
 | Repeated measured failures/wins | Retain counterevidence before proposing a general rule | `learning_ledger.py` |
 
@@ -53,7 +53,7 @@ Run:
 python SKILL_SCRIPTS/creative_concept_gate.py directions.json
 ```
 
-The gate detects only **declared structural differences**, missing product grounding and duplicate declarations. Human review must still reject word-swapped concepts, shallow novelty and unverified facts. A valid result is `REVIEW_REQUIRED`, **not** a selected winner.
+The gate detects only **declared structural and conservative lexical differences**, missing product grounding and duplicate declarations. Human review must still reject word-swapped concepts, shallow novelty and unverified facts. A valid result is `REVIEW_REQUIRED`, **not** a selected winner.
 
 ## 2. Art and motion need a real production plan
 
@@ -131,7 +131,7 @@ After implementing and capturing **real** browser output, create a `production.j
 }
 ```
 
-Use `UNKNOWN` plus `reason` for unexecuted checks. Never fake a PASS report. Run `python SKILL_SCRIPTS/production_evidence.py production.json --root EVIDENCE_DIR`.
+For an already-correct design, omit `iteration` and provide `preserve_decision` with `decision: PRESERVE`, a substantive `reason` and real `review_evidence` files. Do not manufacture changes to satisfy a checklist. Screenshots are checked for PNG structure/CRCs, not visual provenance. Use `UNKNOWN` plus `reason` for unexecuted checks. Never fake a PASS report. Run `python SKILL_SCRIPTS/production_evidence.py production.json --root EVIDENCE_DIR`.
 
 Result `EVIDENCE_READY_FOR_HUMAN_REVIEW` means **files were supplied and declarations are structurally consistent**. It does not mean visually approved, independently tested, secure, accessible, performant, or converted. Screenshots are untrusted until visually inspected. Treat P0/P1 defects as blockers regardless of art quality.
 
