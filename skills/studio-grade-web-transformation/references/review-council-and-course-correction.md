@@ -1,6 +1,6 @@
 # Multi-lens critique council and brief realignment
 
-Activate for significant REDESIGN/REBUILD, difficult artistic sites, commercial launches, or recurring dissatisfaction. Small PATCH/AUDIT uses only the reviewers necessary. This is a **review workflow**; writing role labels does not create actual agents or customer interviews.
+Activate for significant REDESIGN/REBUILD, difficult artistic sites, commercial launches, or recurring dissatisfaction. A PATCH stays small; a substantial AUDIT retains the relevant specialist lenses. This is a **review workflow**; writing role labels does not create actual agents or customer interviews.
 
 ## Assign a real role and a visible task
 
@@ -52,4 +52,4 @@ Do not turn reviewer votes into “9.8/10 Awwwards quality.” A majority of sim
 - Recheck the original brief after every material course correction, and record whether the fix introduced new regressions.
 - If the requested result genuinely meets the brief and no consequential failure remains, do not invent a worse redesign merely to appear proactive.
 
-The optional `review_council.py` generates scoped assignments and checks declared findings, reviewer mode, invocation traces and blockers. It does not spawn subagents, authenticate reviewers, judge aesthetic quality or prove customer reactions.
+The optional `review_council.py` generates core and optional assignments and requires an observed task, inspected evidence, a concrete verdict, provenance and post-fix evidence for resolved major findings. Its output can be checked against actual local evidence bytes using `scripts/quality_controller.py`. It does not spawn subagents, authenticate reviewers, judge aesthetic quality or prove customer reactions.
