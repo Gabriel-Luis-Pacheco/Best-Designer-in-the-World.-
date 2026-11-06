@@ -224,6 +224,19 @@ class CouncilTests(unittest.TestCase):
     def test_small_patch_avoids_ritual(self):
         self.assertLessEqual(len(council.plan("landing", "PATCH")), 3)
 
+    def test_full_audit_keeps_specialist_lenses(self):
+        roles = {x["role"] for x in council.plan("landing", "AUDIT")}
+        self.assertIn("art_director", roles)
+        self.assertIn("positioning_copy_editor", roles)
+        self.assertIn("search_discovery", roles)
+
+    def test_requested_optional_role_must_be_reviewed(self):
+        packet = {"surface": "landing", "mode": "REBUILD", "requested_roles": ["search_discovery"],
+                  "reviews": []}
+        result = council.inspect(packet)
+        self.assertIn("search_discovery", result["missing_roles"])
+        self.assertNotIn("prospective_customer", result["missing_roles"])
+
     def test_no_fake_customer_claim(self):
         packet = {"surface": "landing", "mode": "REBUILD",
                   "reviews": [{"role": "prospective_customer", "review_mode": "REAL_USER",
