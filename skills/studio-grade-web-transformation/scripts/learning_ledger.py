@@ -44,7 +44,7 @@ def inspect(data: dict) -> dict:
     projects = {r["project_id"] for r in runs}
     wins = sum(r["outcome"] == "WITH_SKILL" for r in runs)
     losses = sum(r["outcome"] == "BASELINE" for r in runs)
-    mixed = sum(r["outcome"] in {"MIXED", "TIE", "INCONCLUSIVE"} for r in runs)
+    mixed = sum(isinstance(r["outcome"], str) and r["outcome"] in {"MIXED", "TIE", "INCONCLUSIVE"} for r in runs)
     if len(projects) < 2:
         warnings.append("Evidence covers fewer than two distinct projects: no general rule justified")
     if wins < 2:
