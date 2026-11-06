@@ -122,6 +122,36 @@ class OriginalBriefTests(unittest.TestCase):
         record["original_brief"] = "site foda"
         self.assertEqual(brief.inspect(record)["status"], "READY_FOR_HUMAN_REVIEW")
 
+    def test_correcting_initial_bad_identity_is_allowed(self):
+        record = briefing()
+        old = record["checkpoints"][1]["checks"][0]
+        old["result"] = "FAIL"
+        old["identity_state"] = "MISMATCHED"
+        old["observation"] = "The first rendering used a generic substitute"
+        report = brief.inspect(record)
+        self.assertEqual(report["status"], "READY_FOR_HUMAN_REVIEW")
+        self.assertTrue(report["historical_checks"])
+        record["checkpoints"][-1]["checks"][0]["identity_state"] = "MISMATCHED"
+        self.assertEqual(brief.inspect(record)["status"], "BLOCKED")
+
+    def test_correction_reconciles_unverified_first_render(self):
+        record = briefing()
+        old = record["checkpoints"][1]["checks"][1]
+        old["result"] = "UNKNOWN"
+        old["observation"] = "The form could not be tested in the first preview"
+        self.assertEqual(brief.inspect(record)["status"], "READY_FOR_HUMAN_REVIEW")
+
+    def test_malformed_check_and_referent_types_are_invalid(self):
+        record = briefing()
+        record["checkpoints"][0]["checks"][0]["requirement_id"] = []
+        self.assertEqual(brief.inspect(record)["status"], "INVALID")
+        record = briefing()
+        record["requirements"][0]["exact_referent"]["rights"] = {}
+        self.assertEqual(brief.inspect(record)["status"], "INVALID")
+        record = briefing()
+        record["checkpoints"][1]["checks"][0]["identity_state"] = []
+        self.assertEqual(brief.inspect(record)["status"], "INVALID")
+
     def test_malformed_deviations_and_missing_priority_do_not_crash(self):
         record = briefing()
         record["proposed_deviations"] = "invalid"
