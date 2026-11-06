@@ -83,12 +83,12 @@ def inspect(packet: dict, root: Path) -> dict:
     if not isinstance(packet, dict):
         return {"status": "INVALID", "errors": ["Packet must be an object"], "warnings": []}
     mode, surface = packet.get("mode"), packet.get("surface")
-    if mode not in MODES:
+    if not isinstance(mode, str) or mode not in MODES:
         errors.append("mode must be PATCH/AUDIT/REFINE/REDESIGN/REBUILD")
     if not isinstance(surface, str) or not surface.strip():
         errors.append("surface must be supplied")
     significant = mode in {"REDESIGN", "REBUILD"}
-    expressive = surface in {"ART", "EXPERIENCE", "EXPERIENTIAL_COMMERCE", "art", "experience", "experiential_commerce"}
+    expressive = isinstance(surface, str) and surface.casefold() in {"art", "experience", "experiential_commerce"}
     scenes = packet.get("scenes", [])
     if not isinstance(scenes, list):
         errors.append("scenes must be an array")
