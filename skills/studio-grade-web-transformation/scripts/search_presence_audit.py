@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 class PageParser(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
+        self.html_lang = ""
         self.in_head = False
         self.in_title = False
         self.in_script = False
@@ -29,28 +30,30 @@ class PageParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
-        if tag == "head":
+        if tag == "html":
+            self.html_lang = a.get("lang") or ""
+        elif tag == "head":
             self.in_head = True
         elif tag == "title" and self.in_head:
             self.in_title = True
         elif tag == "meta" and self.in_head:
             key = a.get("name") or a.get("property")
             if key:
-                self.meta.setdefault(key.casefold(), []).append(a.get("content", ""))
+                self.meta.setdefault(key.casefold(), []).append(a.get("content") or "")
         elif tag == "link" and self.in_head:
-            if "canonical" in a.get("rel", "").lower().split():
-                self.canonical.append(a.get("href", ""))
+            if "canonical" in (a.get("rel") or "").lower().split():
+                self.canonical.append(a.get("href") or "")
         elif tag == "h1":
             self.in_h1 = True
             self.h1.append("")
         elif tag == "a":
             self.in_anchor = True
-            self.current_anchor = {"href": a.get("href", ""), "text": ""}
+            self.current_anchor = {"href": a.get("href") or "", "text": ""}
         elif tag == "img":
             self.img.append({"src": a.get("src", ""), "alt": a.get("alt")})
         elif tag == "script":
             self.in_script = True
-            self.script_kind = a.get("type", "")
+            self.script_kind = a.get("type") or ""
             self._buffer = []
 
     def handle_data(self, data):
@@ -96,6 +99,8 @@ def audit_page(name, source, public=True):
                 "reason": "Private/internal interfaces do not require public search visibility"}
     title = p.title.strip()
     description = p.meta.get("description", [""])[0].strip()
+    if not p.html_lang.strip():
+        flag("LANG_REVIEW", "REVIEW", "Declare the correct document language for users and assistive technology")
     if not title:
         flag("TITLE_MISSING", "P1", "Public page has no static title; inspect rendered HTML if framework injects it")
     if not description:
@@ -120,7 +125,7 @@ def audit_page(name, source, public=True):
         flag("CANONICAL_REVIEW", "REVIEW", "Consider explicit canonical when duplicate URLs exist")
     for anchor in p.anchors:
         href = anchor["href"].strip()
-        if href == "#" or href.lower().startswith("javascript:"):
+        if not href or href == "#" or href.lower().startswith("javascript:"):
             flag("NONCRAWLABLE_NAVIGATION", "REVIEW", "A link uses a placeholder or JS href")
         if href and href.startswith(("/", "http")) and anchor["text"].strip().lower() in {
                 "click here", "learn more", "clique aqui", "saiba mais"}:
@@ -131,7 +136,7 @@ def audit_page(name, source, public=True):
     for item in p.structured:
         if not item["valid"]:
             flag("JSONLD_INVALID", "REVIEW", "Structured JSON-LD could not be parsed; verify live rich result eligibility")
-    if "og:title" not in p.meta or "og:description" not in p.meta:
+    if "og:title" not in p.meta or "og:description" not in p.meta or "og:image" not in p.meta:
         flag("SOCIAL_PREVIEW", "REVIEW", "Check sharing preview metadata if the route is intended to be shared")
     return {"file": name, "status": "STATIC_REVIEW_ONLY", "title": title,
             "description": description, "h1": [s.strip() for s in p.h1],
@@ -142,6 +147,11 @@ def audit_page(name, source, public=True):
 
 
 def inspect(files: dict[str, str], public=True):
+    if not isinstance(files, dict) or not files or any(
+        not isinstance(k, str) or not isinstance(v, str) for k, v in files.items()
+    ):
+        return {"status": "INVALID", "pages": [], "counts": {},
+                "errors": ["Expected a nonempty mapping of filenames to HTML text"]}
     results = [audit_page(k, v, public) for k, v in files.items()]
     titles = {}
     descriptions = {}
