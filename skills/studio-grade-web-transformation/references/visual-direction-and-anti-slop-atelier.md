@@ -1,5 +1,7 @@
 # Visual direction and anti-slop atelier — a real design language, not a template aesthetic
 
+**Visual-first execution:** For new/redesigned landing pages use `code-first-visual-direction-studio.md`: create runnable alternative sketches with an opening, real proof and ending, compare desktop/mobile pixels and fix the weakest rendered scene. The following design guidelines do not replace actual implementation.
+
 **Load for:** REDESIGN/REBUILD, bland generative UI, ambitious creative direction, full-page visual review, major brand/hero/motion work. For a small scoped PATCH use only the relevant check. This complements `creative-signature-and-form.md`, `typography-layout-craft.md` and `anti-slop-composition.md`; it should never force extra approval documents.
 
 ## 1. Origin of the visual concept: evidence -> visual law -> memorable behavior

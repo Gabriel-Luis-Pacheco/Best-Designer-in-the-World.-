@@ -1,3 +1,10 @@
+### 2026-11-11 — Visual-first creative implementation (v14 additive)
+- Put visual production and inspected pixels ahead of lengthy plans and redundant growth/QA prose (approximately 4.5 KB cut from the SKILL.md core).
+- Added a code-first visual direction and asset guide: distinct working sketches, hero/proof/ending, mobile recomposition and causal repair.
+- Added the portable Playwright visual_direction_studio.mjs to capture comparable scenes from 2–3 real local pages, with HTML review gallery, hashes and recorded runtime warnings; no aesthetic scores.
+- Added desktop/mobile fixture comparisons, safety and HTML-escaping tests, npm command, and documented limits.
+- No independent design superiority, Awwwards quality, user research or real conversion has been demonstrated. See docs/VISUAL_FIRST_CRITICAL_AUDIT_2026-11-11.md.
+
 ### 2026-11-11 — Critical audit, specialist routing consolidation and consequential system UX (v14 additive)
 - Replaced the old independently capped brain/specialist_router.py implementation with a compatibility adapter for the canonical task-aware specialist registry; preserved legacy request format, removed duplicate recommendation logic and default expert limit.
 - Added explicit negative-intent filtering for requested technology/skill vetoes and a closed-by-default project-authority gate for the BataTalk-specific CEO candidate; actual external actions still require their own authorization.

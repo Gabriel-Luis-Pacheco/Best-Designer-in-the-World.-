@@ -96,6 +96,13 @@ def route(action: str, surface: str, scope: str | None = None, task: str = "") -
         # The caller's explicit boundary governs; a request for analysis is not permission to edit.
         mode = scope
     refs = list(dict.fromkeys(guides + SURFACES[surface] + ["references/precision-design-operations.md"]))
+    # Create and compare ACTUAL pages when visual ambition is central; a PATCH should not reopen art direction.
+    visual_task = _has_signal(task, ("visual", "design", "interface", "landing", "direcao de arte",
+                                    "direção de arte", "hero", "website", "site", "awwwards", "original"))
+    if scope != "PATCH" and action in {"build", "bolder", "overdrive", "variants"} and (
+            surface in {"marketing", "art"} or surface == "product" and visual_task):
+        refs.insert(0, "references/code-first-visual-direction-studio.md")
+        refs = list(dict.fromkeys(refs))
     if scope == "PATCH":
         refs = list(dict.fromkeys(guides[:1] + SURFACES[surface][:1] + ["references/precision-design-operations.md"]))
     if task and surface in {"product","internal","marketing","native","read"}:
