@@ -16,6 +16,12 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Pesquisa visual por referências reais — 11/11/2026
+
+Para LANDING/REDESIGN e seções visuais fracas, a skill agora pede **observação real de concorrentes, grandes marcas e seções específicas** antes de confiar no gosto genérico do modelo. O agente pode consultar **One Page Love MCP**, **21st MCP**, navegador via **Playwright** e **Chrome DevTools**, conforme conexões disponíveis; registra **o que realmente inspecionou**, extrai mecanismo (layout, tipografia, mídia, motion, prova), adapta à identidade do produto, implementa e revisa screenshots desktop/mobile. Sem clones, assets alheios ou alegações fictícias de conversão. Para um "continua e finaliza" de LP já iniciada, deve corrigir as **cenas mais fracas** sem reiniciar o projeto.
+
+[Guia operacional de referências e MCPs](skills/studio-grade-web-transformation/references/reference-led-visual-intelligence.md) · [Cenários de avaliação (não executados)](skills/studio-grade-web-transformation/evals/reference_first_scenarios.json).
+
 ## Visuais extraordinários precisam de páginas renderizadas — 11/11/2026
 
 A Design OS agora prioriza **construir, renderizar e refinar interfaces reais**, antes de investir em longos planos. Quando a direção artística ainda não foi escolhida, o agente cria **duas ideias visualmente distintas em código**, incluindo abertura, prova no meio, fechamento e composição mobile, e pode compará-las num navegador local. Após escolher a direção mais adequada, finaliza o site completo e repara a parte visualmente mais fraca. Não gera fotos/3D sem recursos ou direitos; seleciona o meio adequado e protege a identidade original.

@@ -254,6 +254,109 @@
       "extract": "WebGL resource ownership, loading, texturing and render performance",
       "caution": "3D not obligatory; respect target implementation and fallbacks",
       "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "one-page-love-mcp",
+      "url": "https://onepagelove.com/mcp",
+      "mcp_endpoint": "https://api.onepagelove.com/mcp",
+      "when": [
+        "landing",
+        "marketing",
+        "reference",
+        "visual"
+      ],
+      "extract": "Actual landing websites, section screenshots, design/typography patterns to inspect and adapt",
+      "caution": "Free-beta and rate-limited at verification time; no automatic connection; no source-code or asset reuse rights; never claim uninspected screenshots",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "21st-mcp",
+      "url": "https://21st.dev/mcp",
+      "mcp_endpoint": "https://21st.dev/api/mcp",
+      "when": [
+        "component",
+        "react",
+        "landing",
+        "reference"
+      ],
+      "extract": "Search reusable component examples, inspect visual interaction patterns and compatible implementation candidates",
+      "caution": "Search free; code access quota/key or OAuth may apply; check license, security and stack compatibility; no implicit install",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "playwright-mcp-cli",
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "when": [
+        "browser",
+        "visual",
+        "landing",
+        "testing"
+      ],
+      "extract": "Browser navigation, screenshots, viewports and interaction evidence, MCP or efficient CLI when already available",
+      "caution": "Accessibility snapshot alone is not a visual inspection; use actual image and state; no private browsing access without approval",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "when": [
+        "browser",
+        "visual",
+        "performance",
+        "testing"
+      ],
+      "extract": "Screenshot, console/network and performance inspection for real rendered pages",
+      "caution": "Browser data can be sensitive; client installation/connectivity not assumed; lab traces are not user-field vitals",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "one-page-love",
+      "url": "https://onepagelove.com/",
+      "when": [
+        "landing",
+        "marketing",
+        "reference",
+        "visual"
+      ],
+      "extract": "Handpicked landing examples and individual section mechanisms",
+      "caution": "Do not clone proprietary graphics/layouts or infer measured conversion",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "21st",
+      "url": "https://21st.dev/",
+      "when": [
+        "component",
+        "landing",
+        "react"
+      ],
+      "extract": "Public visual/component patterns and possible implementation examples",
+      "caution": "Inspect license, costs, framework version; avoid generic pasted component collections",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "behance",
+      "url": "https://www.behance.net/",
+      "when": [
+        "brand",
+        "visual",
+        "art-direction"
+      ],
+      "extract": "Detailed brand-system presentation and design-case studies",
+      "caution": "Case studies may contain concept mockups; no real site or rights inferred",
+      "access": "VERIFY_AT_RUNTIME"
+    },
+    {
+      "id": "dribbble",
+      "url": "https://dribbble.com/",
+      "when": [
+        "visual",
+        "reference",
+        "component"
+      ],
+      "extract": "Art-direction, type, media and interface fragments",
+      "caution": "Single shot may be nonfunctional concept; do not assume full UX flow",
+      "access": "VERIFY_AT_RUNTIME"
     }
   ]
 }

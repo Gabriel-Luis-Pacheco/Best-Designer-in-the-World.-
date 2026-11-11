@@ -2,6 +2,8 @@
 
 **Load for new/redesigned LANDING, MARKETING, ART and ambitious visual product surfaces.** This is the fastest path from promising concept to actual browser pixels. Skip for a small PATCH, an analysis-only task or an already-approved visual direction. Keep existing source, brand, contracts and user requirements authoritative.
 
+**Reference-first visual evidence:** For a new marketing page, a major redesign or a generic scene that needs outside inspiration, load `references/reference-led-visual-intelligence.md` BEFORE treating subjective model taste as the source of design direction. Inspect real competitor/brand/section captures and extract their mechanisms; keep research bounded and carry findings directly into executable sketches. For a selected direction or simple polish, consult only the few scenes needed for the observed weakness.
+
 ## Default visual execution sequence
 
 1. **Discover real raw material:** inspect the actual product, approved original assets, existing page, fonts and real behavior. Identify what this particular business/service can uniquely SHOW. No fake product screens or fabricated reviews.
