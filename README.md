@@ -22,6 +22,12 @@ python skills/studio-grade-web-transformation/scripts/specialist_router.py --sur
 
 [Orquestração de especialistas](skills/studio-grade-web-transformation/references/automatic-specialist-orchestration.md) · [CEO/CMO/COO, vendas e growth](skills/studio-grade-web-transformation/references/full-funnel-commercial-orchestration.md) · [Great Leads aplicado](skills/studio-grade-web-transformation/references/great-leads-ethical-copy-framework.md) · [Psicologia ética do usuário](skills/studio-grade-web-transformation/references/ethical-user-psychology.md) · [Catálogo verificável](skills/studio-grade-web-transformation/research/specialist_registry.json).
 
+## Auditoria crítica de sistemas e orquestração — 11/11/2026
+
+A principal correção foi eliminar a duplicação funcional do roteamento: o fluxo antigo agora consulta o roteador canônico, e a indicação de especialistas respeita restrições explícitas, autoridade sobre o projeto e especialização por tarefa. Foram recuperadas seis áreas técnicas que se perderam no catálogo novo: Three.js, React Three Fiber, performance web, DTCG/design tokens, Playwright e UI Craft.
+
+Novas rotas condicionais cobrem UX de login/autorização/checkout, privacidade/consentimento, localização/CMS e observabilidade/recovery. Use somente para tarefas que envolvam esses riscos; os roteadores não executam especialistas nem certificam segurança ou beleza. [Relatório de auditoria](docs/CRITICAL_AUDIT_2026-11-11.md).
+
 ## Novos fluxos operacionais — integração competitiva (10/11/2026)
 
 Adicionados **22 operadores direcionados** (criar, criticar, auditar, polir, simplificar, destacar, acalmar, copy, tipografia, layout, animação, onboarding, hardening, otimização, variantes etc.), orientação para **mobile nativo** e um **scanner original, local e consultivo** para CSS/JSX/HTML. Esses recursos complementam o `craft_audit.py` e a inspeção Playwright existentes sem fingir ser o aplicativo Impeccable, sua extensão ou seu modo de edição ao vivo.
