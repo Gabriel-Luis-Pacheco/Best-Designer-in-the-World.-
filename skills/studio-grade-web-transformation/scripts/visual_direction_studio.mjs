@@ -154,6 +154,10 @@ async function capture(input) {
           const hash=createHash('sha256').update(bytes).digest('hex');
           manifest.frames.push({candidate:candidate.id,viewport:v.id,scene:scene.id,
             file,sha256:hash,bytes:bytes.length,...metrics});
+          if(metrics.horizontalOverflow>1)
+            manifest.warnings.push('Horizontal overflow '+metrics.horizontalOverflow+'px: '+candidate.id+'/'+v.id+'/'+scene.id);
+          if(metrics.brokenImages>0)
+            manifest.warnings.push('Broken loaded images '+metrics.brokenImages+': '+candidate.id+'/'+v.id+'/'+scene.id);
         }
         if(pageErrors.length) manifest.warnings.push(candidate.id+'/'+v.id+' runtime: '+pageErrors.join(' | '));
         await page.close();
@@ -167,6 +171,13 @@ async function capture(input) {
       if(duplicates.has(key)) manifest.warnings.push('Identical frames '+f.candidate+'/'+f.viewport+': '+duplicates.get(key)+' and '+f.scene);
       else duplicates.set(key,f.scene);
     }
+    // Pixel-identical alternatives are still alternatives in name only; don't assert originality.
+    for(const viewport of cfg.viewports) for(const scene of cfg.scenes) {
+      const peers=manifest.frames.filter(f=>f.viewport===viewport.id&&f.scene===scene.id);
+      if(peers.length>1 && peers.every(f=>f.sha256===peers[0].sha256))
+        manifest.warnings.push('Identical rendered alternatives at '+viewport.id+'/'+scene.id+'; inspect actual creative divergence');
+    }
+    if(manifest.warnings.length) manifest.status='VISUAL_EVIDENCE_WITH_WARNINGS';
     await writeFile(join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n','utf8');
     await writeFile(join(out,'index.html'),htmlBoard(manifest),'utf8');
     return {status:manifest.status,count:manifest.frames.length,out,warningCount:manifest.warnings.length};
