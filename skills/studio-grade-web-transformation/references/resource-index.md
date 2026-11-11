@@ -6,6 +6,9 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/precision-design-operations.md` | 22 ações de design por intenção (polish/distill/critique etc.), seleção seletiva e prova real |
+| `references/source-triage-and-browser-review.md` | Diagnóstico source-only em CSS/JSX/HTML, riscos, falsos positivos e validação visual |
+| `references/native-interface-discipline.md` | iOS/Android/híbrido: safe areas, tipografia dinâmica, navegação e testes em dispositivos |
 | `references/ai-creative-integrity-and-ux.md` | IA e anti-slop: confiança, licença, UX probabilística |
 | `references/award-business-reference-atlas.md` | Awwwards × grandes empresas, mecanismos sem clonagem |
 | `references/commercial-launch-evidence.md` | CWV, acessibilidade, release e métricas reais |

@@ -33,8 +33,8 @@ Treat these as independent sources to check for a specific gap, not authorities 
 | Source | Exact current entrypoint inspected | Useful mechanism | Apply when |
 |---|---|---|---|
 | Anthropic Frontend Design | `anthropics/skills/skills/frontend-design/SKILL.md` | Subject-specific art direction and memorable first frame | New or structurally redesigned public UI |
-| Impeccable v4.6.0 | `pbakaus/impeccable/.agent/skills/impeccable/SKILL.md` | Named refinement operations, mode-specific ambition, visual iteration | Focused critique or polish; verify any external CLI before use |
-| Taste Skill v2 | `Leonxlnx/taste-skill/skills/taste-skill/SKILL.md` | Separate page/app workflows, browser inspection, source-aware imagery | Marketing pages or app screens needing visual iteration |
+| Impeccable v4.8.2 | `pbakaus/impeccable/.agent/skills/impeccable/SKILL.md` | Named refinement operations, mode-specific ambition, visual iteration | Focused critique or polish; verify any external CLI before use |
+| Taste Skill v2.5.1 | `Leonxlnx/taste-skill/skills/taste-skill/SKILL.md` | Separate page/app workflows, browser inspection, source-aware imagery | Marketing pages or app screens needing visual iteration |
 | UI/UX Pro Max | `nextlevelbuilder/ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max/SKILL.md` | Searchable design data for product/style/stack guidance | Unfamiliar vertical or missing palette/type/system knowledge |
 | Vercel Guidelines | `vercel-labs/agent-skills/skills/web-design-guidelines/SKILL.md` | Fetch current rules for a code review | UX/a11y review where current web guidance matters |
 | GSAP Skills | `greensock/gsap-skills/skills/*/SKILL.md` | Official API-specific implementation knowledge | The project already uses or explicitly requests GSAP |
@@ -57,3 +57,9 @@ The entrypoints were checked in their public default branches on the date above.
 
 ## Source audit record
 For every consulted external skill: name; URL/path; inspected date; license if verified; relevance; adopted concept in original words; rejected advice; compatibility; status (INSPECTED / CANDIDATE / NOT_REACHABLE). 'Skill exists' is NOT 'installed', 'read by agent' or 'performed'.
+
+
+## Targeted integration audit — 2026-11-10
+Inspected the publicly readable Impeccable v4.8.2 primary skill and its context/craft/new-work/critique flows, plus current Anthropic Frontend Design, Taste Skill 2.5.1, UI/UX Pro Max and Vercel Web Design Guidelines entrypoints. Adopted **concepts in original code and wording**: concise named operations (`precision-design-operations.md`), source-only lint with context-specific browser confirmation (`source-triage-and-browser-review.md`), conditional native UX (`native-interface-discipline.md`), product-specific art direction and selective external guidance. Existing Design OS modules already cover strategy, copy, SEO, canon, route maps, screenshots and production gates. No external binary, prompt pack, plugin, Chrome extension, framework component, proprietary visual asset or agent installation was vendored.
+
+**Deliberately not cloned:** Impeccable's interactive DOM live editor, extension, broad detector implementation and browser capture service; Taste Skill's hard section-height and hover recipes; absolute bans on visual genres; CI gates that equate pattern matching with design failure. These are either runtime products, specialist-only prescriptions or unrelated to the user task. A controlled rendered comparison is still needed before claiming superiority. Verify upstream versions/licenses at execution time.
