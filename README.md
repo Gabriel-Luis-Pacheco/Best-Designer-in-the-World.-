@@ -14,7 +14,7 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 Você recomenda/ativa apenas `studio-grade-web-transformation`. O agente procura e usa especialistas realmente disponíveis conforme a tarefa: Impeccable (refinamento), Anthropic e Taste (arte), UI/UX Pro Max (padrões), Vercel (UX/React), GSAP (motion), Figma (design), e especialistas de CEO/CMO/COO, vendas, growth, funil, marketing, copy, SEO/GEO, analytics e psicologia ética do usuário. Design OS coordena, implementa, inspeciona e entrega um resultado único, sem obedecer a opiniões externas que contradigam o produto.
 
-Catálogo: **40 entrypoints públicos verificados** com vantagens de nicho, gatilhos e pré-requisitos; isso **não** comprova superioridade, instalação, compatibilidade ou execução. A skill não instala dependências automaticamente. O roteiro abaixo lista candidatos e detecta algumas skills locais, não inicia outros agentes:
+Catálogo: **46 entrypoints públicos identificados** com vantagens de nicho, gatilhos e pré-requisitos; isso **não** comprova superioridade, instalação, compatibilidade ou execução. A skill não instala dependências automaticamente. O roteiro abaixo lista candidatos e detecta algumas skills locais, não inicia outros agentes:
 
 ```bash
 python skills/studio-grade-web-transformation/scripts/specialist_router.py --surface marketing --operation build --task "landing de vendas, copy, SEO e GEO" --json
