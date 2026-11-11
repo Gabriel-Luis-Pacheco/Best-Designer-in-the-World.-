@@ -6,6 +6,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/automatic-specialist-orchestration.md` | Única entrada: descoberta e uso de skills externas por especialidade, com limites do runtime |
+| `references/full-funnel-commercial-orchestration.md` | CEO, COO, CMO, vendas, growth, funil, CRM, CRO, medição e ativação |
+| `references/great-leads-ethical-copy-framework.md` | *Great Leads*: tipos de abertura, nível de consciência, promessa com prova, persuasão responsável |
+| `references/ethical-user-psychology.md` | Psicologia do usuário e da decisão: cognição, confiança e consentimento, sem manipulação |
 | `references/product-and-design-context.md` | PRODUCT.md/DESIGN.md: inicialização segura, canon aprovado vs hipóteses, sem overwrite |
 | `references/precision-design-operations.md` | 22 ações de design por intenção (polish/distill/critique etc.), seleção seletiva e prova real |
 | `references/source-triage-and-browser-review.md` | Diagnóstico source-only em CSS/JSX/HTML, riscos, falsos positivos e validação visual |
