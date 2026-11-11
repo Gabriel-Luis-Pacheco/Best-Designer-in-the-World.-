@@ -47,7 +47,43 @@ SURFACES = {
     "native": ["references/native-interface-discipline.md"],
 }
 ACTIONS_ONLY = {"shape","critique","audit","document"}
-def route(action: str, surface: str, scope: str | None = None) -> dict:
+
+# Optional risk-based references. Never load every guide on every routine patch.
+RISK_GUIDES = {
+    "references/system-user-journeys-and-transactions.md": (
+        "auth","login","checkout","payment","pagamento","subscription","assinatura",
+        "rbac","permissao","permissão","tenant","workspace","refund","reembolso",
+        "webhook","conflito de dados","exclusao","exclusão","delete","crud",
+        "admin","billing","cobrança","cobranca","session","sessao","sessão"),
+    "references/privacy-trust-and-consent-ux.md": (
+        "privacidade","privacy","lgpd","gdpr","cookie","consentimento",
+        "tracking","rastreamento","data rights","personal data","dados pessoais",
+        "microfone","gravação","gravacao","voice recording","registro de voz"),
+    "references/localization-and-content-operations.md": (
+        "i18n","l10n","localizacao","localização","idioma","tradução","traducao",
+        "multilingual","multilingue","multilíngue","rtl","hreflang",
+        "internationalization","cms","editorial","publish workflow",
+        "content governance","conteúdo em vários idiomas"),
+    "references/operational-reliability-and-recovery-ux.md": (
+        "observability","observabilidade","rollback","incident","incidente",
+        "deploy","deployments","recovery","recuperação","recuperacao",
+        "outage","slo","telemetry","telemetria","retry","retentativa",
+        "serviço indisponível","servico indisponivel","pending payment",
+        "falha de pagamento","feature flag","suporte","support")
+}
+
+def _has_signal(text: str, terms: tuple[str, ...]) -> bool:
+    import re
+    import unicodedata
+    def norm(s: str) -> str:
+        return "".join(c for c in unicodedata.normalize("NFKD",s.casefold()) if not unicodedata.combining(c))
+    hay=norm(text)
+    return any(re.search(r"(?<!\w)"+re.escape(norm(term))+r"(?!\w)",hay) for term in terms)
+
+
+def route(action: str, surface: str, scope: str | None = None, task: str = "") -> dict:
+    if not isinstance(task,str) or len(task)>10000:
+        raise ValueError("task must be a string under 10000 characters")
     action = ALIASES.get(action, action)
     if action not in OPERATIONS:
         raise ValueError("unknown action: " + action)
@@ -62,6 +98,11 @@ def route(action: str, surface: str, scope: str | None = None) -> dict:
     refs = list(dict.fromkeys(guides + SURFACES[surface] + ["references/precision-design-operations.md"]))
     if scope == "PATCH":
         refs = list(dict.fromkeys(guides[:1] + SURFACES[surface][:1] + ["references/precision-design-operations.md"]))
+    if task and surface in {"product","internal","marketing","native","read"}:
+        for reference, terms in RISK_GUIDES.items():
+            if _has_signal(task, terms):
+                refs.append(reference)
+        refs = list(dict.fromkeys(refs))
     missing = [name for name in refs if not (ROOT / name).is_file()]
     return {
         "status": "ROUTING_ONLY_NOT_EXECUTED", "action": action, "surface": surface,
@@ -81,6 +122,7 @@ def main():
     ap.add_argument("--action", choices=sorted(set(OPERATIONS)|set(ALIASES)))
     ap.add_argument("--surface", choices=sorted(SURFACES), default="product")
     ap.add_argument("--scope", choices=["PATCH","AUDIT","REFINE","REDESIGN","REBUILD"])
+    ap.add_argument("--task", default="", help="Brief phrase for conditional risk guides")
     ap.add_argument("--list", action="store_true", help="List supported operations")
     ap.add_argument("--json", action="store_true", help="Print a machine-readable routing packet")
     args = ap.parse_args()
@@ -89,7 +131,7 @@ def main():
         return
     if not args.action:
         ap.error("--action is required unless --list is used")
-    packet = route(args.action, args.surface, args.scope)
+    packet = route(args.action, args.surface, args.scope, args.task)
     if args.json:
         print(json.dumps(packet, indent=2, ensure_ascii=False))
     else:
