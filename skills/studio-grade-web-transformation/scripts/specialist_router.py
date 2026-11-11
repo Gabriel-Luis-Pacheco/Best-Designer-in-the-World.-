@@ -61,17 +61,17 @@ def contains_phrase(text: str, phrase: str) -> bool:
     needle = normalize(phrase).strip()
     if not needle or not haystack:
         return False
-    regex = r"(?<![\\w])" + re.escape(needle) + r"(?![\\w])"
+    regex = r"(?<![\w])" + re.escape(needle) + r"(?![\w])"
     for match in re.finditer(regex, haystack):
         prefix = haystack[max(0, match.start()-160):match.start()]
-        clause = re.split(r"[.!?;\\n]|\\b(?:mas|porem|but|however|instead)\\b", prefix)[-1]
+        clause = re.split(r"[.!?;\n]|\b(?:mas|porem|but|however|instead)\b", prefix)[-1]
         veto = re.search(
-            r"(?<![\\w])(?:sem|without|avoid|evite|exclua|"
-            r"nao\\s+(?:quero|usar|use|utilize|e)|"
-            r"do\\s+not\\s+(?:use|add)|don't\\s+(?:use|add))\\b"
-            r"[^.!?;\\n]{0,95}$", clause
+            r"(?<![\w])(?:sem|without|avoid|evite|exclua|"
+            r"nao\s+(?:quero|usar|use|utilize|e)|"
+            r"do\s+not\s+(?:use|add)|don't\s+(?:use|add))\b"
+            r"[^.!?;\n]{0,95}$", clause
         )
-        if veto and not re.search(r"\\b(?:com|with|incluindo|including|usando|using)\\b", veto.group(0)):
+        if veto and not re.search(r"\b(?:com|with|incluindo|including|usando|using)\b", veto.group(0)):
             continue
         return True
     return False
