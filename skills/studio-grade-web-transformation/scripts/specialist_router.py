@@ -139,7 +139,8 @@ def detect_local(project: Path | None, candidate_names: set[str]) -> dict[str,li
     return found
 
 def recommend(surface: str, operation: str, task: str="", project: Path | None=None,
-              product: str="", include_all_matches: bool=False, registry: list[dict] | None=None,\n              allow_project_ceo: bool=False) -> dict:
+              product: str="", include_all_matches: bool=False, registry: list[dict] | None=None,
+              allow_project_ceo: bool=False) -> dict:
     if surface not in SURFACES:
         raise ValueError("Invalid surface")
     if operation not in OPERATIONS:
@@ -220,7 +221,8 @@ def recommend(surface: str, operation: str, task: str="", project: Path | None=N
         "status":"CANDIDATE_SELECTION_ONLY_NOT_EXECUTED",
         "design_os_is_primary":True,"surface":surface,"operation":operation,"product":product or None,
         "candidates":choices,"prerequisites":dependencies,"internal_guides":internal,
-        "number_of_distinct_lanes":len(choices),\n        "project_ceo_gate":"OPEN_ONLY_IF_TARGET_CONFIRMED_AND_AUTHORIZED" if allow_project_ceo and is_batatalk else "CLOSED",
+        "number_of_distinct_lanes":len(choices),
+        "project_ceo_gate":"OPEN_ONLY_IF_TARGET_CONFIRMED_AND_AUTHORIZED" if allow_project_ceo and is_batatalk else "CLOSED",
         "next_actions":[
             "Inspect actual product/brief and authoritative current asset/source context.",
             "Use the agent's native skill listing first; local scan sees only project files.",
@@ -243,7 +245,8 @@ def main():
     parser.add_argument("--task",default="")
     parser.add_argument("--project",type=Path)
     parser.add_argument("--product",default="")
-    parser.add_argument("--all-matches",action="store_true")\n    parser.add_argument("--allow-project-ceo",action="store_true",help="Only if authorized for the named BataTalk project; does not grant action permissions")
+    parser.add_argument("--all-matches",action="store_true")
+    parser.add_argument("--allow-project-ceo",action="store_true",help="Only if authorized for the named BataTalk project; does not grant action permissions")
     parser.add_argument("--json",action="store_true")
     args=parser.parse_args()
     try:
