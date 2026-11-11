@@ -2,6 +2,10 @@
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
+## Prioridade: criar visuais reais e páginas completas
+
+Para LPs/sites com ambição visual, siga `references/code-first-visual-direction-studio.md` **antes de abrir uma longa etapa de planejamento**. Descubra produto, identidade e assets; quando a direção não estiver definida, construa duas alternativas realmente diferentes em código com abertura, prova e fechamento; renderize em desktop/mobile; escolha com base nos pixels e corrija a parte mais fraca. Não entregue só o hero e uma parede de cards. Com Playwright, `scripts/visual_direction_studio.mjs --config arquivo.json` gera uma comparação local, mas não cria a página nem julga beleza. Quando não houver navegador, declare visual NÃO_VERIFICADO.
+
 ## Só uma skill; especialistas relevantes quando existem
 
 Ative `studio-grade-web-transformation`. Ela orienta o agente a procurar skills realmente disponíveis por especialidade, carregá-las com seus pré-requisitos e integrar as contribuições em uma única entrega. Catálogo: `research/specialist_registry.json`. Política operacional: `references/automatic-specialist-orchestration.md`. Roteador consultivo: `scripts/specialist_router.py --surface marketing --operation build --task "landing, vendas e SEO" --json` (não executa skills). Se não houver especialista instalado, a Design OS usa seus guias internos ou consulta o material público como referência autorizada, sem fingir que invocou outra skill.
