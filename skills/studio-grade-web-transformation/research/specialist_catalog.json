@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Candidate sources only (catalog v1 schema); paths, licenses, installs and versions must be verified when used. Updated 2026-10-19 after direct source-path checks; NOT executed or validated for superiority.",
+  "description": "ARCHIVED historical reference (2026-10-19); NOT an active router input. Canonical specialist registry is research/specialist_registry.json, consumed by scripts/specialist_router.py. Historical paths/licenses may be stale; verify upstream before use.",
   "specialists": [
     {
       "id": "ui-craft",

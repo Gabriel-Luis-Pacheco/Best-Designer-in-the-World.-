@@ -6,6 +6,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| references/system-user-journeys-and-transactions.md | UX de sistemas com autenticação, RBAC, tenant, pagamentos, assinaturas e recuperação |
+| references/privacy-trust-and-consent-ux.md | LGPD/GDPR como risco de produto, consentimento verdadeiro, privacidade e direitos de dados |
+| references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
+| references/operational-reliability-and-recovery-ux.md | Estados degradados, retries, eventos, monitoramento, incidentes, rollout e suporte |
 | `references/automatic-specialist-orchestration.md` | Única entrada: descoberta e uso de skills externas por especialidade, com limites do runtime |
 | `references/full-funnel-commercial-orchestration.md` | CEO, COO, CMO, vendas, growth, funil, CRM, CRO, medição e ativação |
 | `references/great-leads-ethical-copy-framework.md` | *Great Leads*: tipos de abertura, nível de consciência, promessa com prova, persuasão responsável |
@@ -114,7 +118,7 @@ Use only if the task benefits. See core `SKILL.md` V12 section. `scripts/creativ
 - `brain/project_intake.py --project path`: read-only inventory, not runtime validation.
 - `brain/pipeline.py plan.json --project path`: route/inventory/declared scope planning.
 - `brain/creative_direction_lab.py brief.json`: surface/evidence-aware structural proposals, never designs or winners.
-- `brain/specialist_router.py context.json`: at most three external source suggestions; verify path/version/license before use.
+- Canonical task-aware specialist registry: scripts/specialist_router.py --surface marketing --operation build --task BRIEF --json. Older brain/specialist_router.py context.json is a compatibility adapter; no second catalog or default 3-agent cap. Neither executes skills. Verify runtime, provenance, permission and license.
 - `brain/expert_context.py`: optional 0–3 pinned local Markdown references under an approved root; verify hashes, bounded sizes and path safety. No installation or code execution. References do not gain authority over user constraints.
 - `scripts/layout_audit.mjs --url http://127.0.0.1:3000 --out review.json --screenshots captures/`: optional Playwright local-site geometry and screenshots, not aesthetic or WCAG certification. Offsite navigation is blocked.
 - `scripts/asset_board.py`: equal-size original/proposal identity review board; not automated brand approval.

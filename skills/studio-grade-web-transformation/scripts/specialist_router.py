@@ -52,10 +52,29 @@ def normalize(value: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFKD", value.casefold()) if not unicodedata.combining(c))
 
 def contains_phrase(text: str, phrase: str) -> bool:
+    """Match a positive whole-phrase mention; nearby explicit vetoes are NOT demand.
+
+    Heuristic only, not semantic understanding. Portuguese 'no WebGL' is
+    normally 'in WebGL', so bare 'no' is not negation. A contrast clause resets.
+    """
+    haystack = normalize(text)
     needle = normalize(phrase).strip()
-    if not needle or not text:
+    if not needle or not haystack:
         return False
-    return bool(re.search(r"(?<![\w])" + re.escape(needle) + r"(?![\w])",text))
+    regex = r"(?<![\w])" + re.escape(needle) + r"(?![\w])"
+    for match in re.finditer(regex, haystack):
+        prefix = haystack[max(0, match.start()-160):match.start()]
+        clause = re.split(r"[.!?;\n]|\b(?:mas|porem|but|however|instead)\b", prefix)[-1]
+        veto = re.search(
+            r"(?<![\w])(?:sem|without|avoid|evite|exclua|"
+            r"nao\s+(?:quero|usar|use|utilize|e)|"
+            r"do\s+not\s+(?:use|add)|don't\s+(?:use|add))\b"
+            r"[^.!?;\n]{0,95}$", clause
+        )
+        if veto and not re.search(r"\b(?:com|with|incluindo|including|usando|using)\b", veto.group(0)):
+            continue
+        return True
+    return False
 
 def read_registry(path: Path=REGISTRY) -> list[dict]:
     if not path.is_file() or path.is_symlink() or path.stat().st_size > 220_000:
@@ -120,7 +139,8 @@ def detect_local(project: Path | None, candidate_names: set[str]) -> dict[str,li
     return found
 
 def recommend(surface: str, operation: str, task: str="", project: Path | None=None,
-              product: str="", include_all_matches: bool=False, registry: list[dict] | None=None) -> dict:
+              product: str="", include_all_matches: bool=False, registry: list[dict] | None=None,
+              allow_project_ceo: bool=False) -> dict:
     if surface not in SURFACES:
         raise ValueError("Invalid surface")
     if operation not in OPERATIONS:
@@ -138,8 +158,20 @@ def recommend(surface: str, operation: str, task: str="", project: Path | None=N
     for row in rows:
         if surface not in row["surfaces"]:
             continue
+        # An explicit veto of the named specialist overrides generic task words.
+        names = row["skill_names"] + [row["name"], row["id"]]
+        if any(contains_phrase(query, name) is False and
+               re.search(r"(?<![\w])" + re.escape(normalize(name)) + r"(?![\w])", query)
+               for name in names):
+            continue
+        # Operational dashboards are not marketing funnels unless business intent is explicit.
+        if surface == "internal" and row["id"].startswith("marketing-"):
+            business_terms=("marketing","vendas","growth","funil","funnel","cro","seo",
+                            "geo","campanha","crm","attribution","aquisição","acquisition")
+            if not any(contains_phrase(query, term) for term in business_terms):
+                continue
         # If exact project owner-specific skill would be out of scope, never suggest it.
-        if row.get("scope_guard")=="BATATALK_AUTHORIZED_ONLY" and not is_batatalk:
+        if row.get("scope_guard")=="BATATALK_AUTHORIZED_ONLY" and not (is_batatalk and allow_project_ceo):
             continue
         if row.get("lane")=="figma-prerequisite":
             continue  # Included only as a dependency where Figma specialist is selected.
@@ -164,7 +196,7 @@ def recommend(surface: str, operation: str, task: str="", project: Path | None=N
             "source":row["source"]["url"],"skill_names":row["skill_names"],
             "availability":"LOCAL_SKILL_FILE_DETECTED_NOT_LOADED" if installed_names else "NOT_DETECTED_CHECK_HOST_SKILL_TOOLS",
             "local_files":installed_names,"requires":row.get("requires",[]),
-            "scope_guard":row.get("scope_guard")
+            "scope_guard":row.get("scope_guard"),"requires_project_authority":bool(row.get("scope_guard"))
         })
     choices.sort(key=lambda x:(-x["score"],x["id"]))
     # Limit repetitive experts in the same niche lane, not the total count of agents.
@@ -202,6 +234,7 @@ def recommend(surface: str, operation: str, task: str="", project: Path | None=N
         "design_os_is_primary":True,"surface":surface,"operation":operation,"product":product or None,
         "candidates":choices,"prerequisites":dependencies,"internal_guides":internal,
         "number_of_distinct_lanes":len(choices),
+        "project_ceo_gate":"OPEN_ONLY_IF_TARGET_CONFIRMED_AND_AUTHORIZED" if allow_project_ceo and is_batatalk else "CLOSED",
         "next_actions":[
             "Inspect actual product/brief and authoritative current asset/source context.",
             "Use the agent's native skill listing first; local scan sees only project files.",
@@ -225,10 +258,11 @@ def main():
     parser.add_argument("--project",type=Path)
     parser.add_argument("--product",default="")
     parser.add_argument("--all-matches",action="store_true")
+    parser.add_argument("--allow-project-ceo",action="store_true",help="Only if authorized for the named BataTalk project; does not grant action permissions")
     parser.add_argument("--json",action="store_true")
     args=parser.parse_args()
     try:
-        packet=recommend(args.surface,args.operation,args.task,args.project,args.product,args.all_matches)
+        packet=recommend(args.surface,args.operation,args.task,args.project,args.product,args.all_matches,allow_project_ceo=args.allow_project_ceo)
     except (OSError,ValueError,json.JSONDecodeError) as exc:
         parser.error(str(exc))
     if args.json:

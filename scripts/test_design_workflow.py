@@ -23,6 +23,28 @@ class DesignWorkflowTests(unittest.TestCase):
         for operation in mod.OPERATIONS:
             for surface in mod.SURFACES:
                 self.assertFalse(mod.route(operation,surface)["missing_references"],(operation,surface))
+    def test_payment_system_risk_guides_are_targeted(self):
+        report=mod.route("harden","product",task="Checkout e assinatura com webhook de pagamento e retry")
+        self.assertIn("references/system-user-journeys-and-transactions.md",report["guides"])
+        self.assertIn("references/operational-reliability-and-recovery-ux.md",report["guides"])
+        self.assertNotIn("references/localization-and-content-operations.md",report["guides"])
+
+    def test_privacy_and_language_guides_are_conditional(self):
+        report=mod.route("build","marketing",task="Consentimento de cookies, tradução e i18n")
+        self.assertIn("references/privacy-trust-and-consent-ux.md",report["guides"])
+        self.assertIn("references/localization-and-content-operations.md",report["guides"])
+        self.assertFalse(report["missing_references"])
+
+    def test_simple_patch_keeps_small_scope(self):
+        report=mod.route("polish","product","PATCH",task="Mude apenas padding do botão")
+        self.assertNotIn("references/system-user-journeys-and-transactions.md",report["guides"])
+        self.assertNotIn("references/operational-reliability-and-recovery-ux.md",report["guides"])
+        self.assertLessEqual(len(report["guides"]),3)
+
+    def test_long_task_rejected(self):
+        with self.assertRaises(ValueError):
+            mod.route("build","product",task="x"*10001)
+
     def test_invalid_scope(self):
         with self.assertRaises(ValueError):
             mod.route("polish","product","WRITE_EVERYTHING")

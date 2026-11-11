@@ -14,13 +14,19 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 Você recomenda/ativa apenas `studio-grade-web-transformation`. O agente procura e usa especialistas realmente disponíveis conforme a tarefa: Impeccable (refinamento), Anthropic e Taste (arte), UI/UX Pro Max (padrões), Vercel (UX/React), GSAP (motion), Figma (design), e especialistas de CEO/CMO/COO, vendas, growth, funil, marketing, copy, SEO/GEO, analytics e psicologia ética do usuário. Design OS coordena, implementa, inspeciona e entrega um resultado único, sem obedecer a opiniões externas que contradigam o produto.
 
-Catálogo: **40 entrypoints públicos verificados** com vantagens de nicho, gatilhos e pré-requisitos; isso **não** comprova superioridade, instalação, compatibilidade ou execução. A skill não instala dependências automaticamente. O roteiro abaixo lista candidatos e detecta algumas skills locais, não inicia outros agentes:
+Catálogo: **46 entrypoints públicos identificados** com vantagens de nicho, gatilhos e pré-requisitos; isso **não** comprova superioridade, instalação, compatibilidade ou execução. A skill não instala dependências automaticamente. O roteiro abaixo lista candidatos e detecta algumas skills locais, não inicia outros agentes:
 
 ```bash
 python skills/studio-grade-web-transformation/scripts/specialist_router.py --surface marketing --operation build --task "landing de vendas, copy, SEO e GEO" --json
 ```
 
 [Orquestração de especialistas](skills/studio-grade-web-transformation/references/automatic-specialist-orchestration.md) · [CEO/CMO/COO, vendas e growth](skills/studio-grade-web-transformation/references/full-funnel-commercial-orchestration.md) · [Great Leads aplicado](skills/studio-grade-web-transformation/references/great-leads-ethical-copy-framework.md) · [Psicologia ética do usuário](skills/studio-grade-web-transformation/references/ethical-user-psychology.md) · [Catálogo verificável](skills/studio-grade-web-transformation/research/specialist_registry.json).
+
+## Auditoria crítica de sistemas e orquestração — 11/11/2026
+
+A principal correção foi eliminar a duplicação funcional do roteamento: o fluxo antigo agora consulta o roteador canônico, e a indicação de especialistas respeita restrições explícitas, autoridade sobre o projeto e especialização por tarefa. Foram recuperadas seis áreas técnicas que se perderam no catálogo novo: Three.js, React Three Fiber, performance web, DTCG/design tokens, Playwright e UI Craft.
+
+Novas rotas condicionais cobrem UX de login/autorização/checkout, privacidade/consentimento, localização/CMS e observabilidade/recovery. Use somente para tarefas que envolvam esses riscos; os roteadores não executam especialistas nem certificam segurança ou beleza. [Relatório de auditoria](docs/CRITICAL_AUDIT_2026-11-11.md).
 
 ## Novos fluxos operacionais — integração competitiva (10/11/2026)
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Current public skill candidates and niche advantages, NOT rankings or proof of local install. Design OS is single entrypoint and adaptive orchestrator; see automatic-specialist-orchestration.md.",
+  "description": "Task-scoped candidate registry, not an installation, runtime invocation or rank. Includes verified public 3D, browser and performance specialties. Source existence last checked on recorded date; recheck before use.",
   "inspected_at": "2026-11-10",
   "entries": [
     {
@@ -1494,6 +1494,230 @@
         "engajamento"
       ],
       "edge": "Community-led trust, participation, retention and advocacy without spam"
+    },
+    {
+      "id": "threejs-engineering",
+      "name": "Three.js advanced 3D",
+      "source": {
+        "repo": "Picaresco/threejs-skill",
+        "path": "SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/Picaresco/threejs-skill/blob/main/SKILL.md",
+        "inspected": "2026-11-11",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "threejs"
+      ],
+      "lane": "3d-engineering",
+      "surfaces": [
+        "art",
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "build",
+        "overdrive",
+        "animate"
+      ],
+      "signals": [
+        "three.js",
+        "webgl",
+        "webgpu",
+        "3d",
+        "shader",
+        "glsl",
+        "tsl",
+        "3d interativo"
+      ],
+      "edge": "Detailed version-aware Three.js scenes, shaders and fallback paths; real GPU/device validation required"
+    },
+    {
+      "id": "react-three-fiber",
+      "name": "React Three Fiber",
+      "source": {
+        "repo": "lklyne/skills",
+        "path": "react-three-fiber/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/lklyne/skills/blob/main/react-three-fiber/SKILL.md",
+        "inspected": "2026-11-11",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "react-three-fiber"
+      ],
+      "lane": "r3f-implementation",
+      "surfaces": [
+        "art",
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "build",
+        "animate",
+        "overdrive"
+      ],
+      "signals": [
+        "react three fiber",
+        "r3f",
+        "@react-three/fiber",
+        "useframe",
+        "useframe hook",
+        "react three"
+      ],
+      "edge": "R3F-specific hooks, canvas lifecycle, frame budget and resource cleanup"
+    },
+    {
+      "id": "cloudflare-webperf",
+      "name": "Cloudflare Web Performance",
+      "source": {
+        "repo": "cloudflare/skills",
+        "path": "skills/web-perf/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/cloudflare/skills/blob/main/skills/web-perf/SKILL.md",
+        "inspected": "2026-11-11",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "web-perf"
+      ],
+      "lane": "web-performance",
+      "surfaces": [
+        "marketing",
+        "product",
+        "internal",
+        "read"
+      ],
+      "operations": [
+        "optimize",
+        "audit",
+        "build"
+      ],
+      "signals": [
+        "web vitals",
+        "performance",
+        "lcp",
+        "inp",
+        "cls",
+        "lighthouse",
+        "carregamento",
+        "velocidade",
+        "slow"
+      ],
+      "edge": "Field/diagnostic web performance investigation, bottleneck and Core Web Vitals checks"
+    },
+    {
+      "id": "design-tokens-dtcg",
+      "name": "Design Tokens DTCG",
+      "source": {
+        "repo": "ilikescience/design-tokens-skill",
+        "path": "SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/ilikescience/design-tokens-skill/blob/main/SKILL.md",
+        "inspected": "2026-11-11",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "design-tokens"
+      ],
+      "lane": "tokens-engineering",
+      "surfaces": [
+        "marketing",
+        "product",
+        "internal",
+        "native"
+      ],
+      "operations": [
+        "extract",
+        "document",
+        "color",
+        "build"
+      ],
+      "signals": [
+        "design tokens",
+        "dtcg",
+        "tokens",
+        "token",
+        "semantic tokens",
+        "paleta semantica"
+      ],
+      "edge": "Specialist semantics for DTCG token references, aliases and transformation across platforms"
+    },
+    {
+      "id": "playwright-browser",
+      "name": "Playwright browser automation",
+      "source": {
+        "repo": "openai/skills",
+        "path": "skills/.curated/playwright/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/openai/skills/blob/main/skills/.curated/playwright/SKILL.md",
+        "inspected": "2026-11-11",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "playwright"
+      ],
+      "lane": "browser-qa",
+      "surfaces": [
+        "marketing",
+        "product",
+        "internal",
+        "read",
+        "art"
+      ],
+      "operations": [
+        "audit",
+        "critique",
+        "build",
+        "harden"
+      ],
+      "signals": [
+        "playwright",
+        "e2e",
+        "end-to-end",
+        "browser",
+        "screenshot",
+        "captura",
+        "visual regression",
+        "navegador"
+      ],
+      "edge": "Browser automation and actual UI-flow inspection; apply installed integration and verify permission"
+    },
+    {
+      "id": "ui-craft",
+      "name": "UI Craft anti-slop",
+      "source": {
+        "repo": "educlopez/ui-craft",
+        "path": ".agents/skills/ui-craft/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/educlopez/ui-craft/blob/main/.agents/skills/ui-craft/SKILL.md",
+        "inspected": "2026-11-11",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "ui-craft"
+      ],
+      "lane": "anti-slop-craft",
+      "surfaces": [
+        "marketing",
+        "product",
+        "art"
+      ],
+      "operations": [
+        "polish",
+        "critique",
+        "build",
+        "variants"
+      ],
+      "signals": [
+        "anti-slop",
+        "ai slop",
+        "design audit",
+        "interface generica",
+        "generic ui",
+        "design craftsmanship"
+      ],
+      "edge": "Alternative anti-slop discovery/critique workflow, useful as a second independent aesthetic lens"
     }
   ]
 }
