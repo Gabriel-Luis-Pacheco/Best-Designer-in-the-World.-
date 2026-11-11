@@ -13,6 +13,8 @@ Para landing, priorize: intenção da pessoa → promessa verificável → demon
 
 Antes de carregar todo o sistema, escolha uma tarefa concreta: `polish`, `distill`, `bolder`, `quieter`, `critique`, `audit`, `animate`, `adapt`, `harden`, `onboard`, `variants` etc. Consulte `references/precision-design-operations.md` e execute opcionalmente `scripts/design_workflow.py --action polish --surface marketing --json`. Isto é um seletor de guias; a execução ainda cabe ao agente sobre o projeto real.
 
+Para reutilização de briefing/identidade entre tarefas, use opcionalmente `scripts/design_context.py --project PROJETO --init` (cria apenas PRODUCT.md/DESIGN.md faltantes e não inventa fatos). Ver `references/product-and-design-context.md`.
+
 Para pistas locais em folhas de estilo ou JSX: `python scripts/source_triage.py caminho/para/src --json`. Confirme flags contra o DOM/viewport, estado de teclado e comportamento real; ausência de flags não é selo de qualidade. Em iOS/Android use `references/native-interface-discipline.md` e testes de plataforma, não apenas Chrome mobile.
 
 ## V14: QA que não aprova sem provas

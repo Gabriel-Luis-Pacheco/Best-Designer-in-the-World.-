@@ -1,6 +1,7 @@
 ### 2026-11-10 — Precision Design Operations / original competitor-gap integration (v14 additive)
 - Added 22 scoped design operation routes (including critique, polish, distill, bolder, quieter, harden, adapt, onboard, variants), with optional deterministic routing CLI; no claims of automatic design execution.
 - Added an advisory CSS/JSX/HTML source triage CLI with line-level candidate findings, reasoned inline ignores, scoped directory scans and regression tests. No claims of visual/UX certification.
+- Added a safe, create-only PRODUCT.md/DESIGN.md context helper; entries are explicitly unverified and existing identity is preserved.
 - Added native-interface discipline and explicit distinction between browser/mobile emulation and real iOS/Android testing.
 - Connected the new references to installed SKILL, index, audit playbook, README and Start Here; documented adoption versus rejected/externally dependent concepts.
 - Integration only: no external Impeccable source, assets, CLI, browser extension or unverified competitor scores imported. Version remains v14.0.0 until a verified release bump.

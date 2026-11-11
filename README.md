@@ -18,9 +18,10 @@ Adicionados **22 operadores direcionados** (criar, criticar, auditar, polir, sim
 python skills/studio-grade-web-transformation/scripts/design_workflow.py --list
 python skills/studio-grade-web-transformation/scripts/design_workflow.py --action distill --surface marketing --json
 python skills/studio-grade-web-transformation/scripts/source_triage.py caminho/para/src --json
+python skills/studio-grade-web-transformation/scripts/design_context.py --project caminho/para/projeto --init
 ```
 
-[Operações e limites](skills/studio-grade-web-transformation/references/precision-design-operations.md) · [Source triage → navegador](skills/studio-grade-web-transformation/references/source-triage-and-browser-review.md) · [Mobile nativo](skills/studio-grade-web-transformation/references/native-interface-discipline.md). Códigos de terceiros **não** foram copiados. Os testes incluídos validam lógica e integração, não desempenho estético nem uma vitória sobre concorrentes.
+[Contexto do produto e identidade](skills/studio-grade-web-transformation/references/product-and-design-context.md) · [Operações e limites](skills/studio-grade-web-transformation/references/precision-design-operations.md) · [Source triage → navegador](skills/studio-grade-web-transformation/references/source-triage-and-browser-review.md) · [Mobile nativo](skills/studio-grade-web-transformation/references/native-interface-discipline.md). Códigos de terceiros **não** foram copiados. Os testes incluídos validam lógica e integração, não desempenho estético nem uma vitória sobre concorrentes.
 
 ## Integração da pesquisa de landing pages — 06/11/2026
 

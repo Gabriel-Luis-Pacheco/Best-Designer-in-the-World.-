@@ -6,6 +6,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/product-and-design-context.md` | PRODUCT.md/DESIGN.md: inicialização segura, canon aprovado vs hipóteses, sem overwrite |
 | `references/precision-design-operations.md` | 22 ações de design por intenção (polish/distill/critique etc.), seleção seletiva e prova real |
 | `references/source-triage-and-browser-review.md` | Diagnóstico source-only em CSS/JSX/HTML, riscos, falsos positivos e validação visual |
 | `references/native-interface-discipline.md` | iOS/Android/híbrido: safe areas, tipografia dinâmica, navegação e testes em dispositivos |
