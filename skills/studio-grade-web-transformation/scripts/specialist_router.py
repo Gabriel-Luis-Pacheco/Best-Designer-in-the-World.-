@@ -158,6 +158,18 @@ def recommend(surface: str, operation: str, task: str="", project: Path | None=N
     for row in rows:
         if surface not in row["surfaces"]:
             continue
+        # An explicit veto of the named specialist overrides generic task words.
+        names = row["skill_names"] + [row["name"], row["id"]]
+        if any(contains_phrase(query, name) is False and
+               re.search(r"(?<![\\w])" + re.escape(normalize(name)) + r"(?![\\w])", query)
+               for name in names):
+            continue
+        # Operational dashboards are not marketing funnels unless business intent is explicit.
+        if surface == "internal" and row["id"].startswith("marketing-"):
+            business_terms=("marketing","vendas","growth","funil","funnel","cro","seo",
+                            "geo","campanha","crm","attribution","aquisição","acquisition")
+            if not any(contains_phrase(query, term) for term in business_terms):
+                continue
         # If exact project owner-specific skill would be out of scope, never suggest it.
         if row.get("scope_guard")=="BATATALK_AUTHORIZED_ONLY" and not (is_batatalk and allow_project_ceo):
             continue
