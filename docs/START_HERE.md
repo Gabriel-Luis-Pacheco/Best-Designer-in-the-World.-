@@ -8,6 +8,10 @@ Ative `studio-grade-web-transformation`. Ela orienta o agente a procurar skills 
 
 Para marketing, vendas, CEO/COO/CMO, growth, funil e SEO/GEO: `references/full-funnel-commercial-orchestration.md`; para *Great Leads*: `references/great-leads-ethical-copy-framework.md`; para UX/psicologia da decisão: `references/ethical-user-psychology.md`. Especialistas entram apenas onde fazem diferença, sem quotas artificiais ou promessas comerciais.
 
+## Auditoria de 11/11 — decisões mais seguras para sistemas
+
+Um catálogo é uma lista de candidatos, não execução real. O roteador canônico é scripts/specialist_router.py, e o antigo brain/specialist_router.py é apenas compatibilidade. Não use limites arbitrários de agentes. Para sistemas com login, papéis, assinatura, dados pessoais, múltiplos idiomas ou estados degradados, carregue somente os guias necessários: system-user-journeys-and-transactions.md, privacy-trust-and-consent-ux.md, localization-and-content-operations.md e operational-reliability-and-recovery-ux.md. design_workflow.py --task BRIEF já pode selecioná-los por risco, mas palavras-chave não substituem inspeção. Detalhes em [auditoria crítica de 11/11](CRITICAL_AUDIT_2026-11-11.md).
+
 ## Selecione o menor escopo adequado
 PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia; REFINE melhora tela boa; REDESIGN altera arquitetura ou direção; REBUILD reconstrói quando problemas sistêmicos justificam. Distinga MARKETING (clareza, prova, conversão) de PRODUCT (precisão, tarefas, densidade e estados).
 
