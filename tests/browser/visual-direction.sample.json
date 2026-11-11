@@ -1,0 +1,52 @@
+{
+  "output": "test-results/visual-direction",
+  "candidates": [
+    {
+      "id": "mechanism",
+      "label": "Direction A — conversation stage",
+      "url": "http://127.0.0.1:4173/examples/conversaboa-concept.html",
+      "selectors": {
+        "opening": "h1",
+        "proof": "#demonstracao",
+        "decision": "#precos"
+      }
+    },
+    {
+      "id": "editorial",
+      "label": "Direction B — rehearsal notebook",
+      "url": "http://127.0.0.1:4173/examples/conversaboa-editorial-alternative.html",
+      "selectors": {
+        "opening": "h1",
+        "proof": "#ensaio",
+        "decision": "#precos"
+      }
+    }
+  ],
+  "viewports": [
+    {
+      "id": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "id": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "scenes": [
+    {
+      "id": "opening",
+      "purpose": "Can an unfamiliar visitor recognize the product and next useful action?"
+    },
+    {
+      "id": "proof",
+      "purpose": "Does the middle demonstrate a real mechanism without generic feature cards?"
+    },
+    {
+      "id": "decision",
+      "purpose": "Does the end honor real offer and lead to a working next step?"
+    }
+  ],
+  "allow_external_requests": false
+}
