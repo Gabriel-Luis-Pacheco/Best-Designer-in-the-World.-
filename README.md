@@ -1,5 +1,10 @@
 # Design OS Prime v14.0.0
 
+## Economia de tokens e núcleo enxuto — 11/11/2026
+
+O SKILL.md principal foi reduzido e agora roteia PATCH/REFINE/AUDIT/REDESIGN/REBUILD, lendo referências especializadas sob demanda e reaproveitando pesquisas da sessão. O [guia de eficiência](skills/studio-grade-web-transformation/references/context-efficiency-routing.md) descreve os limites. Preservamos [o protocolo integral anterior](skills/studio-grade-web-transformation/references/archived-v14-core-protocol.md) sem carregá-lo automaticamente. A redução do texto principal não comprova economia real de cobrança ou qualidade estética; isso exige testes em tarefas reais.
+
+
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
 ## Pesquisa multidisciplinar: design, marketing, copy, vendas e UX — 11/11/2026

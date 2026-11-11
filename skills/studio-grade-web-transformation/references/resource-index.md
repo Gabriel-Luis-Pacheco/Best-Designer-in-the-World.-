@@ -11,6 +11,8 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
 | references/operational-reliability-and-recovery-ux.md | Estados degradados, retries, eventos, monitoramento, incidentes, rollout e suporte |
 | `references/multidisciplinary-design-marketing-research.md` | Pesquisa integrada de posicionamento, branding, marketing, copy, vendas, UX e design com evidências e decisões verificáveis |
+| `references/context-efficiency-routing.md` | Carregamento progressivo e economia contextual sem reduzir validação |
+| `references/archived-v14-core-protocol.md` | Versão integral original preservada para consulta excepcional; não carregar por padrão |
 | `references/reference-led-visual-intelligence.md` | Benchmark visual de concorrentes e marcas, MCPs reais, estudo seção a seção, transferência original para código e crítica por screenshots |
 | `references/code-first-visual-direction-studio.md` | Prioridade visual: duas direções executáveis, assets reais, imagens pareadas, correção do meio e mobile |
 | `references/automatic-specialist-orchestration.md` | Única entrada: descoberta e uso de skills externas por especialidade, com limites do runtime |
