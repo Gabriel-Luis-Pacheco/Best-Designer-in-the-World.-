@@ -1,3 +1,12 @@
+### 2026-11-11 — Critical audit, specialist routing consolidation and consequential system UX (v14 additive)
+- Replaced the old independently capped brain/specialist_router.py implementation with a compatibility adapter for the canonical task-aware specialist registry; preserved legacy request format, removed duplicate recommendation logic and default expert limit.
+- Added explicit negative-intent filtering for requested technology/skill vetoes and a closed-by-default project-authority gate for the BataTalk-specific CEO candidate; actual external actions still require their own authorization.
+- Prevented unrelated internal dashboards from routing to marketing-specific experts by generic terms, and added regression tests for name vetoes, business scope, project authority and legacy parity.
+- Restored verified public specialist entrypoints for Three.js, React Three Fiber, Cloudflare web performance, design tokens, Playwright and UI Craft (46 contextual candidates total; none installed by this change).
+- Added conditional operational guides: transactional/account/payment/tenant UX; privacy and consent; localization and CMS; degraded operation, observability, support and recovery.
+- Wired risk-specific guidance through the lightweight design_workflow.py router without forcing extra load on ordinary PATCH or art-only work.
+- Full evidence, honest limits, and remaining priorities in docs/CRITICAL_AUDIT_2026-11-11.md. Unit and fixture CI never prove aesthetics, production security, actual payment integrity or competitor superiority.
+
 ### 2026-11-10 — Single-entrypoint expert team (v14 additive)
 - Main SKILL.md proactively discovers and uses genuinely available specialized skill/tool integrations, keeping Design OS accountable for product truth, coherent art direction, implementation and QA.
 - Added 40 verified public specialty candidates for Impeccable, Anthropic, Taste, UI/UX, Vercel, GSAP, Figma and conditional CEO, sales, CMO, growth, analytics, CRO, copy, SEO/GEO, customer research and psychological UX.
