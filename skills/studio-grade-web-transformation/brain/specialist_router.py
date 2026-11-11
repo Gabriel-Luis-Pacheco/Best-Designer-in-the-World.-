@@ -1,79 +1,113 @@
 #!/usr/bin/env python3
-"""Optional advisory skill-routing workstream. NEVER installs or executes external code.
-Curated entries point to sources for runtime verification; explicit goal takes priority.
+"""Compatibility adapter for the canonical, tested scripts/specialist_router.py.
+
+Legacy callers may keep sending a JSON context. This adapter no longer uses a
+second, stale catalog or silently imposes a 3-expert ceiling. It suggests
+specialists only; it never loads, installs, invokes or authorizes a skill.
 """
 from __future__ import annotations
-import argparse,json,re
+import argparse
+import importlib.util
+import json
 from pathlib import Path
 
-ROOT=Path(__file__).resolve().parents[1]
-CATALOG=ROOT/"research/specialist_catalog.json"
-def phrase(haystack,needle):
-    """Find a positive mention, excluding common nearby negatives, even in lists.
+ROOT = Path(__file__).resolve().parents[1]
+MOD_PATH = ROOT / "scripts/specialist_router.py"
+SURFACE_ALIASES = {
+    "landing":"marketing","marketing":"marketing","commerce":"marketing",
+    "checkout":"marketing","experience":"art","art":"art",
+    "app":"product","product":"product","dashboard":"internal",
+    "internal":"internal","docs":"read","reading":"read","read":"read",
+    "native":"native",
+}
+MODE_TO_OPERATION = {
+    "PATCH":"polish","AUDIT":"audit","REFINE":"polish",
+    "REDESIGN":"build","REBUILD":"build"
+}
 
-    Lightweight text heuristic only, not NLU. Portuguese 'no WebGL' means
-    'in WebGL', therefore bare 'no' is deliberately not treated as negation.
-    """
-    text=haystack.casefold()
-    token=r"(?<!\w)"+re.escape(needle.casefold())+r"(?!\w)"
-    for match in re.finditer(token,text):
-        prefix=text[max(0,match.start()-130):match.start()]
-        clause=re.split(r"[.!?;\n]|\b(?:mas|porém|porem|but|however|instead)\b",prefix)[-1]
-        neg=re.search(
-            r"(?<!\w)(?:sem|without|avoid|não\s+(?:quero|use|usar)|nao\s+(?:quero|use|usar)|"
-            r"do\s+not\s+(?:use|add)|don't\s+(?:use|add))\b[^.!?;\n]{0,85}$",
-            clause
-        )
-        if neg:
-            tail=neg.group(0)
-            if not re.search(r"\b(?:com|with|incluindo|including|usando|using)\b",tail):
-                continue
-        return True
-    return False
+def _load_router():
+    spec = importlib.util.spec_from_file_location("design_os_canonical_specialists", MOD_PATH)
+    if spec is None or spec.loader is None:
+        raise ValueError("Canonical specialist router unavailable")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
-def suggest(context:dict,catalog=None)->dict:
-    if not isinstance(context,dict):raise ValueError("Context must be a JSON object")
-    text=" ".join(str(context.get(x,"")) for x in ("task","surface","stack","goal","description"))
-    mode=str(context.get("mode","")).upper()
-    if not text.strip():raise ValueError("Provide task/surface/goal/stack")
-    if catalog is None:catalog=json.loads(CATALOG.read_text(encoding="utf-8"))
-    if catalog.get("version")!=1 or not isinstance(catalog.get("specialists"),list):
-        raise ValueError("Invalid specialist catalog")
-    if mode=="PATCH" and not any(phrase(text,x) for x in ("gsap","three.js","webgl","accessibility","performance")):
-        return {"status":"NO_EXTERNAL_SKILL_NEEDED","specialists":[],"reason":"Patch stays focused unless a specialist is explicitly requested."}
-    results=[]
-    for row in catalog["specialists"]:
-        keywords=row.get("triggers",[])
-        hits=[s for s in keywords if phrase(text,s)]
-        surfaces=row.get("surfaces",[])
-        surface=str(context.get("surface","")).casefold()
-        explicit_surface=surface in surfaces if surface else False
-        if not hits and not explicit_surface:continue
-        if surface in ("internal","dashboard","checkout") and row.get("only_marketing"):
-            continue
-        score=3*len(hits)+(1 if explicit_surface else 0)
-        results.append((score,row["id"],row,hits))
-    results.sort(key=lambda x:(-x[0],x[1]))
-    limit=context.get("max_specialists",3)
-    if not isinstance(limit,int) or isinstance(limit,bool) or limit<0 or limit>3:
-        raise ValueError("max_specialists must be 0..3")
-    chosen=[]
-    for _,_,row,hits in results[:limit]:
-        chosen.append({"id":row["id"],"url":row["url"],"skill_path":row.get("skill_path"),
-                       "relevance":row["purpose"],"matched_terms":hits,
-                       "license_reported":row["license_reported"],
-                       "status":"CANDIDATE_NOT_INSTALLED_NOT_INSPECTED",
-                       "next_action":"Confirm current license, exact SKILL.md, version and relevance before optional use."})
-    return {"status":"PROPOSED_ONLY_NOT_EXECUTED","specialists":chosen,
-            "limits":"Deterministic routing by text/declared surface; no browsing, reading, installation, team delegation or evidence of quality."}
+def suggest(context: dict, catalog=None) -> dict:
+    if not isinstance(context, dict):
+        raise ValueError("Context must be a JSON object")
+    if catalog is not None:
+        raise ValueError("Legacy specialist catalog override retired; use canonical registry")
+    fragments=[]
+    for key in ("task","goal","description","stack"):
+        value=context.get(key,"")
+        if not isinstance(value,str) or len(value)>10_000:
+            raise ValueError("Invalid text field "+key)
+        fragments.append(value)
+    task=" ".join(x for x in fragments if x)
+    surface=SURFACE_ALIASES.get(str(context.get("surface","product")).lower())
+    if surface is None:
+        raise ValueError("Unknown surface")
+    if not task.strip():
+        raise ValueError("Provide task, goal, description or stack")
+    mode=str(context.get("mode","REBUILD")).upper()
+    if mode not in MODE_TO_OPERATION:
+        raise ValueError("Invalid mode")
+    requested_limit=context.get("max_specialists")
+    if requested_limit is not None and (not isinstance(requested_limit,int)
+        or isinstance(requested_limit,bool) or not 0 <= requested_limit <= 32):
+        raise ValueError("max_specialists must be an integer 0..32 when supplied")
+    operation=MODE_TO_OPERATION[mode]
+    router=_load_router()
+    project=context.get("project")
+    if project is not None and not isinstance(project,str):
+        raise ValueError("project must be a path string")
+    allow=bool(context.get("owner_authorized",False))
+    if context.get("owner_authorized") not in (None,True,False):
+        raise ValueError("owner_authorized must be boolean")
+    if mode=="PATCH" and not any(router.contains_phrase(task,x) for x in (
+        "impeccable","gsap","three.js","webgl","performance","accessibility","a11y","figma")):
+        return {"status":"NO_EXTERNAL_SKILL_NEEDED","specialists":[],
+                "source_of_truth":"scripts/specialist_router.py",
+                "reason":"Narrow patch without an explicitly relevant specialist."}
+    packet=router.recommend(
+        surface,operation,task,
+        project=Path(project) if project else None,
+        product=str(context.get("product","")),
+        allow_project_ceo=allow,
+        include_all_matches=bool(context.get("all_matches",False))
+    )
+    choices=packet["candidates"]
+    if requested_limit is not None:
+        choices=choices[:requested_limit]
+    registry={item["id"]:item for item in router.read_registry()}
+    specialists=[]
+    for entry in choices:
+        source=registry[entry["id"]]["source"]
+        specialists.append({
+            "id":entry["id"],"url":entry["source"],
+            "skill_path":source["path"],"relevance":entry["niche_advantage_not_proven_superiority"],
+            "matched_terms":entry["matched_signals"],
+            "status":"CANDIDATE_NOT_INSTALLED_NOT_INVOKED",
+            "availability":entry["availability"],
+            "requires":entry["requires"]
+        })
+    return {
+        "status":"PROPOSED_ONLY_NOT_EXECUTED",
+        "source_of_truth":"scripts/specialist_router.py",
+        "specialists":specialists,
+        "prerequisites":packet["prerequisites"],
+        "limits":"Legacy context adapter; candidate relevance only, not an actual agent call, expert verdict or permissions."
+    }
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("context",type=Path)
-    a=p.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("context",type=Path)
+    args=parser.parse_args()
     try:
-        data=json.loads(a.context.read_text(encoding="utf-8"))
-        print(json.dumps(suggest(data),ensure_ascii=False,indent=2))
-    except (OSError,ValueError,TypeError,json.JSONDecodeError) as e:
-        p.exit(2,f"INVALID ROUTE: {e}\n")
-if __name__=="__main__":main()
+        payload=json.loads(args.context.read_text(encoding="utf-8"))
+        print(json.dumps(suggest(payload),ensure_ascii=False,indent=2))
+    except (OSError,ValueError,TypeError,json.JSONDecodeError) as exc:
+        parser.exit(2,f"INVALID ROUTE: {exc}\n")
+if __name__=="__main__":
+    main()
