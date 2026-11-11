@@ -6,6 +6,10 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| references/system-user-journeys-and-transactions.md | UX de sistemas com autenticação, RBAC, tenant, pagamentos, assinaturas e recuperação |
+| references/privacy-trust-and-consent-ux.md | LGPD/GDPR como risco de produto, consentimento verdadeiro, privacidade e direitos de dados |
+| references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
+| references/operational-reliability-and-recovery-ux.md | Estados degradados, retries, eventos, monitoramento, incidentes, rollout e suporte |
 | `references/automatic-specialist-orchestration.md` | Única entrada: descoberta e uso de skills externas por especialidade, com limites do runtime |
 | `references/full-funnel-commercial-orchestration.md` | CEO, COO, CMO, vendas, growth, funil, CRM, CRO, medição e ativação |
 | `references/great-leads-ethical-copy-framework.md` | *Great Leads*: tipos de abertura, nível de consciência, promessa com prova, persuasão responsável |
