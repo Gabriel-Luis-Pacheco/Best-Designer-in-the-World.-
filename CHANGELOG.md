@@ -1,3 +1,10 @@
+### 2026-11-10 — Single-entrypoint expert team (v14 additive)
+- Main SKILL.md proactively discovers and uses genuinely available specialized skill/tool integrations, keeping Design OS accountable for product truth, coherent art direction, implementation and QA.
+- Added 40 verified public specialty candidates for Impeccable, Anthropic, Taste, UI/UX, Vercel, GSAP, Figma and conditional CEO, sales, CMO, growth, analytics, CRO, copy, SEO/GEO, customer research and psychological UX.
+- Added original read-only and domain-aware `scripts/specialist_router.py`, plus tests for local skill-file detection, scope guard, Figma prerequisites, SEO/GEO split and commercial copy use.
+- Added marketing funnel/CEO–COO–CMO, ethical user psychology and Great Leads six-family copy playbooks without copying the book or pretending clinical expertise.
+- A catalog route is not skill execution or skill superiority. No automatic dependency installation, outbound sending, business authorizations, invisible subagents or guaranteed revenue.
+
 ### 2026-11-10 — Precision Design Operations / original competitor-gap integration (v14 additive)
 - Added 22 scoped design operation routes (including critique, polish, distill, bolder, quieter, harden, adapt, onboard, variants), with optional deterministic routing CLI; no claims of automatic design execution.
 - Added an advisory CSS/JSX/HTML source triage CLI with line-level candidate findings, reasoned inline ignores, scoped directory scans and regression tests. No claims of visual/UX certification.

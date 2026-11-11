@@ -22,6 +22,7 @@ jobs:
         run: python skills/studio-grade-web-transformation/scripts/validate.py
       - name: Smoke-test scoped design operations and source triage (advisory)
         run: |
+          python skills/studio-grade-web-transformation/scripts/specialist_router.py --surface marketing --operation build --task "landing, conversão, SEO e copy" --json > /tmp/design-specialists.json
           python skills/studio-grade-web-transformation/scripts/design_context.py --project skills/studio-grade-web-transformation/examples --check > /tmp/design-context-status.json
           python skills/studio-grade-web-transformation/scripts/design_workflow.py --action distill --surface marketing --json > /tmp/design-operator-route.json
           python skills/studio-grade-web-transformation/scripts/source_triage.py skills/studio-grade-web-transformation/examples --json > /tmp/design-source-candidates.json

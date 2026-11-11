@@ -10,6 +10,18 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Uma única skill para toda a equipe especializada — 10/11/2026
+
+Você recomenda/ativa apenas `studio-grade-web-transformation`. O agente procura e usa especialistas realmente disponíveis conforme a tarefa: Impeccable (refinamento), Anthropic e Taste (arte), UI/UX Pro Max (padrões), Vercel (UX/React), GSAP (motion), Figma (design), e especialistas de CEO/CMO/COO, vendas, growth, funil, marketing, copy, SEO/GEO, analytics e psicologia ética do usuário. Design OS coordena, implementa, inspeciona e entrega um resultado único, sem obedecer a opiniões externas que contradigam o produto.
+
+Catálogo: **40 entrypoints públicos verificados** com vantagens de nicho, gatilhos e pré-requisitos; isso **não** comprova superioridade, instalação, compatibilidade ou execução. A skill não instala dependências automaticamente. O roteiro abaixo lista candidatos e detecta algumas skills locais, não inicia outros agentes:
+
+```bash
+python skills/studio-grade-web-transformation/scripts/specialist_router.py --surface marketing --operation build --task "landing de vendas, copy, SEO e GEO" --json
+```
+
+[Orquestração de especialistas](skills/studio-grade-web-transformation/references/automatic-specialist-orchestration.md) · [CEO/CMO/COO, vendas e growth](skills/studio-grade-web-transformation/references/full-funnel-commercial-orchestration.md) · [Great Leads aplicado](skills/studio-grade-web-transformation/references/great-leads-ethical-copy-framework.md) · [Psicologia ética do usuário](skills/studio-grade-web-transformation/references/ethical-user-psychology.md) · [Catálogo verificável](skills/studio-grade-web-transformation/research/specialist_registry.json).
+
 ## Novos fluxos operacionais — integração competitiva (10/11/2026)
 
 Adicionados **22 operadores direcionados** (criar, criticar, auditar, polir, simplificar, destacar, acalmar, copy, tipografia, layout, animação, onboarding, hardening, otimização, variantes etc.), orientação para **mobile nativo** e um **scanner original, local e consultivo** para CSS/JSX/HTML. Esses recursos complementam o `craft_audit.py` e a inspeção Playwright existentes sem fingir ser o aplicativo Impeccable, sua extensão ou seu modo de edição ao vivo.

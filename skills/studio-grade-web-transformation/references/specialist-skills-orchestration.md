@@ -4,7 +4,7 @@ Use when picking an external agent skill or planning a large multi-disciplinary 
 
 ## Selection algorithm
 1. Identify surface, product, primary/secondary goal, current stack, protected interfaces, asset canon and the most consequential unknown.
-2. Choose 0–3 specialist knowledge packs, depending on risk. Default is THIS skill alone plus official documentation; a third-party skill must add a missing capability, not repeat the main prompt.
+2. Choose the proportionate number of specialists the actual work needs, without a fixed agent quota. Default is THIS skill alone for a narrow task; external specialists must contribute a distinct capability. For a complex job use `automatic-specialist-orchestration.md` and `research/specialist_registry.json`.
 3. For each candidate: confirm the exact repository/skill path exists now, license, supported agent, dependency/install method, current API compatibility, failure modes and whether its instructions contradict the user's task.
 4. Extract transferable mechanism; do not copy entire source prompt or execute installation scripts without permission/review.
 5. Assign one decision owner for art direction and one source of truth for product facts. Specialist recommendations are advisory. Record which source was inspected and what was actually adopted.
@@ -40,6 +40,10 @@ Treat these as independent sources to check for a specific gap, not authorities 
 | GSAP Skills | `greensock/gsap-skills/skills/*/SKILL.md` | Official API-specific implementation knowledge | The project already uses or explicitly requests GSAP |
 
 The entrypoints were checked in their public default branches on the date above. This verifies source content and paths only; it does not verify their licenses, installation, agent behavior or design outcomes. Recheck exact versions and license before use.
+
+## Current single-entrypoint orchestration policy
+
+The old matrix below is historical background, not a strict size limit. Read `automatic-specialist-orchestration.md` and `research/specialist_registry.json` for current entries and trigger-aware routing. The agent should proactively load real available skills without requiring the user to name each. Consulting a public file is not invoking a skill. Commercial projects optionally load `full-funnel-commercial-orchestration.md`, `great-leads-ethical-copy-framework.md` and `ethical-user-psychology.md`. No silent installation, made-up expert participation or automatic CEO authority.
 
 ## Domain-specific exceptions
 - Internal fintech/ops: product truth, dense tables, permissions, traces and task success outrank creative spectacle. No marketing gallery needed.

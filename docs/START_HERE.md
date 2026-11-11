@@ -2,6 +2,12 @@
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
+## Só uma skill; especialistas relevantes quando existem
+
+Ative `studio-grade-web-transformation`. Ela orienta o agente a procurar skills realmente disponíveis por especialidade, carregá-las com seus pré-requisitos e integrar as contribuições em uma única entrega. Catálogo: `research/specialist_registry.json`. Política operacional: `references/automatic-specialist-orchestration.md`. Roteador consultivo: `scripts/specialist_router.py --surface marketing --operation build --task "landing, vendas e SEO" --json` (não executa skills). Se não houver especialista instalado, a Design OS usa seus guias internos ou consulta o material público como referência autorizada, sem fingir que invocou outra skill.
+
+Para marketing, vendas, CEO/COO/CMO, growth, funil e SEO/GEO: `references/full-funnel-commercial-orchestration.md`; para *Great Leads*: `references/great-leads-ethical-copy-framework.md`; para UX/psicologia da decisão: `references/ethical-user-psychology.md`. Especialistas entram apenas onde fazem diferença, sem quotas artificiais ou promessas comerciais.
+
 ## Selecione o menor escopo adequado
 PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia; REFINE melhora tela boa; REDESIGN altera arquitetura ou direção; REBUILD reconstrói quando problemas sistêmicos justificam. Distinga MARKETING (clareza, prova, conversão) de PRODUCT (precisão, tarefas, densidade e estados).
 
