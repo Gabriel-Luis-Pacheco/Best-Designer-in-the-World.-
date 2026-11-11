@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Verified publicly readable entrypoints, not proof of superiority, local installation or tool availability. Contextual candidate list; not universal ranking.",
+  "description": "Current public skill candidates and niche advantages, NOT rankings or proof of local install. Design OS is single entrypoint and adaptive orchestrator; see automatic-specialist-orchestration.md.",
   "inspected_at": "2026-11-10",
   "entries": [
     {
@@ -766,6 +766,734 @@
       ],
       "edge": "Activation, first-value and onboarding flow hypotheses tied to real usage",
       "requires": []
+    },
+    {
+      "id": "ceo-operator",
+      "name": "BataTalk CEO Operator",
+      "source": {
+        "repo": "Gabriel-Luis-Pacheco/skill-ceo",
+        "path": "SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/Gabriel-Luis-Pacheco/skill-ceo/blob/main/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "batatalk-ceo-operator"
+      ],
+      "lane": "executive-strategy",
+      "surfaces": [
+        "marketing",
+        "product",
+        "internal"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "audit"
+      ],
+      "signals": [
+        "ceo",
+        "coo",
+        "cmo",
+        "direção",
+        "estratégia",
+        "go-to-market",
+        "negócio",
+        "startup",
+        "business plan",
+        "delegação",
+        "orquestração",
+        "gestão"
+      ],
+      "edge": "Actual owner-specific CEO skill: executive business prioritization and multi-agent governance; ONLY for authorized BataTalk/its projects",
+      "scope_guard": "BATATALK_AUTHORIZED_ONLY"
+    },
+    {
+      "id": "marketing-plan",
+      "name": "Marketing Skills Plan / CMO",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/marketing-plan/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-plan/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "marketing-plan"
+      ],
+      "lane": "marketing-leadership",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "audit"
+      ],
+      "signals": [
+        "cmo",
+        "marketing",
+        "plano de marketing",
+        "go-to-market",
+        "gtm",
+        "growth",
+        "aquisição",
+        "canais",
+        "lançamento"
+      ],
+      "edge": "Go-to-market strategy, channels, budget/tradeoffs, sequencing and accountable marketing plan"
+    },
+    {
+      "id": "marketing-product",
+      "name": "Marketing Skills Product Marketing",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/product-marketing/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "product-marketing"
+      ],
+      "lane": "positioning",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "clarify"
+      ],
+      "signals": [
+        "posicionamento",
+        "público-alvo",
+        "proposta de valor",
+        "diferencial",
+        "positioning",
+        "concorrentes",
+        "market fit"
+      ],
+      "edge": "Audience/status quo/alternative-led positioning and differentiation"
+    },
+    {
+      "id": "marketing-offers",
+      "name": "Marketing Skills Offers",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/offers/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/offers/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "offers"
+      ],
+      "lane": "offer-design",
+      "surfaces": [
+        "marketing"
+      ],
+      "operations": [
+        "build",
+        "shape",
+        "clarify"
+      ],
+      "signals": [
+        "oferta",
+        "offer",
+        "preço",
+        "desconto",
+        "bônus",
+        "benefício",
+        "vender",
+        "conversão"
+      ],
+      "edge": "Commercial offer structure and justified trust/guarantee/terms without fictional scarcity"
+    },
+    {
+      "id": "marketing-pricing",
+      "name": "Marketing Skills Pricing",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/pricing/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/pricing/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "pricing"
+      ],
+      "lane": "pricing",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "audit"
+      ],
+      "signals": [
+        "pricing",
+        "preço",
+        "precos",
+        "planos",
+        "assinatura",
+        "checkout",
+        "pagar",
+        "monetização"
+      ],
+      "edge": "SaaS/package pricing research and buyer tradeoffs; requires permission for actual price changes"
+    },
+    {
+      "id": "marketing-sales",
+      "name": "Marketing Skills Sales Enablement",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/sales-enablement/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/sales-enablement/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "sales-enablement"
+      ],
+      "lane": "sales",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "clarify"
+      ],
+      "signals": [
+        "vendas",
+        "vender",
+        "sales",
+        "argumentação",
+        "objeções",
+        "objections",
+        "proposta comercial",
+        "demo",
+        "b2b",
+        "b2b2c"
+      ],
+      "edge": "Sales collateral, demo/trust proof, objections, win/loss and conversion enablement"
+    },
+    {
+      "id": "marketing-prospecting",
+      "name": "Marketing Skills Prospecting",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/prospecting/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/prospecting/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "prospecting"
+      ],
+      "lane": "outbound-sales",
+      "surfaces": [
+        "marketing"
+      ],
+      "operations": [
+        "shape",
+        "build"
+      ],
+      "signals": [
+        "prospecção",
+        "prospectar",
+        "leads",
+        "outbound",
+        "abordagem",
+        "cold outreach",
+        "afiliados",
+        "parcerias"
+      ],
+      "edge": "Sales lead qualification, prospect research and respectful personalized outreach planning; external sending needs authorization"
+    },
+    {
+      "id": "marketing-loops",
+      "name": "Marketing Skills Loops",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/marketing-loops/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-loops/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "marketing-loops"
+      ],
+      "lane": "growth-loops",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "optimize"
+      ],
+      "signals": [
+        "growth",
+        "loop",
+        "viral",
+        "referência",
+        "retorno",
+        "recorrente",
+        "crescimento",
+        "automação",
+        "cadência"
+      ],
+      "edge": "Retention/revenue/marketing loop design with measured triggers, exit conditions and no spam"
+    },
+    {
+      "id": "marketing-analytics",
+      "name": "Marketing Skills Analytics",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/analytics/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/analytics/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "analytics"
+      ],
+      "lane": "growth-analytics",
+      "surfaces": [
+        "marketing",
+        "product",
+        "internal"
+      ],
+      "operations": [
+        "audit",
+        "shape",
+        "optimize"
+      ],
+      "signals": [
+        "analytics",
+        "métricas",
+        "dados",
+        "dashboard",
+        "utm",
+        "atribuição",
+        "tracking",
+        "funil",
+        "retenção",
+        "growth"
+      ],
+      "edge": "Event schema, attribution, denominators and data trust for funnel/activation diagnosis"
+    },
+    {
+      "id": "marketing-conversion-tracking",
+      "name": "Marketing Skills Conversion Tracking",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/conversion-tracking/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/conversion-tracking/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "conversion-tracking"
+      ],
+      "lane": "conversion-measurement",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "audit",
+        "build",
+        "optimize"
+      ],
+      "signals": [
+        "conversão",
+        "evento",
+        "analytics",
+        "tracking",
+        "pixel",
+        "tag",
+        "utm",
+        "funnel",
+        "purchase"
+      ],
+      "edge": "Reliable event trigger, measurement integrity and verified downstream conversion"
+    },
+    {
+      "id": "marketing-ab",
+      "name": "Marketing Skills A/B Testing",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/ab-testing/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/ab-testing/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "ab-testing"
+      ],
+      "lane": "experimentation",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "variants",
+        "audit",
+        "shape"
+      ],
+      "signals": [
+        "a/b",
+        "ab test",
+        "experimentação",
+        "teste",
+        "experimento",
+        "hipótese",
+        "variants"
+      ],
+      "edge": "Controlled experiment design, SRM/guardrails and interpretation; don't fabricate significance"
+    },
+    {
+      "id": "marketing-signup",
+      "name": "Marketing Skills Signup",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/signup/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/signup/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "signup"
+      ],
+      "lane": "signup-flow",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "onboard",
+        "build",
+        "harden"
+      ],
+      "signals": [
+        "cadastro",
+        "login",
+        "signup",
+        "registro",
+        "trial",
+        "conversão",
+        "activation"
+      ],
+      "edge": "Signup form friction and activation handoff"
+    },
+    {
+      "id": "marketing-ai-seo",
+      "name": "Marketing Skills AI SEO / GEO",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/ai-seo/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/ai-seo/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "ai-seo"
+      ],
+      "lane": "ai-discovery",
+      "surfaces": [
+        "marketing",
+        "read"
+      ],
+      "operations": [
+        "audit",
+        "build",
+        "optimize"
+      ],
+      "signals": [
+        "geo",
+        "aeo",
+        "llmo",
+        "ai search",
+        "chatgpt search",
+        "ai overview",
+        "inteligência artificial busca",
+        "visibilidade ia"
+      ],
+      "edge": "AI answer discoverability, citation hypotheses and crawl strategy; actual citations must be checked"
+    },
+    {
+      "id": "marketing-site-architecture",
+      "name": "Marketing Skills Site Architecture",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/site-architecture/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/site-architecture/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "site-architecture"
+      ],
+      "lane": "search-information-architecture",
+      "surfaces": [
+        "marketing",
+        "read",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "audit"
+      ],
+      "signals": [
+        "sitemap",
+        "site architecture",
+        "estrutura de site",
+        "seo",
+        "páginas",
+        "navegação",
+        "site map"
+      ],
+      "edge": "Information architecture, URL structure and internal links for findability"
+    },
+    {
+      "id": "marketing-content",
+      "name": "Marketing Skills Content Strategy",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/content-strategy/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "content-strategy"
+      ],
+      "lane": "content-strategy",
+      "surfaces": [
+        "marketing",
+        "read"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "clarify"
+      ],
+      "signals": [
+        "conteúdo",
+        "conteudo",
+        "conteúdo orgânico",
+        "blog",
+        "vídeo",
+        "youtube",
+        "marketing",
+        "editorial",
+        "estratégia de conteúdo"
+      ],
+      "edge": "Topic selection by user jobs and search intent, credible proof and distribution"
+    },
+    {
+      "id": "marketing-competitor",
+      "name": "Marketing Skills Competitor Profiling",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/competitor-profiling/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitor-profiling/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "competitor-profiling"
+      ],
+      "lane": "competitive-research",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "audit",
+        "shape",
+        "build"
+      ],
+      "signals": [
+        "concorrentes",
+        "competidores",
+        "competitor",
+        "competição",
+        "benchmark",
+        "rivais",
+        "vencer"
+      ],
+      "edge": "Dated competitor feature, promise, channel and audience profiles with facts distinct from hypotheses"
+    },
+    {
+      "id": "marketing-psychology",
+      "name": "Marketing Skills Psychology",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/marketing-psychology/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-psychology/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "marketing-psychology"
+      ],
+      "lane": "behavioral-psychology",
+      "surfaces": [
+        "marketing",
+        "product",
+        "read"
+      ],
+      "operations": [
+        "shape",
+        "clarify",
+        "critique",
+        "build"
+      ],
+      "signals": [
+        "psicologia",
+        "psicólogo",
+        "psychology",
+        "comportamento",
+        "bias",
+        "vieses",
+        "persuasão",
+        "usuário",
+        "atenção",
+        "motivação",
+        "decisão"
+      ],
+      "edge": "Ethical cognitive psychology for clarity, trust, autonomy and choice architecture; not therapy or clinical authority"
+    },
+    {
+      "id": "marketing-ads",
+      "name": "Marketing Skills Paid Ads",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/ads/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/ads/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "ads"
+      ],
+      "lane": "paid-acquisition",
+      "surfaces": [
+        "marketing"
+      ],
+      "operations": [
+        "shape",
+        "build",
+        "audit"
+      ],
+      "signals": [
+        "ads",
+        "paid",
+        "anúncio",
+        "anuncios",
+        "anunciar",
+        "tráfego pago",
+        "mídia paga",
+        "campanha"
+      ],
+      "edge": "Paid marketing campaign planning and measurement; budget and publication require approval"
+    },
+    {
+      "id": "marketing-social",
+      "name": "Marketing Skills Social",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/social/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/social/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "social"
+      ],
+      "lane": "community-distribution",
+      "surfaces": [
+        "marketing"
+      ],
+      "operations": [
+        "build",
+        "shape",
+        "clarify"
+      ],
+      "signals": [
+        "social",
+        "instagram",
+        "tiktok",
+        "reels",
+        "publicações",
+        "redes sociais",
+        "publicação"
+      ],
+      "edge": "Channel-aware distribution/creative work tied to the actual offer and consent"
+    },
+    {
+      "id": "marketing-community",
+      "name": "Marketing Skills Community Marketing",
+      "source": {
+        "repo": "coreyhaines31/marketingskills",
+        "path": "skills/community-marketing/SKILL.md",
+        "branch": "main",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/community-marketing/SKILL.md",
+        "inspected": "2026-11-10",
+        "verification": "SOURCE_EXISTS_ONLY"
+      },
+      "skill_names": [
+        "community-marketing"
+      ],
+      "lane": "community-led-growth",
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "operations": [
+        "shape",
+        "build"
+      ],
+      "signals": [
+        "comunidade",
+        "community",
+        "whatsapp",
+        "discord",
+        "social",
+        "orgânico",
+        "engajamento"
+      ],
+      "edge": "Community-led trust, participation, retention and advocacy without spam"
     }
   ]
 }
