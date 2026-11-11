@@ -26,7 +26,7 @@ Deliver the requested change on the actual product. For implementation tasks, a 
 
 ## Core production intelligence — keep the brief, build real value
 
-**Original brief and visual identity:** Keep the original user request and subsequent explicit changes visible through direction, first render and delivery. Protect exact brands, assets, subjects, behavior, routes, prices and restrictions. Named characters are not permission to invent generic lookalikes. Inspect originals, truth, rights and usable current assets; if a must-have remains unavailable, flag it without silently replacing the subject. Use `references/original-brief-and-referent-fidelity.md`.
+**Original-brief compass and visual identity:** Keep the original user request and subsequent explicit changes visible through direction, first render and delivery. Protect exact brands, assets, subjects, behavior, routes, prices and restrictions. Named characters are not permission to invent generic lookalikes. Inspect originals, truth, rights and usable current assets; if a must-have remains unavailable, flag it without silently replacing the subject. Use `references/original-brief-and-referent-fidelity.md`.
 
 **Professional initiative without scope creep:** For substantive work, handle necessary hierarchy, typography, media quality, meaningful states, responsive layouts, navigation, product proof, performance and relevant access/SEO where authorized; don't ask the user to specify every detail. Never invent customers, reviews, data, features, guarantees or permissions. For a narrow PATCH preserve strong work, contracts and brand. Use `references/proactive-completeness-and-launch.md` only for larger work.
 
