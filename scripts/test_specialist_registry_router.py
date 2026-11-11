@@ -38,7 +38,9 @@ class SpecialistRouterTests(unittest.TestCase):
         a=mod.recommend("marketing","shape","CEO, CMO e growth para minha empresa")
         b=mod.recommend("marketing","shape","CEO, CMO e growth para BataTalk",product="BataTalk")
         self.assertNotIn("ceo-operator",{r["id"] for r in a["candidates"]})
-        self.assertIn("ceo-operator",{r["id"] for r in b["candidates"]})
+        self.assertNotIn("ceo-operator",{r["id"] for r in b["candidates"]})
+        c=mod.recommend("marketing","shape","CEO, CMO e growth para BataTalk",product="BataTalk",allow_project_ceo=True)
+        self.assertIn("ceo-operator",{r["id"] for r in c["candidates"]})
     def test_host_local_detection_not_claim_invocation(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
@@ -63,6 +65,26 @@ class SpecialistRouterTests(unittest.TestCase):
         x=mod.recommend("art","build","experiência abstrata animada")
         self.assertNotIn("references/full-funnel-commercial-orchestration.md",x["internal_guides"])
         self.assertTrue(all(not r["lane"].startswith("sales") for r in x["candidates"]))
+    def test_negated_technology_and_skill_is_not_recommended(self):
+        a=mod.recommend("art","build","Experiência sem WebGL e GSAP, com ilustrações")
+        names={r["id"] for r in a["candidates"]}
+        self.assertNotIn("threejs-engineering",names)
+        self.assertNotIn("gsap-scrolltrigger",names)
+        b=mod.recommend("product","polish","Refine a interface sem Impeccable")
+        self.assertNotIn("impeccable",{r["id"] for r in b["candidates"]})
+
+    def test_contrast_clause_releases_veto(self):
+        x=mod.recommend("art","build","Sem WebGL, mas usar GSAP para scroll")
+        ids={r["id"] for r in x["candidates"]}
+        self.assertNotIn("threejs-engineering",ids)
+        self.assertIn("gsap-scrolltrigger",ids)
+
+    def test_ceo_authorization_is_boolean_not_project_name(self):
+        x=mod.recommend("marketing","shape","CEO para BataTalk",product="BataTalk")
+        self.assertEqual(x["project_ceo_gate"],"CLOSED")
+        y=mod.recommend("marketing","shape","CEO para BataTalk",product="BataTalk",allow_project_ceo=True)
+        self.assertEqual(y["project_ceo_gate"],"OPEN_ONLY_IF_TARGET_CONFIRMED_AND_AUTHORIZED")
+
     def test_figma_dependency(self):
         x=mod.recommend("product","build","implementar figma pixel-perfect design to code")
         self.assertIn("figma-use",{d["id"] for d in x["prerequisites"]})
