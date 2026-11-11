@@ -45,6 +45,22 @@ class DesignWorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             mod.route("build","product",task="x"*10001)
 
+    def test_marketing_visual_build_uses_code_first_studio(self):
+        r=mod.route("build","marketing",task="criar landing visual extraordinária")
+        self.assertEqual(r["guides"][0],"references/code-first-visual-direction-studio.md")
+        self.assertFalse(r["missing_references"])
+
+    def test_visual_comparison_does_not_bloat_a_patch(self):
+        r=mod.route("build","marketing",scope="PATCH",task="apenas alterar tipografia do hero")
+        self.assertNotIn("references/code-first-visual-direction-studio.md",r["guides"])
+        self.assertEqual(r["mode"],"PATCH")
+
+    def test_product_visual_variants_are_conditional(self):
+        a=mod.route("variants","product",task="quero redesign visual da interface")
+        b=mod.route("build","product",task="implemente resposta da API")
+        self.assertIn("references/code-first-visual-direction-studio.md",a["guides"])
+        self.assertNotIn("references/code-first-visual-direction-studio.md",b["guides"])
+
     def test_invalid_scope(self):
         with self.assertRaises(ValueError):
             mod.route("polish","product","WRITE_EVERYTHING")
