@@ -2,6 +2,12 @@
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
+## Revenue-Centric Design incorporado integralmente — 11/11/2026
+
+A skill principal agora inclui uma **cópia integral e verificada dos 104 arquivos** do [Revenue-Centric Design](https://github.com/heliocosta-dev/revenue-centric-design), de Hélio Costa, com **134 princípios**, 12 guias temáticos, recursos visuais (inclusive o vídeo original), documentação, histórico, licença e ferramentas opcionais de atualização. Tudo fica em [`skills/studio-grade-web-transformation/vendor/revenue-centric-design/`](skills/studio-grade-web-transformation/vendor/revenue-centric-design/). Você continua instalando **apenas** `studio-grade-web-transformation`; o agente consulta esse conhecimento quando a tarefa envolve aquisição, conversão, onboarding, retenção, preço, posicionamento, experimentos ou UX comercial, sem sacrificar identidade visual nem adicionar funis artificiais. [Proveniência e critérios de uso](docs/REVENUE_CENTRIC_DESIGN_INTEGRATION_2026_11_11.md).
+
+**Atribuição e licença:** princípios de Richard ([@richardrx](https://x.com/richardrx)), curados e disponibilizados por [heliocosta-dev](https://github.com/heliocosta-dev/revenue-centric-design) com permissão. A [licença própria do material](skills/studio-grade-web-transformation/vendor/revenue-centric-design/LICENSE) exige crédito e proíbe **qualquer uso desses materiais para apostas, cassinos, gambling e jogos de azar com dinheiro (inclusive loot boxes)**. Essa parte não é MIT; as condições originais foram preservadas.
+
 ## Instalar
 
 ```bash

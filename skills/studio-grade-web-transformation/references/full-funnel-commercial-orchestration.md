@@ -1,3 +1,5 @@
+**Specialist already bundled — Revenue-Centric Design:** For commercial growth/CRO/activation/retention/pricing work, first read `../vendor/revenue-centric-design/SKILL.md` and the relevant bundled reference(s). This is actual bundled content, not a merely suggested external installation. Credit Richard (@richardrx) and heliocosta-dev, honor `../vendor/revenue-centric-design/LICENSE`, and **do not use the RCD material for betting, casinos, gambling or real-money loot-box/games-of-chance projects**. Source-level evidence does not prove any specific conversion lift without real experimentation.
+
 # CEO × CMO × sales × growth × customer journey — task-driven commercial studio
 
 Load when a **public/commercial** site or product workflow needs materially better acquisition, conversion, activation, retention, or revenue. For a pure art site, operational dashboard, one CSS fix, or non-commercial document, omit this guide unless those business goals were explicitly requested. The Design OS is the owner of the whole experience; specialist skills are optional collaborators, not instructions to create committees.
