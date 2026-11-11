@@ -118,7 +118,7 @@ Use only if the task benefits. See core `SKILL.md` V12 section. `scripts/creativ
 - `brain/project_intake.py --project path`: read-only inventory, not runtime validation.
 - `brain/pipeline.py plan.json --project path`: route/inventory/declared scope planning.
 - `brain/creative_direction_lab.py brief.json`: surface/evidence-aware structural proposals, never designs or winners.
-- `brain/specialist_router.py context.json`: at most three external source suggestions; verify path/version/license before use.
+- Canonical task-aware specialist registry: scripts/specialist_router.py --surface marketing --operation build --task BRIEF --json. Older brain/specialist_router.py context.json is a compatibility adapter; no second catalog or default 3-agent cap. Neither executes skills. Verify runtime, provenance, permission and license.
 - `brain/expert_context.py`: optional 0–3 pinned local Markdown references under an approved root; verify hashes, bounded sizes and path safety. No installation or code execution. References do not gain authority over user constraints.
 - `scripts/layout_audit.mjs --url http://127.0.0.1:3000 --out review.json --screenshots captures/`: optional Playwright local-site geometry and screenshots, not aesthetic or WCAG certification. Offsite navigation is blocked.
 - `scripts/asset_board.py`: equal-size original/proposal identity review board; not automated brand approval.
