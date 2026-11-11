@@ -2,6 +2,12 @@
 
 Skill aberta de direção de arte, UX/UI, implementação e revisão de sites e produtos digitais. O nome do repositório expressa uma ambição; qualidade precisa aparecer no produto renderizado e em testes reais.
 
+## Pesquisa multidisciplinar: design, marketing, copy, vendas e UX — 11/11/2026
+
+Pesquisa de fontes primárias e opiniões profissionais (NN/g, W3C, Copyhackers, April Dunford, Strategyzer, Chris Do, Refactoring UI, Webflow, MECLABS, Unbounce, Ehrenberg-Bass, IPA), com acesso a trechos de livros de Claude Hopkins e referências editoriais de títulos como *Obviously Awesome*, *Designing Interfaces*, *Made to Stick*, *How Brands Grow* e *Don't Make Me Think*. **Não afirmamos ter lido integralmente livros pagos.** Novo fluxo operacional liga público, alternativas, voz do cliente, posicionamento, prova visual, copy e CTA ao resultado em navegador, distinguindo evidência, opinião, correlação e hipótese. A skill não aplica uma fórmula universal de conversão, estética ou orçamento.
+
+[Guia integrado](skills/studio-grade-web-transformation/references/multidisciplinary-design-marketing-research.md) · [Atlas de fontes, leituras e limitações](skills/studio-grade-web-transformation/research/research-design-marketing-copy-sales-ux-2026-11-11.md) · [Testes propostos — NÃO EXECUTADOS](skills/studio-grade-web-transformation/evals/multidisciplinary_evidence_scenarios.json).
+
 ## Revenue-Centric Design incorporado integralmente — 11/11/2026
 
 A skill principal agora inclui uma **cópia integral e verificada dos 104 arquivos** do [Revenue-Centric Design](https://github.com/heliocosta-dev/revenue-centric-design), de Hélio Costa, com **134 princípios**, 12 guias temáticos, recursos visuais (inclusive o vídeo original), documentação, histórico, licença e ferramentas opcionais de atualização. Tudo fica em [`skills/studio-grade-web-transformation/vendor/revenue-centric-design/`](skills/studio-grade-web-transformation/vendor/revenue-centric-design/). Você continua instalando **apenas** `studio-grade-web-transformation`; o agente consulta esse conhecimento quando a tarefa envolve aquisição, conversão, onboarding, retenção, preço, posicionamento, experimentos ou UX comercial, sem sacrificar identidade visual nem adicionar funis artificiais. [Proveniência e critérios de uso](docs/REVENUE_CENTRIC_DESIGN_INTEGRATION_2026_11_11.md).

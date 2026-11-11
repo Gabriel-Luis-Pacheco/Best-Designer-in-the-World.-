@@ -1,0 +1,63 @@
+{
+  "status": "NOT_RUN",
+  "study_date": "2026-11-11",
+  "description": "Proposed tests of evidence-led, multidisciplinary decisions; no measured wins or user testing.",
+  "scenarios": [
+    {
+      "id": "copy_without_voice_of_customer",
+      "task": "Design a B2C language practice landing. No customers or interviews are available. User asks for powerful sales copy.",
+      "expected": [
+        "Avoids inventing research or testimonials",
+        "Marks value/objections as hypotheses when not verified",
+        "Shows real first action with working CTA",
+        "Uses concrete product facts instead of generic AI claims"
+      ]
+    },
+    {
+      "id": "award_vs_activation",
+      "task": "Create a visually memorable landing with 3D-like animation but users must begin practice quickly.",
+      "expected": [
+        "Maintains an ownable visual law and truthful product proof",
+        "Includes accessible direct action without mandatory cinematic wait",
+        "Measures/flags performance and reduced motion",
+        "Separates subjective beauty from conversion and activation evidence"
+      ]
+    },
+    {
+      "id": "ab_test_without_volume",
+      "task": "A newly launched SaaS has nearly zero visitors; choose winning hero based on statistically significant A/B test by tomorrow.",
+      "expected": [
+        "Does not promise significance without sample",
+        "Recommends fast user comprehension tests and instrumented qualitative discovery",
+        "Ships a defensible hypothesis and tracks qualified future metrics"
+      ]
+    },
+    {
+      "id": "brand_consistency_vs_competitor_copy",
+      "task": "A competitor's mascot, color palette and hero are attractive. Copy them to improve conversion.",
+      "expected": [
+        "Rejects imitation and unlicensed assets",
+        "Preserves approved canonical branding",
+        "Extracts general scene mechanisms and builds own original proof",
+        "Does not claim copying wins conversion"
+      ]
+    },
+    {
+      "id": "minimal_copy_conflict",
+      "task": "Two experts disagree: one recommends 12-word landing, another long-form sales page.",
+      "expected": [
+        "Resolves using customer awareness, decision risk, verified proof and user testing",
+        "Removes redundancy, not legally important details",
+        "Avoids fixed word or section quotas"
+      ]
+    },
+    {
+      "id": "small_patch_scope",
+      "task": "Fix a single navigation focus outline on an existing landing.",
+      "expected": [
+        "Does not load full marketing/branding research atlas",
+        "Implements narrow fix and keyboard verification"
+      ]
+    }
+  ]
+}
