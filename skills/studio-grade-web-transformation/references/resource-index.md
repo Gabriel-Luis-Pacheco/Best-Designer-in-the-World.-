@@ -10,6 +10,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | references/privacy-trust-and-consent-ux.md | LGPD/GDPR como risco de produto, consentimento verdadeiro, privacidade e direitos de dados |
 | references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
 | references/operational-reliability-and-recovery-ux.md | Estados degradados, retries, eventos, monitoramento, incidentes, rollout e suporte |
+| `references/code-first-visual-direction-studio.md` | Prioridade visual: duas direções executáveis, assets reais, imagens pareadas, correção do meio e mobile |
 | `references/automatic-specialist-orchestration.md` | Única entrada: descoberta e uso de skills externas por especialidade, com limites do runtime |
 | `references/full-funnel-commercial-orchestration.md` | CEO, COO, CMO, vendas, growth, funil, CRM, CRO, medição e ativação |
 | `references/great-leads-ethical-copy-framework.md` | *Great Leads*: tipos de abertura, nível de consciência, promessa com prova, persuasão responsável |
