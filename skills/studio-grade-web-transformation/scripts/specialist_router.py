@@ -161,7 +161,7 @@ def recommend(surface: str, operation: str, task: str="", project: Path | None=N
         # An explicit veto of the named specialist overrides generic task words.
         names = row["skill_names"] + [row["name"], row["id"]]
         if any(contains_phrase(query, name) is False and
-               re.search(r"(?<![\\w])" + re.escape(normalize(name)) + r"(?![\\w])", query)
+               re.search(r"(?<![\w])" + re.escape(normalize(name)) + r"(?![\w])", query)
                for name in names):
             continue
         # Operational dashboards are not marketing funnels unless business intent is explicit.
