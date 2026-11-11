@@ -10,6 +10,18 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Visuais extraordinários precisam de páginas renderizadas — 11/11/2026
+
+A Design OS agora prioriza **construir, renderizar e refinar interfaces reais**, antes de investir em longos planos. Quando a direção artística ainda não foi escolhida, o agente cria **duas ideias visualmente distintas em código**, incluindo abertura, prova no meio, fechamento e composição mobile, e pode compará-las num navegador local. Após escolher a direção mais adequada, finaliza o site completo e repara a parte visualmente mais fraca. Não gera fotos/3D sem recursos ou direitos; seleciona o meio adequado e protege a identidade original.
+
+No repositório, com Playwright instalado e um servidor local da fixture rodando:
+
+```bash
+npm run visual:directions
+```
+
+O relatório em `test-results/visual-direction/index.html` apresenta evidência real lado a lado, **não notas automáticas de beleza**. A ferramenta é portátil na pasta da skill, mas precisa de páginas já implementadas e runtime Playwright. [Método completo](skills/studio-grade-web-transformation/references/code-first-visual-direction-studio.md) · [Auditoria crítica do foco visual](docs/VISUAL_FIRST_CRITICAL_AUDIT_2026-11-11.md).
+
 ## Uma única skill para toda a equipe especializada — 10/11/2026
 
 Você recomenda/ativa apenas `studio-grade-web-transformation`. O agente procura e usa especialistas realmente disponíveis conforme a tarefa: Impeccable (refinamento), Anthropic e Taste (arte), UI/UX Pro Max (padrões), Vercel (UX/React), GSAP (motion), Figma (design), e especialistas de CEO/CMO/COO, vendas, growth, funil, marketing, copy, SEO/GEO, analytics e psicologia ética do usuário. Design OS coordena, implementa, inspeciona e entrega um resultado único, sem obedecer a opiniões externas que contradigam o produto.
