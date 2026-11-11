@@ -57,6 +57,7 @@ jobs:
           node --check skills/studio-grade-web-transformation/scripts/layout_audit.mjs
           node --check skills/studio-grade-web-transformation/scripts/route_matrix_audit.mjs
           node --check skills/studio-grade-web-transformation/scripts/layout_scanner.cjs
+          node --check skills/studio-grade-web-transformation/scripts/visual_direction_studio.mjs
       - name: Test browser fixtures
         run: npm run test:browser
       - name: Create before/after screenshot boards (manual review only)
