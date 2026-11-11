@@ -29,7 +29,7 @@ test('renders code-first opening, proof and decision side by side for desktop an
   expect(manifest.frames.every((f:any)=>f.bytes>1000&&f.sha256.length===64)).toBeTruthy();
   const board=await readFile('test-results/visual-direction/index.html','utf8');
   expect(board).toContain('Direction B');
-  expect(board).toContain('not an aesthetic grade');
+  expect(board).toContain('Not an aesthetic grade');
   expect(board).toContain('img-src');
 });
 test('rejects external hosts, mixed origins and unsafe output paths',async()=>{
