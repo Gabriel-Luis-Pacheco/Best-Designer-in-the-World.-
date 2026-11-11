@@ -6,6 +6,9 @@ Specialist practices studied: UI Craft anti-slop checker; Impeccable task comman
 
 Before individual page critiques, inspect the app's real routes, user jobs and shared state. Mark overlapping flows that should share a component, where the central user action is being described instead of constructed, and where emoji substitute for functional maps or selectors. Optional `scripts/surface_map_audit.py` uses a **declared** inventory, not source-code discovery; it cannot independently establish duplication or visual quality.
 
+### Targeted CSS / JSX source triage (additional, optional)
+Use `python scripts/source_triage.py path/to/src --json` to flag potential removed focus rings, broad transitions, infinite motion without local reduced-motion fallback, small hardcoded text, viewport height traps and nonsemantic click handlers. All findings have line numbers and remain **REVIEW candidates**, including false positives from global styles. The script is complementary to `craft_audit.py` and does not claim Impeccable's browser extension or full detector. Details: `source-triage-and-browser-review.md`.
+
 ## Three independent passes
 1. **Source:** Run inspect_html.py, section_rhythm.py or the new craft_audit.py on authorized static HTML. Detect generic claims, repeated sections and risky autoplay as candidate issues; no number certifies aesthetic quality.
 2. **Real pixels:** Open the actual site. Capture first impression, middle, closure, visual transformation and mobile/reduced-motion. Audit hierarchy, typography, image quality and original subject. A long screenshot often misrepresents pinned canvas.

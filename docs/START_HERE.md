@@ -9,6 +9,14 @@ PATCH corrige uma falha local; AUDIT analisa sem criar implementação fictícia
 
 Para landing, priorize: intenção da pessoa → promessa verificável → demonstração concreta → ação honesta. Planeje abertura, miolo e fecho, fundindo ou cortando cenas repetitivas antes do polimento. Ative os guias `references/attention-architecture-and-density.md`, `references/brand-affinity-and-desire.md` e, para jornadas de produto, `references/activation-retention-and-ethical-engagement.md`. O critério não é ter poucas palavras: é cada elemento merecer a atenção que recebe.
 
+## Operações de design precisas (10/11/2026)
+
+Antes de carregar todo o sistema, escolha uma tarefa concreta: `polish`, `distill`, `bolder`, `quieter`, `critique`, `audit`, `animate`, `adapt`, `harden`, `onboard`, `variants` etc. Consulte `references/precision-design-operations.md` e execute opcionalmente `scripts/design_workflow.py --action polish --surface marketing --json`. Isto é um seletor de guias; a execução ainda cabe ao agente sobre o projeto real.
+
+Para reutilização de briefing/identidade entre tarefas, use opcionalmente `scripts/design_context.py --project PROJETO --init` (cria apenas PRODUCT.md/DESIGN.md faltantes e não inventa fatos). Ver `references/product-and-design-context.md`.
+
+Para pistas locais em folhas de estilo ou JSX: `python scripts/source_triage.py caminho/para/src --json`. Confirme flags contra o DOM/viewport, estado de teclado e comportamento real; ausência de flags não é selo de qualidade. Em iOS/Android use `references/native-interface-discipline.md` e testes de plataforma, não apenas Chrome mobile.
+
 ## V14: QA que não aprova sem provas
 
 - Em projetos completos, confronte briefing, capturas reais, críticos, provas, assets e SEO no controlador opcional `scripts/quality_controller.py`. Ele não executa os testes por você; detecta lacunas e falhas no pacote apresentado.

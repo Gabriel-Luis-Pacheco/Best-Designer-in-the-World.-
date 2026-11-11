@@ -10,6 +10,19 @@ npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-
 
 [Comece pelo SKILL.md](skills/studio-grade-web-transformation/SKILL.md). Para instalação manual, copie a pasta inteira `skills/studio-grade-web-transformation`, preservando referências e ferramentas. O pacote funciona sem executar os scripts opcionais.
 
+## Novos fluxos operacionais — integração competitiva (10/11/2026)
+
+Adicionados **22 operadores direcionados** (criar, criticar, auditar, polir, simplificar, destacar, acalmar, copy, tipografia, layout, animação, onboarding, hardening, otimização, variantes etc.), orientação para **mobile nativo** e um **scanner original, local e consultivo** para CSS/JSX/HTML. Esses recursos complementam o `craft_audit.py` e a inspeção Playwright existentes sem fingir ser o aplicativo Impeccable, sua extensão ou seu modo de edição ao vivo.
+
+```bash
+python skills/studio-grade-web-transformation/scripts/design_workflow.py --list
+python skills/studio-grade-web-transformation/scripts/design_workflow.py --action distill --surface marketing --json
+python skills/studio-grade-web-transformation/scripts/source_triage.py caminho/para/src --json
+python skills/studio-grade-web-transformation/scripts/design_context.py --project caminho/para/projeto --init
+```
+
+[Contexto do produto e identidade](skills/studio-grade-web-transformation/references/product-and-design-context.md) · [Operações e limites](skills/studio-grade-web-transformation/references/precision-design-operations.md) · [Source triage → navegador](skills/studio-grade-web-transformation/references/source-triage-and-browser-review.md) · [Mobile nativo](skills/studio-grade-web-transformation/references/native-interface-discipline.md). Códigos de terceiros **não** foram copiados. Os testes incluídos validam lógica e integração, não desempenho estético nem uma vitória sobre concorrentes.
+
 ## Integração da pesquisa de landing pages — 06/11/2026
 
 Quatro módulos operacionais transformam pesquisa em decisões de projeto: **intenção do visitante e arquitetura da oferta**, **copywriting e persuasão ética**, **direção de arte original e anti-AI-slop**, **funil, experimentação, acessibilidade e QA real**. Não adicionam templates obrigatórios, número fixo de agentes ou promessas de conversão; carregue os guias conforme o trabalho.
