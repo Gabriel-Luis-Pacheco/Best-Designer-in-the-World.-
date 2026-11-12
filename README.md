@@ -19,6 +19,14 @@ A skill principal agora inclui uma **cópia integral e verificada dos 104 arquiv
 
 **Atribuição e licença:** princípios de Richard ([@richardrx](https://x.com/richardrx)), curados e disponibilizados por [heliocosta-dev](https://github.com/heliocosta-dev/revenue-centric-design) com permissão. A [licença própria do material](skills/studio-grade-web-transformation/vendor/revenue-centric-design/LICENSE) exige crédito e proíbe **qualquer uso desses materiais para apostas, cassinos, gambling e jogos de azar com dinheiro (inclusive loot boxes)**. Essa parte não é MIT; as condições originais foram preservadas.
 
+## Apresentações e slides — método específico, não landing pages (12/11/2026)
+
+Quando a tarefa for PowerPoint, Keynote, Google Slides, seminário, aula, pitch ou apresentação, a skill carrega **somente então** o [guia Slide Craft Studio](skills/studio-grade-web-transformation/references/presentation-slide-craft.md). O conhecimento foi organizado a partir de pesquisa sobre *assertion–evidence*, cognição multimídia e acessibilidade, mais a revisão real dos slides do MercaManager.
+
+O guia distingue **apresentação oral/projetada** de deck para leitura e de landing page; orienta enredo, títulos com mensagem, evidência visual, design para o fundo da sala, dados/estimativas honestos, humanização do texto, ensaio com vários apresentadores, notas, ilustrações/diagramas, exportação PPTX/PDF e **renderização e crítica de todos os slides**. Registra antipadrões observados: cara de site, cards e badges decorativos, gráficos simulados sem identificação, texto pequeno, setas confusas, colisões ópticas e promessas não verificadas.
+
+**Não significa que todos os livros foram lidos ou que qualquer apresentação tenha sido avaliada por pessoas reais.** Fontes acadêmicas/institucionais são listadas no guia; testes com projetor e plateia são necessários quando a tarefa os exige.
+
 ## Instalar
 
 ```bash
