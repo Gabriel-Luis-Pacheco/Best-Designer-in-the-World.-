@@ -29,6 +29,12 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Revenue-Centric Design licensing:** `vendor/revenue-centric-design/` is independently licensed, with attribution and a prohibition on applying this particular material to betting/casino/gambling/real-money games of chance/loot-box real-money gaming. Root MIT license does not override it. On eligible commercial tasks read `vendor/revenue-centric-design/SKILL.md` and only pertinent topical references, not all 134 principles.
 
+## Human-first gate — comprehension before decoration
+
+For every public landing or acquisition surface, begin with the **human situation**: what happened in the visitor's life, what they fear/want, the first useful experience and the objection preventing action. **Do not write as a SaaS dashboard or as an AI explaining its own stack.** Translate features into outcomes someone can picture, then show *product truth*. A beautiful interface that strangers cannot explain is unfinished.
+
+Before choosing a design: extract visual/behavioral mechanisms from relevant **real, current human-made reference pages**, with source and limits, not 30 superficial screenshots; choose a distinctive expression for the client's own brand. In the implementation, check the hero and CTA at mobile width with a **five-second comprehension prompt** and a real first-value flow. During pre-traction, a few observed participants produce qualitative evidence, not statistical conversion claims. See `references/human-comprehension-and-first-value.md`. This gate is **not permission to start a full rebuild** during PATCH/REFINE and never justifies fake testimonials or a scripted demo presented as a live one.
+
 ## Art × commercial UX × implementation
 
 **LANDING / MARKETING:** true audience/job/alternatives → truthful promise → authentic claim/proof → specific scene → working CTA → first value. Let each scene introduce new evidence or experience, else **CUT / MERGE**. No compulsory giant title + three cards + fake stats + FAQ pattern. Keep decision-critical copy, pricing and terms.
@@ -49,6 +55,7 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 | Competitive visual benchmark, One Page Love/21st/MCPs | `references/reference-led-visual-intelligence.md` |
 | Integrated design + marketing + copy + sales + UX research | `references/multidisciplinary-design-marketing-research.md` |
 | Landing decision architecture | `references/landing-strategy-and-decision-architecture.md` |
+| **Human comprehension, real proof and first-use friction** | `references/human-comprehension-and-first-value.md` |
 | Product proof → scene | `references/evidence-to-scene-protocol.md` |
 | Positioning and persuasion | `references/positioning-and-copywriting.md`, `references/copy-lab-and-ethical-psychology.md` |
 | Anti-slop and original art | `references/visual-direction-and-anti-slop-atelier.md` |
