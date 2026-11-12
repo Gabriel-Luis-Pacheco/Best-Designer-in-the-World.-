@@ -6,6 +6,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/human-first-design-evidence-lab.md` | Pesquisa humana, análise de referências de mercado, copy compreensível, prova real, anti-slop e avaliação independente de LPs |
 | references/system-user-journeys-and-transactions.md | UX de sistemas com autenticação, RBAC, tenant, pagamentos, assinaturas e recuperação |
 | references/privacy-trust-and-consent-ux.md | LGPD/GDPR como risco de produto, consentimento verdadeiro, privacidade e direitos de dados |
 | references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
