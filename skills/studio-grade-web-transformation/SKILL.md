@@ -1,6 +1,6 @@
 ---
 name: studio-grade-web-transformation
-description: "Design, UX/UI, branding, motion, landing pages e produtos digitais: criar, finalizar, melhorar e auditar sites com identidade própria, pesquisa visual de concorrentes, copy e conversão."
+description: "Design, UX/UI, branding, motion, landing pages, produtos digitais e apresentações/slides: criar, finalizar, melhorar e auditar com identidade própria, clareza, pesquisa visual e verificação real."
 metadata:
   author: Gabriel-Luis-Pacheco
   version: "14.0.0"
@@ -39,12 +39,21 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Visual production first:** write working source, render actual browser pixels and relevant states. Green build, self-rating and scripts do not prove aesthetics, accessibility or conversion. If screenshots/runtime unavailable mark **NOT VERIFIED**.
 
+## Slides / apresentações — rota específica, apenas quando solicitados
+
+**PPTX, Keynote, Google Slides, pitch, seminário, aula ou palestra:** leia **`references/presentation-slide-craft.md`** e trate o formato como **comunicação oral/projetada** ou **deck para leitura assíncrona**, conforme uso real. **Não importe automaticamente** de LANDING as seções hero/cards/preço/CTA, navbars, micro-badges, grids decorativos, dashboards fictícios, animações ou textos pensados para scroll.
+
+Comece por público, tempo, tarefa, fonte original, status das afirmações e sequência narrativa. Para apresentação oral, priorize **uma mensagem específica por slide com evidência visual legível à distância**, texto natural para fala, gráficos honestos, notas/roteiro e passagens entre apresentadores; assertion–evidence é uma boa opção **quando serve ao conteúdo**, não uma fórmula obrigatória. Dados previstos, simulações, exemplos e resultados medidos devem ser distinguidos; nunca invente prova. Ajuste fontes à projeção real, não compacte texto até “caber”.
+
+**Entregue slides reais**, renderize **todas** as páginas, compare a montagem do deck, inspecione slide a slide os piores elementos, corrija colisões e problemas de clareza, rerenderize após mudar. Confira PPTX editável, notas, fontes/atribuições e PDF de reserva quando solicitado/útil. Teste em projetor se disponível; não declare testado quando não foi. **A qualidade depende de compreensão e fala, não de parecer uma landing premium.**
+
 ## Guides — only when genuinely needed
 
 Paths relative to the installed skill. `references/resource-index.md` is a lookup, **not a preloaded document**.
 
 | Need | Read |
 |---|---|
+| **Slides, apresentações orais e decks** | **`references/presentation-slide-craft.md`** — storyboard, cognição, legibilidade, copy, anti-slop, roteiro e QA por página |
 | Code-first design and two rendered directions | `references/code-first-visual-direction-studio.md` |
 | Competitive visual benchmark, One Page Love/21st/MCPs | `references/reference-led-visual-intelligence.md` |
 | Integrated design + marketing + copy + sales + UX research | `references/multidisciplinary-design-marketing-research.md` |
