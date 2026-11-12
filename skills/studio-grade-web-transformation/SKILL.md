@@ -3,10 +3,10 @@ name: studio-grade-web-transformation
 description: "Design, UX/UI, branding, motion, landing pages e produtos digitais: criar, finalizar, melhorar e auditar sites com identidade própria, pesquisa visual de concorrentes, copy e conversão."
 metadata:
   author: Gabriel-Luis-Pacheco
-  version: "14.0.0"
+  version: "14.1.0"
 ---
 
-# Design OS Prime v14.0.0 — lean
+# Design OS Prime v14.1.0 — lean
 
 Deliver the actual requested result **in source and rendered pixels**, not a long plan. Preserve original scope, good existing work, actual product functions, licensed assets and approved brand. This is **one coordinating skill**. **Progressive disclosure:** do not load every reference, research report, tool, MCP or specialist. Start from task/context; open the smallest specific guide when it changes a decision. Cost-aware details: `references/context-efficiency-routing.md` (optional).
 
@@ -39,7 +39,7 @@ A consumer should understand in seconds: **this recognizes my situation; this is
 
 ## Art × commercial UX × implementation
 
-**LANDING / MARKETING:** true audience/job/alternatives → truthful promise → authentic claim/proof → specific scene → working CTA → first value. Let each scene introduce new evidence or experience, else **CUT / MERGE**. No compulsory giant title + three cards + fake stats + FAQ pattern. Keep decision-critical copy, pricing and terms.
+**LANDING / MARKETING:** before drafting, activate `references/human-first-conversion-quality-gate.md` for major LP, paywall or onboarding work: validate the human's real problem and language, 5-second comprehension, believable proof and a working first action. Technical correctness, auto-scoring and decorative sophistication do not prove persuasion. If traffic and interviews are missing, advocate distribution and user tests rather than reflexively redesigning. true audience/job/alternatives → truthful promise → authentic claim/proof → specific scene → working CTA → first value. Let each scene introduce new evidence or experience, else **CUT / MERGE**. No compulsory giant title + three cards + fake stats + FAQ pattern. Keep decision-critical copy, pricing and terms.
 
 **Original visual craft:** establish a distinctive formal/material/behavioral signature derived from the product. For important work, inspect real competitors, strong brands and **section-level visual references**; extract why type, composition, spatial rhythm, crop, motion and proof work, then adapt into original brand-specific code. Never copy proprietary art/layout/characters. Motion must serve a gesture, offer reduced-motion alternative, and have a useful static fallback.
 
@@ -56,6 +56,7 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 | Code-first design and two rendered directions | `references/code-first-visual-direction-studio.md` |
 | Competitive visual benchmark, One Page Love/21st/MCPs | `references/reference-led-visual-intelligence.md` |
 | Integrated design + marketing + copy + sales + UX research | `references/multidisciplinary-design-marketing-research.md` |
+| Human comprehension, convincing proof and anti-AI-slop commercial quality | `references/human-first-conversion-quality-gate.md` |
 | Landing decision architecture | `references/landing-strategy-and-decision-architecture.md` |
 | Product proof → scene | `references/evidence-to-scene-protocol.md` |
 | Positioning and persuasion | `references/positioning-and-copywriting.md`, `references/copy-lab-and-ethical-psychology.md` |
