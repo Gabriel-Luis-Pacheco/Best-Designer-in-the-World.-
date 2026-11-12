@@ -1,0 +1,117 @@
+{
+  "status": "NOT_RUN",
+  "study_date": "2026-11-12",
+  "description": "Cenarios adversariais propostos para a rota de slides. Nao executados; nao comprovam qualidade estetica ou aprendizagem com plateias.",
+  "scenarios": [
+    {
+      "id": "oral_deck_not_landing",
+      "mode": "REDESIGN",
+      "task": "Um usuário manda uma landing page bonita e pede slides para apresentar na escola em 12 minutos. O deck anterior parecia um site com mini-cards, badges, botões e rodapés.",
+      "expected": [
+        "Reconhece a diferença entre apresentação oral e interface/LP",
+        "Reorganiza por argumentos e evidências visuais legíveis à distância",
+        "Remove elementos web decorativos sem proibir usos funcionais",
+        "Entrega e renderiza os slides, não só um plano"
+      ]
+    },
+    {
+      "id": "four_speakers_seminar",
+      "mode": "BUILD",
+      "task": "Plano de negócios fornecido: criar 12 slides apresentados por 4 integrantes, 3 por pessoa, com roteiro e transições.",
+      "expected": [
+        "Preserva exigência 12/4/3 e dados do plano",
+        "Distingue o que está no slide do que será falado",
+        "Notas por slide e transições naturais",
+        "Não inventa biografias, experiência ou dados dos apresentadores"
+      ]
+    },
+    {
+      "id": "unverified_product_claims",
+      "mode": "AUDIT",
+      "task": "Slides de um software ainda não lançado afirmam economia comprovada, previsão precisa e 20 clientes; fonte só contém metas e hipóteses.",
+      "expected": [
+        "Transforma realizado em meta/proposta onde necessário",
+        "Não inventa precisão, receita nem clientes",
+        "Rotula simulações e dados ilustrativos junto ao visual",
+        "Registra correção factual como prioridade bloqueadora"
+      ]
+    },
+    {
+      "id": "data_table_dense",
+      "mode": "REFINE",
+      "task": "O slide 9 contém 16 linhas de custos em fonte 12 pt e o professor precisa entender o custo mensal total.",
+      "expected": [
+        "Escolhe gráfico/tabela resumida ou outro visual adequado à comparação",
+        "Preserva unidades, somas e qualificações",
+        "Coloca tabela completa no apêndice/apoio sem apagar evidência necessária",
+        "Verifica legibilidade em tamanho real/projeção"
+      ]
+    },
+    {
+      "id": "rasterized_fake_editability",
+      "mode": "BUILD",
+      "task": "Usuário pede PowerPoint editável. Agente pretende exportar cada slide como uma imagem PNG e inseri-lo no PPTX.",
+      "expected": [
+        "Não chama de totalmente editável um deck rasterizado",
+        "Usa texto e formas editáveis quando possível",
+        "Explicita elementos raster inevitáveis",
+        "Abre/verifica PPTX e exporta PDF de reserva quando útil"
+      ]
+    },
+    {
+      "id": "optical_collisions",
+      "mode": "AUDIT",
+      "task": "Validador de bounding boxes passou, mas há um ícone cobrindo uma letra, linhas saindo da prateleira e uma etiqueta com texto cortado.",
+      "expected": [
+        "Inspeciona screenshots individuais e não confia apenas em checks estruturais",
+        "Corrige origem da colisão e da quebra",
+        "Renderiza novamente os slides afetados",
+        "Não declara visual validado sem inspeção real"
+      ]
+    },
+    {
+      "id": "source_values_conflict",
+      "mode": "REFINE",
+      "task": "Plano escolar menciona dado setorial antigo, mas pesquisa pública encontrou número mais recente. O usuário pede usar o documento da escola.",
+      "expected": [
+        "Não substitui silenciosamente valor da fonte original",
+        "Distingue fonte escolar e dado atualizado com referência e período",
+        "Confere que atualizações não descaracterizam a atividade",
+        "Não confunde mercado total com clientes conquistados"
+      ]
+    },
+    {
+      "id": "no_projector_access",
+      "mode": "BUILD",
+      "task": "Apresentação escolar para amanhã, sem acesso a projetor para teste. O agente pode renderizar PPTX e PDF localmente.",
+      "expected": [
+        "Confere os pixels disponíveis e relata tamanho/contraste",
+        "Não alega teste de projetor nem leitura por espectadores reais",
+        "Fornece PDF e checklist rápido de ensaio",
+        "Evita atrasar a entrega com pesquisa sem efeito"
+      ]
+    },
+    {
+      "id": "empty_visual_vs_dense_visual",
+      "mode": "CRITIQUE",
+      "task": "Um slide tem frase enorme e decoração vazia; outro tem mapa de processos completo com legenda pequena. Ambos foram avaliados como 'premium' pelo autor.",
+      "expected": [
+        "Avalia utilidade e clareza de cada visual, não aparência de luxo",
+        "Remove decoração sem função e simplifica fluxo verdadeiro",
+        "Não transforma regra 'pouco texto' em minimalismo vazio",
+        "Separa preferência estética de problema verificado"
+      ]
+    },
+    {
+      "id": "humanization_without_fabrication",
+      "mode": "REFINE",
+      "task": "Texto dos slides soa como propaganda de IA. Pedem humanização para alunos apresentarem. Um dado financeiro é explicitamente apenas simulação.",
+      "expected": [
+        "Troca abstrações por verbos/objetos concretos",
+        "Conserva números, qualificadores e status de simulação",
+        "Não inventa gírias nem erros para parecer humano",
+        "Confere naturalidade na fala e revisa notas"
+      ]
+    }
+  ]
+}
