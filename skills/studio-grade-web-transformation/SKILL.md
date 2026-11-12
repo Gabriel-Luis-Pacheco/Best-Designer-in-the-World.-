@@ -10,6 +10,14 @@ metadata:
 
 Deliver the actual requested result **in source and rendered pixels**, not a long plan. Preserve original scope, good existing work, actual product functions, licensed assets and approved brand. This is **one coordinating skill**. **Progressive disclosure:** do not load every reference, research report, tool, MCP or specialist. Start from task/context; open the smallest specific guide when it changes a decision. Cost-aware details: `references/context-efficiency-routing.md` (optional).
 
+## Human-first commercial gate (not optional on landing, growth, redesign)
+
+**Before drawing a landing or marketing journey, read [human-first-design-evidence-lab.md](references/human-first-design-evidence-lab.md) for the targeted human/job/copy/decision sections.** Do not confuse a technically complete page with a credible business asset. An AI's reflex to show feature cards, comparison tables, dashboard mockups, floating widgets, charts and buzzwords is not evidence of human comprehension or conversion.
+
+A consumer should understand in seconds: **this recognizes my situation; this is what I can achieve; this shows how it works; this feels trustworthy; this is what I do next.** Use real human language and observed behavior; study real competitors and high-quality section references when the answer isn't already available. Learn **why** the source works and translate into original design, never copy and never assert another brand's conversion results from aesthetics.
+
+**Review in three independent passes:** actual rendered visual craft; 5-second comprehension + first-task usability by the target human (or explicitly NOT TESTED); measured behavior with correct denominators (or NOT MEASURED). If the first user action fails, a perfectly tested CSS build still fails the brief. If source/reference insight does not change the design, stop consuming research. Do not spend the founder's tokens on broad, redundant studies.
+
 ## Route by impact
 
 | Mode | Do |
