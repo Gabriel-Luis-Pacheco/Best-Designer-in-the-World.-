@@ -10,6 +10,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 | references/privacy-trust-and-consent-ux.md | LGPD/GDPR como risco de produto, consentimento verdadeiro, privacidade e direitos de dados |
 | references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
 | references/operational-reliability-and-recovery-ux.md | Estados degradados, retries, eventos, monitoramento, incidentes, rollout e suporte |
+| `references/presentation-slide-craft.md` | Criação e revisão de slides projetados ou assíncronos: narrativa, assertion–evidence, psicologia cognitiva, tipografia, gráficos, copy humana, notas, anti-landing-page e renderização/QA de cada slide |
 | `references/multidisciplinary-design-marketing-research.md` | Pesquisa integrada de posicionamento, branding, marketing, copy, vendas, UX e design com evidências e decisões verificáveis |
 | `references/context-efficiency-routing.md` | Carregamento progressivo e economia contextual sem reduzir validação |
 | `references/archived-v14-core-protocol.md` | Versão integral original preservada para consulta excepcional; não carregar por padrão |
