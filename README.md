@@ -1,5 +1,13 @@
 # Design OS Prime v14.0.0
 
+## Full Studio Stack e Motion Studio — 14/11/2026
+
+A Design OS Prime agora faz uma **checagem obrigatória das cinco famílias especialistas em tarefas visuais relevantes**: [Impeccable](https://github.com/pbakaus/impeccable), [Taste Skill](https://github.com/Leonxlnx/taste-skill), [Emil Kowalski](https://github.com/emilkowalski/skills), [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) e [Anthropic Frontend Design](https://github.com/anthropics/skills/tree/main/skills/frontend-design). As instruções centrais originais e licenças estão em [`vendor/specialist-core/`](skills/studio-grade-web-transformation/vendor/specialist-core/), mas **binários, detectores, hooks, CLIs, bases e modo Live não estão automaticamente instalados**. O [roteador operacional](skills/studio-grade-web-transformation/references/full-specialist-stack.md) exige uso real quando disponível e relevante, sem forçar efeitos conflitantes ou desperdiçar tokens em um patch simples.
+
+**Motion:** incorporamos integralmente os **15 arquivos de skill do Charlie947**, com licença MIT, em [`vendor/motion-graphics-charlie947/`](skills/studio-grade-web-transformation/vendor/motion-graphics-charlie947/). Adicionamos um [guia de produção](skills/studio-grade-web-transformation/references/motion-studio-pack-2026.md) com catálogo adaptado dos **17 estilos Awesome Claude** e orquestração das skills oficiais [Remotion](https://www.remotion.dev/docs/ai/skills) por instalação autorizada. As fontes Charlie947 estão copiadas; Awesome Claude está adaptado/atribuído; Remotion é uma integração externa, **não um motor embutido**.
+
+**Estado:** arquivos de origem e roteadores publicados; não foram executados testes de design comparativos, engines de terceiros, renders MP4 ou validações com usuários como prova de superioridade. O princípio continua: **build real → render → crítica → reparo**, com prioridade ao brief e ao sistema existente.
+
 ## Economia de tokens e núcleo enxuto — 11/11/2026
 
 O SKILL.md principal foi reduzido e agora roteia PATCH/REFINE/AUDIT/REDESIGN/REBUILD, lendo referências especializadas sob demanda e reaproveitando pesquisas da sessão. O [guia de eficiência](skills/studio-grade-web-transformation/references/context-efficiency-routing.md) descreve os limites. Preservamos [o protocolo integral anterior](skills/studio-grade-web-transformation/references/archived-v14-core-protocol.md) sem carregá-lo automaticamente. A redução do texto principal não comprova economia real de cobrança ou qualidade estética; isso exige testes em tarefas reais.
