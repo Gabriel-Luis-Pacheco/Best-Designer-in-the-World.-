@@ -29,6 +29,14 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Revenue-Centric Design licensing:** `vendor/revenue-centric-design/` is independently licensed, with attribution and a prohibition on applying this particular material to betting/casino/gambling/real-money games of chance/loot-box real-money gaming. Root MIT license does not override it. On eligible commercial tasks read `vendor/revenue-centric-design/SKILL.md` and only pertinent topical references, not all 134 principles.
 
+## Full Studio Stack — mandatory specialist coverage on substantial creative tasks
+
+**For a major new landing, significant REDESIGN/REBUILD, important product UI, expressive web experience or substantial campaign:** read `references/full-specialist-stack.md` and **consider all five specialist families as complementary roles**: Impeccable (visual diagnosis/detector/polish), Taste Skill (art direction), Anthropic Frontend Design (creative concept), UI/UX Pro Max (appropriate UI patterns) and Emil Kowalski (interaction/motion). **Use their real installed tools where relevant and available**; otherwise consult the licensed source snapshots in `vendor/specialist-core/` and apply relevant guidance directly. Do not claim an unavailable detector, library, or subagent executed. For each family note APPLIED / REFERENCED / NOT APPLICABLE / UNAVAILABLE. The Design OS owns integration, brand correctness and rendered implementation.
+
+**For any substantive motion graphics, Reel, video launch, animated demonstration, title sequence or 3D film:** also use `references/motion-studio-pack-2026.md`, covering all **15 bundled Charlie947 motion skills** (in `vendor/motion-graphics-charlie947/`, MIT), **17 Awesome Claude style families** (adapted, source-linked) and **official Remotion Agent Skills** (through authorized installation; not bundled). Choose one fit-for-purpose rendering pipeline. Never assume HyperFrames, Remotion or GSAP installed, and never replace existing deterministic video rig just to “use everything”.
+
+**Proportionality:** for a narrow PATCH, do the direct fix and relevant expert only. For REFINE, preserve approved direction and inspect actual pixels. Full Studio uses all five as **decision lenses** for substantial work, not as a demand to fire every command, load all files or force five conflicting renderers. Actual quality requires rendering and test evidence.
+
 ## Art × commercial UX × implementation
 
 **LANDING / MARKETING:** true audience/job/alternatives → truthful promise → authentic claim/proof → specific scene → working CTA → first value. Let each scene introduce new evidence or experience, else **CUT / MERGE**. No compulsory giant title + three cards + fake stats + FAQ pattern. Keep decision-critical copy, pricing and terms.
@@ -70,6 +78,8 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 | Exact original referent and canonical brand | `references/original-brief-and-referent-fidelity.md` |
 | Targeted polish/precision operations | `references/precision-design-operations.md` |
 | Render → critique → repair | `references/render-critique-repair-contract.md` |
+| **Full Studio: Impeccable, Taste, Emil, UI/UX Pro Max, Anthropic** | **`references/full-specialist-stack.md`** — five-family coverage, installed tool use, licensed snapshots, safety/cost |
+| **Motion videos: Charlie947 (15), Awesome Claude (17), Remotion** | **`references/motion-studio-pack-2026.md`** — storyboard, motion, deterministic render, choosing pipeline, QC |
 | Specialist orchestration only when useful | `references/automatic-specialist-orchestration.md` |
 | **Independent critique** and valid comparisons | `references/independent-critique-and-evidence-learning.md` |
 | Persistent approved project/design context | `references/product-and-design-context.md` |
