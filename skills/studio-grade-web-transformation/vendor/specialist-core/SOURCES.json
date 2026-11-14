@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-14",
+  "kind": "licensed_source_snapshots_not_complete_installs",
+  "description": "Snapshots de instruções originais; cada ferramenta completa permanece dependente de seus scripts, binários, bancos e instalação oficial.",
+  "sources": [
+    {
+      "provider": "impeccable",
+      "repo": "pbakaus/impeccable",
+      "license": "Apache-2.0",
+      "upstream_commit": "1995764b4936f2bfbf4eb719cb37b384a45ceacb",
+      "source": "plugin/skills/impeccable/SKILL.md",
+      "snapshot": "impeccable/SOURCE_SKILL.md",
+      "license_file": "impeccable/LICENSE",
+      "blob": "01e6a50ebc634b3c32b4a881da20a215df1e8bbc",
+      "complete_runtime": false
+    },
+    {
+      "provider": "taste",
+      "repo": "Leonxlnx/taste-skill",
+      "license": "MIT",
+      "upstream_commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "source": "skills/taste-skill/SKILL.md",
+      "snapshot": "taste/SOURCE_SKILL.md",
+      "license_file": "taste/LICENSE",
+      "blob": "7dc7a9fed097364515581a28ec45ef955620eede",
+      "complete_runtime": false
+    },
+    {
+      "provider": "emil-design-eng",
+      "repo": "emilkowalski/skills",
+      "license": "MIT",
+      "upstream_commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+      "source": "skills/emil-design-eng/SKILL.md",
+      "snapshot": "emil/SOURCE_SKILL.md",
+      "license_file": "emil/LICENSE",
+      "blob": "5155a4bf33e99028645dbdad4c049a3d209b1f21",
+      "complete_runtime": false
+    },
+    {
+      "provider": "emil-animate",
+      "repo": "emilkowalski/skills",
+      "license": "MIT",
+      "upstream_commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+      "source": "skills/animate/SKILL.md",
+      "snapshot": "emil/ANIMATE_SKILL.md",
+      "license_file": "emil/LICENSE",
+      "blob": "69338805e0ea1c77d6f4c1987d516f46b1657819",
+      "complete_runtime": false
+    },
+    {
+      "provider": "emil-choreograph",
+      "repo": "emilkowalski/skills",
+      "license": "MIT",
+      "upstream_commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+      "source": "skills/choreograph/SKILL.md",
+      "snapshot": "emil/CHOREOGRAPH_SKILL.md",
+      "license_file": "emil/LICENSE",
+      "blob": "965f7b1ee991adbbc301401cf2f6f6890b247572",
+      "complete_runtime": false
+    },
+    {
+      "provider": "ui-ux-pro-max",
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "license": "MIT",
+      "upstream_commit": "6ae86f61f520d6ca229d2f40e070410638c908c5",
+      "source": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "snapshot": "ui-ux-pro-max/SOURCE_SKILL.md",
+      "license_file": "ui-ux-pro-max/LICENSE",
+      "blob": "2cacc8756e816a1eb6bfa44307372f2aeb445902",
+      "complete_runtime": false
+    },
+    {
+      "provider": "frontend-design",
+      "repo": "anthropics/skills",
+      "license": "Apache-2.0",
+      "upstream_commit": "1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064",
+      "source": "skills/frontend-design/SKILL.md",
+      "snapshot": "anthropic/SOURCE_SKILL.md",
+      "license_file": "anthropic/LICENSE.txt",
+      "blob": "a5333457c414d20d625f307df945842c0952ecc3",
+      "complete_runtime": false
+    }
+  ]
+}
