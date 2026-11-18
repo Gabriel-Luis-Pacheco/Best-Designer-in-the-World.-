@@ -55,6 +55,10 @@ Comece por público, tempo, tarefa, fonte original, status das afirmações e se
 
 **Entregue slides reais**, renderize **todas** as páginas, compare a montagem do deck, inspecione slide a slide os piores elementos, corrija colisões e problemas de clareza, rerenderize após mudar. Confira PPTX editável, notas, fontes/atribuições e PDF de reserva quando solicitado/útil. Teste em projetor se disponível; não declare testado quando não foi. **A qualidade depende de compreensão e fala, não de parecer uma landing premium.**
 
+## Biblioteca integrada de 50 skills completas (12 fontes)
+
+Para tarefas que realmente precisem delas, consultar \`references/complete-skill-packs-routing.md\` e **somente** os diretórios relevantes de \`vendor/external-skill-packs/\`. A biblioteca preserva as pastas completas de 50 skills, com referências, dados, scripts, assets e atribuições, quando \`vendor/external-skill-packs/INDEX.json\` existir e passar em \`scripts/sync_external_skill_packs.py --check\`. Sem o índice, tratar como manifesto PENDENTE. Scripts de fornecedores são código externo: não executá-los automaticamente. Estes arquivos não significam que plugins, binários ou CLIs estejam instalados. Preservar os pacotes anteriores; não forçar carregamento de 50 skills nem introduzir conflito com decisões da marca.
+
 ## Guides — only when genuinely needed
 
 Paths relative to the installed skill. `references/resource-index.md` is a lookup, **not a preloaded document**.
