@@ -1,0 +1,197 @@
+{
+  "repository": "coreyhaines31/marketingskills",
+  "upstream_sha": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+  "url": "https://github.com/coreyhaines31/marketingskills/tree/73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/content-strategy",
+      "local_path": "coreyhaines31--marketingskills/skills/content-strategy",
+      "files": 4,
+      "bytes": 43389,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/product-marketing",
+      "local_path": "coreyhaines31--marketingskills/skills/product-marketing",
+      "files": 3,
+      "bytes": 29144,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/customer-research",
+      "local_path": "coreyhaines31--marketingskills/skills/customer-research",
+      "files": 4,
+      "bytes": 51997,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/competitor-profiling",
+      "local_path": "coreyhaines31--marketingskills/skills/competitor-profiling",
+      "files": 4,
+      "bytes": 43755,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/copywriting",
+      "local_path": "coreyhaines31--marketingskills/skills/copywriting",
+      "files": 5,
+      "bytes": 69007,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/copy-editing",
+      "local_path": "coreyhaines31--marketingskills/skills/copy-editing",
+      "files": 5,
+      "bytes": 47268,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/marketing-psychology",
+      "local_path": "coreyhaines31--marketingskills/skills/marketing-psychology",
+      "files": 2,
+      "bytes": 27633,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/cro",
+      "local_path": "coreyhaines31--marketingskills/skills/cro",
+      "files": 4,
+      "bytes": 32653,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/ab-testing",
+      "local_path": "coreyhaines31--marketingskills/skills/ab-testing",
+      "files": 4,
+      "bytes": 37562,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/offers",
+      "local_path": "coreyhaines31--marketingskills/skills/offers",
+      "files": 10,
+      "bytes": 81322,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/pricing",
+      "local_path": "coreyhaines31--marketingskills/skills/pricing",
+      "files": 6,
+      "bytes": 50084,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/signup",
+      "local_path": "coreyhaines31--marketingskills/skills/signup",
+      "files": 2,
+      "bytes": 16688,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/onboarding",
+      "local_path": "coreyhaines31--marketingskills/skills/onboarding",
+      "files": 5,
+      "bytes": 34525,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/paywalls",
+      "local_path": "coreyhaines31--marketingskills/skills/paywalls",
+      "files": 4,
+      "bytes": 25127,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/analytics",
+      "local_path": "coreyhaines31--marketingskills/skills/analytics",
+      "files": 5,
+      "bytes": 47146,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/conversion-tracking",
+      "local_path": "coreyhaines31--marketingskills/skills/conversion-tracking",
+      "files": 75,
+      "bytes": 654444,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/seo-audit",
+      "local_path": "coreyhaines31--marketingskills/skills/seo-audit",
+      "files": 9,
+      "bytes": 80226,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/ai-seo",
+      "local_path": "coreyhaines31--marketingskills/skills/ai-seo",
+      "files": 17,
+      "bytes": 186235,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/site-architecture",
+      "local_path": "coreyhaines31--marketingskills/skills/site-architecture",
+      "files": 6,
+      "bytes": 57134,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/schema",
+      "local_path": "coreyhaines31--marketingskills/skills/schema",
+      "files": 3,
+      "bytes": 26027,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/programmatic-seo",
+      "local_path": "coreyhaines31--marketingskills/skills/programmatic-seo",
+      "files": 4,
+      "bytes": 29503,
+      "license": "MIT"
+    }
+  ]
+}

@@ -1,0 +1,520 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/frontend-design",
+      "local_path": "anthropics--skills/skills/frontend-design",
+      "files": 2,
+      "bytes": 19564,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/brand-guidelines",
+      "local_path": "anthropics--skills/skills/brand-guidelines",
+      "files": 2,
+      "bytes": 13580,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/theme-factory",
+      "local_path": "anthropics--skills/skills/theme-factory",
+      "files": 13,
+      "bytes": 144094,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/web-artifacts-builder",
+      "local_path": "anthropics--skills/skills/web-artifacts-builder",
+      "files": 5,
+      "bytes": 45840,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/webapp-testing",
+      "local_path": "anthropics--skills/skills/webapp-testing",
+      "files": 6,
+      "bytes": 22394,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "revision": "d41d9860b0094dcb68030657da63461212835aaa",
+      "path": ".agent/skills/impeccable",
+      "local_path": "pbakaus--impeccable/.agent/skills/impeccable",
+      "files": 63,
+      "bytes": 2260266,
+      "license": "Apache-2.0"
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "ed766d3bf62f32c8d27762ad49abdc3a4744c84f",
+      "path": ".claude/skills/ui-ux-pro-max",
+      "local_path": "nextlevelbuilder--ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max",
+      "files": 80,
+      "bytes": 3692437,
+      "license": "MIT"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "revision": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "path": "skills/taste-skill",
+      "local_path": "leonxlnx--taste-skill/skills/taste-skill",
+      "files": 1631,
+      "bytes": 36601022,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/emil-design-eng",
+      "local_path": "emilkowalski--skills/skills/emil-design-eng",
+      "files": 1,
+      "bytes": 28257,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/apple-design",
+      "local_path": "emilkowalski--skills/skills/apple-design",
+      "files": 1,
+      "bytes": 22852,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/animate",
+      "local_path": "emilkowalski--skills/skills/animate",
+      "files": 2,
+      "bytes": 20182,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/choreograph",
+      "local_path": "emilkowalski--skills/skills/choreograph",
+      "files": 2,
+      "bytes": 25745,
+      "license": "MIT"
+    },
+    {
+      "repo": "ehmo/platform-design-skills",
+      "revision": "dc2be825d8b439caea78e9eaa8fb3ac23b0ff3e9",
+      "path": "skills/web",
+      "local_path": "ehmo--platform-design-skills/skills/web",
+      "files": 4,
+      "bytes": 56806,
+      "license": "MIT"
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/web-design-guidelines",
+      "local_path": "vercel-labs--agent-skills/skills/web-design-guidelines",
+      "files": 1,
+      "bytes": 1231,
+      "license": "MIT (README section License)"
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/react-best-practices",
+      "local_path": "vercel-labs--agent-skills/skills/react-best-practices",
+      "files": 76,
+      "bytes": 230383,
+      "license": "MIT (README section License)"
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/composition-patterns",
+      "local_path": "vercel-labs--agent-skills/skills/composition-patterns",
+      "files": 14,
+      "bytes": 50339,
+      "license": "MIT (README section License)"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/build-awwwards-quality-sites",
+      "local_path": "mengto--skills/agent-skills/web-design/build-awwwards-quality-sites",
+      "files": 2,
+      "bytes": 7490,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/ui/design-first-ui-prompting",
+      "local_path": "mengto--skills/agent-skills/ui/design-first-ui-prompting",
+      "files": 6,
+      "bytes": 82337,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/ui/audit-ai-design-slop",
+      "local_path": "mengto--skills/agent-skills/ui/audit-ai-design-slop",
+      "files": 3,
+      "bytes": 7275,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/ui/no-ai-design-slop",
+      "local_path": "mengto--skills/agent-skills/ui/no-ai-design-slop",
+      "files": 4,
+      "bytes": 25910,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/landing-page",
+      "local_path": "mengto--skills/agent-skills/web-design/landing-page",
+      "files": 5,
+      "bytes": 81690,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/pricing-page",
+      "local_path": "mengto--skills/agent-skills/web-design/pricing-page",
+      "files": 5,
+      "bytes": 79327,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/product-proof-saas",
+      "local_path": "mengto--skills/agent-skills/web-design/product-proof-saas",
+      "files": 6,
+      "bytes": 167633,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/animation-systems",
+      "local_path": "mengto--skills/agent-skills/web-design/animation-systems",
+      "files": 4,
+      "bytes": 89080,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/gsap",
+      "local_path": "mengto--skills/agent-skills/web-design/gsap",
+      "files": 9,
+      "bytes": 220338,
+      "license": "MIT"
+    },
+    {
+      "repo": "wshobson/agents",
+      "revision": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "path": "plugins/frontend-mobile-development/skills/tailwind-design-system",
+      "local_path": "wshobson--agents/plugins/frontend-mobile-development/skills/tailwind-design-system",
+      "files": 3,
+      "bytes": 24059,
+      "license": "MIT"
+    },
+    {
+      "repo": "wshobson/agents",
+      "revision": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "path": "plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "local_path": "wshobson--agents/plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "files": 2,
+      "bytes": 12483,
+      "license": "MIT"
+    },
+    {
+      "repo": "github/awesome-copilot",
+      "revision": "a255a193d1318e5a9ca3e9e575897f9a7845c099",
+      "path": "skills/web-design-reviewer",
+      "local_path": "github--awesome-copilot/skills/web-design-reviewer",
+      "files": 3,
+      "bytes": 24083,
+      "license": "MIT"
+    },
+    {
+      "repo": "obra/superpowers",
+      "revision": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "skills/verification-before-completion",
+      "local_path": "obra--superpowers/skills/verification-before-completion",
+      "files": 1,
+      "bytes": 3646,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/content-strategy",
+      "local_path": "coreyhaines31--marketingskills/skills/content-strategy",
+      "files": 4,
+      "bytes": 43389,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/product-marketing",
+      "local_path": "coreyhaines31--marketingskills/skills/product-marketing",
+      "files": 3,
+      "bytes": 29144,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/customer-research",
+      "local_path": "coreyhaines31--marketingskills/skills/customer-research",
+      "files": 4,
+      "bytes": 51997,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/competitor-profiling",
+      "local_path": "coreyhaines31--marketingskills/skills/competitor-profiling",
+      "files": 4,
+      "bytes": 43755,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/copywriting",
+      "local_path": "coreyhaines31--marketingskills/skills/copywriting",
+      "files": 5,
+      "bytes": 69007,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/copy-editing",
+      "local_path": "coreyhaines31--marketingskills/skills/copy-editing",
+      "files": 5,
+      "bytes": 47268,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/marketing-psychology",
+      "local_path": "coreyhaines31--marketingskills/skills/marketing-psychology",
+      "files": 2,
+      "bytes": 27633,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/cro",
+      "local_path": "coreyhaines31--marketingskills/skills/cro",
+      "files": 4,
+      "bytes": 32653,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/ab-testing",
+      "local_path": "coreyhaines31--marketingskills/skills/ab-testing",
+      "files": 4,
+      "bytes": 37562,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/offers",
+      "local_path": "coreyhaines31--marketingskills/skills/offers",
+      "files": 10,
+      "bytes": 81322,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/pricing",
+      "local_path": "coreyhaines31--marketingskills/skills/pricing",
+      "files": 6,
+      "bytes": 50084,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/signup",
+      "local_path": "coreyhaines31--marketingskills/skills/signup",
+      "files": 2,
+      "bytes": 16688,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/onboarding",
+      "local_path": "coreyhaines31--marketingskills/skills/onboarding",
+      "files": 5,
+      "bytes": 34525,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/paywalls",
+      "local_path": "coreyhaines31--marketingskills/skills/paywalls",
+      "files": 4,
+      "bytes": 25127,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/analytics",
+      "local_path": "coreyhaines31--marketingskills/skills/analytics",
+      "files": 5,
+      "bytes": 47146,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/conversion-tracking",
+      "local_path": "coreyhaines31--marketingskills/skills/conversion-tracking",
+      "files": 75,
+      "bytes": 654444,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/seo-audit",
+      "local_path": "coreyhaines31--marketingskills/skills/seo-audit",
+      "files": 9,
+      "bytes": 80226,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/ai-seo",
+      "local_path": "coreyhaines31--marketingskills/skills/ai-seo",
+      "files": 17,
+      "bytes": 186235,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/site-architecture",
+      "local_path": "coreyhaines31--marketingskills/skills/site-architecture",
+      "files": 6,
+      "bytes": 57134,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/schema",
+      "local_path": "coreyhaines31--marketingskills/skills/schema",
+      "files": 3,
+      "bytes": 26027,
+      "license": "MIT"
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "path": "skills/programmatic-seo",
+      "local_path": "coreyhaines31--marketingskills/skills/programmatic-seo",
+      "files": 4,
+      "bytes": 29503,
+      "license": "MIT"
+    }
+  ],
+  "repositories": [
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "skill_count": 5
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "revision": "d41d9860b0094dcb68030657da63461212835aaa",
+      "skill_count": 1
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "ed766d3bf62f32c8d27762ad49abdc3a4744c84f",
+      "skill_count": 1
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "revision": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "skill_count": 1
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "skill_count": 4
+    },
+    {
+      "repo": "ehmo/platform-design-skills",
+      "revision": "dc2be825d8b439caea78e9eaa8fb3ac23b0ff3e9",
+      "skill_count": 1
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "skill_count": 3
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "skill_count": 9
+    },
+    {
+      "repo": "wshobson/agents",
+      "revision": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "skill_count": 2
+    },
+    {
+      "repo": "github/awesome-copilot",
+      "revision": "a255a193d1318e5a9ca3e9e575897f9a7845c099",
+      "skill_count": 1
+    },
+    {
+      "repo": "obra/superpowers",
+      "revision": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "skill_count": 1
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "revision": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "skill_count": 21
+    }
+  ],
+  "skills_count": 50,
+  "total_bytes": 45731212,
+  "synced_on_utc": "2026-11-18T18:07:57.189490+00:00"
+}

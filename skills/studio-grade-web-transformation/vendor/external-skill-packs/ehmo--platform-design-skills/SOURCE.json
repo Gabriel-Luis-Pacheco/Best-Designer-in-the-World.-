@@ -1,0 +1,17 @@
+{
+  "repository": "ehmo/platform-design-skills",
+  "upstream_sha": "dc2be825d8b439caea78e9eaa8fb3ac23b0ff3e9",
+  "url": "https://github.com/ehmo/platform-design-skills/tree/dc2be825d8b439caea78e9eaa8fb3ac23b0ff3e9",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "ehmo/platform-design-skills",
+      "revision": "dc2be825d8b439caea78e9eaa8fb3ac23b0ff3e9",
+      "path": "skills/web",
+      "local_path": "ehmo--platform-design-skills/skills/web",
+      "files": 4,
+      "bytes": 56806,
+      "license": "MIT"
+    }
+  ]
+}

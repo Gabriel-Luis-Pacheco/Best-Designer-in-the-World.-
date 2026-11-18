@@ -1,0 +1,26 @@
+{
+  "repository": "wshobson/agents",
+  "upstream_sha": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+  "url": "https://github.com/wshobson/agents/tree/42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "wshobson/agents",
+      "revision": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "path": "plugins/frontend-mobile-development/skills/tailwind-design-system",
+      "local_path": "wshobson--agents/plugins/frontend-mobile-development/skills/tailwind-design-system",
+      "files": 3,
+      "bytes": 24059,
+      "license": "MIT"
+    },
+    {
+      "repo": "wshobson/agents",
+      "revision": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "path": "plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "local_path": "wshobson--agents/plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "files": 2,
+      "bytes": 12483,
+      "license": "MIT"
+    }
+  ]
+}

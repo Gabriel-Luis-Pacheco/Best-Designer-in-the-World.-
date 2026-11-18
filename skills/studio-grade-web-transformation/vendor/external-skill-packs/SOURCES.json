@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "selected_skill_count": 50,
+  "purpose": "Vendor complete directories of 50 relevant upstream skills, retaining scripts/data/references/assets and licenses. NOT entire unrelated upstream monorepositories.",
+  "updated": "2026-11-18",
+  "sources": [
+    {
+      "repo": "anthropics/skills",
+      "license": "Apache-2.0 (skill-local LICENSE.txt)",
+      "paths": [
+        "skills/frontend-design",
+        "skills/brand-guidelines",
+        "skills/theme-factory",
+        "skills/web-artifacts-builder",
+        "skills/webapp-testing"
+      ]
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "license": "Apache-2.0",
+      "paths": [
+        ".agent/skills/impeccable"
+      ]
+    },
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "license": "MIT",
+      "paths": [
+        ".claude/skills/ui-ux-pro-max"
+      ]
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "license": "MIT",
+      "paths": [
+        "skills/taste-skill"
+      ]
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "license": "MIT",
+      "paths": [
+        "skills/emil-design-eng",
+        "skills/apple-design",
+        "skills/animate",
+        "skills/choreograph"
+      ]
+    },
+    {
+      "repo": "ehmo/platform-design-skills",
+      "license": "MIT",
+      "paths": [
+        "skills/web"
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "license": "MIT (README section License)",
+      "paths": [
+        "skills/web-design-guidelines",
+        "skills/react-best-practices",
+        "skills/composition-patterns"
+      ]
+    },
+    {
+      "repo": "MengTo/Skills",
+      "license": "MIT",
+      "paths": [
+        "agent-skills/web-design/build-awwwards-quality-sites",
+        "agent-skills/ui/design-first-ui-prompting",
+        "agent-skills/ui/audit-ai-design-slop",
+        "agent-skills/ui/no-ai-design-slop",
+        "agent-skills/web-design/landing-page",
+        "agent-skills/web-design/pricing-page",
+        "agent-skills/web-design/product-proof-saas",
+        "agent-skills/web-design/animation-systems",
+        "agent-skills/web-design/gsap"
+      ]
+    },
+    {
+      "repo": "wshobson/agents",
+      "license": "MIT",
+      "paths": [
+        "plugins/frontend-mobile-development/skills/tailwind-design-system",
+        "plugins/accessibility-compliance/skills/wcag-audit-patterns"
+      ]
+    },
+    {
+      "repo": "github/awesome-copilot",
+      "license": "MIT",
+      "paths": [
+        "skills/web-design-reviewer"
+      ]
+    },
+    {
+      "repo": "obra/superpowers",
+      "license": "MIT",
+      "paths": [
+        "skills/verification-before-completion"
+      ]
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "license": "MIT",
+      "paths": [
+        "skills/content-strategy",
+        "skills/product-marketing",
+        "skills/customer-research",
+        "skills/competitor-profiling",
+        "skills/copywriting",
+        "skills/copy-editing",
+        "skills/marketing-psychology",
+        "skills/cro",
+        "skills/ab-testing",
+        "skills/offers",
+        "skills/pricing",
+        "skills/signup",
+        "skills/onboarding",
+        "skills/paywalls",
+        "skills/analytics",
+        "skills/conversion-tracking",
+        "skills/seo-audit",
+        "skills/ai-seo",
+        "skills/site-architecture",
+        "skills/schema",
+        "skills/programmatic-seo"
+      ]
+    }
+  ]
+}

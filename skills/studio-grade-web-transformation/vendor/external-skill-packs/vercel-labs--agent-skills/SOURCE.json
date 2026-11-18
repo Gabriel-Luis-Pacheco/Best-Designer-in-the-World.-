@@ -1,0 +1,35 @@
+{
+  "repository": "vercel-labs/agent-skills",
+  "upstream_sha": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "url": "https://github.com/vercel-labs/agent-skills/tree/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+  "license": "MIT (README section License)",
+  "skills": [
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/web-design-guidelines",
+      "local_path": "vercel-labs--agent-skills/skills/web-design-guidelines",
+      "files": 1,
+      "bytes": 1231,
+      "license": "MIT (README section License)"
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/react-best-practices",
+      "local_path": "vercel-labs--agent-skills/skills/react-best-practices",
+      "files": 76,
+      "bytes": 230383,
+      "license": "MIT (README section License)"
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "path": "skills/composition-patterns",
+      "local_path": "vercel-labs--agent-skills/skills/composition-patterns",
+      "files": 14,
+      "bytes": 50339,
+      "license": "MIT (README section License)"
+    }
+  ]
+}
