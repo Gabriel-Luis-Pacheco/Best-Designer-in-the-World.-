@@ -1,0 +1,406 @@
+"""Parse Claude Code plugin structure: skills, agents, plugin.json."""
+
+from __future__ import annotations
+
+import json
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+
+import yaml
+
+_CROSS_REFERENCE_PATTERN = re.compile(
+    r"(?<![\w-])((?:skill|skills|sub-skills)/[a-z0-9-]+(?:/[a-z0-9-]+)*)"
+)
+_CODE_FENCE_PATTERN = re.compile(r"^\s*(?:>\s*)*(`{3,}|~{3,})(\w*)(.*)")
+_INLINE_BACKTICK_RUN_PATTERN = re.compile(r"`+")
+# A heading or list-item line starts a new inline block for code-span pairing.
+_BLOCK_START_PATTERN = re.compile(r"[ \t]{0,3}(?:#{1,6}(?:[ \t]|$)|[-*+][ \t]|\d{1,9}[.)][ \t])")
+_HEADING_LINE_PATTERN = re.compile(r"[ \t]{0,3}#{1,6}(?:[ \t]|$)")
+# One blockquote marker: up to three spaces of indentation, ">", one optional space.
+_BLOCKQUOTE_MARKER_PATTERN = re.compile(r"[ \t]{0,3}>[ \t]?")
+# Cross-reference extraction excludes fenced code blocks and inline code
+# spans: a skill path inside code formatting is an example or command, not
+# an ecosystem reference. Without this, prose and command examples generate
+# DEAD_CROSS_REF false positives whenever they mention a skills/<slug> path
+# that does not exist on disk.
+
+
+@dataclass
+class ParsedSkill:
+    path: Path
+    name: str
+    description: str
+    line_count: int
+    h2_count: int
+    h3_count: int
+    code_block_count: int
+    code_block_languages: list[str]
+    has_examples: bool
+    has_troubleshooting: bool
+    has_references: bool
+    has_assets: bool
+    reference_files: list[str]
+    asset_files: list[str]
+    total_content_lines: int
+    must_never_always_count: int
+    cross_references: list[str]
+    raw_content: str
+    frontmatter: dict
+
+
+@dataclass
+class ParsedAgent:
+    path: Path
+    name: str
+    description: str
+    model: str | None
+    has_tools_restriction: bool
+    tools: list[str]
+    has_proactive_trigger: bool
+    skill_references: list[str]
+    raw_content: str
+    frontmatter: dict
+
+
+@dataclass
+class ParsedPlugin:
+    path: Path
+    name: str
+    skills: list[ParsedSkill] = field(default_factory=list)
+    agents: list[ParsedAgent] = field(default_factory=list)
+    plugin_json: dict = field(default_factory=dict)
+
+
+def parse_skill(skill_dir: Path) -> ParsedSkill:
+    """Parse a skill directory into structured data."""
+    skill_md = skill_dir / "SKILL.md"
+    if not skill_md.exists():
+        raise FileNotFoundError(f"No SKILL.md found in {skill_dir}")
+
+    content = skill_md.read_text(encoding="utf-8")
+    frontmatter, body = _split_frontmatter(content)
+    lines = body.strip().split("\n")
+
+    h2_count = sum(1 for line in lines if re.match(r"^## ", line))
+    h3_count = sum(1 for line in lines if re.match(r"^### ", line))
+
+    code_block_count, code_block_languages = _count_code_blocks(content)
+
+    lower_body = body.lower()
+    has_examples = bool(re.search(r"(## example|### example|## usage)", lower_body))
+    has_troubleshooting = bool(re.search(r"(## troubleshoot|## common issue|## faq)", lower_body))
+
+    refs_dir = skill_dir / "references"
+    assets_dir = skill_dir / "assets"
+    reference_files = (
+        [f.name for f in refs_dir.iterdir() if f.is_file()] if refs_dir.exists() else []
+    )
+    asset_files = (
+        [f.name for f in assets_dir.iterdir() if f.is_file()] if assets_dir.exists() else []
+    )
+
+    total_lines = len(content.split("\n"))
+    for ref_file in reference_files:
+        ref_path = refs_dir / ref_file
+        total_lines += len(ref_path.read_text(encoding="utf-8").split("\n"))
+
+    must_pattern = re.compile(r"\b(MUST|NEVER|ALWAYS)\b")
+    must_count = len(must_pattern.findall(content))
+
+    cross_refs = _extract_cross_references(body)
+
+    return ParsedSkill(
+        path=skill_dir,
+        name=frontmatter.get("name", skill_dir.name),
+        description=frontmatter.get("description", ""),
+        line_count=len(content.split("\n")),
+        h2_count=h2_count,
+        h3_count=h3_count,
+        code_block_count=code_block_count,
+        code_block_languages=code_block_languages,
+        has_examples=has_examples,
+        has_troubleshooting=has_troubleshooting,
+        has_references=refs_dir.exists(),
+        has_assets=assets_dir.exists(),
+        reference_files=reference_files,
+        asset_files=asset_files,
+        total_content_lines=total_lines,
+        must_never_always_count=must_count,
+        cross_references=cross_refs,
+        raw_content=content,
+        frontmatter=frontmatter,
+    )
+
+
+def parse_agent(agent_path: Path) -> ParsedAgent:
+    """Parse an agent markdown file."""
+    content = agent_path.read_text(encoding="utf-8")
+    frontmatter, body = _split_frontmatter(content)
+
+    tools_raw = frontmatter.get("tools", "")
+    if isinstance(tools_raw, list):
+        tools = [str(t).strip() for t in tools_raw]
+    elif isinstance(tools_raw, str) and tools_raw:
+        tools = [t.strip() for t in tools_raw.split(",")]
+    else:
+        tools = []
+
+    description = frontmatter.get("description", "")
+    has_proactive = bool(re.search(r"use proactively", description, re.IGNORECASE))
+
+    skill_refs = _extract_cross_references(body)
+
+    return ParsedAgent(
+        path=agent_path,
+        name=frontmatter.get("name", agent_path.stem),
+        description=description,
+        model=frontmatter.get("model"),
+        has_tools_restriction=bool(tools),
+        tools=tools,
+        has_proactive_trigger=has_proactive,
+        skill_references=skill_refs,
+        raw_content=content,
+        frontmatter=frontmatter,
+    )
+
+
+def parse_plugin(plugin_dir: Path) -> ParsedPlugin:
+    """Parse an entire plugin directory."""
+    plugin_json_path = plugin_dir / ".claude-plugin" / "plugin.json"
+    plugin_json = {}
+    if plugin_json_path.exists():
+        plugin_json = json.loads(plugin_json_path.read_text(encoding="utf-8"))
+
+    name = plugin_json.get("name", plugin_dir.name)
+
+    skills = []
+    skills_dir = plugin_dir / "skills"
+    if skills_dir.exists():
+        for skill_dir in sorted(skills_dir.iterdir()):
+            if skill_dir.is_dir() and (skill_dir / "SKILL.md").exists():
+                skills.append(parse_skill(skill_dir))
+
+    agents = []
+    agents_dir = plugin_dir / "agents"
+    if agents_dir.exists():
+        for agent_file in sorted(agents_dir.glob("*.md")):
+            agents.append(parse_agent(agent_file))
+
+    return ParsedPlugin(
+        path=plugin_dir,
+        name=name,
+        skills=skills,
+        agents=agents,
+        plugin_json=plugin_json,
+    )
+
+
+def _count_code_blocks(content: str) -> tuple[int, list[str]]:
+    """Count fenced code blocks and collect the languages on their opening fences.
+
+    Every fenced block is delimited twice, so counting each fence run would report
+    double the number of blocks. Track the fence that opened the current block
+    instead and count only the openers. Markdown fences run on backticks or on
+    tildes, and a block closes only on a run of the same character at least as
+    long as its opener with nothing but whitespace after it, so a fence-like line
+    carrying other text is part of the block rather than the end of it.
+    """
+    count = 0
+    languages: list[str] = []
+    open_fence = ""
+
+    for line in content.split("\n"):
+        match = _CODE_FENCE_PATTERN.match(line)
+        if match is None:
+            continue
+        fence, language, trailing = match.group(1), match.group(2), match.group(3)
+        if open_fence:
+            if (
+                fence[0] == open_fence[0]
+                and len(fence) >= len(open_fence)
+                and not language
+                and not trailing.strip()
+            ):
+                open_fence = ""
+            continue
+        if fence[0] == "`" and "`" in trailing:
+            # CommonMark keeps backticks out of the info string of a backtick fence.
+            continue
+        open_fence = fence
+        count += 1
+        if language:
+            languages.append(language)
+
+    return count, languages
+
+
+def _split_frontmatter(content: str) -> tuple[dict, str]:
+    """Split YAML frontmatter from markdown body."""
+    if not content.startswith("---"):
+        return {}, content
+
+    parts = content.split("---", 2)
+    if len(parts) < 3:
+        return {}, content
+
+    try:
+        frontmatter = yaml.safe_load(parts[1]) or {}
+    except yaml.YAMLError:
+        frontmatter = {}
+
+    return frontmatter, parts[2]
+
+
+def _split_blockquote_prefix(line: str) -> tuple[int, str]:
+    """Return the blockquote depth of a line and the line without its markers."""
+    depth = 0
+    while match := _BLOCKQUOTE_MARKER_PATTERN.match(line):
+        depth += 1
+        line = line[match.end() :]
+    return depth, line
+
+
+def _strip_fenced_blocks(body: str) -> str:
+    """Remove fenced code block content, using the same fence rules as _count_code_blocks.
+
+    A block closes only on a run of the same character at least as long as
+    its opener with nothing but whitespace after it, so a fence-like line
+    carrying other text (e.g. `echo "```"` inside a block) is content, not a
+    closer. An unclosed fence extends to the end of the body. Lines are
+    replaced with blanks rather than deleted so line-oriented consumers of
+    the stripped text keep their positions.
+
+    Fence rules apply to the line after its blockquote markers. A block opened
+    inside a blockquote ends when a line drops below the opener's quote depth.
+    """
+    out_lines: list[str] = []
+    open_fence = ""
+    fence_depth = 0
+
+    for line in body.split("\n"):
+        depth, content = _split_blockquote_prefix(line)
+        if open_fence and depth < fence_depth:
+            # A line outside the opener's blockquote ends it, and with it the
+            # fenced block (CommonMark closes the code block when its container
+            # ends, and fenced code has no lazy continuation). The line itself
+            # is then handled by the normal path below.
+            open_fence = ""
+        if open_fence and depth > fence_depth:
+            # Extra ">" markers are block content, so this line cannot close it.
+            out_lines.append("")
+            continue
+        match = _CODE_FENCE_PATTERN.match(content)
+        if match is not None:
+            fence, language, trailing = match.group(1), match.group(2), match.group(3)
+            if open_fence:
+                if (
+                    fence[0] == open_fence[0]
+                    and len(fence) >= len(open_fence)
+                    and not language
+                    and not trailing.strip()
+                ):
+                    open_fence = ""
+                out_lines.append("")
+                continue
+            if fence[0] == "`" and "`" in trailing:
+                # CommonMark keeps backticks out of the info string of a backtick fence.
+                out_lines.append(line)
+                continue
+            open_fence = fence
+            fence_depth = depth
+            out_lines.append("")
+            continue
+        out_lines.append("" if open_fence else line)
+
+    return "\n".join(out_lines)
+
+
+def _is_backslash_escaped(text: str, position: int) -> bool:
+    """Return True when an odd number of backslashes precede position."""
+    count = 0
+    while position - count > 0 and text[position - count - 1] == "\\":
+        count += 1
+    return count % 2 == 1
+
+
+def _strip_inline_code_spans(text: str) -> str:
+    """Remove CommonMark code spans, pairing backtick runs of equal length.
+
+    A span opens on a backtick run and closes on the next run of the same
+    length, crossing newlines; longer or shorter runs between are content
+    (CommonMark closing delimiter must equal the opener's length). An
+    unmatched opener run is kept literally.
+    """
+    runs = list(_INLINE_BACKTICK_RUN_PATTERN.finditer(text))
+    out: list[str] = []
+    last = 0
+    i = 0
+    while i < len(runs):
+        open_run = runs[i]
+        open_start = open_run.start()
+        if _is_backslash_escaped(text, open_start):
+            # The escaped backtick is literal text. The rest of the run, if
+            # any, is a shorter backtick string that can still open a span.
+            open_start += 1
+            if open_start == open_run.end():
+                i += 1
+                continue
+        open_len = open_run.end() - open_start
+        j = i + 1
+        while j < len(runs) and (runs[j].end() - runs[j].start()) != open_len:
+            j += 1
+        if j < len(runs):
+            out.append(text[last:open_start])
+            out.append(" ")
+            last = runs[j].end()
+            i = j + 1
+        else:
+            out.append(text[last : open_run.end()])
+            last = open_run.end()
+            i += 1
+    out.append(text[last:])
+    return "".join(out)
+
+
+def _split_inline_blocks(text: str) -> list[str]:
+    """Split text into the inline blocks that bound code-span pairing.
+
+    A new block starts at a blank line, before a heading or list-item line,
+    and after a heading line. Lines within a block keep their newlines, so a
+    span may still cross a soft line break inside one paragraph. The rules
+    apply to the line after its blockquote markers, so a line holding only
+    markers counts as blank.
+    """
+    blocks: list[list[str]] = [[]]
+    for line in text.split("\n"):
+        _, content = _split_blockquote_prefix(line)
+        is_blank = not content.strip()
+        if is_blank or _BLOCK_START_PATTERN.match(content):
+            blocks.append([])
+        blocks[-1].append(line)
+        if _HEADING_LINE_PATTERN.match(content):
+            blocks.append([])
+    return ["\n".join(b) for b in blocks if b]
+
+
+def _extract_cross_references(body: str) -> list[str]:
+    """Extract skill paths while keeping references to nested skills intact.
+
+    Fenced code blocks and inline code spans are excluded first: skill paths
+    inside code formatting are illustrative (examples, commands), not
+    ecosystem references, and counting them produced DEAD_CROSS_REF false
+    positives for any mention whose target does not exist on disk.
+    """
+    # Code spans pair within one inline block only, so split the body into
+    # segments at blank lines and before heading or list-item lines, and
+    # again after a heading line. Fence lines are already blank by now, so
+    # fenced blocks also act as boundaries.
+    segments = _split_inline_blocks(_strip_fenced_blocks(body))
+    stripped = "\n".join(_strip_inline_code_spans(p) for p in segments)
+    references = []
+    for reference in _CROSS_REFERENCE_PATTERN.findall(stripped):
+        if reference.startswith(("skill/", "skills/")):
+            reference = reference.split("/", 1)[1]
+        references.append(reference)
+    return references

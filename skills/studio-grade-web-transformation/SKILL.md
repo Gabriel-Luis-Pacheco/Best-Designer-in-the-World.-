@@ -51,6 +51,8 @@ For PPTX, Keynote, Google Slides and presentations, consult `references/presenta
 
 Para tarefas que realmente precisem delas, consultar `references/complete-skill-packs-routing.md` e **somente** os diretórios relevantes de `vendor/external-skill-packs/`. A biblioteca preserva as pastas completas de 50 skills, com referências, dados, scripts, assets e atribuições, quando `vendor/external-skill-packs/INDEX.json` existir e passar em `scripts/sync_external_skill_packs.py --check`. Sem o índice, tratar como manifesto PENDENTE. Scripts de fornecedores são código externo: não executá-los automaticamente. Estes arquivos não significam que plugins, binários ou CLIs estejam instalados. Preservar os pacotes anteriores; não forçar carregamento de 50 skills nem introduzir conflito com decisões da marca.
 
+**Biblioteca integral:** quando `vendor/full-upstream-repositories/INDEX.json` confirmar 12 fontes, as cópias integrais de seus arquivos rastreados ficam disponíveis em `vendor/full-upstream-repositories/`; consultar `references/full-upstream-repositories-routing.md`. Nenhum script externo é executado automaticamente.
+
 ## Guides — only when genuinely needed
 
 Paths relative to the installed skill. `references/resource-index.md` is a lookup, **not a preloaded document**.

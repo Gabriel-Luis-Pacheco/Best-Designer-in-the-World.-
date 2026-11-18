@@ -1,0 +1,269 @@
+#!/usr/bin/env bash
+# run-tests.sh — exercise protect-mcp hooks against the fixtures in this directory.
+#
+# Requires: bash, node (>= 18), npx. Fetches protect-mcp and @veritasacta/verify@0.11.1
+# from the npm registry on first run, then caches them.
+#
+# Exit codes:
+#   0   all tests passed
+#   1   one or more tests failed
+#   77  required tools missing (treated as "skipped" by automake / CI)
+
+set -uo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# --- Preflight ---------------------------------------------------------------
+
+need() {
+    command -v "$1" >/dev/null 2>&1 || {
+        echo "SKIP: '$1' not found. Install Node.js 18+ (provides node and npx)."
+        exit 77
+    }
+}
+need node
+need npx
+need python3
+
+# Temp workspace for produced receipts. Cleaned at the end.
+WORKDIR="$(mktemp -d)"
+trap 'rm -rf "$WORKDIR"' EXIT
+RECEIPTS_DIR="$WORKDIR/receipts"
+mkdir -p "$RECEIPTS_DIR"
+
+PASS=0
+FAIL=0
+
+if [ -t 1 ]; then
+    GREEN='\033[0;32m'; RED='\033[0;31m'; NC='\033[0m'
+else
+    GREEN=''; RED=''; NC=''
+fi
+
+pass() { echo -e "${GREEN}PASS${NC}: $1"; PASS=$((PASS+1)); }
+fail() { echo -e "${RED}FAIL${NC}: $1"; FAIL=$((FAIL+1)); }
+
+check_exit() {
+    local actual="$1" expected="$2" label="$3"
+    if [ "$actual" -eq "$expected" ]; then pass "$label"; else fail "$label (exit $actual, expected $expected)"; fi
+}
+
+extract() { python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(d.get(sys.argv[2],''))" "$1" "$2"; }
+
+# --- Test 1: PreToolUse allows safe Read -------------------------------------
+echo ""
+echo "=== Test 1: PreToolUse permit on Read ==="
+INPUT=fixtures/pretool-allow-read.json
+npx --yes protect-mcp@0.32.4 evaluate \
+    --policy fixtures/test-policy.cedar \
+    --tool "$(extract "$INPUT" tool_name)" \
+    --input "$(python3 -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["tool_input"]))' "$INPUT")" \
+    --fail-on-missing-policy false >/dev/null 2>&1
+check_exit $? 0 "Read is permitted by test-policy.cedar"
+
+# --- Test 2: PreToolUse allows safe Bash -------------------------------------
+echo ""
+echo "=== Test 2: PreToolUse permit on Bash git ==="
+INPUT=fixtures/pretool-allow-bash-safe.json
+npx --yes protect-mcp@0.32.4 evaluate \
+    --policy fixtures/test-policy.cedar \
+    --tool "$(extract "$INPUT" tool_name)" \
+    --input "$(python3 -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["tool_input"]))' "$INPUT")" \
+    --fail-on-missing-policy false >/dev/null 2>&1
+check_exit $? 0 "Bash 'git status' is permitted"
+
+# --- Test 3: PreToolUse denies destructive Bash ------------------------------
+echo ""
+echo "=== Test 3: PreToolUse forbid on Bash rm -rf ==="
+INPUT=fixtures/pretool-deny-bash-destructive.json
+npx --yes protect-mcp@0.32.4 evaluate \
+    --policy fixtures/test-policy.cedar \
+    --tool "$(extract "$INPUT" tool_name)" \
+    --input "$(python3 -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["tool_input"]))' "$INPUT")" \
+    --fail-on-missing-policy false >/dev/null 2>&1
+check_exit $? 2 "Bash 'rm -rf /' is denied with exit 2"
+
+# --- Test 4: PreToolUse denies Write -----------------------------------------
+echo ""
+echo "=== Test 4: PreToolUse forbid on Write ==="
+INPUT=fixtures/pretool-deny-write.json
+npx --yes protect-mcp@0.32.4 evaluate \
+    --policy fixtures/test-policy.cedar \
+    --tool "$(extract "$INPUT" tool_name)" \
+    --input "$(python3 -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["tool_input"]))' "$INPUT")" \
+    --fail-on-missing-policy false >/dev/null 2>&1
+check_exit $? 2 "Write is denied with exit 2"
+
+# --- Test 5: PostToolUse produces a receipt ---------------------------------
+echo ""
+echo "=== Test 5: PostToolUse sign produces a receipt ==="
+# protect-mcp >= 0.7.0 has no keygen subcommand; init generates keys/gateway.json under --dir.
+npx --yes protect-mcp@0.32.4 init --dir "$WORKDIR" >/dev/null 2>&1
+KEY="$WORKDIR/keys/gateway.json"
+chmod 600 "$KEY"
+PUBKEY="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["publicKey"])' "$KEY" 2>/dev/null || true)"
+
+INPUT=fixtures/posttool-signing-input.json
+TOOL_NAME="$(extract "$INPUT" tool_name)"
+
+SIGN_ARGS=(--tool "$TOOL_NAME" --receipts "$RECEIPTS_DIR/")
+[ -f "$KEY" ] && SIGN_ARGS+=(--key "$KEY")
+
+npx --yes protect-mcp@0.32.4 sign "${SIGN_ARGS[@]}" </dev/null >/dev/null 2>&1
+SIGN_RC=$?
+# protect-mcp >= 0.7.0 appends receipts to receipts.jsonl in the --receipts dir (one JSON per
+# line) rather than one file per receipt; extract the newest line as a
+# standalone document for the schema/verify/tamper tests below.
+RECEIPT_FILE=""
+if [ -s "$RECEIPTS_DIR/receipts.jsonl" ]; then
+    RECEIPT_FILE="$WORKDIR/receipt-latest.json"
+    tail -n 1 "$RECEIPTS_DIR/receipts.jsonl" > "$RECEIPT_FILE"
+fi
+
+if [ "$SIGN_RC" -eq 0 ] && [ -n "$RECEIPT_FILE" ] && [ -f "$RECEIPT_FILE" ]; then
+    pass "Receipt produced at $(basename "$RECEIPT_FILE")"
+else
+    fail "Sign command did not produce a receipt (exit $SIGN_RC)"
+fi
+
+# --- Test 6: Receipt matches expected schema --------------------------------
+echo ""
+echo "=== Test 6: Receipt schema validation ==="
+if [ -n "$RECEIPT_FILE" ]; then
+    python3 - "$RECEIPT_FILE" expected/receipt-schema.json "$TOOL_NAME" <<'PY'
+import copy, json, re, sys
+r = json.load(open(sys.argv[1]))
+s = json.load(open(sys.argv[2]))
+# Validate the constraints used by this fixture schema, including nested fields.
+def validate(value, schema, path="$"):
+    kind = schema.get("type")
+    if kind == "object":
+        assert isinstance(value, dict), f"{path}: expected object"
+        for key in schema.get("required", []):
+            assert key in value, f"{path}: missing {key}"
+        properties = schema.get("properties", {})
+        if schema.get("additionalProperties") is False:
+            assert not (value.keys() - properties.keys()), f"{path}: unexpected fields"
+        for key, child in properties.items():
+            if key in value:
+                validate(value[key], child, f"{path}.{key}")
+    elif kind == "string":
+        assert isinstance(value, str), f"{path}: expected string"
+        assert len(value) >= schema.get("minLength", 0), f"{path}: too short"
+        if "pattern" in schema:
+            assert re.fullmatch(schema["pattern"], value), f"{path}: invalid format"
+    if "const" in schema:
+        assert value == schema["const"], f"{path}: unexpected value"
+    if "enum" in schema:
+        assert value in schema["enum"], f"{path}: invalid value"
+validate(r, s)
+assert r["payload"]["tool_name"] == sys.argv[3], "receipt tool does not match requested tool"
+assert r["payload"]["issuer_id"] == r["signature"]["kid"]
+# Negative controls: Test 6 must enforce nested requirements and signature shape.
+for section, key in [("payload", "tool_name"), ("signature", "sig")]:
+    invalid = copy.deepcopy(r)
+    del invalid[section][key]
+    try:
+        validate(invalid, s)
+    except AssertionError:
+        continue
+    raise AssertionError(f"schema accepted missing {section}.{key}")
+
+PY
+    check_exit $? 0 "Receipt conforms to expected schema"
+else
+    fail "No receipt available to validate"
+fi
+
+# --- Test 7: @veritasacta/verify accepts the receipt ------------------------
+echo ""
+echo "=== Test 7: Offline verification with @veritasacta/verify ==="
+if [ -n "$RECEIPT_FILE" ]; then
+    npx --yes @veritasacta/verify@0.11.1 "$RECEIPT_FILE" --key "$PUBKEY" >/dev/null 2>&1
+    check_exit $? 0 "Valid receipt verifies with exit 0"
+else
+    fail "No receipt available to verify"
+fi
+
+# --- Test 8: Tampered receipt fails verification ----------------------------
+echo ""
+echo "=== Test 8: Tamper detection ==="
+if [ -n "$RECEIPT_FILE" ]; then
+    TAMPERED="$WORKDIR/tampered.json"
+    python3 -c '
+import json, sys
+r = json.load(open(sys.argv[1]))
+# Flip the decision (a signed payload field). Signature will no longer validate.
+r["payload"]["decision"] = "deny" if r["payload"].get("decision") == "allow" else "allow"
+json.dump(r, open(sys.argv[2], "w"))
+' "$RECEIPT_FILE" "$TAMPERED"
+    npx --yes @veritasacta/verify@0.11.1 "$TAMPERED" --key "$PUBKEY" >/dev/null 2>&1
+    check_exit $? 1 "Tampered receipt rejected with exit 1"
+else
+    fail "No receipt available to tamper with"
+fi
+
+# --- Tests 9-11: hooks.json commands with the payload on stdin --------------
+# Claude Code runs the command string from hooks.json with the event JSON on
+# stdin and sets no TOOL_NAME variable. Run the exact command the same way.
+PLUGIN_ROOT="$(cd .. && pwd)"
+hook_cmd() { python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["hooks"][sys.argv[2]][0]["hooks"][0]["command"])' "$PLUGIN_ROOT/hooks/hooks.json" "$1"; }
+PRE_CMD="$(hook_cmd PreToolUse)"
+POST_CMD="$(hook_cmd PostToolUse)"
+
+echo ""
+echo "=== Test 9: hooks.json PreToolUse permits Read from a stdin payload ==="
+CLAUDE_PLUGIN_ROOT="$PLUGIN_ROOT" PROTECT_MCP_POLICY=fixtures/test-policy.cedar \
+    bash -c "$PRE_CMD" < fixtures/pretool-allow-read.json >/dev/null 2>&1
+check_exit $? 0 "hooks.json PreToolUse allows Read (stdin payload)"
+
+echo ""
+echo "=== Test 10: hooks.json PreToolUse denies Write from a stdin payload ==="
+CLAUDE_PLUGIN_ROOT="$PLUGIN_ROOT" PROTECT_MCP_POLICY=fixtures/test-policy.cedar \
+    bash -c "$PRE_CMD" < fixtures/pretool-deny-write.json >/dev/null 2>&1
+check_exit $? 2 "hooks.json PreToolUse denies Write (stdin payload)"
+
+echo ""
+echo "=== Test 11: hooks.json PostToolUse signs a receipt from a stdin payload ==="
+HOOK_RECEIPTS="$WORKDIR/hook-receipts/"
+CLAUDE_PLUGIN_ROOT="$PLUGIN_ROOT" PROTECT_MCP_RECEIPTS="$HOOK_RECEIPTS" PROTECT_MCP_KEY="$KEY" \
+    bash -c "$POST_CMD" < fixtures/posttool-signing-input.json >"$WORKDIR/post.stdout" 2>"$WORKDIR/post.stderr"
+POST_RC=$?
+check_exit "$POST_RC" 0 "hooks.json PostToolUse exits successfully"
+if [ ! -s "$WORKDIR/post.stdout" ]; then pass "PostToolUse stdout is empty"; else fail "PostToolUse leaked CLI output"; fi
+if [ -s "$HOOK_RECEIPTS/receipts.jsonl" ] && grep -q '"Read"' "$HOOK_RECEIPTS/receipts.jsonl"; then
+    pass "hooks.json PostToolUse wrote a receipt naming the Read tool"
+else
+    fail "hooks.json PostToolUse did not write a receipt for Read"
+fi
+
+# --- Test 12: an evaluator that cannot run must block, not fail open ----------
+# Simulate npx failing to execute (exit 126, as when a huge tool input exceeds the
+# argument-length limit). The hook must map that to exit 2.
+echo ""
+echo "=== Test 12: hooks.json PreToolUse blocks when the evaluator cannot run ==="
+FAKE_BIN="$WORKDIR/fakebin"; mkdir -p "$FAKE_BIN"
+printf '#!/bin/sh\nexit 126\n' > "$FAKE_BIN/npx"; chmod +x "$FAKE_BIN/npx"
+PATH="$FAKE_BIN:$PATH" CLAUDE_PLUGIN_ROOT="$PLUGIN_ROOT" PROTECT_MCP_POLICY=fixtures/test-policy.cedar \
+    bash -c "$PRE_CMD" < fixtures/pretool-allow-read.json >/dev/null 2>&1
+check_exit $? 2 "evaluator exit 126 is mapped to a blocking exit 2"
+
+# --- Test 13: released-package migration and signer failure regressions -------
+echo ""
+echo "=== Test 13: signed-hook migration and failure regressions ==="
+node "$SCRIPT_DIR/hook-migration.mjs"
+check_exit $? 0 "signed-hook migration regression suite"
+
+# --- Test 14: reverse readback bounds and filesystem failures -----------------
+echo ""
+echo "=== Test 14: bounded reverse receipt confirmation ==="
+node "$SCRIPT_DIR/hook-readback.mjs"
+check_exit $? 0 "reverse readback regression suite"
+
+# --- Summary ----------------------------------------------------------------
+echo ""
+echo "─────────────────────────────────────────────"
+echo "  $PASS passed, $FAIL failed"
+echo "─────────────────────────────────────────────"
+[ "$FAIL" -eq 0 ]

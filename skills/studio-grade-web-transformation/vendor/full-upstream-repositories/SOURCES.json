@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "description": "Complete copies of ALL tracked files in each of 12 upstream GitHub repositories, excluding Git internals/history only.",
+  "sources": [
+    "anthropics/skills",
+    "pbakaus/impeccable",
+    "nextlevelbuilder/ui-ux-pro-max-skill",
+    "Leonxlnx/taste-skill",
+    "emilkowalski/skills",
+    "ehmo/platform-design-skills",
+    "vercel-labs/agent-skills",
+    "MengTo/Skills",
+    "wshobson/agents",
+    "github/awesome-copilot",
+    "obra/superpowers",
+    "coreyhaines31/marketingskills"
+  ]
+}

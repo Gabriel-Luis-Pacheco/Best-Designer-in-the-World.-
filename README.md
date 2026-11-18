@@ -1,5 +1,9 @@
 # Design OS Prime v14.0.0
 
+## Repositórios completos das fontes — 18/11/2026
+
+Além das 50 skills selecionadas, a Design OS também inclui **cópias integrais dos arquivos versionados dos 12 repositórios originais**: código, programas, demos, assets e todas as demais skills. O diretório interno Git/histórico não é incluído; licenças e avisos são preservados. [Ver os espelhos e o estado da importação](skills/studio-grade-web-transformation/vendor/full-upstream-repositories/README.md). O INDEX.json indica quando os 12 estiverem integralmente copiados e verificados.
+
 ## Biblioteca de 50 skills completas — 18/11/2026
 
 Foram integrados **50 diretórios completos de skills de 12 repositórios externos**, com arquivos originais de referência, scripts, dados e assets internos das skills, mais cópias de licenças, provenance SHA e índice de verificação. Leia o [índice e instruções do pacote](skills/studio-grade-web-transformation/vendor/external-skill-packs/README.md), o [roteamento por tipo de tarefa](skills/studio-grade-web-transformation/references/complete-skill-packs-routing.md) e o [índice gerado dos 50 pacotes](skills/studio-grade-web-transformation/vendor/external-skill-packs/INDEX.json).
