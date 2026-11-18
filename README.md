@@ -1,5 +1,12 @@
 # Design OS Prime v14.0.0
 
+## Biblioteca de 50 skills completas — 18/11/2026
+
+Foram integrados **50 diretórios completos de skills de 12 repositórios externos**, com arquivos originais de referência, scripts, dados e assets internos das skills, mais cópias de licenças, provenance SHA e índice de verificação. Leia o [índice e instruções do pacote](skills/studio-grade-web-transformation/vendor/external-skill-packs/README.md), o [roteamento por tipo de tarefa](skills/studio-grade-web-transformation/references/complete-skill-packs-routing.md) e o [índice gerado dos 50 pacotes](skills/studio-grade-web-transformation/vendor/external-skill-packs/INDEX.json).
+
+Os 50 **diretórios das skills** estão copiados, mas **não são espelhos dos 12 monorepositórios inteiros**: CLIs, instaladores e binários externos que ficam fora dessas pastas não são incorporados automaticamente. Nenhuma ferramenta externa é executada apenas por estar vendorizada. As licenças originais são independentes da licença MIT da Design OS. Para atualizar, rode `python3 scripts/sync_external_skill_packs.py --sync` e depois `--check`.
+
+
 ## Full Studio Stack e Motion Studio — 14/11/2026
 
 A Design OS Prime agora faz uma **checagem obrigatória das cinco famílias especialistas em tarefas visuais relevantes**: [Impeccable](https://github.com/pbakaus/impeccable), [Taste Skill](https://github.com/Leonxlnx/taste-skill), [Emil Kowalski](https://github.com/emilkowalski/skills), [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) e [Anthropic Frontend Design](https://github.com/anthropics/skills/tree/main/skills/frontend-design). As instruções centrais originais e licenças estão em [`vendor/specialist-core/`](skills/studio-grade-web-transformation/vendor/specialist-core/), mas **binários, detectores, hooks, CLIs, bases e modo Live não estão automaticamente instalados**. O [roteador operacional](skills/studio-grade-web-transformation/references/full-specialist-stack.md) exige uso real quando disponível e relevante, sem forçar efeitos conflitantes ou desperdiçar tokens em um patch simples.
