@@ -1,0 +1,44 @@
+{
+  "repository": "emilkowalski/skills",
+  "upstream_sha": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+  "url": "https://github.com/emilkowalski/skills/tree/64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/emil-design-eng",
+      "local_path": "emilkowalski--skills/skills/emil-design-eng",
+      "files": 1,
+      "bytes": 28257,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/apple-design",
+      "local_path": "emilkowalski--skills/skills/apple-design",
+      "files": 1,
+      "bytes": 22852,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/animate",
+      "local_path": "emilkowalski--skills/skills/animate",
+      "files": 2,
+      "bytes": 20182,
+      "license": "MIT"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "revision": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "path": "skills/choreograph",
+      "local_path": "emilkowalski--skills/skills/choreograph",
+      "files": 2,
+      "bytes": 25745,
+      "license": "MIT"
+    }
+  ]
+}

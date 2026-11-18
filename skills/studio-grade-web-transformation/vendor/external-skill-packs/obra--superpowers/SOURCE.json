@@ -1,0 +1,17 @@
+{
+  "repository": "obra/superpowers",
+  "upstream_sha": "22f0b463e7a5e579904dd6211a520321035526f7",
+  "url": "https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "obra/superpowers",
+      "revision": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "path": "skills/verification-before-completion",
+      "local_path": "obra--superpowers/skills/verification-before-completion",
+      "files": 1,
+      "bytes": 3646,
+      "license": "MIT"
+    }
+  ]
+}

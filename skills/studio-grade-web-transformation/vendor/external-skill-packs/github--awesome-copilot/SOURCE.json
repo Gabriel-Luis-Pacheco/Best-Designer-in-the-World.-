@@ -1,0 +1,17 @@
+{
+  "repository": "github/awesome-copilot",
+  "upstream_sha": "a255a193d1318e5a9ca3e9e575897f9a7845c099",
+  "url": "https://github.com/github/awesome-copilot/tree/a255a193d1318e5a9ca3e9e575897f9a7845c099",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "github/awesome-copilot",
+      "revision": "a255a193d1318e5a9ca3e9e575897f9a7845c099",
+      "path": "skills/web-design-reviewer",
+      "local_path": "github--awesome-copilot/skills/web-design-reviewer",
+      "files": 3,
+      "bytes": 24083,
+      "license": "MIT"
+    }
+  ]
+}

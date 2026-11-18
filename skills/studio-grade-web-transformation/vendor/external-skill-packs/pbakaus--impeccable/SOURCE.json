@@ -1,0 +1,17 @@
+{
+  "repository": "pbakaus/impeccable",
+  "upstream_sha": "d41d9860b0094dcb68030657da63461212835aaa",
+  "url": "https://github.com/pbakaus/impeccable/tree/d41d9860b0094dcb68030657da63461212835aaa",
+  "license": "Apache-2.0",
+  "skills": [
+    {
+      "repo": "pbakaus/impeccable",
+      "revision": "d41d9860b0094dcb68030657da63461212835aaa",
+      "path": ".agent/skills/impeccable",
+      "local_path": "pbakaus--impeccable/.agent/skills/impeccable",
+      "files": 63,
+      "bytes": 2260266,
+      "license": "Apache-2.0"
+    }
+  ]
+}

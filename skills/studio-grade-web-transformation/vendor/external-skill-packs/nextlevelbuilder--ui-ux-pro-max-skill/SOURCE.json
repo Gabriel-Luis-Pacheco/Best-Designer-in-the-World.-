@@ -1,0 +1,17 @@
+{
+  "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+  "upstream_sha": "ed766d3bf62f32c8d27762ad49abdc3a4744c84f",
+  "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/ed766d3bf62f32c8d27762ad49abdc3a4744c84f",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "revision": "ed766d3bf62f32c8d27762ad49abdc3a4744c84f",
+      "path": ".claude/skills/ui-ux-pro-max",
+      "local_path": "nextlevelbuilder--ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max",
+      "files": 80,
+      "bytes": 3692437,
+      "license": "MIT"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "repository": "anthropics/skills",
+  "upstream_sha": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+  "url": "https://github.com/anthropics/skills/tree/e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+  "license": "Apache-2.0 (skill-local LICENSE.txt)",
+  "skills": [
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/frontend-design",
+      "local_path": "anthropics--skills/skills/frontend-design",
+      "files": 2,
+      "bytes": 19564,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/brand-guidelines",
+      "local_path": "anthropics--skills/skills/brand-guidelines",
+      "files": 2,
+      "bytes": 13580,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/theme-factory",
+      "local_path": "anthropics--skills/skills/theme-factory",
+      "files": 13,
+      "bytes": 144094,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/web-artifacts-builder",
+      "local_path": "anthropics--skills/skills/web-artifacts-builder",
+      "files": 5,
+      "bytes": 45840,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    },
+    {
+      "repo": "anthropics/skills",
+      "revision": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "path": "skills/webapp-testing",
+      "local_path": "anthropics--skills/skills/webapp-testing",
+      "files": 6,
+      "bytes": 22394,
+      "license": "Apache-2.0 (skill-local LICENSE.txt)"
+    }
+  ]
+}

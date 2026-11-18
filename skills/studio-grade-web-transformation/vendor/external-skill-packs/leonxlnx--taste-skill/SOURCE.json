@@ -1,0 +1,17 @@
+{
+  "repository": "Leonxlnx/taste-skill",
+  "upstream_sha": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+  "url": "https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "revision": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "path": "skills/taste-skill",
+      "local_path": "leonxlnx--taste-skill/skills/taste-skill",
+      "files": 1631,
+      "bytes": 36601022,
+      "license": "MIT"
+    }
+  ]
+}

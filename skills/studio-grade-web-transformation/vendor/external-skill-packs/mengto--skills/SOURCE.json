@@ -1,0 +1,89 @@
+{
+  "repository": "MengTo/Skills",
+  "upstream_sha": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+  "url": "https://github.com/MengTo/Skills/tree/3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+  "license": "MIT",
+  "skills": [
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/build-awwwards-quality-sites",
+      "local_path": "mengto--skills/agent-skills/web-design/build-awwwards-quality-sites",
+      "files": 2,
+      "bytes": 7490,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/ui/design-first-ui-prompting",
+      "local_path": "mengto--skills/agent-skills/ui/design-first-ui-prompting",
+      "files": 6,
+      "bytes": 82337,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/ui/audit-ai-design-slop",
+      "local_path": "mengto--skills/agent-skills/ui/audit-ai-design-slop",
+      "files": 3,
+      "bytes": 7275,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/ui/no-ai-design-slop",
+      "local_path": "mengto--skills/agent-skills/ui/no-ai-design-slop",
+      "files": 4,
+      "bytes": 25910,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/landing-page",
+      "local_path": "mengto--skills/agent-skills/web-design/landing-page",
+      "files": 5,
+      "bytes": 81690,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/pricing-page",
+      "local_path": "mengto--skills/agent-skills/web-design/pricing-page",
+      "files": 5,
+      "bytes": 79327,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/product-proof-saas",
+      "local_path": "mengto--skills/agent-skills/web-design/product-proof-saas",
+      "files": 6,
+      "bytes": 167633,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/animation-systems",
+      "local_path": "mengto--skills/agent-skills/web-design/animation-systems",
+      "files": 4,
+      "bytes": 89080,
+      "license": "MIT"
+    },
+    {
+      "repo": "MengTo/Skills",
+      "revision": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "path": "agent-skills/web-design/gsap",
+      "local_path": "mengto--skills/agent-skills/web-design/gsap",
+      "files": 9,
+      "bytes": 220338,
+      "license": "MIT"
+    }
+  ]
+}
