@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "complete_repositories": 12,
+  "total_files": 16119,
+  "total_bytes": 485950825,
+  "omitted_files": 0,
+  "includes_git_history": false,
+  "sources": [
+    {
+      "repository": "anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills",
+      "upstream_commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "tracked_files": 448,
+      "tracked_bytes": 12099452,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "pbakaus/impeccable",
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "upstream_commit": "d41d9860b0094dcb68030657da63461212835aaa",
+      "tracked_files": 4780,
+      "tracked_bytes": 90239057,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "upstream_commit": "ed766d3bf62f32c8d27762ad49abdc3a4744c84f",
+      "tracked_files": 734,
+      "tracked_bytes": 22676476,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "Leonxlnx/taste-skill",
+      "source_url": "https://github.com/Leonxlnx/taste-skill",
+      "upstream_commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "tracked_files": 1663,
+      "tracked_bytes": 37303881,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "emilkowalski/skills",
+      "source_url": "https://github.com/emilkowalski/skills",
+      "upstream_commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "tracked_files": 36,
+      "tracked_bytes": 366487,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "ehmo/platform-design-skills",
+      "source_url": "https://github.com/ehmo/platform-design-skills",
+      "upstream_commit": "dc2be825d8b439caea78e9eaa8fb3ac23b0ff3e9",
+      "tracked_files": 39,
+      "tracked_bytes": 2737696,
+      "symlinks": 1,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "vercel-labs/agent-skills",
+      "source_url": "https://github.com/vercel-labs/agent-skills",
+      "upstream_commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "tracked_files": 444,
+      "tracked_bytes": 7659804,
+      "symlinks": 1,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "MengTo/Skills",
+      "source_url": "https://github.com/MengTo/Skills",
+      "upstream_commit": "3cc93458c4949c39a04e938ea7892a1d6d3d40bf",
+      "tracked_files": 1539,
+      "tracked_bytes": 144389518,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "wshobson/agents",
+      "source_url": "https://github.com/wshobson/agents",
+      "upstream_commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "tracked_files": 1166,
+      "tracked_bytes": 8276061,
+      "symlinks": 1,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "source_url": "https://github.com/github/awesome-copilot",
+      "upstream_commit": "a255a193d1318e5a9ca3e9e575897f9a7845c099",
+      "tracked_files": 4194,
+      "tracked_bytes": 151738164,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "upstream_commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "tracked_files": 236,
+      "tracked_bytes": 1600920,
+      "symlinks": 0,
+      "omitted_files": 0,
+      "history_included": false
+    },
+    {
+      "repository": "coreyhaines31/marketingskills",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "upstream_commit": "73573e94a06a39965978b3fa1f9c1eace8cebc7c",
+      "tracked_files": 840,
+      "tracked_bytes": 6863309,
+      "symlinks": 1,
+      "omitted_files": 0,
+      "history_included": false
+    }
+  ],
+  "finalized_utc": "2026-11-18T18:31:30.550901+00:00"
+}
