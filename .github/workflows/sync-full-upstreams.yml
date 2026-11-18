@@ -1,0 +1,56 @@
+name: Import complete copies of all 12 upstream repositories
+on:
+  push:
+    branches: ["feature/vendor-12-full-upstream-repositories-20261118"]
+    paths:
+      - "scripts/sync_full_upstreams.py"
+      - "skills/studio-grade-web-transformation/vendor/full-upstream-repositories/SOURCES.json"
+      - ".github/workflows/sync-full-upstreams.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-full-upstreams
+  cancel-in-progress: false
+
+jobs:
+  import-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout integration branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Prepare
+        run: |
+          python3 scripts/sync_full_upstreams.py --validate
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Copy and commit EVERY file in all 12 repositories
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          for repo in anthropics/skills pbakaus/impeccable nextlevelbuilder/ui-ux-pro-max-skill Leonxlnx/taste-skill emilkowalski/skills ehmo/platform-design-skills vercel-labs/agent-skills MengTo/Skills wshobson/agents github/awesome-copilot obra/superpowers coreyhaines31/marketingskills; do
+            count=$((count + 1))
+            echo "::group::SOURCE $count of 12: $repo"
+            python3 scripts/sync_full_upstreams.py --sync-one "$repo"
+            git add --force -A -- skills/studio-grade-web-transformation/vendor/full-upstream-repositories
+            git commit --quiet -m "vendor: copy entire upstream repository $repo"
+            echo "::endgroup::"
+            if ((count % 3 == 0)); then
+              git push --quiet origin "HEAD:$GITHUB_REF_NAME"
+              echo "PUBLISHED full source snapshots through $count/12"
+            fi
+          done
+      - name: Verify that all 12 source repositories are fully present
+        run: |
+          set -euo pipefail
+          python3 scripts/sync_full_upstreams.py --finalize
+          python3 scripts/sync_full_upstreams.py --verify
+          git add -f -A -- skills/studio-grade-web-transformation/vendor/full-upstream-repositories/INDEX.json
+          git commit --quiet -m "docs: verify 12 entire source repositories"
+          git push --quiet origin "HEAD:$GITHUB_REF_NAME"

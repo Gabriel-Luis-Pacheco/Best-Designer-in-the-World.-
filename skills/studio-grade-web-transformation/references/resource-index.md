@@ -6,6 +6,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/full-upstream-repositories-routing.md` | Os 12 repositórios de origem completos: seleção, limites, licenças e procedência |
 | `references/complete-skill-packs-routing.md` | Roteamento da biblioteca vendorizada: 50 skills completas, 12 origens, seleção por tarefa e atribuição |
 | `references/full-specialist-stack.md` | Full Studio Stack: Impeccable, Taste, UI/UX Pro Max, Anthropic e Emil; complementaridade, ferramentas e limitações |
 | `references/motion-studio-pack-2026.md` | Biblioteca de motion (Charlie947, Awesome Claude, Remotion), pipeline, render e QA |
