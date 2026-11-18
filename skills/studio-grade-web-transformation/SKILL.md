@@ -57,7 +57,7 @@ Comece por público, tempo, tarefa, fonte original, status das afirmações e se
 
 ## Biblioteca integrada de 50 skills completas (12 fontes)
 
-Para tarefas que realmente precisem delas, consultar \`references/complete-skill-packs-routing.md\` e **somente** os diretórios relevantes de \`vendor/external-skill-packs/\`. A biblioteca preserva as pastas completas de 50 skills, com referências, dados, scripts, assets e atribuições, quando \`vendor/external-skill-packs/INDEX.json\` existir e passar em \`scripts/sync_external_skill_packs.py --check\`. Sem o índice, tratar como manifesto PENDENTE. Scripts de fornecedores são código externo: não executá-los automaticamente. Estes arquivos não significam que plugins, binários ou CLIs estejam instalados. Preservar os pacotes anteriores; não forçar carregamento de 50 skills nem introduzir conflito com decisões da marca.
+Para tarefas que realmente precisem delas, consultar `references/complete-skill-packs-routing.md` e **somente** os diretórios relevantes de `vendor/external-skill-packs/`. A biblioteca preserva as pastas completas de 50 skills, com referências, dados, scripts, assets e atribuições, quando `vendor/external-skill-packs/INDEX.json` existir e passar em `scripts/sync_external_skill_packs.py --check`. Sem o índice, tratar como manifesto PENDENTE. Scripts de fornecedores são código externo: não executá-los automaticamente. Estes arquivos não significam que plugins, binários ou CLIs estejam instalados. Preservar os pacotes anteriores; não forçar carregamento de 50 skills nem introduzir conflito com decisões da marca.
 
 ## Guides — only when genuinely needed
 
