@@ -6,6 +6,9 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/complete-skill-packs-routing.md` | Roteamento da biblioteca vendorizada: 50 skills completas, 12 origens, seleção por tarefa e atribuição |
+| `references/full-specialist-stack.md` | Full Studio Stack: Impeccable, Taste, UI/UX Pro Max, Anthropic e Emil; complementaridade, ferramentas e limitações |
+| `references/motion-studio-pack-2026.md` | Biblioteca de motion (Charlie947, Awesome Claude, Remotion), pipeline, render e QA |
 | references/system-user-journeys-and-transactions.md | UX de sistemas com autenticação, RBAC, tenant, pagamentos, assinaturas e recuperação |
 | references/privacy-trust-and-consent-ux.md | LGPD/GDPR como risco de produto, consentimento verdadeiro, privacidade e direitos de dados |
 | references/localization-and-content-operations.md | Idiomas, formatos locais, RTL, SEO multilíngue, CMS, publicação e revisão |
