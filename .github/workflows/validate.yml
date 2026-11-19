@@ -34,6 +34,14 @@ jobs:
         run: python -m unittest discover -s scripts -p 'test_*.py' -v
       - name: Audit routing/injection consistency across all synthetic briefs
         run: python scripts/audit_eval_routing.py > /tmp/design-routing-audit.json
+      - name: Build lightweight installable core archive (third-party vendor excluded)
+        run: python scripts/build_core_package.py --output dist/design-os-prime-core.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: design-os-prime-core
+          path: dist/design-os-prime-core.zip
+          if-no-files-found: error
+          retention-days: 30
   browser-fixtures:
     runs-on: ubuntu-24.04
     permissions:
@@ -48,6 +56,8 @@ jobs:
           python-version: '3.12'
       - name: Install pinned Playwright dependency
         run: npm ci --no-audit --no-fund
+      - name: Reject out-of-scope Playwright suites (including third-party vendor)
+        run: npm run test:browser:scope
       - name: Install Chromium for browser fixture tests
         run: npx playwright install --with-deps chromium
       - name: Validate portable journey capture syntax
