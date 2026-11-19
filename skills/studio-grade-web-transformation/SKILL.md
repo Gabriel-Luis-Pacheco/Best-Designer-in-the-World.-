@@ -19,7 +19,7 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 | **AUDIT**: research/review | Report real observed findings, evidence and proposed changes; no false implementation claims. |
 | **REDESIGN / REBUILD**: new or weak site | Inspect product truth/assets, bounded competitor and excellent-brand section references, define ownable direction, build full opening/middle proof/ending/mobile, render/critique/repair. Two executable concepts only if direction remains unresolved. |
 
-**Context budget:** start with zero extra guides or one targeted file. Read more only for a distinct observed gap. Reuse already verified sources/screenshots, avoid reading giant files if a small excerpt suffices, avoid repeated MCP searches and redundant specialists. Use one suitable browser when enough. No fixed quota overrides task seriousness: accuracy, safety, critical flows and rights still require real verification.
+**Context budget:** Start with zero or one targeted guide; expand only for an observed gap. Reuse verified research and screenshots. Avoid redundant specialists, giant files and overlapping browsers; still verify accuracy, rights and critical flows.
 
 ## Invariants — truth, identity, user scope
 
@@ -32,6 +32,8 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 ## Full Studio Stack — mandatory specialist coverage on substantial creative tasks
 
 For major LANDING, REDESIGN/REBUILD or product UI, consult `references/full-specialist-stack.md`: **Impeccable** (audit/polish), **Taste** (art direction), **Anthropic Frontend Design** (concept), **UI/UX Pro Max** (patterns), **Emil** (interaction/motion). Use installed tools when relevant, otherwise licensed snapshots in `vendor/specialist-core/` or the imported pack. Distinguish APPLIED / REFERENCED / NOT APPLICABLE / UNAVAILABLE. A copied skill is not an installed runtime.
+
+**CORE:** Missing `vendor/` means upstream specialists UNAVAILABLE, not executed.
 
 For motion/video use `references/motion-studio-pack-2026.md` (Charlie947, adapted Awesome Claude, optional external Remotion). Choose one working pipeline, test reduced-motion and static fallback; never force HyperFrames, GSAP or unrelated motion. For PATCH, use only the relevant expert and preserve tokens.
 
@@ -84,9 +86,11 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 
 Use `references/prompt-rescue-and-autonomous-direction.md` only for ambiguous poor briefs. The old full document is preserved at `references/archived-v14-core-protocol.md` as a reference of last resort; **never auto-load** it.
 
+**Premium visual gate:** For major LANDING/REDESIGN/REBUILD, read `references/visual-craft-acceptance.md`: inspect the rendered full page, not just hero. For acquisition/onboarding, read `references/human-comprehension-first-value.md`; without real participants record NOT_TESTED. CI passing does not prove art or conversion.
+
 ## Verify and finish
 
-Inspect the real visual/functional artifact; find the **single most consequential defect**, correct its underlying cause, rerender affected states, then verify links/CTA→real first value, keyboard/focus, touch/reflow, meaningful errors, reduced motion and relevant regressions. No unnecessary rework when a scene is already excellent.
+Inspect the rendered artifact; repair the worst defect and rerender states. Verify CTA→first value, keyboard/focus, mobile reflow, errors, reduced motion and regressions. Distinguish technical pass from artistic acceptance. Preserve excellent scenes.
 
 Genuine independent critique can help a major redesign if tools/budget permit. Otherwise call it self-review. Measured outcomes require actual data. Skill eval scenarios marked NOT_RUN are plans, not wins.
 

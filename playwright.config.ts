@@ -1,7 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: '.',
-  testMatch: ['**/*.spec.ts'],
+  testMatch: ['**/tests/browser/**/*.spec.ts', '**/examples/playwright-visual.spec.ts'],
+  testIgnore: ['**/vendor/**', '**/node_modules/**'],
   timeout: 30000,
   expect: { timeout: 8000 },
   retries: process.env.CI ? 1 : 0,

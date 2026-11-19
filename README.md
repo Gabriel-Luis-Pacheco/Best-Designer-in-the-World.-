@@ -1,5 +1,14 @@
 # Design OS Prime v14.0.0
 
+## Qualidade verificável e pacote leve — 19/11/2026
+
+A revisão de engenharia isolou os testes próprios do Playwright para evitar que os **12 espelhos externos** executem suítes não relacionadas. O workflow agora verifica a descoberta de testes antes de iniciar o browser. Consulte [o runbook de benchmark](docs/EXECUTION_AND_BENCHMARK_2026-11-19.md): **nenhuma melhora estética ou de conversão é anunciada como comprovada sem artefatos renderizados, comparação controlada e avaliação independente**.
+
+A cópia completa continua neste repositório. Para uso sem os grandes espelhos, a CI gera um [arquivo CORE](docs/CORE_PACKAGE.md) como artefato `design-os-prime-core`; localmente: `python scripts/build_core_package.py --output dist/design-os-prime-core.zip`. Esse ZIP contém a skill e seus recursos próprios, **não** as skills e CLIs terceirizadas. Não confundir o ZIP CORE com `npx skills add` no repositório inteiro, que pode continuar transferindo os espelhos.
+
+Diretrizes operacionais novas: [aceitação de qualidade visual](skills/studio-grade-web-transformation/references/visual-craft-acceptance.md) e [compreensão/primeiro valor](skills/studio-grade-web-transformation/references/human-comprehension-first-value.md). São protocolos de execução, não resultados de benchmark.
+
+
 ## Repositórios completos das fontes — 18/11/2026
 
 Além das 50 skills selecionadas, a Design OS também inclui **cópias integrais dos arquivos versionados dos 12 repositórios originais**: código, programas, demos, assets e todas as demais skills. O diretório interno Git/histórico não é incluído; licenças e avisos são preservados. [Ver os espelhos e o estado da importação](skills/studio-grade-web-transformation/vendor/full-upstream-repositories/README.md). O INDEX.json indica quando os 12 estiverem integralmente copiados e verificados.
