@@ -6,6 +6,11 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/visual-craft-acceptance.md` | Revisão da página inteira: direção artística, sequência de cenas, comparação pareada, mobile e evidência real |
+| `references/human-comprehension-first-value.md` | Compreensão de público real, confiança, demonstração, CTA e primeiro valor; sem fingir teste com usuário |
+
+| Resource | Subject |
+|---|---|
 | `references/full-upstream-repositories-routing.md` | Os 12 repositórios de origem completos: seleção, limites, licenças e procedência |
 | `references/complete-skill-packs-routing.md` | Roteamento da biblioteca vendorizada: 50 skills completas, 12 origens, seleção por tarefa e atribuição |
 | `references/full-specialist-stack.md` | Full Studio Stack: Impeccable, Taste, UI/UX Pro Max, Anthropic e Emil; complementaridade, ferramentas e limitações |
