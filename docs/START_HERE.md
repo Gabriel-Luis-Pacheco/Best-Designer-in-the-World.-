@@ -6,7 +6,7 @@ A skill serve para criar, implementar ou revisar design sem perder realidade de 
 
 Para REDESIGN/REBUILD e landings de grande ambição visual, leia `references/visual-craft-acceptance.md` **quando o primeiro render estiver disponível**. Julgue abertura, prova, transição mais fraca, fechamento e recomposição mobile; compare seção equivalente com referências realmente observadas. Se a página está funcional mas sem direção artística convincente, não a descreva como premium por passar no CI. Melhore a causa, recapture e documente limites. Para aquisição/onboarding, aplique `references/human-comprehension-first-value.md`; testes com participantes reais não podem ser simulados pela IA.
 
-O catálogo completo continua preservado. O ZIP CORE gerado por `scripts/build_core_package.py` remove `vendor/`: arquivos ausentes significam especialista NÃO DISPONÍVEL no pacote, nunca executado. Veja [distribuição leve](../docs/CORE_PACKAGE.md). O `npx skills add` do repositório completo continua grande.
+O catálogo completo continua preservado. O ZIP CORE gerado por `scripts/build_core_package.py` remove `vendor/`: arquivos ausentes significam especialista NÃO DISPONÍVEL no pacote, nunca executado. Veja [distribuição leve](CORE_PACKAGE.md). O `npx skills add` do repositório completo continua grande.
 
 ## Prioridade: criar visuais reais e páginas completas
 
