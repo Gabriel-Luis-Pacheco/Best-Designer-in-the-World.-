@@ -5,7 +5,9 @@ import copy
 import importlib.util
 import json
 import tempfile
+import struct
 import unittest
+import zlib
 from pathlib import Path
 
 SCRIPT = Path(__file__).resolve().parents[1] / "skills/studio-grade-web-transformation/scripts/section_parity.py"
@@ -20,8 +22,14 @@ class SectionParityTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         (self.root / "images").mkdir()
-        # The validator checks the PNG signature and final IEND chunk only.
-        png = b"\x89PNG\r\n\x1a\n" + b"placeholder" + b"\x00\x00\x00\x00IEND\xaeB\x60\x82"
+        # Construct a valid one-pixel RGBA PNG with CRC-correct chunks.
+        def chunk(tag, data):
+            return (struct.pack(">I", len(data)) + tag + data +
+                    struct.pack(">I", zlib.crc32(tag + data) & 0xffffffff))
+        ihdr = struct.pack(">IIBBBBB", 1, 1, 8, 6, 0, 0, 0)
+        png = (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr) +
+               chunk(b"IDAT", zlib.compress(b"\x00\xff\x00\x00\xff")) +
+               chunk(b"IEND", b""))
         for name in ("before-desktop.png", "before-mobile.png", "after-desktop.png", "after-mobile.png"):
             (self.root / "images" / name).write_bytes(png)
         (self.root / "flow.txt").write_text("Clicked CTA, visited first value, recorded result.", encoding="utf-8")
@@ -112,6 +120,14 @@ class SectionParityTests(unittest.TestCase):
     def test_invalid_screenshot_is_not_a_visual_review(self):
         p = copy.deepcopy(self.packet)
         (self.root / "images" / "after-mobile.png").write_text("not a screenshot")
+        self.assertEqual(module.inspect(p, self.root)["status"], "INVALID")
+
+    def test_crc_invalid_png_is_rejected(self):
+        p = copy.deepcopy(self.packet)
+        target = self.root / "images" / "after-mobile.png"
+        raw = bytearray(target.read_bytes())
+        raw[25] ^= 1
+        target.write_bytes(raw)
         self.assertEqual(module.inspect(p, self.root)["status"], "INVALID")
 
     def test_nonobject_packet_does_not_crash(self):
