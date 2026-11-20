@@ -33,15 +33,15 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 For major LANDING, REDESIGN/REBUILD or product UI, consult `references/full-specialist-stack.md`: **Impeccable** (audit/polish), **Taste** (art direction), **Anthropic Frontend Design** (concept), **UI/UX Pro Max** (patterns), **Emil** (interaction/motion). Use installed tools when relevant, otherwise licensed snapshots in `vendor/specialist-core/` or the imported pack. Distinguish APPLIED / REFERENCED / NOT APPLICABLE / UNAVAILABLE. A copied skill is not an installed runtime.
 
-**CORE:** Missing `vendor/` means upstream specialists UNAVAILABLE, not executed.
+**CORE:** without `vendor/`, upstream tools are UNAVAILABLE, not executed.
 
-For motion/video use `references/motion-studio-pack-2026.md` (Charlie947, adapted Awesome Claude, optional external Remotion). Choose one working pipeline, test reduced-motion and static fallback; never force HyperFrames, GSAP or unrelated motion. For PATCH, use only the relevant expert and preserve tokens.
+For motion/video use `references/motion-studio-pack-2026.md`. Choose one authorized pipeline; test reduced motion and static fallback. No forced effects.
 
 ## Art × commercial UX × implementation
 
 **LANDING / MARKETING:** audience and alternatives → truthful value → evidence → original visual demonstration → working CTA/first value. **CUT / MERGE** repetitive scenes. Never invent customer claims or use boilerplate hero/cards/FAQ as an automatic answer. Preserve prices and decision-critical terms.
 
-**Whole-page redesign parity:** when the user says every section is worse than competitors or requests a complete landing overhaul, use `references/section-parity-and-competitive-rebuild.md`. Inventory ALL real page sections and the primary CTA→first value route before changing architecture. Compare equivalent jobs and visible mechanisms section-by-section, preserve already strong scenes, implement complete opening/proof/decision/ending and mobile. Optionally run `scripts/section_parity.py` against recorded before/after evidence. A glossy hero never authorizes declaring the entire page solved; absent captures/real tests stay UNKNOWN.
+**Full-page redesign:** For “every section is weaker”, read `references/section-parity-and-competitive-rebuild.md`: inventory every scene, compare equivalent competitor jobs, implement original fixes throughout the page, capture desktop/mobile and verify CTA→first value. `scripts/section_parity.py` checks declared evidence, not beauty.
 
 **Original visual signature:** derive typography, composition, imagery, movement and form from the actual product. Study strong real references when relevant; do not clone other brands or use unlicensed assets. Build opening, convincing middle, weakest transition, ending and mobile recomposition.
 
@@ -55,7 +55,7 @@ For PPTX, Keynote, Google Slides and presentations, consult `references/presenta
 
 Para tarefas que realmente precisem delas, consultar `references/complete-skill-packs-routing.md` e **somente** os diretórios relevantes de `vendor/external-skill-packs/`. A biblioteca preserva as pastas completas de 50 skills, com referências, dados, scripts, assets e atribuições, quando `vendor/external-skill-packs/INDEX.json` existir e passar em `scripts/sync_external_skill_packs.py --check`. Sem o índice, tratar como manifesto PENDENTE. Scripts de fornecedores são código externo: não executá-los automaticamente. Estes arquivos não significam que plugins, binários ou CLIs estejam instalados. Preservar os pacotes anteriores; não forçar carregamento de 50 skills nem introduzir conflito com decisões da marca.
 
-**Biblioteca integral:** quando `vendor/full-upstream-repositories/INDEX.json` confirmar 12 fontes, as cópias integrais de seus arquivos rastreados ficam disponíveis em `vendor/full-upstream-repositories/`; consultar `references/full-upstream-repositories-routing.md`. Nenhum script externo é executado automaticamente.
+**Upstream FULL:** `references/full-upstream-repositories-routing.md` maps 12 source mirrors. External code is never run automatically.
 
 ## Guides — only when genuinely needed
 
@@ -87,9 +87,9 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 | **Independent critique** and valid comparisons | `references/independent-critique-and-evidence-learning.md` |
 | Persistent approved project/design context | `references/product-and-design-context.md` |
 
-Use `references/prompt-rescue-and-autonomous-direction.md` only for ambiguous poor briefs. The old full document is preserved at `references/archived-v14-core-protocol.md` as a reference of last resort; **never auto-load** it.
+For vague briefs see `references/prompt-rescue-and-autonomous-direction.md`. Do not auto-load archived v14 instructions.
 
-**Premium visual gate:** For major LANDING/REDESIGN/REBUILD, read `references/visual-craft-acceptance.md`: inspect the rendered full page, not just hero. For acquisition/onboarding, read `references/human-comprehension-first-value.md`; without real participants record NOT_TESTED. CI passing does not prove art or conversion.
+**Premium visual gate:** For major LANDING/REDESIGN/REBUILD, read `references/visual-craft-acceptance.md` and for acquisition `references/human-comprehension-first-value.md`. Missing real user tests stay NOT_TESTED.
 
 ## Verify and finish
 
