@@ -64,7 +64,7 @@ def inspect(packet: object, root: Path) -> dict:
         return {"status": "INVALID", "errors": ["Expected JSON object"]}
     root = root.resolve(strict=True)
 
-    if packet.get("mode") not in MODES:
+    if not isinstance(packet.get("mode"), str) or packet["mode"] not in MODES:
         errors.append("mode must be REFINE/REDESIGN/REBUILD")
     if not isinstance(packet.get("route"), str) or not packet["route"].startswith("/"):
         errors.append("route must start with /")
@@ -94,7 +94,7 @@ def inspect(packet: object, root: Path) -> dict:
         seen.add(sid)
         where = sid
         change = section.get("change")
-        if change not in CHANGES:
+        if not isinstance(change, str) or change not in CHANGES:
             errors.append(f"{where}: change must be KEEP/REWORK/ADD/REMOVE")
             continue
         for name, min_length in (("purpose", 12), ("diagnosis", 20)):
@@ -128,7 +128,7 @@ def inspect(packet: object, root: Path) -> dict:
             continue
         verdict = assessment.get("verdict")
         reviewer = assessment.get("reviewer_type")
-        if verdict not in VERDICTS or reviewer not in REVIEWERS:
+        if not isinstance(verdict, str) or verdict not in VERDICTS or not isinstance(reviewer, str) or reviewer not in REVIEWERS:
             errors.append(f"{where}: invalid verdict or reviewer_type")
             continue
         if verdict == "UNKNOWN":
@@ -157,7 +157,7 @@ def inspect(packet: object, root: Path) -> dict:
         errors.append("primary_journey must describe a tested CTA/core task to first value")
     else:
         state = journey.get("status")
-        if state not in {"PASS", "FAIL", "UNKNOWN"}:
+        if not isinstance(state, str) or state not in {"PASS", "FAIL", "UNKNOWN"}:
             errors.append("primary_journey.status must be PASS/FAIL/UNKNOWN")
         for field in ("entry", "first_value"):
             if not isinstance(journey.get(field), str) or len(journey[field].strip()) < 8:
@@ -183,7 +183,7 @@ def inspect(packet: object, root: Path) -> dict:
         errors.append("critical_findings must be an array")
         findings = []
     for index, finding in enumerate(findings):
-        if not isinstance(finding, dict) or finding.get("severity") not in {"P0", "P1", "P2"} or finding.get("state") not in {"OPEN", "FIXED"}:
+        if not isinstance(finding, dict) or not isinstance(finding.get("severity"), str) or finding["severity"] not in {"P0", "P1", "P2"} or not isinstance(finding.get("state"), str) or finding["state"] not in {"OPEN", "FIXED"}:
             errors.append(f"critical_findings[{index}]: invalid severity/state")
         elif finding["severity"] in {"P0", "P1"} and finding["state"] != "FIXED":
             blockers.append(f"critical_findings[{index}]: unresolved {finding['severity']}")
@@ -220,7 +220,7 @@ def main() -> None:
     try:
         packet = json.loads(args.packet.read_text(encoding="utf-8"))
         report = inspect(packet, args.root)
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
         report = {"status": "INVALID", "errors": [str(exc)]}
     print(json.dumps(report, ensure_ascii=False, indent=2))
     if report["status"] != "READY_FOR_HUMAN_REVIEW":
