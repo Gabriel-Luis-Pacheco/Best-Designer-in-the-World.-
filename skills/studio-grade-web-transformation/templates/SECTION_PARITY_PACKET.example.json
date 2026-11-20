@@ -1,0 +1,92 @@
+{
+  "mode": "REDESIGN",
+  "route": "/",
+  "inventory": [
+    "hero",
+    "product-proof",
+    "decision",
+    "footer"
+  ],
+  "sections": [
+    {
+      "id": "hero",
+      "change": "REWORK",
+      "purpose": "Explain the product and primary action",
+      "diagnosis": "Replace with diagnosis grounded in a real screenshot.",
+      "before": {
+        "desktop": null,
+        "mobile": null
+      },
+      "after": {
+        "desktop": null,
+        "mobile": null
+      },
+      "assessment": {
+        "verdict": "UNKNOWN",
+        "reviewer_type": "NOT_REVIEWED",
+        "reason": ""
+      }
+    },
+    {
+      "id": "product-proof",
+      "change": "ADD",
+      "purpose": "Show the actual product working",
+      "diagnosis": "No real product mechanism is currently visible.",
+      "before": {},
+      "after": {
+        "desktop": null,
+        "mobile": null
+      },
+      "assessment": {
+        "verdict": "UNKNOWN",
+        "reviewer_type": "NOT_REVIEWED",
+        "reason": ""
+      }
+    },
+    {
+      "id": "decision",
+      "change": "REWORK",
+      "purpose": "Help qualified visitors understand commitment",
+      "diagnosis": "Pricing and next action require real inspection.",
+      "before": {
+        "desktop": null,
+        "mobile": null
+      },
+      "after": {
+        "desktop": null,
+        "mobile": null
+      },
+      "assessment": {
+        "verdict": "UNKNOWN",
+        "reviewer_type": "NOT_REVIEWED",
+        "reason": ""
+      }
+    },
+    {
+      "id": "footer",
+      "change": "KEEP",
+      "purpose": "Provide legal and secondary navigation",
+      "diagnosis": "Confirm navigation remains readable and functional.",
+      "before": {
+        "desktop": null,
+        "mobile": null
+      },
+      "after": {
+        "desktop": null,
+        "mobile": null
+      },
+      "assessment": {
+        "verdict": "UNKNOWN",
+        "reviewer_type": "NOT_REVIEWED",
+        "reason": ""
+      }
+    }
+  ],
+  "primary_journey": {
+    "status": "UNKNOWN",
+    "entry": "Click the primary CTA",
+    "first_value": "Complete the actual core action",
+    "evidence": []
+  },
+  "critical_findings": []
+}
