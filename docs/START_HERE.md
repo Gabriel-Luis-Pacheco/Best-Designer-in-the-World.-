@@ -2,6 +2,9 @@
 
 A skill serve para criar, implementar ou revisar design sem perder realidade de produto.
 
+**Redesign completo / "todas as seções estão ruins":** não se limite ao hero. Leia `references/section-parity-and-competitive-rebuild.md`, faça inventário das seções reais, compare os trabalhos equivalentes nos concorrentes, construa e capture a página inteira e teste o CTA até o primeiro valor. `scripts/section_parity.py` e `templates/SECTION_PARITY_PACKET.example.json` tornam as lacunas de evidência visíveis; nenhum deles avalia beleza automaticamente.
+
+
 ## Revisão de 19/11: qualidade em pixels e entrega honesta
 
 Para REDESIGN/REBUILD e landings de grande ambição visual, leia `references/visual-craft-acceptance.md` **quando o primeiro render estiver disponível**. Julgue abertura, prova, transição mais fraca, fechamento e recomposição mobile; compare seção equivalente com referências realmente observadas. Se a página está funcional mas sem direção artística convincente, não a descreva como premium por passar no CI. Melhore a causa, recapture e documente limites. Para aquisição/onboarding, aplique `references/human-comprehension-first-value.md`; testes com participantes reais não podem ser simulados pela IA.

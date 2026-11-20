@@ -1,5 +1,21 @@
 # Design OS Prime v14.0.0
 
+## Comece aqui — uma skill para executar, não só recomendar
+
+**Uso no dia a dia:** instale apenas a skill principal; as referências são carregadas sob demanda. Para uma alteração pequena, a IA corrige e testa sem carregar a biblioteca. Para um redesign grande, ela estuda produto e referências reais, **constrói a página inteira**, inspeciona pixels e fluxo de conversão, corrige defeitos e relata evidências.
+
+~~~bash
+npx skills add Gabriel-Luis-Pacheco/Best-Designer-in-the-World.- --skill studio-grade-web-transformation
+~~~
+
+O repositório FULL contém mais de 18 mil arquivos espelhados de terceiros. Para uma instalação mais leve, prefira o **ZIP CORE** gerado pelo CI ou localmente (veja [instruções](docs/CORE_PACKAGE.md)); ele **não inclui** especialistas e executáveis externos. Não confunda materiais disponíveis no repositório com ferramentas instaladas.
+
+**Prompt de uso:** "Analise o produto e as telas existentes. Preserve as funcionalidades e a identidade. Se for redesign, compare cada seção com referências reais, reescreva as partes fracas, implemente e teste a experiência completa em desktop/mobile. Verifique o CTA até o primeiro valor, apresente capturas e diga o que não foi testado. Não entregue só um plano nem invente métricas."
+
+**Redesign de landing página inteira:** [protocolo seção a seção](skills/studio-grade-web-transformation/references/section-parity-and-competitive-rebuild.md) · [arquivo JSON exemplo](skills/studio-grade-web-transformation/templates/SECTION_PARITY_PACKET.example.json) · [validador opcional](skills/studio-grade-web-transformation/scripts/section_parity.py). O validador checa **cobertura e evidência**, não beleza, acessibilidade completa nem aumento de conversão.
+
+O histórico de importações, decisões e versões continua abaixo; não é necessário lê-lo todo para usar a skill.
+
 ## Qualidade verificável e pacote leve — 19/11/2026
 
 A revisão de engenharia isolou os testes próprios do Playwright para evitar que os **12 espelhos externos** executem suítes não relacionadas. O workflow agora verifica a descoberta de testes antes de iniciar o browser. Consulte [o runbook de benchmark](docs/EXECUTION_AND_BENCHMARK_2026-11-19.md): **nenhuma melhora estética ou de conversão é anunciada como comprovada sem artefatos renderizados, comparação controlada e avaliação independente**.
