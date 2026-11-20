@@ -41,6 +41,8 @@ For motion/video use `references/motion-studio-pack-2026.md` (Charlie947, adapte
 
 **LANDING / MARKETING:** audience and alternatives → truthful value → evidence → original visual demonstration → working CTA/first value. **CUT / MERGE** repetitive scenes. Never invent customer claims or use boilerplate hero/cards/FAQ as an automatic answer. Preserve prices and decision-critical terms.
 
+**Whole-page redesign parity:** when the user says every section is worse than competitors or requests a complete landing overhaul, use `references/section-parity-and-competitive-rebuild.md`. Inventory ALL real page sections and the primary CTA→first value route before changing architecture. Compare equivalent jobs and visible mechanisms section-by-section, preserve already strong scenes, implement complete opening/proof/decision/ending and mobile. Optionally run `scripts/section_parity.py` against recorded before/after evidence. A glossy hero never authorizes declaring the entire page solved; absent captures/real tests stay UNKNOWN.
+
 **Original visual signature:** derive typography, composition, imagery, movement and form from the actual product. Study strong real references when relevant; do not clone other brands or use unlicensed assets. Build opening, convincing middle, weakest transition, ending and mobile recomposition.
 
 **Render → critique → repair:** implement real code and meaningful states, inspect desktop/mobile and journeys. Build success is not proof of aesthetic, WCAG or conversion quality. If browser evidence is absent, mark **NOT VERIFIED**.
@@ -65,6 +67,7 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 | Code-first design and two rendered directions | `references/code-first-visual-direction-studio.md` |
 | Competitive visual benchmark, One Page Love/21st/MCPs | `references/reference-led-visual-intelligence.md` |
 | Integrated design + marketing + copy + sales + UX research | `references/multidisciplinary-design-marketing-research.md` |
+| Full-page competitive redesign, section parity and evidence matrix | `references/section-parity-and-competitive-rebuild.md` |
 | Landing decision architecture | `references/landing-strategy-and-decision-architecture.md` |
 | Product proof → scene | `references/evidence-to-scene-protocol.md` |
 | Positioning and persuasion | `references/positioning-and-copywriting.md`, `references/copy-lab-and-ethical-psychology.md` |
