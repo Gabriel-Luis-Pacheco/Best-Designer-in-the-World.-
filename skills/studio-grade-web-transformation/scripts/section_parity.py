@@ -7,7 +7,9 @@ beauty, reads screenshot pixels, tests users, or certifies conversion.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
+from functools import lru_cache
 from pathlib import Path
 
 MODES = {"REFINE", "REDESIGN", "REBUILD"}
@@ -15,7 +17,16 @@ CHANGES = {"KEEP", "REWORK", "ADD", "REMOVE"}
 VERDICTS = {"BETTER", "WORSE", "MIXED", "SAME", "UNKNOWN"}
 REVIEWERS = {"HUMAN", "INDEPENDENT_AGENT", "AGENT_SELF_REVIEW", "NOT_REVIEWED"}
 VIEWPORTS = ("desktop", "mobile")
-PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+@lru_cache(maxsize=1)
+def _validate_png():
+    """Reuse the existing CRC/chunk validator rather than trusting PNG headers."""
+    path = Path(__file__).with_name("production_evidence.py")
+    spec = importlib.util.spec_from_file_location("section_parity_png", path)
+    if spec is None or spec.loader is None:
+        raise ValueError("Missing installed PNG validator")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.png_dimensions
 
 
 def _artifact(root: Path, relative: object, *, png: bool) -> str:
@@ -36,13 +47,9 @@ def _artifact(root: Path, relative: object, *, png: bool) -> str:
     if not 0 < size <= 50_000_000:
         return "INVALID"
     if png:
-        if size < 24:
-            return "INVALID"
-        with target.open("rb") as stream:
-            signature = stream.read(8)
-            stream.seek(-12, 2)
-            end = stream.read(12)
-        if signature != PNG_SIGNATURE or end[4:8] != b"IEND":
+        try:
+            _validate_png()(target.read_bytes())
+        except (ValueError, OSError):
             return "INVALID"
     return "PASS"
 
@@ -216,7 +223,7 @@ def main() -> None:
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         report = {"status": "INVALID", "errors": [str(exc)]}
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    if report["status"] in {"INVALID", "BLOCKED"}:
+    if report["status"] != "READY_FOR_HUMAN_REVIEW":
         raise SystemExit(1)
 
 
