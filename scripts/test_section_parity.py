@@ -130,6 +130,18 @@ class SectionParityTests(unittest.TestCase):
         target.write_bytes(raw)
         self.assertEqual(module.inspect(p, self.root)["status"], "INVALID")
 
+    def test_malformed_json_types_do_not_crash(self):
+        for key, value in (("mode", []), ("route", 7)):
+            p = copy.deepcopy(self.packet)
+            p[key] = value
+            self.assertEqual(module.inspect(p, self.root)["status"], "INVALID")
+        p = copy.deepcopy(self.packet)
+        p["sections"][0]["change"] = {}
+        self.assertEqual(module.inspect(p, self.root)["status"], "INVALID")
+        p = copy.deepcopy(self.packet)
+        p["sections"][0]["assessment"]["verdict"] = []
+        self.assertEqual(module.inspect(p, self.root)["status"], "INVALID")
+
     def test_nonobject_packet_does_not_crash(self):
         self.assertEqual(module.inspect([], self.root)["status"], "INVALID")
 
