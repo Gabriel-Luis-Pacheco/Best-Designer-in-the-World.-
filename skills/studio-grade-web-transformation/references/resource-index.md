@@ -6,6 +6,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/section-parity-and-competitive-rebuild.md` | Redesign competitivo por seção, matriz KEEP/REWORK/ADD/REMOVE, capturas comparáveis e CTA→primeiro valor |
 | `references/visual-craft-acceptance.md` | Revisão da página inteira: direção artística, sequência de cenas, comparação pareada, mobile e evidência real |
 | `references/human-comprehension-first-value.md` | Compreensão de público real, confiança, demonstração, CTA e primeiro valor; sem fingir teste com usuário |
 | `references/full-upstream-repositories-routing.md` | Os 12 repositórios de origem completos: seleção, limites, licenças e procedência |
