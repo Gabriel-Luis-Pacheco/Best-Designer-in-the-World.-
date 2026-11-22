@@ -167,6 +167,60 @@ def inspect(data: dict, root: Path, *, atlas: dict | None = None) -> dict:
             or len(entry["specific_contribution"].strip()) < 20
         ):
             missing.append(name + ": applied without meaningful specific contribution")
+    # Major transformations must show WHICH competence informed EACH stage,
+    # not merely cite 50 skill names in the final prose. A local guide is a
+    # valid fallback if a live external skill is unavailable. Evidence must
+    # identify the applied decision; a link alone is not enough.
+    if mode in {"REDESIGN", "REBUILD"}:
+        coverage = data.get("competency_coverage", [])
+        if not isinstance(coverage, list) or len(coverage) > 100:
+            errors.append("competency_coverage must be an array of at most 100 entries")
+            coverage = []
+        _, available_experts = module.load_atlas()
+        vendor_overlay, available_snapshots = module._vendored_reference_index()
+        covered_phases = set()
+        for i, evidence in enumerate(coverage):
+            tag = f"competency_coverage[{i}]"
+            if not isinstance(evidence, dict):
+                errors.append(tag + " must be an object")
+                continue
+            phase_id = evidence.get("phase_id")
+            kind = evidence.get("source_kind")
+            source_id = evidence.get("source_id")
+            if phase_id not in phase_ids or phase_id in covered_phases:
+                errors.append(tag + ": unexpected/duplicate phase_id")
+                continue
+            covered_phases.add(phase_id)
+            if not isinstance(source_id, str) or not source_id:
+                errors.append(tag + ": source_id required")
+                continue
+            if kind == "LOCAL_GUIDE":
+                if source_id not in atlas["phase_definitions"][phase_id]["guides"]:
+                    errors.append(tag + ": guide not appropriate for this phase")
+            elif kind == "REGISTERED_SPECIALIST":
+                if source_id not in available_experts:
+                    errors.append(tag + ": specialist not in canonical registry")
+                elif surface not in available_experts[source_id]["surfaces"]:
+                    errors.append(tag + ": specialist not suitable for this surface")
+            elif kind == "VENDORED_REFERENCE":
+                permitted = set(vendor_overlay["phase_packs"].get(phase_id, []))
+                permitted.update(vendor_overlay["component_priorities"].get(comp, []))
+                if source_id not in permitted or source_id not in available_snapshots:
+                    errors.append(tag + ": vendor snapshot not in applicable verified manifest")
+            else:
+                errors.append(tag + ": source_kind must be LOCAL_GUIDE/REGISTERED_SPECIALIST/VENDORED_REFERENCE")
+            if evidence.get("status") not in {"APPLIED", "REFERENCED"}:
+                errors.append(tag + ": expected APPLIED or REFERENCED; do not claim installed skill from snapshot")
+            if kind == "VENDORED_REFERENCE" and evidence.get("status") != "REFERENCED":
+                errors.append(tag + ": vendor snapshot cannot be marked as live skill APPLIED")
+            if not _safe_artifact(root, evidence.get("evidence_path")):
+                missing.append(tag + ": source usage requires evidence_path")
+            changed = evidence.get("decision_influenced")
+            if not isinstance(changed, str) or len(changed.strip()) < 24:
+                missing.append(tag + ": concrete decision_influenced required")
+        for phase_id in phase_ids:
+            if phase_id not in covered_phases:
+                missing.append(phase_id + ": no traceable knowledge/skill usage for significant redesign")
     visual = data.get("visual_artifacts", {})
     if not isinstance(visual, dict):
         errors.append("visual_artifacts invalid")
