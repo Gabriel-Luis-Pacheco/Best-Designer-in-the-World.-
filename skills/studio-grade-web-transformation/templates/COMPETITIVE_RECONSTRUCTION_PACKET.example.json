@@ -48,7 +48,28 @@
             "media_and_motion": "Record media and actual animation states/triggers or explicit absence after inspection",
             "mobile_behavior": "Describe real mobile reflow and information order, not assumed responsive behavior",
             "desktop_capture": null,
-            "mobile_capture": null
+            "mobile_capture": null,
+            "copy_inventory_complete": false,
+            "text_items": [
+              {
+                "id": "headline",
+                "role": "HEADLINE",
+                "observed_purpose": "Paraphrase what the heading helps this user decide, without reproducing competitor copy",
+                "strategy": "Analyze its claim type, tone, concrete mechanism, sentence length and proof relationship"
+              },
+              {
+                "id": "cta",
+                "role": "CTA",
+                "observed_purpose": "Identify the real action and where it leads, not merely the button color",
+                "strategy": "Analyze action verb, hierarchy and expectation set by the CTA"
+              }
+            ],
+            "media_items": [
+              {
+                "kind": "NONE",
+                "observed_role": "Not yet observed; replace with actual photos, videos, authentic UI or deliberate absence after browsing"
+              }
+            ]
           }
         ],
         "flows": [
@@ -58,9 +79,13 @@
               {
                 "id": "step-1",
                 "access_state": "NOT_OBSERVED: onboarding requires authorized access",
-                "control_and_feedback": "Replace with observed fields, back/skip/error states, screenshots and next action"
+                "control_and_feedback": "Replace with observed fields, back/skip/error states, screenshots and next action",
+                "branching_and_errors": "Record actual skip, back, defaults, errors and feedback after authorized inspection",
+                "desktop_capture": null,
+                "mobile_capture": null
               }
-            ]
+            ],
+            "inspection_status": "NOT_OBSERVED"
           }
         ]
       }
@@ -98,7 +123,15 @@
         ],
         "step_by_step_transfer": "Describe observed-to-target flow, all applicable states and mandatory divergences",
         "test_status": "NOT_TESTED",
-        "test_evidence": null
+        "test_evidence": null,
+        "steps": [
+          {
+            "source_step": "step-1",
+            "feedback_and_errors": "Describe real target form, recovery and return states",
+            "desktop_capture": null,
+            "mobile_capture": null
+          }
+        ]
       }
     ],
     "primary_journey": {
