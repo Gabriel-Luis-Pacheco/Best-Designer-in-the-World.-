@@ -22,6 +22,12 @@ python skills/studio-grade-web-transformation/scripts/component_workplan.py --co
 
 **Workplan somente planeja**, nao invoca nenhuma skill. Usar as ferramentas de skills reais da plataforma para verificar instalacao, ler instrucoes originais, respeitar prerequisitos/licencas e aplicar. Se o motor nao existe, usar guias locais, docs oficiais e evidencias honestas. Registre APPLIED, REFERENCED, UNAVAILABLE ou NOT_APPLICABLE com prova do output.
 
+## Vínculo operacional com os 50 pacotes completos
+
+Além dos 46 candidatos do registro central, o workplan agora faz uma **interseção seletiva** com as **50 skills vendorizadas** em `vendor/external-skill-packs/INDEX.json`. O mapa `research/vendor_phase_overlay.json` seleciona automaticamente skills mais específicas conforme o componente e a etapa: por exemplo `landing-page`, `product-proof-saas`, `copy-editing`, `audit-ai-design-slop`, `no-ai-design-slop`, `pricing-page`, `onboarding`, `wcag-audit-patterns`, `webapp-testing` e `verification-before-completion`. Elas entram como `priority_snapshots` (ate tres por fase) ou `additional_snapshots_if_relevant`. A selecao exibe o caminho e a licença reportada, **nunca finge que a skill foi carregada ou executada**. Na versao CORE sem vendor, o workplan mostra `NO_VENDOR_PACKS_IN_THIS_INSTALL` e usa as referencias internas.
+
+Quando uma skill adequada estiver realmente instalada na plataforma, ler seu SKILL.md real e usar a ferramenta adequada; pacote local e so referencia. Nao executar scripts/instaladores externos nem ativar hooks fora do escopo autorizado. Carregar conhecimento progressivamente pelo problema observado, nao indiscriminadamente os 50 pacotes.
+
 ## 1. O que significa pesquisar dez concorrentes de verdade
 
 Para a landing ou hero estrategica, buscar ate dez **alternativas reais**, priorizando concorrentes diretos e substitutos relevantes, **mais** 2–4 exemplos de qualidade em categorias adjacentes quando ajudarem. Nao prometer que dez existem: delimitar mercado, pais, publico e pricing; nao confundir 10 URLs com 10 telas realmente estudadas. Usar tempo e orcamento proporcional: PATCH claro nao precisa de catalogo, REFINE aprovado aproveita screenshots recentes.
