@@ -2,7 +2,7 @@
   "schema_version": 1,
   "updated_at": "2026-11-21",
   "status": "PROTOCOL_NOT_EXECUTION",
-  "description": "Every component has tailored phase sequence, reviewer questions and hard red flags; phase outputs are not claims of skill invocation or quality.",
+  "description": "Every component has tailored phase sequence, reviewer questions and hard red flags; phase outputs are not claims of skill invocation or quality. Competitive benchmark transfer contract for 16 high-stakes flows: reuse familiar mechanisms, distinguish evidence tiers, and justify deliberate divergence.",
   "phase_definitions": {
     "truth": {
       "title": "Verdade do produto e protecao",
@@ -20,12 +20,12 @@
     },
     "market": {
       "title": "Concorrentes, publico e jobs",
-      "goal": "Descobrir alternativas reais e linguagem do usuario, com observacao documentada.",
+      "goal": "Descobrir alternativas reais e linguagem do usuario, com observacao documentada. Include complete flow reconstructions for major signup/onboarding/checkout/activation decisions, not just visual screenshots.",
       "inputs": [
         "segmento e problema concreto",
         "URLs de alternativas e contexto do trafego"
       ],
-      "output": "Ledger com fontes/prints equivalentes, mecanismos positivos/negativos e lacunas",
+      "output": "Ledger com fontes/prints equivalentes, mecanismos positivos/negativos e lacunas For prioritized flows, transfer ledger records adopt/adapt/reject with evidence tier, fit and planned own test.",
       "gate": "URLs sem visita/captura nao sao observacoes; referencia bonita nao prova conversao",
       "role_lanes": [
         "customer-research",
@@ -33,7 +33,8 @@
         "browser-qa"
       ],
       "guides": [
-        "reference-led-visual-intelligence.md"
+        "reference-led-visual-intelligence.md",
+        "benchmark-pattern-transfer-and-validation.md"
       ]
     },
     "position": {
@@ -327,7 +328,32 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 10,
+        "stages_to_observe": [
+          "entry from matching acquisition intent",
+          "hero comprehension and promise",
+          "primary CTA to first value"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Keep familiar hierarchy of category, concrete value, true proof and primary action, then differentiate in voice/art.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "hero comprehension and CTA-to-first-value path"
+      }
     },
     {
       "id": "navigation",
@@ -634,7 +660,33 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 7,
+        "stages_to_observe": [
+          "plan comprehension",
+          "feature and total-price comparison",
+          "renewal/cancellation information",
+          "plan selection to actual checkout"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Use established comparison hierarchy and clear financial commitments before inventing persuasive visuals.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "plan-choice correctness and price comprehension"
+      }
     },
     {
       "id": "paywall",
@@ -670,7 +722,33 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "trigger and earned context",
+          "benefits and limits",
+          "price, billing cycle and cancellation",
+          "accept, dismiss or downgrade"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Borrow transparent, user-controlled upgrade patterns, not manipulative scarcity or coercion.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "qualified upgrade and post-purchase satisfaction"
+      }
     },
     {
       "id": "comparison",
@@ -814,12 +892,39 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "form entry and trust",
+          "minimum necessary fields",
+          "validation and consent",
+          "confirmation or error"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Use tested conventions in field naming, inline errors, and privacy transparency rather than novel controls.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "valid completed requests"
+      }
     },
     {
       "id": "signup",
       "execution_phases": [
         "truth",
+        "market",
         "ux",
         "activation",
         "data",
@@ -845,12 +950,39 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "entry into registration",
+          "minimum necessary fields and validation",
+          "email/social verification when required",
+          "transition to first value"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Prefer established progressive registration, relevant autofill, graceful validation and honest commitment.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "valid account activation"
+      }
     },
     {
       "id": "authentication",
       "execution_phases": [
         "truth",
+        "market",
         "ux",
         "data",
         "engineering",
@@ -875,12 +1007,39 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 4,
+        "stages_to_observe": [
+          "login identification",
+          "password/passkey/SSO choice according to real support",
+          "error and account recovery",
+          "return to protected journey"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Follow well-established trustworthy sign-in and recovery patterns without copying insecure competitor behavior.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "successful legitimate sign-in"
+      }
     },
     {
       "id": "checkout",
       "execution_phases": [
         "truth",
+        "market",
         "editorial",
         "proof",
         "ux",
@@ -910,12 +1069,39 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "plan or item selection",
+          "review full price and commitment",
+          "payment details and validation",
+          "confirmation or failure recovery"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Start from well-researched payment clarity and error recovery; never borrow hidden fees or dark patterns.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "completed legitimate payments"
+      }
     },
     {
       "id": "onboarding",
       "execution_phases": [
         "truth",
+        "market",
         "ux",
         "activation",
         "data",
@@ -942,12 +1128,40 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "first launch / consent",
+          "first meaningful choice or personalization",
+          "real interactive first task",
+          "first value confirmation",
+          "skip/return/error recovery"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Map competitor sequences screen by screen and default to low-friction paths to real first value; only add personalization justified by product value.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "first-value completion"
+      }
     },
     {
       "id": "activation",
       "execution_phases": [
         "truth",
+        "market",
         "ux",
         "activation",
         "data",
@@ -973,7 +1187,33 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "signup-to-first-use handoff",
+          "first meaningful action",
+          "feedback and next action",
+          "return/retention without coercion"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Prefer patterns aligned to observable first-value events, not fake completion or vanity clicks.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "first meaningful task success"
+      }
     },
     {
       "id": "dashboard",
@@ -1375,7 +1615,33 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 10,
+        "stages_to_observe": [
+          "match campaign source promise",
+          "hero recognition",
+          "product proof and objections",
+          "clear CTA and actual destination"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Borrow predictable message-match and verification patterns, make visual expression brand-owned.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "qualified campaign conversion"
+      }
     },
     {
       "id": "ecommerce-product",
@@ -1411,7 +1677,32 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 6,
+        "stages_to_observe": [
+          "product discovery and variants",
+          "price, shipping, returns",
+          "add-to-cart outcome"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Borrow familiar selection and transparent cost patterns; verify fit to local market.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "correct product choice"
+      }
     },
     {
       "id": "ecommerce-cart",
@@ -1447,12 +1738,39 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 6,
+        "stages_to_observe": [
+          "review items and variants",
+          "change quantity/remove",
+          "full subtotal/costs",
+          "checkout handoff"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Use familiar review/edit steps and truthful totals; don't invent checkout conventions.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "correct cart review"
+      }
     },
     {
       "id": "community-referral",
       "execution_phases": [
         "truth",
+        "market",
         "position",
         "editorial",
         "ux",
@@ -1479,7 +1797,33 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 4,
+        "stages_to_observe": [
+          "benefit and rules",
+          "consent and chosen recipient",
+          "share flow",
+          "referral status or reward"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Reference voluntary, privacy-preserving referrals, not spammy patterns.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "voluntary relevant referrals"
+      }
     },
     {
       "id": "brand-identity",
@@ -1667,7 +2011,33 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 10,
+        "stages_to_observe": [
+          "buyer vs end-user intent",
+          "credible proof and implementation",
+          "commercial/security objections",
+          "lead/demo handoff"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Prefer proven procurement clarity and explain concrete outcomes; do not mimic consumer funnels uncritically.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "qualified enterprise inquiry"
+      }
     },
     {
       "id": "b2c-landing",
@@ -1702,12 +2072,39 @@
         "URLs and observed screenshots",
         "evidence-backed original design",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 10,
+        "stages_to_observe": [
+          "first frame for consumer job",
+          "product demo",
+          "proof and objections",
+          "pricing/first use"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Preserve recognizable user decision pattern from relevant alternatives, use own brand/story.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "qualified consumer activation"
+      }
     },
     {
       "id": "app-home",
       "execution_phases": [
         "truth",
+        "market",
         "ux",
         "activation",
         "data",
@@ -1733,7 +2130,33 @@
         "true user task",
         "stateful UI",
         "desktop/mobile QA"
-      ]
+      ],
+      "benchmark_transfer": {
+        "reference_target": 5,
+        "stages_to_observe": [
+          "first return state",
+          "resume task",
+          "next useful action",
+          "empty/loading/returning states"
+        ],
+        "pattern_baseline": "ADOPT_FAMILIAR_MECHANISMS_BY_DEFAULT_WHEN_JOB_MATCHES",
+        "design_intent": "Reference successful return-to-task patterns instead of a decorative home dashboard.",
+        "fit_tests": [
+          "same user job and audience maturity",
+          "same real product capability, permissions and constraints",
+          "same legal/geographic and trust context",
+          "accessible and reversible critical behavior"
+        ],
+        "deviations_require": "A factual constraint, observed user problem, credible stronger research or genuine brand/product differentiation; specify hypothesis and test.",
+        "evidence_levels": [
+          "OBSERVED_ONLY",
+          "INDEPENDENT_RESEARCH",
+          "PUBLISHED_RESULT",
+          "OWN_VERIFIED_TEST"
+        ],
+        "result_claim_policy": "Do not infer conversion or validation from competitor size, funding, app downloads, design awards or screenshot alone.",
+        "own_outcome_measure": "first task completion from home"
+      }
     },
     {
       "id": "localization",
