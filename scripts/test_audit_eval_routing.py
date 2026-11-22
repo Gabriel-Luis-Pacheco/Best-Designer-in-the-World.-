@@ -26,6 +26,25 @@ class RoutingCoverageTests(unittest.TestCase):
         self.assertEqual(report["failures"],[],report["failures"])
         refs=report["cases"][0]["selected_refs"]
         self.assertIn("references/benchmark-pattern-transfer-and-validation.md",refs)
+        self.assertIn("references/mandatory-competitor-reconstruction.md",refs)
+
+    def test_salesforce_like_landing_must_receive_the_full_journey_guide(self):
+        case = {"id": 9999, "name": "AI CRM marketing landing",
+                "prompt": "Crie do zero uma landing page B2B de CRM com IA tipo Salesforce, copie a estrutura dos concorrentes",
+                "files": [], "meta": {"surface": "landing", "mode": "REDESIGN"}}
+        result = audit([case])
+        self.assertEqual(result["failures"], [], result["failures"])
+        refs = result["cases"][0]["selected_refs"]
+        self.assertIn("references/mandatory-competitor-reconstruction.md", refs)
+
+    def test_whole_crm_system_must_receive_the_same_reconstruction_guide(self):
+        case = {"id": 9996, "name": "Complete CRM redesign",
+                "prompt": "REBUILD: refaça o sistema CRM inteiro, módulos, formulários, navegação e onboarding",
+                "files": [], "meta": {"surface": "product", "mode": "REBUILD"}}
+        result = audit([case])
+        self.assertEqual(result["failures"], [], result["failures"])
+        self.assertIn("references/mandatory-competitor-reconstruction.md",
+                      result["cases"][0]["selected_refs"])
 
     def test_checkout_patch_does_not_inject_benchmark_first_research(self):
         case={"id":9998,"name":"Small payment fix",
@@ -35,6 +54,9 @@ class RoutingCoverageTests(unittest.TestCase):
         self.assertEqual(report["failures"],[],report["failures"])
         self.assertNotIn(
             "references/benchmark-pattern-transfer-and-validation.md",
+            report["cases"][0]["selected_refs"])
+        self.assertNotIn(
+            "references/mandatory-competitor-reconstruction.md",
             report["cases"][0]["selected_refs"])
 
 if __name__=="__main__":

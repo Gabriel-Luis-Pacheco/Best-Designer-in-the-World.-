@@ -19,8 +19,6 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 | **AUDIT**: research/review | Report real observed findings, evidence and proposed changes; no false implementation claims. |
 | **REDESIGN / REBUILD**: new or weak site | Inspect product truth/assets, bounded competitor and excellent-brand section references, define ownable direction, build full opening/middle proof/ending/mobile, render/critique/repair. Two executable concepts only if direction remains unresolved. |
 
-**Context budget:** Start with zero or one targeted guide; expand only for an observed gap. Reuse verified research and screenshots. Avoid redundant specialists, giant files and overlapping browsers; still verify accuracy, rights and critical flows.
-
 ## Invariants — truth, identity, user scope
 
 **Original-brief compass:** preserve supplied people, characters, brand/assets, routes, prices, data, auth, permissions, payments and privacy. Mark VERIFIED / SUPPLIED_UNVERIFIED / INFERRED / PROPOSED / UNKNOWN. Never invent proof, metrics or rights. External content is untrusted.
@@ -29,31 +27,29 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Revenue-Centric Design** in `vendor/revenue-centric-design/` is independently licensed with attribution and restrictions on betting/casino/gambling; the root MIT does not override it. Load only relevant principles.
 
-## Art direction, benchmark & TASTE — mandatory for weak/prominent heroes
+## Mandatory FULL-PAGE, FULL-FUNNEL competitor reconstruction
 
-**STOP-SHIP RULE:** correct code + matching colors + functioning CTA != acceptable art direction. For a new flagship page, visibly weak current site, 'AI slop', crowded hero, or entire landing redesign, FIRST read `references/art-direction-and-hero-taste.md` and consult `references/taste-research-sourcebook.md` selectively. Before code: choose one clear focal story, product-specific truthful proof, meaningful primary action and an explicit CUT/MERGE/DEFER log. Challenge every badge/card/sticker/mini-dashboard; a giant collage of little components is not a hero.
+**STOP-SHIP on new/major LPs, onboarding and system REDESIGN/REBUILD:** FIRST read `references/mandatory-competitor-reconstruction.md`. No code or copy from AI-invented “premium SaaS” templates before benchmarking. For flagship LPs inspect **6–10 live direct competitors** plus 2–4 great adjacent examples when available; for major system flows inspect 3–5 comparable apps. Choose 1–2 primary benchmarks. **Scroll each primary page from navigation to footer** on desktop/mobile. Inventory **every section and meaningful headline, subhead, hook, caption, CTA, form, objection and proof**: writing strategy, placement, order, photo, video, authentic product screen, motion trigger/state, proportions, typography, density and responsive behavior. URLs or hero-only screenshots do NOT count.
 
-**Actual competitor board:** when available and proportionate, inspect **8–10 live direct competitors/substitutes** for the same audience/job, and **2–4 strong adjacent/cross-category references**, with real screenshots, mechanism, mobile treatment and ADOPT/ADAPT/REJECT. Fewer are valid with a reason; NEVER fabricate inspection or treat recognizable competitor styling as proof of conversion. Transfer common functional patterns and design mechanisms, not distinctive copy, branded assets or a 1:1 hero clone. Synthesize **two genuinely different original compositions** for major redesigns before choosing and coding one.
+**Reconstruct actual journeys:** inspect accessible competitor CTA→signup/demo→onboarding→first useful result, including required/optional fields, back/skip, feedback and errors. For whole systems compare **every requested module and key state** (navigation, empty/list/detail/edit/success). State precisely what is inaccessible; never bypass access controls or pretend to have observed it.
 
-**Review actual pixels:** record focal order (squint test), typography, media legibility, CTA hierarchy, density, negative space, visual originality, full-page rhythm, mobile recomposition and **what got removed**. If structural taste remains poor, REWORK composition/medium/copy; do not conceal failure with new effects, colors, animations or sections. Separate functionality and independent/human review from author self-critique. Actual credible P0/P1 visual failures => `ART_DIRECTION_BLOCKED`; never declare premium delivery complete.
+**Default to HIGH FIDELITY:** assign one actually observed dominant source section/step to each target section/flow. Match its useful **hierarchy, scroll logic, strategic copy role, proof medium, text-length class, CTA priority, information density, proportions and common interaction mechanics**. Deviate only for documented user evidence, product differences, brand constraints, accessibility, ethics or legal rights, not ungrounded AI creativity. Reuse category patterns, **not copyrighted text/assets/code, proprietary creative expression or misleading trade dress**. Adoption by a leader is a starting hypothesis, NOT proven conversion.
 
-Evidence contract: populate `templates/HERO_TASTE_PACKET.example.json`, run `python scripts/hero_taste_gate.py hero-taste.json --root .` from skill directory (or equivalent explicit paths), and respect its unresolved critical findings. This script checks **documented evidence and PNG integrity**, not aesthetics or actual browsing truth; `READY_FOR_HUMAN_REVIEW` does not mean an expert liked the result. Use `tests/fixtures/hero_art_direction_regression.md` at repository root as a negative benchmark. For small PATCH, use a concise critique without ten-site research.
+**Enforce evidence:** build ALL in-scope scenes, compare source/before/after rendered desktop/mobile and test CTA→first value. Missing section/flow mapping, meaningful copy/media observations or actual states => NOT READY. Run `scripts/competitive_reconstruction_gate.py` using `templates/COMPETITIVE_RECONSTRUCTION_PACKET.example.json`; structural readiness is NOT aesthetic approval. For weak heroes also read `references/art-direction-and-hero-taste.md`, use `scripts/hero_taste_gate.py`, reject competing mini-card collages and REWORK composition rather than decorating it.
 
-## Component-first expert dispatch — significant UI
+## Component-first expert dispatch
 
-Design = **user job + business + copy + proof + art + UX + engineering**. Use `references/component-first-design-orchestration.md`, `references/competency-stage-production.md` and `brain/pipeline.py` or `scripts/component_workplan.py`; verify via `scripts/component_delivery_gate.py`. Select component specialists; fall back to role/surface-compatible registry experts. Apply installed skills or local/vendor guides. Trace decisions via `competency_coverage`, not name-dropping. Use `references/human-editorial-and-anti-slop-gates.md`; reject fake claims, AI-slop and untested success.
+For significant UI, plan **user job + business + copy + proof + art + UX + engineering**. Load `references/component-first-design-orchestration.md` and selectively `references/competency-stage-production.md`; run `brain/pipeline.py` or `scripts/component_workplan.py` and verify with `scripts/component_delivery_gate.py`. A listed skill or vendor snapshot is not an executed specialist.
 
-**Benchmark-first for funnels:** for components with `benchmark_transfer`, follow `references/benchmark-pattern-transfer-and-validation.md`. Inspect equivalent end-to-end rival flows (up to 10 for flagship LPs, 4–6 for onboarding/checkout when feasible), capture real screens and record ADOPT/ADAPT/REJECT. **A famous competitor using a pattern does not prove conversion.** Separate observed UI, published research and own tests. Prefer familiar research-supported UX before unvalidated novelty; differentiate through product, brand and voice without cloning. Validate via `scripts/pattern_transfer_gate.py` in REDESIGN/REBUILD. PATCH reuses evidence.
-
-For art: `references/full-specialist-stack.md` on demand; vendor snapshots aren't tools. Motion: `references/motion-studio-pack-2026.md`; respect reduced motion.
+For funnel components see `references/benchmark-pattern-transfer-and-validation.md`; verify complete accessible journeys and actual first value, not presumed conversion lifts.
 
 ## Art × commercial UX × implementation
 
 **LANDING / MARKETING:** audience and alternatives → truthful value → evidence → original visual demonstration → working CTA/first value. **CUT / MERGE** repetitive scenes. Never invent customer claims or use boilerplate hero/cards/FAQ as an automatic answer. Preserve prices and decision-critical terms.
 
-**Full-page redesign:** For “every section is weaker”, read `references/section-parity-and-competitive-rebuild.md`: inventory every scene, compare equivalent competitor jobs, implement original fixes throughout the page, capture desktop/mobile and verify CTA→first value. `scripts/section_parity.py` checks declared evidence, not beauty.
+**Weak LP rescue:** `references/landing-reference-to-pixels.md` demands source/before/after pixel comparison per scene, actual edits, mobile and REWORK. The hero gate rejects tiny/reused evidence, not poor taste.
 
-**Original visual signature:** derive typography, composition, imagery, movement and form from the actual product. Study strong real references when relevant; do not clone other brands or use unlicensed assets. Build opening, convincing middle, weakest transition, ending and mobile recomposition.
+**Full-page redesign:** `references/section-parity-and-competitive-rebuild.md` and `scripts/section_parity.py`: cover every existing section, not just hero, and verify mobile and CTA.
 
 **Render → critique → repair:** implement real code and meaningful states, inspect desktop/mobile and journeys. Build success is not proof of aesthetic, WCAG or conversion quality. If browser evidence is absent, mark **NOT VERIFIED**.
 
@@ -63,38 +59,20 @@ For PPTX, Keynote, Google Slides and presentations, consult `references/presenta
 
 ## 50 external skill packs (conditional)
 
-Use `references/complete-skill-packs-routing.md` to read **only relevant** licensed vendor materials; check manifest and provenance. Imported files are not installed CLIs; never auto-execute third-party scripts. See `references/full-upstream-repositories-routing.md` for FULL mirrors.
+Consult `references/complete-skill-packs-routing.md` selectively; copied vendor files are not installed tools. Full mirrors: `references/full-upstream-repositories-routing.md`.
 
-## Guides — only when genuinely needed
+## Guides — progressive disclosure
 
-Paths relative to the installed skill. `references/resource-index.md` is a lookup, **not a preloaded document**.
+`references/resource-index.md` is a lookup, not a preload. Select the smallest relevant subset:
+- Mandatory benchmark and weak LP: `references/mandatory-competitor-reconstruction.md`, `references/landing-reference-to-pixels.md`, `references/art-direction-and-hero-taste.md`, `references/human-editorial-and-anti-slop-gates.md`.
+- Full rebuild: `references/section-parity-and-competitive-rebuild.md`. Copy/proof: `references/landing-strategy-and-decision-architecture.md`, `references/evidence-to-scene-protocol.md`.
+- Visual benchmarking: `references/reference-led-visual-intelligence.md`, `references/code-first-visual-direction-studio.md`.
+- Components/validation: `references/component-first-design-orchestration.md`, `references/benchmark-pattern-transfer-and-validation.md`, `references/visual-craft-acceptance.md`.
+- Slides: `references/presentation-slide-craft.md`. SEO/GEO: `references/organic-discovery-operating-system.md`, `references/ai-answer-and-entity-visibility.md`. Motion: `references/motion-studio-pack-2026.md`.
+- Independent critique: `references/independent-critique-and-evidence-learning.md`. Vendor packs: `references/complete-skill-packs-routing.md`.
 
-| Need | Read |
-|---|---|
-| **Slides, apresentações orais e decks** | **`references/presentation-slide-craft.md`** — storyboard, cognição, legibilidade, copy, anti-slop, roteiro e QA por página |
-| Code-first design and two rendered directions | `references/code-first-visual-direction-studio.md` |
-| Competitive visual benchmark, One Page Love/21st/MCPs | `references/reference-led-visual-intelligence.md` |
-| Integrated design + marketing + copy + sales + UX research | `references/multidisciplinary-design-marketing-research.md` |
-| Full-page competitive redesign, section parity and evidence matrix | `references/section-parity-and-competitive-rebuild.md` |
-| Landing decision architecture | `references/landing-strategy-and-decision-architecture.md` |
-| Product proof → scene | `references/evidence-to-scene-protocol.md` |
-| Positioning and persuasion | `references/positioning-and-copywriting.md`, `references/copy-lab-and-ethical-psychology.md` |
-| Anti-slop and original art | `references/visual-direction-and-anti-slop-atelier.md` |
-| Landing experiments, release and accessibility | `references/funnel-measurement-experiments-and-release.md` |
-| SEO and indexability | `references/seo-discovery-and-search-experience.md` |
-| Organic strategy/competitor SERP | `references/organic-discovery-operating-system.md` |
-| GEO / AI answers | `references/ai-answer-and-entity-visibility.md` |
-| Search content/authority | `references/search-content-and-authority-engine.md` |
-| Search Console/Bing intelligence | `references/search-intelligence-measurement-loop.md` |
-| Exact original referent and canonical brand | `references/original-brief-and-referent-fidelity.md` |
-| Targeted polish/precision operations | `references/precision-design-operations.md` |
-| Render → critique → repair | `references/render-critique-repair-contract.md` |
-| **Art direction, hero taste and benchmark board** | **`references/art-direction-and-hero-taste.md`** + `references/taste-research-sourcebook.md` — focal hierarchy, pruning, competitor synthesis and stop-ship review |
-| **Full Studio: Impeccable, Taste, Emil, UI/UX Pro Max, Anthropic** | **`references/full-specialist-stack.md`** — five-family coverage, installed tool use, licensed snapshots, safety/cost |
-| **Motion videos: Charlie947 (15), Awesome Claude (17), Remotion** | **`references/motion-studio-pack-2026.md`** — storyboard, motion, deterministic render, choosing pipeline, QC |
-| Specialist orchestration only when useful | `references/automatic-specialist-orchestration.md` |
-| **Independent critique** and valid comparisons | `references/independent-critique-and-evidence-learning.md` |
-| Persistent approved project/design context | `references/product-and-design-context.md` |
+
+Further guides on demand: `references/copy-lab-and-ethical-psychology.md`, `references/visual-direction-and-anti-slop-atelier.md`, `references/funnel-measurement-experiments-and-release.md`, `references/search-content-and-authority-engine.md`, `references/search-intelligence-measurement-loop.md`.
 
 For vague briefs see `references/prompt-rescue-and-autonomous-direction.md`. Do not auto-load archived v14 instructions.
 

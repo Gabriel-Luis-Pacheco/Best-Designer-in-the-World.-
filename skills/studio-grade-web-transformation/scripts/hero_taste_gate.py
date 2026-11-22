@@ -7,6 +7,7 @@ unresolved P0/P1 issues by adding screenshots or declaring self-approval.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import json
 from functools import lru_cache
@@ -36,8 +37,8 @@ def _meaningful(value: object, n: int = 20) -> bool:
     return isinstance(value, str) and len(value.strip()) >= n
 
 
-def _image(root: Path, value: object) -> bool:
-    """Check actual local PNG existence and safe path; not aesthetic content."""
+def _image(root: Path, value: object, *, viewport: str) -> bool:
+    """Check a real-sized viewport PNG, not its aesthetic or browser provenance."""
     if not isinstance(value, str) or not value or "\\" in value or len(value) > 500:
         return False
     path = Path(value)
@@ -50,10 +51,17 @@ def _image(root: Path, value: object) -> bool:
     if not 64 <= size <= MAX_BYTES:
         return False
     try:
-        _png_validator()(full.read_bytes())
+        width, height = _png_validator()(full.read_bytes())
     except (ValueError, OSError):
         return False
-    return True
+    if viewport == "desktop":
+        return width >= 700 and height >= 400
+    return 300 <= width <= 600 and height >= 480
+
+
+def _digest(root: Path, value: str) -> str:
+    """Only call after _image returned true for this safe relative path."""
+    return hashlib.sha256((root / value).read_bytes()).hexdigest()
 
 
 def _valid_url(value: object) -> bool:
@@ -70,6 +78,9 @@ def inspect(packet: object, root: Path) -> dict:
     missing: list[str] = []
     blockers: list[str] = []
     warnings: list[str] = []
+    # Detect screenshots recycled across purportedly different sites, viewports
+    # and the before/after comparison. A valid PNG alone proves very little.
+    seen_images: dict[str, str] = {}
 
     if packet.get("schema_version") != 1:
         errors.append("schema_version must be 1")
@@ -125,8 +136,29 @@ def inspect(packet: object, root: Path) -> dict:
             if not _meaningful(record.get("observed_date"), 8):
                 missing.append(f"{p}: observation date required")
             for view in ("desktop", "mobile"):
-                if not _image(root, record.get(view)):
-                    missing.append(f"{p}.{view}: real PNG capture missing")
+                capture = record.get(view)
+                if not _image(root, capture, viewport=view):
+                    missing.append(f"{p}.{view}: viewport-sized real PNG capture missing")
+                else:
+                    digest = _digest(root, capture)
+                    if digest in seen_images:
+                        missing.append(
+                            f"{p}.{view}: image bytes identical to {seen_images[digest]}; "
+                            "independent captures required")
+                    else:
+                        seen_images[digest] = f"{p}.{view}"
+
+    if packet.get("mode") in {"REDESIGN", "REBUILD"} and packet.get("surface") == "marketing":
+        transfer = packet.get("visual_transfer")
+        if not isinstance(transfer, dict):
+            missing.append("visual_transfer: select one actually inspected compositional reference")
+        else:
+            source_urls = {ref.get("url") for ref in competitors + adjacent if isinstance(ref, dict)}
+            if transfer.get("source_url") not in source_urls:
+                missing.append("visual_transfer.source_url must point to an inspected reference")
+            for field in ("source_composition", "target_composition", "originality_boundaries", "side_by_side_observation"):
+                if not _meaningful(transfer.get(field), 35):
+                    missing.append(f"visual_transfer.{field}: concrete visual decision required")
 
     concepts = packet.get("concepts", [])
     if not isinstance(concepts, list):
@@ -160,8 +192,17 @@ def inspect(packet: object, root: Path) -> dict:
             errors.append(f"render.{phase} must be object")
             continue
         for view in ("desktop", "mobile"):
-            if not _image(root, shots.get(view)):
-                missing.append(f"render.{phase}.{view}: actual rendered PNG required")
+            capture = shots.get(view)
+            if not _image(root, capture, viewport=view):
+                missing.append(f"render.{phase}.{view}: viewport-sized actual rendered PNG required")
+            else:
+                digest = _digest(root, capture)
+                if digest in seen_images:
+                    missing.append(
+                        f"render.{phase}.{view}: image bytes identical to {seen_images[digest]}; "
+                        "reused before/after or reference image is not comparison evidence")
+                else:
+                    seen_images[digest] = f"render.{phase}.{view}"
 
     review = packet.get("review", {})
     if not isinstance(review, dict):

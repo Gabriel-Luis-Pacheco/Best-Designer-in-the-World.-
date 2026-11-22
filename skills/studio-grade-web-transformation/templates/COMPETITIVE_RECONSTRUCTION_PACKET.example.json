@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "scope": "FULL_FUNNEL",
+  "mode": "REDESIGN",
+  "project": {
+    "audience": "Specify actual buyer/user with job and comparable maturity, not generic everyone",
+    "actual_offer": "Actual product, offer, terms and verified features, not competitor promises",
+    "first_value": "The first actual completed user task after CTA/signup, with observable success",
+    "protected_constraints": "Brand identity, licenses, private data, pricing, consent, routing and billing limits",
+    "requested_surfaces": [
+      "hero",
+      "product-proof",
+      "decision"
+    ],
+    "requested_flows": [
+      "signup",
+      "first-task"
+    ]
+  },
+  "research": {
+    "selection_rationale": "Explain why selected leading references serve this exact market and user job",
+    "shortfall_reason": "Explain missing competitor coverage if fewer than six direct sources were inspected",
+    "competitors": [
+      {
+        "id": "primary-crm",
+        "kind": "DIRECT",
+        "role": "PRIMARY",
+        "url": "https://example.org/crm",
+        "inspection_status": "NOT_OBSERVED",
+        "access_limit": "Example only; NOT_INSPECTED. Replace with real public browser audit and authorized flow before using as a benchmark",
+        "observed_date": null,
+        "desktop_full_page": null,
+        "mobile_full_page": null,
+        "scroll_sweep": {
+          "from_top_to_footer": false,
+          "observed_scene_ids": []
+        },
+        "scenes": [
+          {
+            "id": "hero",
+            "kind": "MARKETING_SECTION",
+            "order": 1,
+            "visitor_question": "Record the exact question this real source scene answers",
+            "headline_strategy": "Analyze what the headline promises and its specificity; do not paste copyrighted text",
+            "body_copy_strategy": "Analyze writing structure, tone, length, objections, sequence and every meaningful copy item",
+            "cta_and_proof": "Analyze all real CTA labels by semantic role, next step and nearby substantiation",
+            "composition": "Record the visible hierarchy, proportions, asset crop, whitespace, type and composition",
+            "media_and_motion": "Record media and actual animation states/triggers or explicit absence after inspection",
+            "mobile_behavior": "Describe real mobile reflow and information order, not assumed responsive behavior",
+            "desktop_capture": null,
+            "mobile_capture": null,
+            "copy_inventory_complete": false,
+            "text_items": [
+              {
+                "id": "headline",
+                "role": "HEADLINE",
+                "observed_purpose": "Paraphrase what the heading helps this user decide, without reproducing competitor copy",
+                "strategy": "Analyze its claim type, tone, concrete mechanism, sentence length and proof relationship"
+              },
+              {
+                "id": "cta",
+                "role": "CTA",
+                "observed_purpose": "Identify the real action and where it leads, not merely the button color",
+                "strategy": "Analyze action verb, hierarchy and expectation set by the CTA"
+              }
+            ],
+            "media_items": [
+              {
+                "kind": "NONE",
+                "observed_role": "Not yet observed; replace with actual photos, videos, authentic UI or deliberate absence after browsing"
+              }
+            ]
+          }
+        ],
+        "flows": [
+          {
+            "id": "signup",
+            "steps": [
+              {
+                "id": "step-1",
+                "access_state": "NOT_OBSERVED: onboarding requires authorized access",
+                "control_and_feedback": "Replace with observed fields, back/skip/error states, screenshots and next action",
+                "branching_and_errors": "Record actual skip, back, defaults, errors and feedback after authorized inspection",
+                "desktop_capture": null,
+                "mobile_capture": null
+              }
+            ],
+            "inspection_status": "NOT_OBSERVED"
+          }
+        ]
+      }
+    ]
+  },
+  "target": {
+    "surfaces": [
+      {
+        "id": "hero",
+        "dominant_source": {
+          "competitor_id": "primary-crm",
+          "scene_id": "hero"
+        },
+        "transfer": "ADAPT",
+        "user_decision": "What the target visitor must know and do at this point",
+        "copy_strategy_transfer": "Write original wording that performs the same observed persuasion job",
+        "composition_transfer": "Specify the exact layout mechanism, hierarchy and proportion built from the reference",
+        "media_motion_transfer": "Show truthful product media and functional movement with verified assets",
+        "departure_rationale": "Explain exactly which source mechanics were kept and any necessary deviations",
+        "brand_and_rights_boundary": "Do not copy trade dress, proprietary words, photos, animations, characters or code",
+        "source_files": [],
+        "desktop_after": null,
+        "mobile_after": null
+      }
+    ],
+    "flows": [
+      {
+        "id": "signup",
+        "dominant_source_flow": {
+          "competitor_id": "primary-crm",
+          "flow_id": "signup"
+        },
+        "mapped_source_steps": [
+          "step-1"
+        ],
+        "step_by_step_transfer": "Describe observed-to-target flow, all applicable states and mandatory divergences",
+        "test_status": "NOT_TESTED",
+        "test_evidence": null,
+        "steps": [
+          {
+            "source_step": "step-1",
+            "feedback_and_errors": "Describe real target form, recovery and return states",
+            "desktop_capture": null,
+            "mobile_capture": null
+          }
+        ]
+      }
+    ],
+    "primary_journey": {
+      "status": "NOT_TESTED",
+      "evidence": null
+    }
+  },
+  "review": {
+    "reviewer": "NOT_REVIEWED",
+    "verdict": "NOT_REVIEWED",
+    "side_by_side_analysis": "Replace with real reference/old/new desktop and phone observations, including what was cut",
+    "critical_findings": [
+      {
+        "severity": "P1",
+        "description": "Example only: cannot ship after inspecting just a competitor hero",
+        "resolved": false
+      }
+    ]
+  }
+}

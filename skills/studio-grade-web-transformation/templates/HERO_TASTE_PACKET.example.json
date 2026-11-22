@@ -33,6 +33,13 @@
     }
   ],
   "chosen_concept": "product-first",
+  "visual_transfer": {
+    "source_url": "https://example.org/REPLACE-WITH-ACTUALLY-INSPECTED-REFERENCE",
+    "source_composition": "Describe the observed reference hierarchy, focal object, whitespace and proportions",
+    "target_composition": "Describe the real layout, product proof, CTA and information structure implemented",
+    "originality_boundaries": "Explain the brand assets, copy, code and trade dress that were NOT copied",
+    "side_by_side_observation": "Record a real screenshot comparison and what materially changed in the rendered page"
+  },
   "render": {
     "before": {
       "desktop": null,

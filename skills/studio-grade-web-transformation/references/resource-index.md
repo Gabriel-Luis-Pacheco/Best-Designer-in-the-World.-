@@ -6,10 +6,14 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/mandatory-competitor-reconstruction.md` | Obrigatório para LPs e jornadas grandes: rolagem integral, copy completa, animações, fotos, vídeos, mapa de funil/onboarding, reconstrução fiel e gate de evidência |
 | `references/benchmark-pattern-transfer-and-validation.md` | Reuse evidence-backed patterns from equivalent competitor journeys; distinguish observed adoption vs proven conversion; transfer gate |
 | `references/competency-stage-production.md` | Etapas executaveis por componente, handoffs, benchmark real, criterio humano e validacao de evidencias; atlas de 47 receitas |
 | `references/component-first-design-orchestration.md` | Pesquisa real + especialistas por componente + impacto em vendas, copy, UX e produto |
 | `references/human-editorial-and-anti-slop-gates.md` | Critica editorial de copy humana e regras de REWRITE/REWORK com evidencias |
+| `references/landing-reference-to-pixels.md` | Resgate de LPs genéricas: referências humanas por cena, composição implementada, before/after real, copy e mobile |
+| `references/art-direction-and-hero-taste.md` | Hierarquia da hero, corte de ruído, direção de arte e gate contra envio prematuro |
+| `references/taste-research-sourcebook.md` | Fonte de princípios visuais; leitura seletiva com foco em aplicação observável |
 | `references/section-parity-and-competitive-rebuild.md` | Redesign competitivo por seção, matriz KEEP/REWORK/ADD/REMOVE, capturas comparáveis e CTA→primeiro valor |
 | `references/visual-craft-acceptance.md` | Revisão da página inteira: direção artística, sequência de cenas, comparação pareada, mobile e evidência real |
 | `references/human-comprehension-first-value.md` | Compreensão de público real, confiança, demonstração, CTA e primeiro valor; sem fingir teste com usuário |
