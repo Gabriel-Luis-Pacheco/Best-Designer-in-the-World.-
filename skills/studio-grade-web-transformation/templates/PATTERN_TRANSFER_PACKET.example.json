@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "component_id": "onboarding",
+  "mode": "REDESIGN",
+  "audience_job": "EXAMPLE ONLY: identify what a new user must do to achieve first value",
+  "research_packet": "evidence/onboarding_research.json",
+  "candidate_patterns": [
+    {
+      "source_url": "https://example.org/placeholder",
+      "source_step": "NOT OBSERVED: first decision after account creation",
+      "mechanism": "EXAMPLE ONLY: a progressive first-use path, not a finding",
+      "evidence_level": "OBSERVED_ONLY",
+      "decision": "ADAPT",
+      "fit_rationale": "EXAMPLE ONLY: specify the user job, audience and actual product context",
+      "original_implementation": "EXAMPLE ONLY: implement original brand UI and preserve user control",
+      "known_risk": "EXAMPLE ONLY: copying an inaccessible flow creates untested friction",
+      "test_plan": "EXAMPLE ONLY: record a true first-value event and task completion without inventing metrics"
+    }
+  ],
+  "baseline_choice": "EXAMPLE ONLY: name the familiar baseline and evidence for why it fits.",
+  "own_validation_plan": "EXAMPLE ONLY: instrument activation quality, onboarding completion and recovery, with privacy safeguards.",
+  "benchmark_access_limitation": "EXAMPLE ONLY: report real denied or inaccessible flows, never invent screenshots.",
+  "_notes": "Intentionally incomplete and nonpassing. The URL is not a real observed competitor, research packet does not exist, and no results are validated."
+}
