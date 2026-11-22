@@ -1,5 +1,13 @@
 # Design OS Prime v14.0.0
 
+## Art direction / hero taste — revisão de 22/11/2026
+
+**Novo contrato:** um site tecnicamente correto pode ser reprovado por composição ruim. Para landing pages importantes ou hero visualmente fraca, a [direção de arte e crítica da hero](skills/studio-grade-web-transformation/references/art-direction-and-hero-taste.md) passa a exigir hierarquia, corte de redundâncias, prova visual fiel, duas direções realmente distintas em grandes redesigns e revisão do resultado renderizado (desktop/mobile). O agente deve estudar **até 10 concorrentes/substitutos realmente observados**, mais 2–4 referências de excelência quando fizer sentido; em cada caso transferir mecanismos, **não copiar a identidade/copy/assets de uma hero rival**. A referência de artigos, padrões de UX, fontes oficiais e incertezas está no [sourcebook de taste](skills/studio-grade-web-transformation/references/taste-research-sourcebook.md).
+
+**Stop-ship:** uma hero ainda poluída recebe `ART_DIRECTION_BLOCKED` quando há falhas P0/P1 identificadas. O [gate de evidências](skills/studio-grade-web-transformation/scripts/hero_taste_gate.py) exige artefatos e registra bloqueios explícitos. **Ele não vê os pixels, não mede beleza ou conversão, nem substitui um crítico competente.** Use o [packet de exemplo](skills/studio-grade-web-transformation/templates/HERO_TASTE_PACKET.example.json) e o [caso de regressão](tests/fixtures/hero_art_direction_regression.md); testes em `tests/test_hero_taste_gate.py`.
+
+**Taste de terceiros:** a Design OS já tinha cópias de Taste, Impeccable, UI/UX Pro Max, Anthropic e outros no inventário de 50 skills/12 repositórios. Adicionamos os **7 arquivos SKILL.md originais das variantes clássicas** de [taste-skill-classics](skills/studio-grade-web-transformation/vendor/taste-skill-classics/), com licença MIT, README e [proveniência SHA](skills/studio-grade-web-transformation/vendor/taste-skill-classics/PROVENANCE.json). É um conjunto de **arquivos das sete skills**, não uma alegação de clone integral do novo repositório upstream, execução de scripts ou instalação automática. Regras extremas de estilos clássicos não se tornam obrigatórias.
+
 ## Revisao tecnica de 22/11/2026 — coerencia e execucao
 
 A [auditoria do Design OS](docs/AUDIT_DESIGN_OS_2026-11-22.md) encontrou uma falha operacional: o `brain/pipeline.py` nao ligava seus planos aos roteadores por componente. A revisao integra um `component_orchestration` limitado (hero, onboarding, checkout, etc.), registra explicitamente ambiguidades de inventario e reforca a aplicacao real do guia de benchmark nas avaliacoes. Nada aqui implica execucao automatica de agentes, capturas de concorrentes ou validacao visual humana.
