@@ -2,6 +2,8 @@
 
 **Principle (REDESIGN/REBUILD, high-stakes conversion or activation):** When the team lacks its own reliable tests, a well-understood pattern from comparable products, industry usability research, or published experiments is a better *starting hypothesis* than an arbitrary new flow. **Familiarity is a risk-reduction prior, not proof of higher conversion.** Derive original visual expression, copy and brand treatment; do not blindly clone another company's interface, and never sacrifice trust, accessibility or safety to mimic a funnel.
 
+For substantial new landing pages or full product journeys, FIRST follow `mandatory-competitor-reconstruction.md` for exhaustive scroll/copy/media/flow inspection and per-scene high-fidelity transfer. This guide then provides evidence-level calibration and component-specific research. Neither replaces running actual browser and flow tests.
+
 Use this protocol in addition to `component-first-design-orchestration.md` and `competency-stage-production.md`. The selected components, flow tasks and reference targets are declared in `research/component_execution_atlas.json -> profiles[].benchmark_transfer`. The read-only workplan exposes the requirements. `scripts/pattern_transfer_gate.py` checks documented decisions and compares their source URLs with the existing research packet; it does **not** inspect competitor websites, access paywalls, perform experiments or certify outcomes.
 
 ## 1. Evidence levels — do not call everything "validated"
