@@ -15,7 +15,7 @@ For landing/redesign scope, research **three different layers**:
 
 ## Research depth for flagship commercial work
 
-For a new flagship landing or major hero redesign, **aim** for around ten relevant inspected references when feasible: ~6 real direct competitors/substitutes, 2 adjacent job analogues and 2 cross-category benchmarks. These are different groups, not ten direct competitors. A visual pattern library is **not** a controlled usability evaluation; captures do not prove conversion. Record real URLs, viewport, date, actual screenshots and observed mechanisms. Never pad with invented screenshots; reuse relevant recent research. For PATCH, no mandatory search. See references/component-first-design-orchestration.md and references/human-editorial-and-anti-slop-gates.md.
+For a new flagship landing or major hero redesign, **aim** to inspect up to ten genuinely relevant direct competitors/substitutes when they exist and browsing permits, plus 2–4 adjacent-job or cross-category excellence references. Label these as distinct source types. Do not manufacture ten competitors or replace meaningful analysis with arbitrary counts. A visual pattern library is **not** a controlled usability evaluation; captures do not prove conversion. Record real URLs, viewport, date, actual screenshots and observed mechanisms. Never pad with invented screenshots; reuse relevant recent research. For PATCH, no mandatory search. See references/component-first-design-orchestration.md and references/human-editorial-and-anti-slop-gates.md.
 
 ## Reference toolkit: actual access, no pretend integrations
 
