@@ -1,0 +1,1857 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-21",
+  "status": "PROTOCOL_NOT_EXECUTION",
+  "description": "Every component has tailored phase sequence, reviewer questions and hard red flags; phase outputs are not claims of skill invocation or quality.",
+  "phase_definitions": {
+    "truth": {
+      "title": "Verdade do produto e protecao",
+      "goal": "Preservar capacidades reais, identidade, precos, contratos e autorizacoes.",
+      "inputs": [
+        "brief original",
+        "fontes do produto/codigo/estado atual"
+      ],
+      "output": "Mapa de fatos VERIFIED/UNKNOWN e invariantes de comportamento",
+      "gate": "Nao inventar funcionalidade, numero, direito, garantia ou alterar backend fora do escopo",
+      "role_lanes": [],
+      "guides": [
+        "product-truth.md"
+      ]
+    },
+    "market": {
+      "title": "Concorrentes, publico e jobs",
+      "goal": "Descobrir alternativas reais e linguagem do usuario, com observacao documentada.",
+      "inputs": [
+        "segmento e problema concreto",
+        "URLs de alternativas e contexto do trafego"
+      ],
+      "output": "Ledger com fontes/prints equivalentes, mecanismos positivos/negativos e lacunas",
+      "gate": "URLs sem visita/captura nao sao observacoes; referencia bonita nao prova conversao",
+      "role_lanes": [
+        "customer-research",
+        "competitive-research",
+        "browser-qa"
+      ],
+      "guides": [
+        "reference-led-visual-intelligence.md"
+      ]
+    },
+    "position": {
+      "title": "Posicionamento, oferta e persuasao",
+      "goal": "Selecionar promessa sustentavel, diferenca, jornada e decisao comercial legitima.",
+      "inputs": [
+        "alternativas observadas",
+        "mecanismo/prova do produto",
+        "objecoes reais"
+      ],
+      "output": "Proposta e objecoes verificaveis, priorizacao da mensagem e CTA honesto",
+      "gate": "Nao otimizar clique com falsas garantias ou promessa sem mecanismo",
+      "role_lanes": [
+        "positioning",
+        "offer-design",
+        "conversion",
+        "behavioral-psychology"
+      ],
+      "guides": [
+        "positioning-and-copywriting.md"
+      ]
+    },
+    "editorial": {
+      "title": "Copywriting humano com veto",
+      "goal": "Produzir texto na voz da audiencia, sob prova e red-team editorial.",
+      "inputs": [
+        "voz real ou hipotese identificada",
+        "claims autorizados",
+        "decisao/CTA real"
+      ],
+      "output": "Variantes materialmente distintas, versao final e log de cortes/rejeicoes",
+      "gate": "Reescrever do zero quando for genericamente transferivel, artificial, prolixo ou nao verdadeiro",
+      "role_lanes": [
+        "marketing-copy",
+        "behavioral-psychology"
+      ],
+      "guides": [
+        "human-editorial-and-anti-slop-gates.md",
+        "copy-lab-and-ethical-psychology.md"
+      ]
+    },
+    "proof": {
+      "title": "Demonstracao e confianca",
+      "goal": "Converter proposicao em evidencia real, verificavel e mostravel.",
+      "inputs": [
+        "mecanismo funcional",
+        "dados autorizados",
+        "direitos de imagem/brand"
+      ],
+      "output": "Cena demonstravel, fonte de cada claim e limitacoes honestas",
+      "gate": "Nao fabricar dashboard, clientes, estudos, logs, depoimentos ou captura de recurso inexistente",
+      "role_lanes": [
+        "positioning",
+        "conversion",
+        "customer-research"
+      ],
+      "guides": [
+        "evidence-to-scene-protocol.md"
+      ]
+    },
+    "art": {
+      "title": "Direcao de arte autoral",
+      "goal": "Criar composicao deliberada e identidade de marca sem copiar a expressao dos rivais.",
+      "inputs": [
+        "moodboard e capturas estudadas",
+        "canon de marca",
+        "jobs de cada cena"
+      ],
+      "output": "Tese visual + tratamentos tipograficos/composicao/midia + alternativas rejeitadas",
+      "gate": "Nao colar 6 cards uniformes, gradientes ou 3D sem funcao; nao copiar identidade visual rival",
+      "role_lanes": [
+        "art-direction",
+        "pattern-research",
+        "visual-refinement",
+        "anti-slop-craft"
+      ],
+      "guides": [
+        "art-direction-and-optical-craft.md",
+        "visual-craft-acceptance.md"
+      ]
+    },
+    "ux": {
+      "title": "Comportamento e fluxo de tarefa",
+      "goal": "Fazer usuario completar o job com orientacao, feedback e estados relevantes.",
+      "inputs": [
+        "tarefa prioritaria",
+        "estrutura de telas",
+        "fluxos e estados"
+      ],
+      "output": "Mapa de interacao/telas/estados vazio, erro, sucesso, mobile, teclado",
+      "gate": "Nao sacrificar uso real para tornar screenshot bonita",
+      "role_lanes": [
+        "pattern-research",
+        "interface-audit",
+        "growth-onboarding"
+      ],
+      "guides": [
+        "interaction-and-content.md"
+      ]
+    },
+    "commerce": {
+      "title": "Economia, preco e fluxo financeiro",
+      "goal": "Deixar precos, renovacao, cancelamento e compromisso precisos e transparentes.",
+      "inputs": [
+        "planos/precos reais",
+        "fluxo de checkout ou pagamento",
+        "termos e validacoes"
+      ],
+      "output": "Decisoes comerciais, detalhamento de preco, falhas de pagamento e acao verdadeira",
+      "gate": "Nao ocultar custo, ancorar desconto falso nem alterar pagamento real para imitar concorrente",
+      "role_lanes": [
+        "pricing",
+        "offer-design",
+        "conversion",
+        "signup-flow"
+      ],
+      "guides": [
+        "system-user-journeys-and-transactions.md"
+      ]
+    },
+    "activation": {
+      "title": "Primeiro valor, engajamento e retencao etica",
+      "goal": "Remover friccao antes da primeira conquista, sem dark patterns.",
+      "inputs": [
+        "tarefa valiosa",
+        "dependencias e limite",
+        "retorno voluntario"
+      ],
+      "output": "Caminho testavel ate primeiro valor e falhas recuperaveis",
+      "gate": "Nao usar streak/fake progresso nem chamar clique de ativacao",
+      "role_lanes": [
+        "growth-onboarding",
+        "growth-loops",
+        "behavioral-psychology"
+      ],
+      "guides": [
+        "activation-retention-and-ethical-engagement.md"
+      ]
+    },
+    "data": {
+      "title": "Decisoes, dados e operacao",
+      "goal": "Assegurar definicoes corretas, produtividade, confiabilidade e reversibilidade.",
+      "inputs": [
+        "fonte dos numeros",
+        "decisoes operacionais",
+        "roles e permissoes"
+      ],
+      "output": "Definicoes de dados, vazios, recuperacao, densidade e estados sensiveis",
+      "gate": "Nao inventar KPIs, truncar numero critico ou modificar permissao/fiscal por estetica",
+      "role_lanes": [
+        "pattern-research",
+        "interface-audit",
+        "react-architecture"
+      ],
+      "guides": [
+        "advanced-product-ux-operations.md"
+      ]
+    },
+    "search": {
+      "title": "Encontro, leitura e buscabilidade",
+      "goal": "Dar ao leitor resposta autentica e estrutura descoberta/indexacao adequada.",
+      "inputs": [
+        "intencao de busca",
+        "conteudo original",
+        "fontes e entidade"
+      ],
+      "output": "Arquitetura semantica, pagina legivel, metadados verificaveis e estrategia SEO/GEO",
+      "gate": "Nao inventar expertise, links, resultados SERP ou prometer AI citations",
+      "role_lanes": [
+        "seo-specialist",
+        "ai-discovery",
+        "search-information-architecture",
+        "content-strategy"
+      ],
+      "guides": [
+        "seo-discovery-and-search-experience.md"
+      ]
+    },
+    "engineering": {
+      "title": "Implementacao e performance",
+      "goal": "Construir componente/fluxo real com stack e estados corretos.",
+      "inputs": [
+        "arquitetura atual",
+        "ferramentas realmente instaladas",
+        "interacoes e assets autorizados"
+      ],
+      "output": "Codigo concreto com performance, fallback e regressoes evitadas",
+      "gate": "Build passa != qualidade do design; arquivos vendorizados nao sao plugins invocados",
+      "role_lanes": [
+        "react-architecture",
+        "react-performance",
+        "web-performance",
+        "motion-implementation",
+        "r3f-implementation"
+      ],
+      "guides": [
+        "implementation-quality.md"
+      ]
+    },
+    "accessibility": {
+      "title": "Acessibilidade, internacionalizacao e controle",
+      "goal": "Garantir navegacao robusta em touch, teclado, zoom, textos e motion reduzido.",
+      "inputs": [
+        "DOM/semantica real",
+        "estados e interacoes",
+        "idiomas relevantes"
+      ],
+      "output": "Testes documentados de foco, labels, contraste, reflow, toque, reduced motion e idioma",
+      "gate": "Nao declarar WCAG compliance com checklist automatico nem dar credito a screenshot",
+      "role_lanes": [
+        "accessibility",
+        "interface-audit",
+        "browser-qa"
+      ],
+      "guides": [
+        "implementation-quality.md"
+      ]
+    },
+    "render": {
+      "title": "Render, critica comparativa e reparo",
+      "goal": "Inspecionar pixels e jornada completos, reparar defeito causal, repetir ate aceitacao humana possivel.",
+      "inputs": [
+        "prints reais antes/depois",
+        "refs equivalentes",
+        "fluxo e roteiro de teste"
+      ],
+      "output": "Capturas desktop/mobile, problemas classificados, fix antes/depois e status do CTA→valor",
+      "gate": "Nao aprovar com self-score, print sem inspeccao ou 1 hero bonita com restante fraco",
+      "role_lanes": [
+        "visual-refinement",
+        "browser-qa",
+        "interface-audit"
+      ],
+      "guides": [
+        "render-critique-repair-contract.md"
+      ]
+    },
+    "measurement": {
+      "title": "Hipoteses de impacto e aprendizado",
+      "goal": "Distinguir metricas reais, proxies e hipotese/experimento futuro.",
+      "inputs": [
+        "eventos reais",
+        "objetivo de negocio",
+        "dados disponiveis"
+      ],
+      "output": "Instrumentacao testada quando autorizada, hipoteses e guardrails sem causalidade ficticia",
+      "gate": "Nao declarar lift de venda, retencao ou superioridade sem dados/experimento",
+      "role_lanes": [
+        "conversion-measurement",
+        "growth-analytics",
+        "experimentation"
+      ],
+      "guides": [
+        "funnel-measurement-experiments-and-release.md"
+      ]
+    }
+  },
+  "profiles": [
+    {
+      "id": "hero",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Visitante reconhece o produto e seu ganho antes de rolar?",
+        "A headline e claramente diferente da dos concorrentes?",
+        "A prova e o CTA mostram a acao real?"
+      ],
+      "red_flags": [
+        "Slogan sem categoria ou prova",
+        "Visual decorativo sem demonstracao",
+        "CTA nao corresponde ao destino"
+      ],
+      "observable_user_outcome": "hero comprehension and CTA-to-first-value path",
+      "comparison_job": "Headline, prova visivel, CTA real, composicao/midia, mobile, 10 referencias no redesign amplo.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "navigation",
+      "execution_phases": [
+        "truth",
+        "editorial",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Qual e o destino mais importante e onde o publico o busca?",
+        "Menus funcionam em 320px, foco e toque?"
+      ],
+      "red_flags": [
+        "Links vagos",
+        "Menu com foco preso ou escondido",
+        "Prioridade do CTA perdida"
+      ],
+      "observable_user_outcome": "findability, successful navigation to target",
+      "comparison_job": "IA, rotulos de destino, foco, menu mobile, estados login, sticky e contraste.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "footer",
+      "execution_phases": [
+        "truth",
+        "editorial",
+        "ux",
+        "search",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O usuario encontra contato, preco, politicas e opcoes necessarias?",
+        "Os links realmente levam ao destino prometido?"
+      ],
+      "red_flags": [
+        "Logos/certificacoes falsas",
+        "Links mortos e privacidade incompleta"
+      ],
+      "observable_user_outcome": "completion of help/legal navigation tasks",
+      "comparison_job": "Contato real, acessibilidade, links, politica, alternativas e lingua.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "problem-framing",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Qual dor aparece literalmente na linguagem do publico?",
+        "Que custo da inacao e real, nao manipulativo?"
+      ],
+      "red_flags": [
+        "Drama inventado",
+        "Mesmo slogan duplicado"
+      ],
+      "observable_user_outcome": "self-identification with problem",
+      "comparison_job": "Palavras reais do publico, situacao, custo de nao agir, segmento e confianca.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "product-demo",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O que a pessoa pode verificar antes de acreditar?",
+        "A demonstracao e real ou declaradamente um conceito?"
+      ],
+      "red_flags": [
+        "Mockup falso",
+        "Video sem legenda ou alternativa",
+        "Demo que nao corresponde ao produto"
+      ],
+      "observable_user_outcome": "successful comprehension of actual product mechanism",
+      "comparison_job": "Fluxo real, estados, performance, criacao de expectativa, mobile, acessibilidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "feature-section",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Qual tarefa e resolvida por cada feature?",
+        "Cards repetem vantagens sem cena real?"
+      ],
+      "red_flags": [
+        "Grade padrao sem hierarquia",
+        "Beneficios sem mecanismo"
+      ],
+      "observable_user_outcome": "feature comprehension",
+      "comparison_job": "Beneficio distinto por secao, prova, media, contexto e densidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "benefit-story",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Que mudanca concreta o produto provoca e quando?",
+        "Qual prova no contexto reforca a afirmacao?"
+      ],
+      "red_flags": [
+        "Lista de adjetivos",
+        "Texto que cabe em cinco concorrentes"
+      ],
+      "observable_user_outcome": "value recall and job understanding",
+      "comparison_job": "Beneficios demonstraveis versus recursos, momento do usuario, ordem dos argumentos.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "trust-proof",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Qual a fonte e autorizacao de cada prova?",
+        "A prova responde uma objecao real naquele ponto?"
+      ],
+      "red_flags": [
+        "Depoimento inventado",
+        "Logo sem autorizacao",
+        "Numero sem fonte"
+      ],
+      "observable_user_outcome": "trust and qualification",
+      "comparison_job": "Identidade/fonte de testemunhos, periodo, relacao com resultado, marca autorizada.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "case-study",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Cenario, intervencao, periodo e resultado tem fonte?",
+        "Quais limites e condicoes afetam a atribuicao?"
+      ],
+      "red_flags": [
+        "Estudo sem cliente real",
+        "Causalidade ficticia"
+      ],
+      "observable_user_outcome": "case understanding and relevance",
+      "comparison_job": "Contexto inicial, dados, periodo, processo, autorizacoes e resultado.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "pricing",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "commerce",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Quanto o cliente paga ao todo, por quanto tempo e sob que renovacao?",
+        "Quais diferencas entre planos sao concretas?"
+      ],
+      "red_flags": [
+        "Valor anterior inventado",
+        "Cancelamento oculto",
+        "Comparacao desleal de plano"
+      ],
+      "observable_user_outcome": "plan-choice correctness and price comprehension",
+      "comparison_job": "Comparacao real, unidade de cobranca, renovacao, cancelamento, trials e fluxos.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "paywall",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "commerce",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "O usuario entendeu por que e quando pagar?",
+        "Qual compromisso e cancelamento existem?"
+      ],
+      "red_flags": [
+        "Ocultar downgrade/cancelamento",
+        "Ganhos ficticios de premium"
+      ],
+      "observable_user_outcome": "qualified upgrade and post-purchase satisfaction",
+      "comparison_job": "Momento do valor, limites gratuitos, plano, cancelamento e alternativas.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "comparison",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "search",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Os criterios sao iguais e com data/fonte?",
+        "O que realmente nos diferencia sem denegrir rivais?"
+      ],
+      "red_flags": [
+        "Ranking inventado",
+        "Dados desatualizados sem aviso"
+      ],
+      "observable_user_outcome": "informed alternative choice",
+      "comparison_job": "Metodo, data e fonte de claims, criterios simetricos, variacao real.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "faq",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "search",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "As perguntas sao feitas pelo publico, nao inventadas para SEO?",
+        "As respostas trazem fatos decisivos antes do clique?"
+      ],
+      "red_flags": [
+        "FAQ decorativa",
+        "Informacoes essenciais escondidas"
+      ],
+      "observable_user_outcome": "resolved objections",
+      "comparison_job": "Origem da pergunta, resposta verificavel, teclado, indexabilidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "closing-cta",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "A decisao esta clara depois da prova e termos?",
+        "O CTA cumpre o resultado esperado?"
+      ],
+      "red_flags": [
+        "Repetir a hero palavra por palavra",
+        "CTA leva a outra etapa inesperada"
+      ],
+      "observable_user_outcome": "qualified next-step completion",
+      "comparison_job": "Estado de conviccao ao final, promessa, friccao, action path.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "lead-form",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "commerce",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Qual dado e imprescindivel para contato?",
+        "O sucesso/erro da solicitacao e observado?"
+      ],
+      "red_flags": [
+        "Campos desnecessarios",
+        "Consentimento involuntario",
+        "Sucesso sem envio"
+      ],
+      "observable_user_outcome": "valid completed requests",
+      "comparison_job": "Quantidade de campos, intencao, privacidade, feedback, entrega e atribuição.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "signup",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "activation",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "E possivel entender o compromisso e criar conta sem obstaculo artificial?",
+        "Erro e recuperacao preservam trabalho?"
+      ],
+      "red_flags": [
+        "Login alterado por UI",
+        "Consentimento forcado"
+      ],
+      "observable_user_outcome": "valid account activation",
+      "comparison_job": "Senha/social, consentimento, recuperacao, estados, dominio da acao.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "authentication",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Erro evita vazamento e permite recuperar acesso?",
+        "Estados MFA/sessao/timeout funcionam?"
+      ],
+      "red_flags": [
+        "Vulnerabilidade introduzida por visual",
+        "Mensagem de senha enganosa"
+      ],
+      "observable_user_outcome": "successful legitimate sign-in",
+      "comparison_job": "Erro sem vazamento, reset real, teclado, timeout e tratamento de sessao.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "checkout",
+      "execution_phases": [
+        "truth",
+        "editorial",
+        "proof",
+        "ux",
+        "commerce",
+        "data",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Total e obrigacao aparecem antes de confirmar?",
+        "Falhas e meios de pagamento sao reais e recuperaveis?"
+      ],
+      "red_flags": [
+        "Compra falsa",
+        "Preco final oculto",
+        "Perda de dados ao falhar"
+      ],
+      "observable_user_outcome": "completed legitimate payments",
+      "comparison_job": "Checkout convidado quando suportado, total, renovacao, falha, required/optional, confirmacao.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "activation",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Qual o primeiro momento de valor e quantos passos desnecessarios o antecedem?",
+        "E possivel sair, pular e retomar de forma honesta?"
+      ],
+      "red_flags": [
+        "Tour vazio e longo",
+        "Progresso falso",
+        "Notificacoes forcadas"
+      ],
+      "observable_user_outcome": "first-value completion",
+      "comparison_job": "Passos necessarios, tempo ao primeiro valor, recovery, skip voluntario, feedback.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "activation",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "activation",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Que evento representa valor entregue, nao clique?",
+        "Como o erro e tratado antes da primeira conquista?"
+      ],
+      "red_flags": [
+        "Confundir cadastro com sucesso",
+        "Falsa retencao"
+      ],
+      "observable_user_outcome": "first meaningful task success",
+      "comparison_job": "Evento e resultado reais, dependencia entre passos, empty/error, contato com produto.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "dashboard",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Que decisao precisa ser tomada em segundos?",
+        "Os KPIs tem definicao e fonte?"
+      ],
+      "red_flags": [
+        "Metricas sem fonte",
+        "Poluicao de KPI",
+        "UI de marketing em ferramenta"
+      ],
+      "observable_user_outcome": "decision time and correctness",
+      "comparison_job": "Quais decisoes, hierarquia de indicadores, estados, filtros, confiabilidade, densidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "data-table",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Pode filtrar, ordenar, exportar e identificar registros corretamente?",
+        "Numeros e colunas essenciais continuam acessiveis?"
+      ],
+      "red_flags": [
+        "Truncar imposto/custo",
+        "Ordenacao incorreta",
+        "Teclado falha"
+      ],
+      "observable_user_outcome": "record-task accuracy",
+      "comparison_job": "Sort, filtro, selecao, virtualizacao, numeros, formatacao, export, mobile e foco.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "charts",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Unidades, eixos e escalas sao honestos?",
+        "Existe equivalente em tabela/descricao acessivel?"
+      ],
+      "red_flags": [
+        "Eixo enganoso",
+        "Numero ficticio",
+        "Cor unica para distincao"
+      ],
+      "observable_user_outcome": "accurate trend comprehension",
+      "comparison_job": "Escala, unidades, cores, legenda, ausencia de dados, texto alternativo e proveniencia.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "search-filter",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O resultado e relevante e explica ausencia de matches?",
+        "Aplicar/limpar filtros e previsivel?"
+      ],
+      "red_flags": [
+        "Filtro persistente oculto",
+        "Campo sem feedback"
+      ],
+      "observable_user_outcome": "successful information retrieval",
+      "comparison_job": "Empty, sorting, multi-select, limpar filtros, teclado e relevancia.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "empty-state",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "E vazio novo, sem filtro, sem permissao ou erro?",
+        "Qual proximo passo real ajuda?"
+      ],
+      "red_flags": [
+        "Ilustracao encobre problema",
+        "CTA sem destino"
+      ],
+      "observable_user_outcome": "recovery from empty state",
+      "comparison_job": "Vazio novo vs sem permissao vs sem match vs erro, acao proxima.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "error-state",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O que houve, o que foi salvo e como recuperar?",
+        "Existe erro acessivel/visivel sem culpar o usuario?"
+      ],
+      "red_flags": [
+        "Garantia falsa de dados salvos",
+        "Erro sem retry"
+      ],
+      "observable_user_outcome": "successful recovery",
+      "comparison_job": "Reversibilidade, retry, estado persistido, suporte, privacidade, aria-live.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "settings",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Qual configuracao mudou e quando foi salva?",
+        "Permissao e destructive action estao corretas?"
+      ],
+      "red_flags": [
+        "Salvar silencioso falso",
+        "Consentimento escondido"
+      ],
+      "observable_user_outcome": "settings-task success",
+      "comparison_job": "Consentimento, defaults reversiveis, destructive action, saves, status.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "notifications",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Qual evento requer atencao e por quanto tempo?",
+        "A mensagem permanece acessivel?"
+      ],
+      "red_flags": [
+        "Notificacao critica desaparece",
+        "Aviso so por cor"
+      ],
+      "observable_user_outcome": "notice comprehension",
+      "comparison_job": "Persistencia, timing, aria-live, ruido, severidade e acao.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "mobile-navigation",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Labels estao claros sem hover?",
+        "Navegacao funciona na area segura e com leitor de tela?"
+      ],
+      "red_flags": [
+        "Botoes sem descricao",
+        "Item importante oculto"
+      ],
+      "observable_user_outcome": "navigation completion on mobile",
+      "comparison_job": "Touch targets, safe areas, scroll, foco, back e labels.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "responsive-layout",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "A arquitetura de informacao continua intacta no mobile?",
+        "320px e zoom preservam CTA e prova?"
+      ],
+      "red_flags": [
+        "Empilhar sem repensar",
+        "Conteudo critico some"
+      ],
+      "observable_user_outcome": "task completion across viewports",
+      "comparison_job": "Reflow, 320px/zoom, touch, type, croppings, teclado virtual.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "editorial-content",
+      "execution_phases": [
+        "truth",
+        "editorial",
+        "ux",
+        "search",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O usuario encontra resposta e a fonte sem escavar texto?",
+        "Conteudo original evita IA slop e citacoes falsas?"
+      ],
+      "red_flags": [
+        "Heading vago",
+        "Texto repetido so por SEO"
+      ],
+      "observable_user_outcome": "answer findability and understanding",
+      "comparison_job": "Hierarquia editorial, anchors, metadata, cite fontes, escaneabilidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "seo-geo",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "search",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Pagina responde demanda real e e indexavel?",
+        "Fatos e entidade sao rastreaveis sem prometer citacao em IA?"
+      ],
+      "red_flags": [
+        "E-E-A-T fabricado",
+        "Schema enganoso"
+      ],
+      "observable_user_outcome": "qualified organic discovery (measured only)",
+      "comparison_job": "Intencao, indexacao, entidade, rastreio, fonte, estrutura, medicao.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "campaign-landing",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "A oferta corresponde ao criativo de origem?",
+        "Primeiro clique tem risco e compromisso transparentes?"
+      ],
+      "red_flags": [
+        "Mismatch anuncio/site",
+        "Urgencia falsa"
+      ],
+      "observable_user_outcome": "qualified campaign conversion",
+      "comparison_job": "Message match do anuncio a landing, friccao, atribuicao e prova.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "ecommerce-product",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "commerce",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Variante/preco/entrega sao reais?",
+        "Imagens e informacoes minimizam escolha errada?"
+      ],
+      "red_flags": [
+        "Estoque inventado",
+        "Frete escondido"
+      ],
+      "observable_user_outcome": "correct product choice",
+      "comparison_job": "Imagens reais, variacoes, entrega, preço, total, retorno e disponibilidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "ecommerce-cart",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "commerce",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Quantidade e total refletem as escolhas?",
+        "Remover/retomar itens e possivel?"
+      ],
+      "red_flags": [
+        "Custos ocultos",
+        "Carrinho perde estado"
+      ],
+      "observable_user_outcome": "correct cart review",
+      "comparison_job": "Quantidades, remocao, frete, impostos, empty, total, recuperacao.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "community-referral",
+      "execution_phases": [
+        "truth",
+        "position",
+        "editorial",
+        "ux",
+        "activation",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Compartilhar e opt-in e traz beneficio claro?",
+        "Privacidade e abuso sao tratados?"
+      ],
+      "red_flags": [
+        "Convite spam",
+        "Recompensa ficticia"
+      ],
+      "observable_user_outcome": "voluntary relevant referrals",
+      "comparison_job": "Motivacao voluntaria, recompensa real, privacidade, abuso e legitimidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "brand-identity",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "A forma e reconhecivel sem logo tipografico?",
+        "Brand canon e direito de asset sao preservados?"
+      ],
+      "red_flags": [
+        "Copia de concorrente",
+        "Mascote redesenhado sem pedido"
+      ],
+      "observable_user_outcome": "brand recognition",
+      "comparison_job": "Consistencia, propriedade intelectual, usos reais, formas e escalas.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "motion",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Movimento ajuda orientacao ou storytelling?",
+        "Reducao de movimento e performance funcionam?"
+      ],
+      "red_flags": [
+        "Animacao atrasa conteudo",
+        "Sem fallback"
+      ],
+      "observable_user_outcome": "interaction comprehension and motion tolerance",
+      "comparison_job": "Semantica, trigger, cancelamento, prefers-reduced-motion, FPS e fallback.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "3d-interactive",
+      "execution_phases": [
+        "truth",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "3D ajuda o job ou cria atrito?",
+        "Existe fallback para input e GPU fraca?"
+      ],
+      "red_flags": [
+        "3D decorativo custoso",
+        "Controles sem teclado"
+      ],
+      "observable_user_outcome": "3d task completion and fallback usability",
+      "comparison_job": "Carga, input fallback, mobile, GPU, usabilidade, contraste e direitos.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "design-system",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Tokens/variantes representam semantica e marca aprovada?",
+        "Mudanca regressa componentes existentes?"
+      ],
+      "red_flags": [
+        "Migracao quebra UI",
+        "Variantes inacessiveis"
+      ],
+      "observable_user_outcome": "system consistency and regression stability",
+      "comparison_job": "Tokens semanticos, variantes, dark mode, docs, a11y e migration.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "A pessoa executa o fluxo sem mouse e com zoom?",
+        "As imagens/estados tem descricoes e contraste adequados?"
+      ],
+      "red_flags": [
+        "Certificacao WCAG autoatribuida",
+        "Foco invisivel"
+      ],
+      "observable_user_outcome": "accessible task completion",
+      "comparison_job": "Focus, reflow, zoom, labels, ARIA, contraste, motion, input.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "b2b-landing",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "Comprador e usuario final enxergam prova adequada?",
+        "Seguranca, implantacao e ROI apresentados tem fonte?"
+      ],
+      "red_flags": [
+        "ROI inventado",
+        "Promessa de integracao falsa"
+      ],
+      "observable_user_outcome": "qualified enterprise inquiry",
+      "comparison_job": "Buyer versus user, integracoes, seguranca, demo, custos, onboarding e fonte dos claims.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "b2c-landing",
+      "execution_phases": [
+        "truth",
+        "market",
+        "position",
+        "editorial",
+        "proof",
+        "art",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render",
+        "measurement"
+      ],
+      "review_questions": [
+        "A linguagem reflete publico real sem forcar gíria?",
+        "Demonstra a primeira experiencia e custo honestamente?"
+      ],
+      "red_flags": [
+        "Giria de IA",
+        "Vibe sem produto"
+      ],
+      "observable_user_outcome": "qualified consumer activation",
+      "comparison_job": "Contexto cultural, linguagem natural, mobile, preco, prova e primeiro valor.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "URLs and observed screenshots",
+        "evidence-backed original design",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "app-home",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "activation",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O usuario sabe qual acao principal vem agora?",
+        "Progresso e proxima atividade sao reais?"
+      ],
+      "red_flags": [
+        "App-home vira marketing",
+        "Indicador inventado"
+      ],
+      "observable_user_outcome": "first task completion from home",
+      "comparison_job": "Frequencia de tarefas, personalizacao, empty, continuidade e proximo passo.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "localization",
+      "execution_phases": [
+        "truth",
+        "editorial",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "O texto funciona culturalmente, inclusive legal/monetario?",
+        "RTL/zoom e idioma mantem hierarquia?"
+      ],
+      "red_flags": [
+        "Traducao literal inadequada",
+        "UI quebra com texto maior"
+      ],
+      "observable_user_outcome": "localized task success",
+      "comparison_job": "Registro, plural, formatos, moeda, legal, RTL, SEO lang.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "email-surface",
+      "execution_phases": [
+        "truth",
+        "editorial",
+        "ux",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Assunto corresponde ao conteudo sem enganar?",
+        "Consentimento, unsubscribe e identidade do remetente estao corretos?"
+      ],
+      "red_flags": [
+        "Clickbait falso",
+        "Sem descadastro"
+      ],
+      "observable_user_outcome": "qualified compliant email engagement",
+      "comparison_job": "Entregabilidade, assunto, preheader, texto util, preferências, unsubscribe.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    },
+    {
+      "id": "admin-sensitive",
+      "execution_phases": [
+        "truth",
+        "ux",
+        "data",
+        "engineering",
+        "accessibility",
+        "render"
+      ],
+      "review_questions": [
+        "Permissoes e dados sensiveis continuam exatos?",
+        "Operacoes destrutivas tem confirmacao e recuperacao?"
+      ],
+      "red_flags": [
+        "RBAC quebrado",
+        "Numero fiscal impreciso"
+      ],
+      "observable_user_outcome": "secure operational task success",
+      "comparison_job": "RBAC, auditabilidade, destructive confirm, recuperacao e densidade.",
+      "required_sources": [
+        "verified product truth",
+        "observed equivalents or explicit research limitation"
+      ],
+      "evidence_types": [
+        "true user task",
+        "stateful UI",
+        "desktop/mobile QA"
+      ]
+    }
+  ],
+  "method_sources": [
+    {
+      "url": "https://www.nngroup.com/articles/competitive-usability-evaluations/",
+      "type": "professional-method",
+      "use": "Competitive comparison focuses on equivalent tasks, weaknesses and original design; not winner-by-screenshot"
+    },
+    {
+      "url": "https://www.gov.uk/service-manual/design/writing-for-user-interfaces",
+      "type": "official-guidance",
+      "use": "User language, skimmability, short direct messages, clarity and affordance"
+    },
+    {
+      "url": "https://baymard.com/research-articles/current-state-of-checkout-ux",
+      "type": "sector-research",
+      "use": "Checkout flow usability, friction, payment clarity; ecommerce findings not universal SaaS proof"
+    },
+    {
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "type": "normative-standard",
+      "use": "WCAG 2.2 requirements, not aesthetic certification"
+    },
+    {
+      "url": "https://web.dev/performance",
+      "type": "official-technical-guidance",
+      "use": "LCP, INP, CLS performance analysis, measure not assume"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "index_relative_path": "vendor/external-skill-packs/INDEX.json",
+  "description": "Selective phase and component routing for 50 vendored skills, not runtime invocation. Prefer actual installed skills; use checked snapshots as READ_ONLY_REFERENCE.",
+  "phase_packs": {
+    "truth": [
+      "verification-before-completion"
+    ],
+    "market": [
+      "competitor-profiling",
+      "customer-research"
+    ],
+    "position": [
+      "product-marketing",
+      "offers",
+      "cro",
+      "marketing-psychology"
+    ],
+    "editorial": [
+      "copywriting",
+      "copy-editing",
+      "marketing-psychology",
+      "no-ai-design-slop"
+    ],
+    "proof": [
+      "product-proof-saas",
+      "landing-page",
+      "webapp-testing"
+    ],
+    "art": [
+      "frontend-design",
+      "taste-skill",
+      "landing-page",
+      "brand-guidelines",
+      "theme-factory",
+      "design-first-ui-prompting",
+      "build-awwwards-quality-sites",
+      "no-ai-design-slop"
+    ],
+    "ux": [
+      "ui-ux-pro-max",
+      "web-design-guidelines",
+      "web"
+    ],
+    "commerce": [
+      "pricing",
+      "pricing-page",
+      "paywalls",
+      "signup",
+      "landing-page"
+    ],
+    "activation": [
+      "onboarding",
+      "signup",
+      "paywalls"
+    ],
+    "data": [
+      "ui-ux-pro-max",
+      "composition-patterns",
+      "tailwind-design-system"
+    ],
+    "search": [
+      "seo-audit",
+      "ai-seo",
+      "site-architecture",
+      "schema",
+      "programmatic-seo",
+      "content-strategy"
+    ],
+    "engineering": [
+      "react-best-practices",
+      "composition-patterns",
+      "web-artifacts-builder",
+      "animation-systems"
+    ],
+    "accessibility": [
+      "wcag-audit-patterns",
+      "web-design-guidelines"
+    ],
+    "render": [
+      "impeccable",
+      "audit-ai-design-slop",
+      "no-ai-design-slop",
+      "web-design-reviewer",
+      "webapp-testing",
+      "verification-before-completion",
+      "copy-editing"
+    ],
+    "measurement": [
+      "analytics",
+      "conversion-tracking",
+      "ab-testing"
+    ]
+  },
+  "component_priorities": {
+    "hero": [
+      "landing-page",
+      "copy-editing",
+      "product-proof-saas",
+      "no-ai-design-slop",
+      "build-awwwards-quality-sites"
+    ],
+    "b2b-landing": [
+      "landing-page",
+      "product-proof-saas",
+      "copy-editing",
+      "competitor-profiling"
+    ],
+    "b2c-landing": [
+      "landing-page",
+      "copywriting",
+      "marketing-psychology",
+      "product-proof-saas"
+    ],
+    "campaign-landing": [
+      "landing-page",
+      "offers",
+      "cro",
+      "copywriting"
+    ],
+    "pricing": [
+      "pricing-page",
+      "pricing",
+      "offers",
+      "copy-editing"
+    ],
+    "paywall": [
+      "paywalls",
+      "pricing",
+      "copywriting"
+    ],
+    "checkout": [
+      "pricing",
+      "signup",
+      "wcag-audit-patterns",
+      "webapp-testing"
+    ],
+    "product-demo": [
+      "product-proof-saas",
+      "webapp-testing",
+      "animation-systems"
+    ],
+    "trust-proof": [
+      "product-proof-saas",
+      "copywriting",
+      "verification-before-completion"
+    ],
+    "feature-section": [
+      "product-proof-saas",
+      "landing-page",
+      "copy-editing"
+    ],
+    "closing-cta": [
+      "copy-editing",
+      "cro",
+      "offers"
+    ],
+    "signup": [
+      "signup",
+      "onboarding",
+      "wcag-audit-patterns"
+    ],
+    "onboarding": [
+      "onboarding",
+      "webapp-testing",
+      "copy-editing"
+    ],
+    "activation": [
+      "onboarding",
+      "analytics",
+      "conversion-tracking"
+    ],
+    "dashboard": [
+      "ui-ux-pro-max",
+      "composition-patterns",
+      "web-design-guidelines"
+    ],
+    "data-table": [
+      "ui-ux-pro-max",
+      "web-design-guidelines",
+      "wcag-audit-patterns"
+    ],
+    "charts": [
+      "ui-ux-pro-max",
+      "wcag-audit-patterns",
+      "web-design-reviewer"
+    ],
+    "empty-state": [
+      "copy-editing",
+      "ui-ux-pro-max",
+      "web-design-guidelines"
+    ],
+    "error-state": [
+      "copy-editing",
+      "wcag-audit-patterns",
+      "webapp-testing"
+    ],
+    "design-system": [
+      "theme-factory",
+      "brand-guidelines",
+      "tailwind-design-system"
+    ],
+    "brand-identity": [
+      "brand-guidelines",
+      "frontend-design",
+      "taste-skill"
+    ],
+    "motion": [
+      "animate",
+      "choreograph",
+      "animation-systems",
+      "gsap"
+    ],
+    "3d-interactive": [
+      "webapp-testing",
+      "react-best-practices"
+    ],
+    "seo-geo": [
+      "ai-seo",
+      "schema",
+      "site-architecture",
+      "seo-audit",
+      "programmatic-seo"
+    ],
+    "editorial-content": [
+      "content-strategy",
+      "copy-editing",
+      "seo-audit"
+    ],
+    "localization": [
+      "copy-editing",
+      "wcag-audit-patterns"
+    ],
+    "email-surface": [
+      "copywriting",
+      "copy-editing",
+      "conversion-tracking"
+    ],
+    "ecommerce-product": [
+      "pricing-page",
+      "offers",
+      "cro"
+    ],
+    "ecommerce-cart": [
+      "cro",
+      "webapp-testing",
+      "wcag-audit-patterns"
+    ],
+    "admin-sensitive": [
+      "verification-before-completion",
+      "web-design-guidelines",
+      "wcag-audit-patterns"
+    ]
+  },
+  "usage_rules": [
+    "Choose relevant stage-specific snapshots, not 50 reads.",
+    "A vendored SKILL.md is reference material, never a running tool or agent.",
+    "Respect upstream separate licenses and avoid executing vendor scripts.",
+    "Audit human text and rendered pixels; a passed detector does not certify aesthetic quality."
+  ]
+}

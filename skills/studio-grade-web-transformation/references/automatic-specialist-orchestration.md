@@ -6,7 +6,7 @@
 
 ## Component-level activation, not generic design advice
 
-For material heroes and other important scenes, read references/component-first-design-orchestration.md and find profiles in research/component_expertise_matrix.json (47 types). The optional read-only scripts/component_router.py recommends relevant registered skills and guides per element. It prevents selecting only an art director when hero quality also depends on audience research, offer, marketing copy, CRO, real product proof, mobile, technical correctness and critique. Apply references/human-editorial-and-anti-slop-gates.md; reject unnatural language even when self-scored highly. Candidate selection is not proof of invocation or benchmark.
+For material heroes and other important scenes, read references/component-first-design-orchestration.md and find profiles in research/component_expertise_matrix.json (47 types). The optional read-only scripts/component_router.py recommends relevant registered skills and guides per element. It prevents selecting only an art director when hero quality also depends on audience research, offer, marketing copy, CRO, real product proof, mobile, technical correctness and critique. Apply references/human-editorial-and-anti-slop-gates.md; reject unnatural language even when self-scored highly. Candidate selection is not proof of invocation or benchmark. For actual stage handoffs, read `references/competency-stage-production.md`, generate `scripts/component_workplan.py` and use `scripts/component_delivery_gate.py` for the final evidence packet. The atlas `research/component_execution_atlas.json` supplies 15 competence phases and tailored review questions for all 47 profiles.
 
 ## Operational routine — do this proactively, once per material task
 
