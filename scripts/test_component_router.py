@@ -45,8 +45,8 @@ class ComponentRouterTests(unittest.TestCase):
     def test_pricing_and_checkout_have_different_jobs(self):
         p = self.route(component_ids=["pricing", "checkout"], surface="marketing", mode="REBUILD")
         by = {x["id"]: x for x in p["components"]}
-        self.assertIn("preco", mod._normalize(by["pricing"]["research_focus"]))
-        self.assertIn("pagamento", mod._normalize(by["checkout"]["user_job"]))
+        self.assertIn("cobranca", mod._normalize(by["pricing"]["research_focus"]))
+        self.assertIn("transacao", mod._normalize(by["checkout"]["user_job"]))
         self.assertNotEqual(by["pricing"]["editorial_or_ux_gate"], by["checkout"]["editorial_or_ux_gate"])
 
     def test_internals_do_not_force_marketing_funnel(self):
