@@ -1,7 +1,9 @@
 """Tests for structural art-direction gate. Run: python -m unittest tests.test_hero_taste_gate"""
 import copy
 import importlib.util
+import struct
 import tempfile
+import zlib
 import unittest
 from pathlib import Path
 
@@ -62,8 +64,15 @@ class GateTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
         (self.root / "evidence").mkdir()
-        # Small validly recognizable PNG files; gate deliberately cannot infer visual quality.
-        png = bytes.fromhex("89504e470d0a1a0a") + b"x" * 100
+        # Valid 1x1 RGBA PNG with real IHDR/IDAT/IEND chunks and CRC.
+        def chunk(kind, body):
+            data = kind + body
+            return struct.pack(">I", len(body)) + data + struct.pack(">I", zlib.crc32(data))
+        ihdr = struct.pack(">2I5B", 1, 1, 8, 6, 0, 0, 0)
+        png = (bytes.fromhex("89504e470d0a1a0a")
+               + chunk(b"IHDR", ihdr)
+               + chunk(b"IDAT", zlib.compress(b"\\x00\\x00\\x00\\x00\\xff"))
+               + chunk(b"IEND", b""))
         for name in ("desktop.png", "mobile.png"):
             (self.root / "evidence" / name).write_bytes(png)
         (self.root / "evidence/journey.txt").write_text("Manually executed actual real CTA flow")
