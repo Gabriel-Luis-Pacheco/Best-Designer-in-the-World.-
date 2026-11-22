@@ -28,6 +28,17 @@ def scene(name, order, kind="MARKETING_SECTION"):
         headline_strategy=COPY, body_copy_strategy=BODY,
         cta_and_proof=CTA, composition=COMPOSITION,
         media_and_motion=MEDIA, mobile_behavior=MOBILE,
+        copy_inventory_complete=True,
+        text_items=[
+            {"id":"headline", "role":"HEADLINE",
+             "observed_purpose":"Describe the category and specific CRM task for decision makers",
+             "strategy":"Concrete category-first headline with one plausible outcome"},
+            {"id":"cta", "role":"CTA",
+             "observed_purpose":"Tell the buyer the exact action available before a demo",
+             "strategy":"One primary trial verb with a clearly subordinate demo option"}
+        ],
+        media_items=[{"kind":"SCREENSHOT",
+                      "observed_role":"Authentic product surface demonstrates the practical lead-creation task"}],
         desktop_capture=f"shots/primary-{name}-desktop.png",
         mobile_capture=f"shots/primary-{name}-mobile.png"
     )
@@ -105,6 +116,8 @@ class ContractTests(unittest.TestCase):
                 paths += [scene_row[f"{v}_capture"] for v in ("desktop","mobile") if scene_row[f"{v}_capture"]]
         for x in p["target"]["surfaces"]:
             paths += [x[f"{v}_after"] for v in ("desktop","mobile")]
+        for stage in ("source", "target"):
+            paths += [f"shots/flow-{stage}-create-{view}.png" for view in ("desktop", "mobile")]
         def chunk(kind, data):
             b = kind + data
             return struct.pack(">I", len(data)) + b + struct.pack(">I", zlib.crc32(b))
@@ -133,7 +146,14 @@ class ContractTests(unittest.TestCase):
 
     def test_missing_section_copy_inventory_is_not_approved(self):
         p = packet()
-        p["research"]["competitors"][0]["scenes"][1]["body_copy_strategy"] = ""
+        p["research"]["competitors"][0]["scenes"][1]["text_items"] = []
+        self.assertEqual(gate.inspect(p,self.root)["status"],"NEEDS_EVIDENCE")
+
+    def test_unobserved_animation_is_not_fake_proof(self):
+        p = packet()
+        p["research"]["competitors"][0]["scenes"][1]["media_items"] = [
+            {"kind":"VIDEO", "observed_role":"Hero video demonstrates a workflow through motion"}
+        ]
         self.assertEqual(gate.inspect(p,self.root)["status"],"NEEDS_EVIDENCE")
 
     def test_unmapped_target_section_fails_coverage(self):
@@ -174,16 +194,23 @@ class ContractTests(unittest.TestCase):
         p["scope"] = "SYSTEM"
         p["project"]["requested_flows"] = ["first-lead"]
         p["research"]["competitors"][0]["flows"] = [{
-            "id":"lead-creation",
+            "id":"lead-creation", "inspection_status":"INSPECTED",
             "steps":[{"id":"create",
                       "access_state":"PUBLIC_DEMO_GENUINELY_OBSERVED",
-                      "control_and_feedback":"Lead form presents fields with inline validation and next step"}]
+                      "control_and_feedback":"Lead form presents fields with inline validation and next step",
+                      "branching_and_errors":"Back, save and empty-validation states were observed and recorded",
+                      "desktop_capture":"shots/flow-source-create-desktop.png",
+                      "mobile_capture":"shots/flow-source-create-mobile.png"}]
         }]
         p["target"]["flows"] = [{
             "id":"first-lead",
             "dominant_source_flow":{"competitor_id":"crm-0","flow_id":"lead-creation"},
             "mapped_source_steps":["create"],
             "step_by_step_transfer":"Implemented comparable create flow with inline feedback, success and return",
+            "steps":[{"source_step":"create",
+                      "feedback_and_errors":"Inline validation, empty list and success return states are implemented",
+                      "desktop_capture":"shots/flow-target-create-desktop.png",
+                      "mobile_capture":"shots/flow-target-create-mobile.png"}],
             "test_status":"PASS",
             "test_evidence":"evidence/journey.txt"
         }]
