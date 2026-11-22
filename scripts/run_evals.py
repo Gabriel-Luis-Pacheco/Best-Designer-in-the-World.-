@@ -300,15 +300,20 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             if len(refs)>=limit:
                 victim=next((i for i in range(len(refs)-1,-1,-1)
                              if refs[i] not in protected),None)
-                if victim is None and item == "references/benchmark-pattern-transfer-and-validation.md":
-                    # On a significant flow the specific competitor-transfer
-                    # protocol outranks a generic optional guide, while never
-                    # evicting product-truth or essential task guidance.
+                if victim is None and item in {
+                    "references/benchmark-pattern-transfer-and-validation.md",
+                    "references/human-editorial-and-anti-slop-gates.md"
+                }:
+                    # Both benchmark and human copy review are core to relevant
+                    # hero/funnel work. Evict generic optional guidance before
+                    # either can disappear under a nine-reference context cap.
                     essentials = {
                         "references/product-truth.md",
                         "references/landing-page-evidence-and-cro.md",
                         "references/advanced-product-ux-operations.md",
                         "references/component-first-design-orchestration.md",
+                        "references/benchmark-pattern-transfer-and-validation.md",
+                        "references/human-editorial-and-anti-slop-gates.md",
                     }
                     victim = next((i for i in range(len(refs)-1, -1, -1)
                                    if refs[i] not in essentials), None)
