@@ -18,5 +18,24 @@ class RoutingCoverageTests(unittest.TestCase):
         x=audit([case])
         self.assertEqual(x["failures"],[])
         self.assertNotIn("references/creative-advantage-loop.md",x["cases"][0]["selected_refs"])
+    def test_onboarding_rebuild_injects_actual_benchmark_first_guide(self):
+        case={"id":9997,"name":"Major onboarding rebuild",
+              "prompt":"Redesenhe totalmente o onboarding e a ativação do produto",
+              "files":[],"meta":{"surface":"product","mode":"REBUILD"}}
+        report=audit([case])
+        self.assertEqual(report["failures"],[],report["failures"])
+        refs=report["cases"][0]["selected_refs"]
+        self.assertIn("references/benchmark-pattern-transfer-and-validation.md",refs)
+
+    def test_checkout_patch_does_not_inject_benchmark_first_research(self):
+        case={"id":9998,"name":"Small payment fix",
+              "prompt":"Corrija só botão do checkout sem refazer a jornada",
+              "files":[],"meta":{"surface":"checkout","mode":"PATCH"}}
+        report=audit([case])
+        self.assertEqual(report["failures"],[],report["failures"])
+        self.assertNotIn(
+            "references/benchmark-pattern-transfer-and-validation.md",
+            report["cases"][0]["selected_refs"])
+
 if __name__=="__main__":
     unittest.main()
