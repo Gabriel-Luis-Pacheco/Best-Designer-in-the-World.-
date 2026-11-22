@@ -29,13 +29,11 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Revenue-Centric Design** in `vendor/revenue-centric-design/` is independently licensed with attribution and restrictions on betting/casino/gambling; the root MIT does not override it. Load only relevant principles.
 
-## Full Studio Stack — mandatory specialist coverage on substantial creative tasks
+## Component-first specialist dispatch — required for significant UI
 
-For major LANDING, REDESIGN/REBUILD or product UI, consult `references/full-specialist-stack.md`: **Impeccable** (audit/polish), **Taste** (art direction), **Anthropic Frontend Design** (concept), **UI/UX Pro Max** (patterns), **Emil** (interaction/motion). Use installed tools when relevant, otherwise licensed snapshots in `vendor/specialist-core/` or the imported pack. Distinguish APPLIED / REFERENCED / NOT APPLICABLE / UNAVAILABLE. A copied skill is not an installed runtime.
+For every material hero, section, form, pricing, onboarding, checkout, dashboard, state and mobile scene, route by **user job + business objective + UX + copy + art + engineering + evidence**, not by surface styling alone. Read `references/component-first-design-orchestration.md` and `references/human-editorial-and-anti-slop-gates.md`; match the 47 profiles in `research/component_expertise_matrix.json` (optional **read-only** `scripts/component_router.py`). Actually consult pertinent skills, implement, render, compare and repair. For a new flagship landing/hero, target ~10 **observed** references when feasible, distinguishing direct rivals/adjacent/cross-category; use real screenshots, learn mechanisms, never clone assets/copy. Reuse research; PATCH needs no broad search. **Reject AI-slop prose** even if grammatical; no model self-approval or invented user tests.
 
-**CORE:** without `vendor/`, upstream tools are UNAVAILABLE, not executed.
-
-For motion/video use `references/motion-studio-pack-2026.md`. Choose one authorized pipeline; test reduced motion and static fallback. No forced effects.
+For major creative work, also consider `references/full-specialist-stack.md`: Impeccable (audit), Taste (art), Anthropic (concept), UI/UX Pro Max (patterns), Emil (motion). Use complementary skills when applicable; label APPLIED / REFERENCED / NOT APPLICABLE / UNAVAILABLE. Snapshots are not runtime tools. Motion: `references/motion-studio-pack-2026.md`, reduced-motion fallback.
 
 ## Art × commercial UX × implementation
 
@@ -51,11 +49,9 @@ For motion/video use `references/motion-studio-pack-2026.md`. Choose one authori
 
 For PPTX, Keynote, Google Slides and presentations, consult `references/presentation-slide-craft.md`. Do not apply landing-page hero/cards/CTA templates to decks. Plan audience, timing, narrative and true evidence; create editable slides, legible graphics and notes as needed. Render **every slide**, repair defects and never fabricate data or claim unseen projector/user tests.
 
-## Biblioteca integrada de 50 skills completas (12 fontes)
+## 50 external skill packs (conditional)
 
-Para tarefas que realmente precisem delas, consultar `references/complete-skill-packs-routing.md` e **somente** os diretórios relevantes de `vendor/external-skill-packs/`. A biblioteca preserva as pastas completas de 50 skills, com referências, dados, scripts, assets e atribuições, quando `vendor/external-skill-packs/INDEX.json` existir e passar em `scripts/sync_external_skill_packs.py --check`. Sem o índice, tratar como manifesto PENDENTE. Scripts de fornecedores são código externo: não executá-los automaticamente. Estes arquivos não significam que plugins, binários ou CLIs estejam instalados. Preservar os pacotes anteriores; não forçar carregamento de 50 skills nem introduzir conflito com decisões da marca.
-
-**Upstream FULL:** `references/full-upstream-repositories-routing.md` maps 12 source mirrors. External code is never run automatically.
+Use `references/complete-skill-packs-routing.md` to read **only relevant** licensed vendor materials; check manifest and provenance. Imported files are not installed CLIs; never auto-execute third-party scripts. See `references/full-upstream-repositories-routing.md` for FULL mirrors.
 
 ## Guides — only when genuinely needed
 
