@@ -208,12 +208,16 @@ def inspect(data: dict, root: Path, research: dict | None = None) -> dict:
     limit = data.get("benchmark_access_limitation")
     if limit is not None and limit != "" and not _good_text(limit, 30):
         errors.append("benchmark_access_limitation must be substantive")
-    if usable_captures < 3 and not limit:
-        warnings.append("Fewer than three captured comparable sources; explain access/cost limits if applicable")
     if comp in _atlas():
         desired = _atlas()[comp]["benchmark_transfer"]["reference_target"]
     else:
         desired = None
+    if desired is not None and usable_captures < desired and not limit:
+        missing.append(
+            f"Captured {usable_captures} of {desired} target benchmarks; provide evidence or a substantive benchmark_access_limitation"
+        )
+    if usable_captures < 3:
+        warnings.append("Small comparison set: observed patterns are hypotheses, not measured conversion evidence")
     status = "INVALID" if errors else ("NEEDS_EVIDENCE" if missing else "READY_FOR_HUMAN_REVIEW")
     return {
         "status": status,
