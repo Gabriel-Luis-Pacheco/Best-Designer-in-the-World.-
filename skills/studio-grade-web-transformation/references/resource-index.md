@@ -6,6 +6,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/benchmark-pattern-transfer-and-validation.md` | Reuse evidence-backed patterns from equivalent competitor journeys; distinguish observed adoption vs proven conversion; transfer gate |
 | `references/competency-stage-production.md` | Etapas executaveis por componente, handoffs, benchmark real, criterio humano e validacao de evidencias; atlas de 47 receitas |
 | `references/component-first-design-orchestration.md` | Pesquisa real + especialistas por componente + impacto em vendas, copy, UX e produto |
 | `references/human-editorial-and-anti-slop-gates.md` | Critica editorial de copy humana e regras de REWRITE/REWORK com evidencias |
