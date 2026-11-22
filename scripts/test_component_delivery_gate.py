@@ -87,6 +87,11 @@ class ComponentDeliveryTests(unittest.TestCase):
             self.assertEqual(p["status"],"READY_FOR_HUMAN_REVIEW")
             self.assertIn("not proof",str(p["limitations"]).lower())
 
+    def test_incompatible_component_surface_fails(self):
+        x=packet(surface="internal")
+        with tempfile.TemporaryDirectory() as d:
+            self.assertEqual(gate.inspect(x,Path(d))["status"],"INVALID")
+
     def test_invalid_unknown_phase_and_duplicate(self):
         x=packet()
         x["stage_records"]=[
