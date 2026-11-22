@@ -334,11 +334,11 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
         if (SK / primary).is_file() and primary not in refs:
             if len(refs) >= limit:
                 low_priority = (
-                    "references/positioning-and-copywriting.md",
                     "references/anti-slop-composition.md",
                     "references/site-build-to-handoff.md",
                     "references/award-readiness-and-qa.md",
                     "references/independent-critique-and-evidence-learning.md",
+                    "references/positioning-and-copywriting.md",
                     "references/applied-design-decisions.md",
                 )
                 victim = next((item for item in low_priority if item in refs), refs[-1])
