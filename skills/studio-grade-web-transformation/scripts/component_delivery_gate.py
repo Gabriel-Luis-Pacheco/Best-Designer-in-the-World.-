@@ -147,8 +147,11 @@ def inspect(data: dict, root: Path, *, atlas: dict | None = None) -> dict:
             errors.append("invalid expert status: " + name)
         if entry.get("status") in {"APPLIED", "REFERENCED"} and not _safe_artifact(root, entry.get("evidence_path")):
             missing.append(name + ": applied/referenced without evidence_path")
-        if entry.get("status") == "APPLIED" and not isinstance(entry.get("specific_contribution"), str):
-            missing.append(name + ": applied without specific contribution")
+        if entry.get("status") == "APPLIED" and (
+            not isinstance(entry.get("specific_contribution"), str)
+            or len(entry["specific_contribution"].strip()) < 20
+        ):
+            missing.append(name + ": applied without meaningful specific contribution")
     visual = data.get("visual_artifacts", {})
     if not isinstance(visual, dict):
         errors.append("visual_artifacts invalid")
