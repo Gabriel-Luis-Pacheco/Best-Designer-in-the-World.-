@@ -199,9 +199,7 @@ class WorkplanTests(unittest.TestCase):
     def test_checkout_adoption_is_not_assumed_to_be_proven_conversion(self):
         flow=self.go("checkout",mode="REBUILD",surface="product")
         spec=flow["benchmark_pattern_transfer"]
-        self.assertIn("does not prove",spec["result_claim_policy"].lower() if
-                      "does not prove" in spec["result_claim_policy"].lower() else
-                      "does not prove a conversion result")
+        self.assertIn("do not infer conversion",spec["result_claim_policy"].lower())
         self.assertIn("market",{x["id"] for x in flow["phases"]})
 
     def test_patch_never_forces_competitor_flow_marathon(self):
