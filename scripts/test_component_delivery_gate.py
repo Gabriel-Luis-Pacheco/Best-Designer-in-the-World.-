@@ -106,6 +106,26 @@ class ComponentDeliveryTests(unittest.TestCase):
             (root/"fake.png").write_bytes(b"\x89PNG\r\n\x1a\n"+b"x"*120)
             self.assertFalse(gate._safe_artifact(root,"fake.png",image=True))
 
+    def test_onboarding_major_rebuild_needs_competitor_transfer_proof(self):
+        x=packet(component="onboarding",mode="REBUILD",surface="product")
+        with tempfile.TemporaryDirectory() as d:
+            result=gate.inspect(x,Path(d))
+            self.assertEqual(result["status"],"NEEDS_EVIDENCE")
+            self.assertIn("pattern_transfer_packet must be an existing JSON",
+                          " ".join(result["missing_evidence"]))
+
+    def test_dashboard_does_not_need_funnel_transfer(self):
+        x=packet(component="dashboard",mode="REBUILD",surface="internal")
+        with tempfile.TemporaryDirectory() as d:
+            result=gate.inspect(x,Path(d))
+            self.assertNotIn("pattern_transfer_packet"," ".join(result["missing_evidence"]))
+
+    def test_patch_onboarding_does_not_require_competitor_transfer(self):
+        x=packet(component="onboarding",mode="PATCH",surface="product")
+        with tempfile.TemporaryDirectory() as d:
+            result=gate.inspect(x,Path(d))
+            self.assertNotIn("pattern_transfer_packet"," ".join(result["missing_evidence"]))
+
     def test_incompatible_component_surface_fails(self):
         x=packet(surface="internal")
         with tempfile.TemporaryDirectory() as d:
