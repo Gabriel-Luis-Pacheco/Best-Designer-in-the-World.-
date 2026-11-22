@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "component_id": "hero",
+  "mode": "REDESIGN",
+  "benchmark": {
+    "target": 10,
+    "limitation_reason": "EXAMPLE ONLY — replace with concrete tool/browser limitations or remove once captured."
+  },
+  "references": [
+    {
+      "url": "https://example.org",
+      "kind": "DIRECT",
+      "inspection_status": "NOT_INSPECTED",
+      "inspection_date": null,
+      "desktop_capture": null,
+      "mobile_capture": null,
+      "observed_mechanism": ""
+    }
+  ],
+  "decisions": {
+    "selected_mechanism": "PROPOSED — replace with observed, original mechanism.",
+    "original_application": "PROPOSED — replace with a truthful product-specific idea.",
+    "rejected_options": [
+      "EXAMPLE ONLY — replace with rejected directions and reasons."
+    ]
+  },
+  "implementation": {
+    "changed_files": [],
+    "before_capture": null,
+    "after_capture": null,
+    "journey_status": "NOT_TESTED"
+  },
+  "editorial": {
+    "status": "NOT_REVIEWED",
+    "review_evidence": null
+  },
+  "_notes": "This is an intentionally incomplete template. It must return NEEDS_EVIDENCE. Never present its URL as a visited competitor, human-reviewed copy or an actual screenshot."
+}
