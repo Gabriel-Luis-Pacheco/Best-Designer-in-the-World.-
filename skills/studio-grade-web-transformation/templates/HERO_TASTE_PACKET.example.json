@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "mode": "REDESIGN",
+  "surface": "marketing",
+  "route": "/example",
+  "brief": {
+    "audience": "DECISION MAKER: write the actual ideal visitor and context",
+    "offer": "Actual verified offer and terms, not invented claims",
+    "primary_cta": "Real primary action and actual destination",
+    "first_value": "What the user truly does after clicking the CTA",
+    "brand_constraints": "Actual licensed assets, voice, colours, approved identity"
+  },
+  "research": {
+    "direct_competitors": [],
+    "cross_category": [],
+    "shortfall_reason": "",
+    "cross_category_shortfall_reason": ""
+  },
+  "concepts": [
+    {
+      "id": "product-first",
+      "visual_thesis": "Describe a specific real-product-led visual concept",
+      "primary_focus": "Large true product interaction as dominant attention object",
+      "removed_or_deferred": "What was deleted, merged, or moved under the fold",
+      "mobile_recomposition": "Describe independent crop, hierarchy and CTA on mobile"
+    },
+    {
+      "id": "editorial",
+      "visual_thesis": "Describe a substantively different editorial visual concept",
+      "primary_focus": "Type and customer situation as focal story, not the same layout",
+      "removed_or_deferred": "Remove repetitive chips and secondary explanatory widgets",
+      "mobile_recomposition": "Use phone-first reading order and one focused demonstration"
+    }
+  ],
+  "chosen_concept": "product-first",
+  "render": {
+    "before": {
+      "desktop": null,
+      "mobile": null
+    },
+    "after": {
+      "desktop": null,
+      "mobile": null
+    }
+  },
+  "review": {
+    "reviewer_type": "NOT_REVIEWED",
+    "verdict": "NOT_REVIEWED",
+    "squint_focal_order": "",
+    "signal_noise_review": "",
+    "reference_contrast": "",
+    "mobile_review": "",
+    "decision_reason": "",
+    "removal_log": [],
+    "critical_findings": [
+      {
+        "severity": "P1",
+        "description": "Example only: multiple equal-weight competing focal centers",
+        "resolved": false
+      }
+    ]
+  },
+  "journey": {
+    "status": "NOT_TESTED",
+    "evidence_path": null
+  }
+}
