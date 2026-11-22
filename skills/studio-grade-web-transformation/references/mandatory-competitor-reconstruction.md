@@ -28,6 +28,8 @@ Build an observed section ledger. Each source section gets:
 - **Media and motion:** actual photos, authentic product screenshots, illustration, video, animation, how motion triggers, what changes, length/easing when observed, controls, fallback, loading and reduced-motion behavior. Video frames and interaction states need separate evidence; **never infer timing or behavior from a screenshot**.
 - **Behavior and strategy:** primary vs secondary CTA, navigation, sticky elements, demo entry, objection sequencing, pricing disclosure, lead capture, trust claims and evidence limits. Record source proof claims as **company claims** unless independently substantiated.
 
+**Machine-readable inventory:** for EACH primary source section populate `text_items[]` with one record per meaningful visible text element (HOOK/HEADLINE/SUBHEAD/BODY/CTA/CAPTION/PROOF/FORM/DISCLAIMER, or a justified NO_TEXT), its `observed_purpose` and `strategy`, then explicitly mark `copy_inventory_complete` only after inspecting all relevant content. Populate `media_items[]` with each PHOTO/VIDEO/SCREENSHOT/ILLUSTRATION/ANIMATION/THREE_D or observed NONE and describe its role. For VIDEO or ANIMATION add at least two `observed_frames` from real captured states. No invented timings, no fabricated frames, and no pasting proprietary source copy.
+
 A **primary competitor is not deeply inspected** if all the agent has is its hero, marketing copy scraped without a visual capture, a single full-page thumbnail, or a list of claimed "best practices".
 
 ## 2 — Reverse engineer the entire funnel and real product, when in scope
