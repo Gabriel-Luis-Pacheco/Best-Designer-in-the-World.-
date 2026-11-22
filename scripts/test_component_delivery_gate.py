@@ -1,6 +1,7 @@
 """Read-only component delivery gate must never approve from self-report alone."""
 from __future__ import annotations
 import importlib.util
+import json
 import struct
 import zlib
 import tempfile
@@ -199,6 +200,32 @@ class ComponentDeliveryTests(unittest.TestCase):
             result=gate.inspect(x,Path(d))
             self.assertEqual(result["status"],"INVALID")
             self.assertIn("vendor snapshot cannot"," ".join(result["errors"]))
+
+    def test_research_from_different_component_cannot_certify_this_redesign(self):
+        x=packet()
+        x["stage_records"]=[{
+            "phase_id":"market", "status":"DONE",
+            "summary":"Compared verified alternative journeys for the target audience.",
+            "evidence_path":"proof.md"
+        }]
+        x["research_packet"]="other_research.json"
+        research={
+            "schema_version":1,"component_id":"checkout","mode":"REDESIGN",
+            "references":[],"benchmark":{"target":0},
+            "decisions":{"selected_mechanism":"Real purchase flow",
+                         "original_application":"New purchase flow",
+                         "rejected_options":["Copied paywall"]},
+            "implementation":{"changed_files":[]},
+            "editorial":{"status":"SELF_REVIEW_ONLY"}
+        }
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            (root/"proof.md").write_text("Observational work and screenshot notes.",encoding="utf-8")
+            (root/"other_research.json").write_text(json.dumps(research),encoding="utf-8")
+            result=gate.inspect(x,root)
+            self.assertEqual(result["status"],"INVALID")
+            self.assertIn("research_packet.component_id must match delivery",
+                          " ".join(result["errors"]))
 
     def test_unreviewed_copy_is_not_ready(self):
         x=packet()

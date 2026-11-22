@@ -1,5 +1,10 @@
 # Design OS Prime v14.0.0
 
+## Revisao tecnica de 22/11/2026 — coerencia e execucao
+
+A [auditoria do Design OS](docs/AUDIT_DESIGN_OS_2026-11-22.md) encontrou uma falha operacional: o `brain/pipeline.py` nao ligava seus planos aos roteadores por componente. A revisao integra um `component_orchestration` limitado (hero, onboarding, checkout, etc.), registra explicitamente ambiguidades de inventario e reforca a aplicacao real do guia de benchmark nas avaliacoes. Nada aqui implica execucao automatica de agentes, capturas de concorrentes ou validacao visual humana.
+
+
 ## Benchmark-first UX para onboarding e conversao
 
 Os funis de alto impacto agora possuem um [protocolo de transferencia fundamentada de padroes](skills/studio-grade-web-transformation/references/benchmark-pattern-transfer-and-validation.md): observar fluxos equivalentes reais de concorrentes, priorizar padroes familiares apoiados por pesquisa, decidir ADOPT/ADAPT/REJECT, preservar expressao propria da marca e testar em nossos usuarios. O [atlas de execucao](skills/studio-grade-web-transformation/research/component_execution_atlas.json) inclui requisitos de pesquisa por componente; o [validador de transferencia](skills/studio-grade-web-transformation/scripts/pattern_transfer_gate.py) e o [gate de entrega](skills/studio-grade-web-transformation/scripts/component_delivery_gate.py) exigem a trilha documental nas grandes reconstrucoes.

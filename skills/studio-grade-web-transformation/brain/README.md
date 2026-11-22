@@ -12,6 +12,28 @@ O agente usa `SKILL.md` para guiar investigação e decisões. Este módulo forn
 
 `brain/route_inventory.py --project /caminho/projeto --out routes.json` procura candidatos a rotas baseadas em arquivos, colisões de caminhos e nomes de tarefas possivelmente repetidas; lê somente pequenos trechos locais para contagens de sinais, sem reproduzir o conteúdo no relatório. `project_intake.py` integra o campo `route_evidence` com esses sinais. Um alerta de duas rotas com avatar **não prova** dois componentes ou um bug. O agente ainda precisa seguir os imports e o estado real. Em projeto executando localmente, a ferramenta complementar `scripts/route_matrix_audit.mjs` inspeciona as rotas fornecidas no navegador; ela não descobre rotas, nem testa estados ocultos automaticamente.
 
+## v14 — O pipeline principal agora encaminha trabalho por componente
+
+`brain/pipeline.py` ja fornecia `strategy`, inventario opcional e bloqueio de mudancas nao autorizadas. A partir desta revisao, ele tambem devolve `component_orchestration` usando `brain/component_bridge.py`, o atlas de 47 componentes, `scripts/component_workplan.py` e a matriz canônica de especialistas.
+
+Use o JSON de entrada com `context.task`, `context.surface`, `context.mode` e opcionalmente `components` (array de IDs conhecidos, no nivel superior) para retirar ambiguidade:
+
+~~~json
+{
+  "context": {
+    "task": "Reconstrua o onboarding e a primeira tarefa real",
+    "surface": "product",
+    "mode": "REBUILD",
+    "audience": "Usuários que chegam do cadastro"
+  },
+  "components": ["onboarding", "activation"]
+}
+~~~
+
+O resultado agrega fases e especialistas candidatos de cada componente, requisitos de benchmark e advertencias. Se o pedido nao permite identificar seções concretas, `component_orchestration.status=COMPONENT_INVENTORY_REQUIRED`; a IA deve inspecionar a pagina real e mapear os IDs antes de afirmar cobertura. Exemplos inferidos por alias sao `PROVISIONAL_TASK_ALIAS_MATCH`, **nao** prova de relevancia real.
+
+**Não executa skills, navegador, screenshots, edição ou experimentos.** O fluxo mostra quem deveria atuar e quais artefatos precisam ser verificados. Os testes em `scripts/test_pipeline.py` cobrem hero, onboarding, checkout, PATCH, IDs explicitos e casos vagos. A avaliação de modelo real, identidade visual e qualidade humana continua separada.
+
 ## Execute
 Da raiz do repositório:
 ```bash
