@@ -60,6 +60,21 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             if item and item not in refs and (SK / item).is_file():
                 refs.append(item)
 
+    # Inject the component/editorial instructions at the front when the task warrants
+    # them. The static router alone does not cause the agent to read those guides.
+    # PATCH stays lean; internal dashboards must not inherit marketing persuasion.
+    if mode != "PATCH":
+        major_marketing = ("landing" in surfaces and
+            (mode in {"REDESIGN", "REBUILD"} or any(term in task for term in (
+                "hero", "primeira dobra", "headline", "pricing", "checkout", "copywriting"))))
+        component_product = bool({"product", "internal", "dashboard", "checkout"} & surfaces) and any(
+            term in task for term in ("dashboard", "onboarding", "estado vazio", "checkout",
+                                     "formulário", "formulario", "tabela", "navigation"))
+        if major_marketing or component_product:
+            add("references/component-first-design-orchestration.md")
+        if major_marketing:
+            add("references/human-editorial-and-anti-slop-gates.md")
+
     # Actual contextual injection, not merely catalog metadata. Keep PATCH/AUDIT lean.
     explicit_specialist_need = any(q in task for q in (
         "seo", "indexação", "indexacao", "posicionamento", "positioning",
