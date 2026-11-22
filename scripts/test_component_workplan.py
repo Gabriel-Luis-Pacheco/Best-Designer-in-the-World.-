@@ -85,6 +85,8 @@ class WorkplanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.go("nonexistent")
         with self.assertRaises(ValueError):
+            self.go("hero",surface="internal")
+        with self.assertRaises(ValueError):
             self.go("hero",surface="unrecognized")
 
     def test_status_is_planning_not_action(self):
