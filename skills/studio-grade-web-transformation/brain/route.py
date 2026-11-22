@@ -357,6 +357,23 @@ def route(context):
            ["orquestração de skills", "orquestracao de skills", "seleção de skills",
             "selecao de skills", "skills externas", "skill router"]):
         refs.append("specialist-skills-orchestration.md")
+    # Component-first expertise: activate by material job, not generic art labels.
+    # PATCH preserves a small scope; no broad competitor research on a button edit.
+    if mode != "PATCH":
+        significant_marketing = "landing" in surfaces and (
+            mode in {"REDESIGN", "REBUILD"} or any(contains_phrase(content, t) for t in
+                ("hero", "primeira dobra", "pricing", "precos", "preços", "checkout",
+                 "copywriting", "headline", "landing completa", "redesign"))
+        )
+        significant_product = bool({"product", "internal", "dashboard", "checkout"} & set(surfaces)) and any(
+            contains_phrase(content, t) for t in
+            ("dashboard", "onboarding", "estado vazio", "erro", "checkout",
+             "formulario", "formulário", "tabela", "navegacao", "navegação")
+        )
+        if significant_marketing or significant_product:
+            refs.append("component-first-design-orchestration.md")
+        if significant_marketing:
+            refs.append("human-editorial-and-anti-slop-gates.md")
     # Select specialized knowledge by actual task; never load it for every project.
     if mode in {"AUDIT","REFINE","REDESIGN"} and any(s in surfaces for s in ("landing","experience","product")):
         refs.append("design-audit-execution.md")
