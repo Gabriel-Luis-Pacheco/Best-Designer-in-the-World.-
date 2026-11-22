@@ -49,6 +49,12 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     goals = [plan["strategy"]["primary_goal"]] + plan["strategy"]["secondary_goals"]
     task = case["prompt"].casefold()
     candidate = set(plan["tool_routing"]["selected_skill_refs"])
+    # Mandatory market-reference reconstruction for significant LP/product jobs:
+    # inject the actual guide into the working prompt, not merely SKILL.md.
+    mandatory_competitive = (
+        mode in {"REDESIGN", "REBUILD"}
+        and bool({"landing", "product", "mobile", "checkout", "internal", "dashboard"} & surfaces)
+    )
     # A product noun is NOT permission for 3D; consult the main validated route.
     high_effect = "references/motion-3d-engineering-cookbook.md" in candidate
     award = any(term in task for term in ("awwwards", "site of the day", "site of the year"))
@@ -229,6 +235,7 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     if mode != "PATCH" and (explicit_specialist_need or component_marketing_focus or component_product_focus):
         limit = 9
     if mode == "PATCH": limit = 2
+    if mandatory_competitive: limit = 9
     refs = refs[:limit]  # trim legacy optional packs before honoring explicit specialist requests
     # Explicitly relevant 2026 research gets *actual* injected context.
     # Preserve the core functional and commercial packs; avoid overflowing
@@ -320,6 +327,21 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
                 if victim is None:continue
                 refs.pop(victim)
             refs.append(item)
+    if mandatory_competitive:
+        # Preserve the full-scroll/funnel guide even with a saturated
+        # specialist context budget. Never drop source truth merely to add it.
+        primary = "references/mandatory-competitor-reconstruction.md"
+        if (SK / primary).is_file() and primary not in refs:
+            if len(refs) >= limit:
+                low_priority = (
+                    "references/applied-design-decisions.md",
+                    "references/anti-slop-composition.md",
+                    "references/site-build-to-handoff.md",
+                    "references/award-readiness-and-qa.md",
+                )
+                victim = next((item for item in low_priority if item in refs), refs[-1])
+                refs.remove(victim)
+            refs.append(primary)
     return refs[:limit]
 
 
