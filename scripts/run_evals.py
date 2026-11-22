@@ -60,20 +60,15 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             if item and item not in refs and (SK / item).is_file():
                 refs.append(item)
 
-    # Inject the component/editorial instructions at the front when the task warrants
-    # them. The static router alone does not cause the agent to read those guides.
-    # PATCH stays lean; internal dashboards must not inherit marketing persuasion.
-    if mode != "PATCH":
-        major_marketing = ("landing" in surfaces and
-            (mode in {"REDESIGN", "REBUILD"} or any(term in task for term in (
-                "hero", "primeira dobra", "headline", "pricing", "checkout", "copywriting"))))
-        component_product = bool({"product", "internal", "dashboard", "checkout"} & surfaces) and any(
-            term in task for term in ("dashboard", "onboarding", "estado vazio", "checkout",
-                                     "formulário", "formulario", "tabela", "navigation"))
-        if major_marketing or component_product:
-            add("references/component-first-design-orchestration.md")
-        if major_marketing:
-            add("references/human-editorial-and-anti-slop-gates.md")
+    # Explicit component expertise may require two additional focused guides.
+    # Preserve old proven references rather than pushing them out of the context cap.
+    component_marketing_focus = (mode != "PATCH" and "landing" in surfaces and any(
+        term in task for term in ("hero", "primeira dobra", "headline",
+                                  "pricing", "checkout", "copywriting")))
+    component_product_focus = (mode != "PATCH" and bool(
+        {"product", "internal", "dashboard", "checkout"} & surfaces) and any(
+        term in task for term in ("onboarding", "estado vazio", "formulário",
+                                  "formulario", "dashboard", "tabela", "navigation")))
 
     # Actual contextual injection, not merely catalog metadata. Keep PATCH/AUDIT lean.
     explicit_specialist_need = any(q in task for q in (
@@ -231,7 +226,7 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     limit = 9 if policy in {"ART_DIRECTOR_FIRST", "EXPERIENTIAL_COMMERCE"} else 6
     # An explicit specialist request deserves its actual focused guide alongside
     # source/brand truth. A short, well-specified task is not a vague prompt.
-    if mode != "PATCH" and explicit_specialist_need:
+    if mode != "PATCH" and (explicit_specialist_need or component_marketing_focus or component_product_focus):
         limit = 9
     if mode == "PATCH": limit = 2
     refs = refs[:limit]  # trim legacy optional packs before honoring explicit specialist requests
@@ -240,6 +235,10 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     # AUDIT/PATCH and avoid a 66-reference context dump.
     if mode != "PATCH":
         requested=[]
+        if component_marketing_focus or component_product_focus:
+            requested.append("references/component-first-design-orchestration.md")
+        if component_marketing_focus:
+            requested.append("references/human-editorial-and-anti-slop-gates.md")
         if "landing" in surfaces and any(w in task for w in
             ("evidência","evidence","prova","proof","cenas","scenes","landing completa")):
             requested.append("references/evidence-to-scene-protocol.md")
@@ -272,6 +271,9 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             "references/interaction-dramaturgy-and-payoff.md",
             "references/applied-design-decisions.md",
             "references/original-brief-and-referent-fidelity.md",
+            "references/independent-critique-and-evidence-learning.md",
+            "references/component-first-design-orchestration.md",
+            "references/human-editorial-and-anti-slop-gates.md",
             "references/positioning-and-copywriting.md",
             "references/seo-discovery-and-search-experience.md",
             "references/review-council-and-course-correction.md",
