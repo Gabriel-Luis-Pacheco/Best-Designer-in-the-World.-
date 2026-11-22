@@ -27,31 +27,29 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Revenue-Centric Design** in `vendor/revenue-centric-design/` is independently licensed with attribution and restrictions on betting/casino/gambling; the root MIT does not override it. Load only relevant principles.
 
-## Art direction — visual evidence, not prompt compliance
+## Mandatory FULL-PAGE, FULL-FUNNEL competitor reconstruction
 
-New flagship/weak landing and crowded hero: FIRST read `references/art-direction-and-hero-taste.md`. **STOP-SHIP:** a successful build and working CTA do not imply strong design. Choose one dominant visual story, truthful product proof, meaningful CTA and a **CUT / MERGE / DEFER** log before coding. No default collage of cards, badges or decorative mini-dashboards.
+**STOP-SHIP on new/major LPs, onboarding and system REDESIGN/REBUILD:** FIRST read `references/mandatory-competitor-reconstruction.md`. No code or copy from AI-invented “premium SaaS” templates before benchmarking. For flagship LPs inspect **6–10 live direct competitors** plus 2–4 great adjacent examples when available; for major system flows inspect 3–5 comparable apps. Choose 1–2 primary benchmarks. **Scroll each primary page from navigation to footer** on desktop/mobile. Inventory **every section and meaningful headline, subhead, hook, caption, CTA, form, objection and proof**: writing strategy, placement, order, photo, video, authentic product screen, motion trigger/state, proportions, typography, density and responsive behavior. URLs or hero-only screenshots do NOT count.
 
-When possible inspect 8–10 relevant direct competitors/substitutes and 2–4 excellent adjacent references; record real URL, date, desktop/mobile screenshot, spatial mechanism and ADOPT/ADAPT/REJECT. Fewer are legitimate with a reason. Never invent visits or conversion claims. Transfer principles, not protected copy, assets, distinctive layouts or trade dress.
+**Reconstruct actual journeys:** inspect accessible competitor CTA→signup/demo→onboarding→first useful result, including required/optional fields, back/skip, feedback and errors. For whole systems compare **every requested module and key state** (navigation, empty/list/detail/edit/success). State precisely what is inaccessible; never bypass access controls or pretend to have observed it.
 
-For major REDESIGN/REBUILD consider two truly different compositions and compare real rendered alternatives at matched viewports. Critique focal order, type, proof scale, CTA, density, mobile recomposition, full-page rhythm and removed noise. If still poor, REWORK composition, media and copy, not shadows or effects. P0/P1 failures => `ART_DIRECTION_BLOCKED`.
+**Default to HIGH FIDELITY:** assign one actually observed dominant source section/step to each target section/flow. Match its useful **hierarchy, scroll logic, strategic copy role, proof medium, text-length class, CTA priority, information density, proportions and common interaction mechanics**. Deviate only for documented user evidence, product differences, brand constraints, accessibility, ethics or legal rights, not ungrounded AI creativity. Reuse category patterns, **not copyrighted text/assets/code, proprietary creative expression or misleading trade dress**. Adoption by a leader is a starting hypothesis, NOT proven conversion.
 
-Populate `templates/HERO_TASTE_PACKET.example.json` and run `scripts/hero_taste_gate.py`. The gate checks documented evidence, viewport PNG sizes, distinct captures and reference transfer, **not taste or actual browser provenance**. `READY_FOR_HUMAN_REVIEW` is not human approval. Narrow PATCH tasks need proportional review, not ten-site research.
+**Enforce evidence:** build ALL in-scope scenes, compare source/before/after rendered desktop/mobile and test CTA→first value. Missing section/flow mapping, meaningful copy/media observations or actual states => NOT READY. Run `scripts/competitive_reconstruction_gate.py` using `templates/COMPETITIVE_RECONSTRUCTION_PACKET.example.json`; structural readiness is NOT aesthetic approval. For weak heroes also read `references/art-direction-and-hero-taste.md`, use `scripts/hero_taste_gate.py`, reject competing mini-card collages and REWORK composition rather than decorating it.
 
 ## Component-first expert dispatch
 
 For significant UI, plan **user job + business + copy + proof + art + UX + engineering**. Load `references/component-first-design-orchestration.md` and selectively `references/competency-stage-production.md`; run `brain/pipeline.py` or `scripts/component_workplan.py` and verify with `scripts/component_delivery_gate.py`. A listed skill or vendor snapshot is not an executed specialist.
 
-For funnel components, use `references/benchmark-pattern-transfer-and-validation.md`: observe equivalent flows, transfer familiar patterns as hypotheses, verify CTA→first value. A popular competitor's UI is **not conversion evidence**; use own tests. Never trade off genuine product functions for visual decoration.
+For funnel components see `references/benchmark-pattern-transfer-and-validation.md`; verify complete accessible journeys and actual first value, not presumed conversion lifts.
 
 ## Art × commercial UX × implementation
 
 **LANDING / MARKETING:** audience and alternatives → truthful value → evidence → original visual demonstration → working CTA/first value. **CUT / MERGE** repetitive scenes. Never invent customer claims or use boilerplate hero/cards/FAQ as an automatic answer. Preserve prices and decision-critical terms.
 
-**Landing visual rescue:** For “LP looks AI-made”, weak hero, repeated SaaS cards or unsuccessful redesign attempts, read `references/landing-reference-to-pixels.md`. Select a human-made **dominant visual reference per weak scene**, build the comparable layout with original product/brand assets, compare actual reference/before/after captures side by side and REWORK unrepaired scenes. Source names, checklists and approved JSON alone are not visual work. The hero evidence gate rejects tiny/recycled screenshots and asks for an explicit `visual_transfer` decision on marketing REDESIGN/REBUILD; it still cannot certify beauty.
+**Weak LP rescue:** `references/landing-reference-to-pixels.md` demands source/before/after pixel comparison per scene, actual edits, mobile and REWORK. The hero gate rejects tiny/reused evidence, not poor taste.
 
-**Full-page redesign:** For “every section is weaker”, read `references/section-parity-and-competitive-rebuild.md`: inventory every scene, compare equivalent competitor jobs, implement original fixes throughout the page, capture desktop/mobile and verify CTA→first value. `scripts/section_parity.py` checks declared evidence, not beauty.
-
-**Original visual signature:** derive typography, composition, imagery, movement and form from the actual product. Study strong real references when relevant; do not clone other brands or use unlicensed assets. Build opening, convincing middle, weakest transition, ending and mobile recomposition.
+**Full-page redesign:** `references/section-parity-and-competitive-rebuild.md` and `scripts/section_parity.py`: cover every existing section, not just hero, and verify mobile and CTA.
 
 **Render → critique → repair:** implement real code and meaningful states, inspect desktop/mobile and journeys. Build success is not proof of aesthetic, WCAG or conversion quality. If browser evidence is absent, mark **NOT VERIFIED**.
 
@@ -61,12 +59,12 @@ For PPTX, Keynote, Google Slides and presentations, consult `references/presenta
 
 ## 50 external skill packs (conditional)
 
-Use `references/complete-skill-packs-routing.md` to read **only relevant** licensed vendor materials; check manifest and provenance. Imported files are not installed CLIs; never auto-execute third-party scripts. See `references/full-upstream-repositories-routing.md` for FULL mirrors.
+Consult `references/complete-skill-packs-routing.md` selectively; copied vendor files are not installed tools. Full mirrors: `references/full-upstream-repositories-routing.md`.
 
 ## Guides — progressive disclosure
 
 `references/resource-index.md` is a lookup, not a preload. Select the smallest relevant subset:
-- Weak LP: `references/landing-reference-to-pixels.md`, `references/art-direction-and-hero-taste.md`, `references/human-editorial-and-anti-slop-gates.md`.
+- Mandatory benchmark and weak LP: `references/mandatory-competitor-reconstruction.md`, `references/landing-reference-to-pixels.md`, `references/art-direction-and-hero-taste.md`, `references/human-editorial-and-anti-slop-gates.md`.
 - Full rebuild: `references/section-parity-and-competitive-rebuild.md`. Copy/proof: `references/landing-strategy-and-decision-architecture.md`, `references/evidence-to-scene-protocol.md`.
 - Visual benchmarking: `references/reference-led-visual-intelligence.md`, `references/code-first-visual-direction-studio.md`.
 - Components/validation: `references/component-first-design-orchestration.md`, `references/benchmark-pattern-transfer-and-validation.md`, `references/visual-craft-acceptance.md`.
