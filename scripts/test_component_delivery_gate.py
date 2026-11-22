@@ -130,6 +130,56 @@ class ComponentDeliveryTests(unittest.TestCase):
             p=gate.inspect(x,Path(d))
             self.assertIn("market DONE requires existing JSON research_packet",str(p["missing_evidence"]))
 
+    def test_major_redesign_without_skill_trace_never_passes(self):
+        x=packet()
+        with tempfile.TemporaryDirectory() as d:
+            result=gate.inspect(x,Path(d))
+            self.assertEqual(result["status"],"NEEDS_EVIDENCE")
+            self.assertIn("no traceable knowledge/skill usage",
+                          " ".join(result["missing_evidence"]))
+
+    def test_forged_skill_source_is_invalid(self):
+        x=packet()
+        x["competency_coverage"]=[{
+            "phase_id":"editorial","source_kind":"REGISTERED_SPECIALIST",
+            "source_id":"unregistered-super-copywriter",
+            "status":"APPLIED","evidence_path":"notes.md",
+            "decision_influenced":"Replaced an abstract statement with a clear supported claim"
+        }]
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d)/"notes.md").write_text("Concrete copied references and revised source of truth.",encoding="utf-8")
+            result=gate.inspect(x,Path(d))
+            self.assertEqual(result["status"],"INVALID")
+            self.assertIn("specialist not in canonical registry"," ".join(result["errors"]))
+
+    def test_local_guides_must_change_an_actual_design_decision(self):
+        x=packet()
+        x["competency_coverage"]=[{
+            "phase_id":"editorial","source_kind":"LOCAL_GUIDE",
+            "source_id":"human-editorial-and-anti-slop-gates.md",
+            "status":"REFERENCED","evidence_path":"notes.md",
+            "decision_influenced":"Looks good"
+        }]
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d)/"notes.md").write_text("Copy review notes, edits and rejected approaches.",encoding="utf-8")
+            result=gate.inspect(x,Path(d))
+            self.assertEqual(result["status"],"NEEDS_EVIDENCE")
+            self.assertIn("concrete decision_influenced"," ".join(result["missing_evidence"]))
+
+    def test_vendor_snapshot_cannot_masquerade_as_live_skill(self):
+        x=packet()
+        x["competency_coverage"]=[{
+            "phase_id":"editorial","source_kind":"VENDORED_REFERENCE",
+            "source_id":"copy-editing","status":"APPLIED",
+            "evidence_path":"notes.md",
+            "decision_influenced":"Revised the headline against the buyer language and brief"
+        }]
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d)/"notes.md").write_text("Actual editorial review and used reference passages.",encoding="utf-8")
+            result=gate.inspect(x,Path(d))
+            self.assertEqual(result["status"],"INVALID")
+            self.assertIn("vendor snapshot cannot"," ".join(result["errors"]))
+
     def test_unreviewed_copy_is_not_ready(self):
         x=packet()
         x["editorial_review"]={"status":"NOT_REVIEWED"}
