@@ -287,6 +287,7 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             "references/original-brief-and-referent-fidelity.md",
             "references/independent-critique-and-evidence-learning.md",
             "references/component-first-design-orchestration.md",
+            "references/benchmark-pattern-transfer-and-validation.md",
             "references/human-editorial-and-anti-slop-gates.md",
             "references/positioning-and-copywriting.md",
             "references/seo-discovery-and-search-experience.md",
