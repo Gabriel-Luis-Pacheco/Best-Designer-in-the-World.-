@@ -1,6 +1,8 @@
 """Tests evidence honesty of competitor screenshot and copy review packets."""
 from __future__ import annotations
 import importlib.util
+import struct
+import zlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -9,6 +11,17 @@ BASE = Path(__file__).resolve().parents[1] / "skills/studio-grade-web-transforma
 spec = importlib.util.spec_from_file_location("component_research_gate", BASE / "scripts" / "component_research_gate.py")
 gate = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gate)
+
+
+def tiny_valid_png():
+    """Create a real 1×1 RGBA PNG, with valid IHDR/IDAT/IEND CRCs."""
+    def chunk(tag, body):
+        return (struct.pack(">I",len(body))+tag+body+
+                struct.pack(">I",zlib.crc32(tag+body)&0xffffffff))
+    ihdr=struct.pack(">IIBBBBB",1,1,8,6,0,0,0)
+    return (b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",ihdr)+
+            chunk(b"IDAT",zlib.compress(b"\x00\xff\x00\x00\xff"))+
+            chunk(b"IEND",b""))
 
 
 def sample():
@@ -74,11 +87,25 @@ class ComponentEvidenceTests(unittest.TestCase):
                                       "desktop_capture": "test.png"})
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp) / "test.png"
-            p.write_bytes(b"\x89PNG\r\n\x1a\n" + b"x" * 64)
+            p.write_bytes(tiny_valid_png())
             x = gate.inspect(data, Path(tmp))
             self.assertEqual(x["captured_references"], 1)
             self.assertEqual(x["status"], "NEEDS_EVIDENCE")
             self.assertIn("not proof", " ".join(x["limitations"]))
+
+    def test_png_signature_alone_does_not_count_as_capture(self):
+        data=sample()
+        data["references"][0].update({
+            "inspection_status":"CAPTURED",
+            "inspection_date":"2026-11-21",
+            "observed_mechanism":"Clear screenshot of product and call to action",
+            "desktop_capture":"fake.png"
+        })
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp)/"fake.png").write_bytes(b"\x89PNG\r\n\x1a\n"+b"x"*120)
+            r=gate.inspect(data,Path(tmp))
+            self.assertEqual(r["status"],"INVALID")
+            self.assertEqual(r["captured_references"],0)
 
     def test_bad_schema_or_http_not_valid(self):
         with tempfile.TemporaryDirectory() as tmp:
