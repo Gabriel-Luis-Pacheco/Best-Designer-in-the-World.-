@@ -131,7 +131,11 @@ class WorkplanTests(unittest.TestCase):
                 checked+=1
                 leads=stage["lead_candidates"]
                 available=leads+stage["alternative_candidates"]
-                if not available:
+                # Truth is deliberately a canonical product-facts task with
+                # no third-party lane. It must not invent an expert just to
+                # make a routing coverage metric reach 100%.
+                role_lanes=self.atlas["phase_definitions"][stage["id"]]["role_lanes"]
+                if not available and role_lanes:
                     uncovered.append((component,stage["id"],stage["missing_compatible_specialist_lanes"]))
                 for expert in available:
                     self.assertIn(surface,self.experts[expert["id"]]["surfaces"],
