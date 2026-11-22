@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import json
+from functools import lru_cache
 import re
 from pathlib import Path
 
@@ -32,6 +33,18 @@ def _workplan_module():
     return mod
 
 
+@lru_cache(maxsize=1)
+def _png_validator():
+    """Reuse the repository's PNG chunk/CRC/dimension validation."""
+    spec = importlib.util.spec_from_file_location(
+        "component_delivery_png_validator", HERE / "production_evidence.py")
+    if spec is None or spec.loader is None:
+        raise ValueError("Missing PNG evidence validator")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.png_dimensions
+
+
 def _safe_artifact(root: Path, raw: str, *, image: bool = False) -> bool:
     if not isinstance(raw, str) or len(raw) > 400 or not raw:
         return False
@@ -50,12 +63,14 @@ def _safe_artifact(root: Path, raw: str, *, image: bool = False) -> bool:
     if not 24 <= resolved.stat().st_size <= MAX_BYTES:
         return False
     if image:
-        if p.suffix.lower() not in {".png", ".jpg", ".jpeg", ".webp"}:
+        # Browser screenshots must be intact PNG files, not just files whose
+        # first bytes mimic a PNG header. Other artifacts may be JPG/WebP.
+        if p.suffix.lower() != ".png":
             return False
-        with resolved.open("rb") as f:
-            sig = f.read(12)
-        return (sig[:8] == b"\x89PNG\r\n\x1a\n" or sig[:3] == b"\xff\xd8\xff" or
-                (sig[:4] == b"RIFF" and sig[8:12] == b"WEBP"))
+        try:
+            _png_validator()(resolved.read_bytes())
+        except (ValueError, OSError):
+            return False
     return True
 
 
