@@ -55,7 +55,7 @@
     "evidence_path": null
   },
   "blocking_issues": [],
-  "_notes": "Deliberately INCOMPLETE illustrative template; validator must respond NEEDS_EVIDENCE. Do not report approval from this template. Major redesigns additionally require one verified competency_coverage record for each relevant stage, with source and changed decision.",
+  "_notes": "Deliberately INCOMPLETE illustrative template; validator must respond NEEDS_EVIDENCE. Do not report approval from this template. Major redesigns additionally require one verified competency_coverage record for each relevant stage, with source and changed decision. For high-impact components in REDESIGN/REBUILD, attach PATTERN_TRANSFER_PACKET and the same real research packet; no observed pattern is validation of conversion.",
   "competency_coverage": [
     {
       "phase_id": "editorial",
@@ -65,5 +65,6 @@
       "evidence_path": null,
       "decision_influenced": "EXAMPLE ONLY — replace with the actual edit and evidence"
     }
-  ]
+  ],
+  "pattern_transfer_packet": null
 }
