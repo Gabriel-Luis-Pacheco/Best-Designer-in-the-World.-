@@ -71,7 +71,7 @@ class GateTest(unittest.TestCase):
         ihdr = struct.pack(">2I5B", 1, 1, 8, 6, 0, 0, 0)
         png = (bytes.fromhex("89504e470d0a1a0a")
                + chunk(b"IHDR", ihdr)
-               + chunk(b"IDAT", zlib.compress(b"\\x00\\x00\\x00\\x00\\xff"))
+               + chunk(b"IDAT", zlib.compress(bytes([0, 0, 0, 0, 255])))
                + chunk(b"IEND", b""))
         for name in ("desktop.png", "mobile.png"):
             (self.root / "evidence" / name).write_bytes(png)
