@@ -93,6 +93,8 @@ def plan(*, component_ids: list[str], surface: str, mode: str,
     phases = atlas["phase_definitions"]
     out = []
     for item in candidates["components"]:
+        if not item["surface_compatible"]:
+            raise ValueError("Component " + item["id"] + " is not valid for surface " + surface)
         profile = recipes[item["id"]]
         by_id = {s["id"]: s for s in item["specialists"]}
         phase_ids = list(profile["execution_phases"])
