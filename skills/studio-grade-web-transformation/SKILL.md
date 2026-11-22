@@ -29,6 +29,16 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 **Revenue-Centric Design** in `vendor/revenue-centric-design/` is independently licensed with attribution and restrictions on betting/casino/gambling; the root MIT does not override it. Load only relevant principles.
 
+## Art direction, benchmark & TASTE — mandatory for weak/prominent heroes
+
+**STOP-SHIP RULE:** correct code + matching colors + functioning CTA != acceptable art direction. For a new flagship page, visibly weak current site, 'AI slop', crowded hero, or entire landing redesign, FIRST read `references/art-direction-and-hero-taste.md` and consult `references/taste-research-sourcebook.md` selectively. Before code: choose one clear focal story, product-specific truthful proof, meaningful primary action and an explicit CUT/MERGE/DEFER log. Challenge every badge/card/sticker/mini-dashboard; a giant collage of little components is not a hero.
+
+**Actual competitor board:** when available and proportionate, inspect **8–10 live direct competitors/substitutes** for the same audience/job, and **2–4 strong adjacent/cross-category references**, with real screenshots, mechanism, mobile treatment and ADOPT/ADAPT/REJECT. Fewer are valid with a reason; NEVER fabricate inspection or treat recognizable competitor styling as proof of conversion. Transfer common functional patterns and design mechanisms, not distinctive copy, branded assets or a 1:1 hero clone. Synthesize **two genuinely different original compositions** for major redesigns before choosing and coding one.
+
+**Review actual pixels:** record focal order (squint test), typography, media legibility, CTA hierarchy, density, negative space, visual originality, full-page rhythm, mobile recomposition and **what got removed**. If structural taste remains poor, REWORK composition/medium/copy; do not conceal failure with new effects, colors, animations or sections. Separate functionality and independent/human review from author self-critique. Actual credible P0/P1 visual failures => `ART_DIRECTION_BLOCKED`; never declare premium delivery complete.
+
+Evidence contract: populate `templates/HERO_TASTE_PACKET.example.json`, run `python scripts/hero_taste_gate.py hero-taste.json --root .` from skill directory (or equivalent explicit paths), and respect its unresolved critical findings. This script checks **documented evidence and PNG integrity**, not aesthetics or actual browsing truth; `READY_FOR_HUMAN_REVIEW` does not mean an expert liked the result. Use `tests/fixtures/hero_art_direction_regression.md` at repository root as a negative benchmark. For small PATCH, use a concise critique without ten-site research.
+
 ## Component-first expert dispatch — significant UI
 
 Design = **user job + business + copy + proof + art + UX + engineering**. Use `references/component-first-design-orchestration.md`, `references/competency-stage-production.md` and `brain/pipeline.py` or `scripts/component_workplan.py`; verify via `scripts/component_delivery_gate.py`. Select component specialists; fall back to role/surface-compatible registry experts. Apply installed skills or local/vendor guides. Trace decisions via `competency_coverage`, not name-dropping. Use `references/human-editorial-and-anti-slop-gates.md`; reject fake claims, AI-slop and untested success.
@@ -79,6 +89,7 @@ Paths relative to the installed skill. `references/resource-index.md` is a looku
 | Exact original referent and canonical brand | `references/original-brief-and-referent-fidelity.md` |
 | Targeted polish/precision operations | `references/precision-design-operations.md` |
 | Render → critique → repair | `references/render-critique-repair-contract.md` |
+| **Art direction, hero taste and benchmark board** | **`references/art-direction-and-hero-taste.md`** + `references/taste-research-sourcebook.md` — focal hierarchy, pruning, competitor synthesis and stop-ship review |
 | **Full Studio: Impeccable, Taste, Emil, UI/UX Pro Max, Anthropic** | **`references/full-specialist-stack.md`** — five-family coverage, installed tool use, licensed snapshots, safety/cost |
 | **Motion videos: Charlie947 (15), Awesome Claude (17), Remotion** | **`references/motion-studio-pack-2026.md`** — storyboard, motion, deterministic render, choosing pipeline, QC |
 | Specialist orchestration only when useful | `references/automatic-specialist-orchestration.md` |
