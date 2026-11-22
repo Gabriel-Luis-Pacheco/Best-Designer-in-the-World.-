@@ -235,6 +235,20 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
     # AUDIT/PATCH and avoid a 66-reference context dump.
     if mode != "PATCH":
         requested=[]
+        # Ensure the benchmark-first guidance actually reaches the agent in
+        # material signup/onboarding/checkout redesigns; naming it in SKILL.md
+        # alone was previously insufficient. Do not pollute PATCH or internal UI.
+        benchmark_flow = (
+            mode in {"REDESIGN", "REBUILD"}
+            and bool({"landing", "product", "mobile", "checkout"} & surfaces)
+            and any(word in task for word in (
+                "onboarding", "checkout", "signup", "cadastro", "primeiro acesso",
+                "ativação", "ativacao", "activation", "pricing", "preços",
+                "precos", "paywall", "b2c", "b2b", "lead form",
+                "carrinho", "ecommerce", "hero", "primeira dobra"))
+        )
+        if benchmark_flow:
+            requested.append("references/benchmark-pattern-transfer-and-validation.md")
         if component_marketing_focus or component_product_focus:
             requested.append("references/component-first-design-orchestration.md")
         if component_marketing_focus:
@@ -285,6 +299,18 @@ def selected_contextual_references(case: dict, plan: dict) -> list[str]:
             if len(refs)>=limit:
                 victim=next((i for i in range(len(refs)-1,-1,-1)
                              if refs[i] not in protected),None)
+                if victim is None and item == "references/benchmark-pattern-transfer-and-validation.md":
+                    # On a significant flow the specific competitor-transfer
+                    # protocol outranks a generic optional guide, while never
+                    # evicting product-truth or essential task guidance.
+                    essentials = {
+                        "references/product-truth.md",
+                        "references/landing-page-evidence-and-cro.md",
+                        "references/advanced-product-ux-operations.md",
+                        "references/component-first-design-orchestration.md",
+                    }
+                    victim = next((i for i in range(len(refs)-1, -1, -1)
+                                   if refs[i] not in essentials), None)
                 if victim is None:continue
                 refs.pop(victim)
             refs.append(item)
