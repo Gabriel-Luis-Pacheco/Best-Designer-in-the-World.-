@@ -1,0 +1,35 @@
+name: Competitive Reconstruction Evidence Contract
+
+on:
+  pull_request:
+    paths:
+      - 'skills/studio-grade-web-transformation/scripts/competitive_reconstruction_gate.py'
+      - 'skills/studio-grade-web-transformation/scripts/production_evidence.py'
+      - 'skills/studio-grade-web-transformation/references/mandatory-competitor-reconstruction.md'
+      - 'skills/studio-grade-web-transformation/templates/COMPETITIVE_RECONSTRUCTION_PACKET.example.json'
+      - 'tests/test_competitive_reconstruction_gate.py'
+      - '.github/workflows/competitive-reconstruction-gate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/studio-grade-web-transformation/scripts/competitive_reconstruction_gate.py'
+      - 'skills/studio-grade-web-transformation/scripts/production_evidence.py'
+      - 'tests/test_competitive_reconstruction_gate.py'
+      - '.github/workflows/competitive-reconstruction-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check competitor gate syntax
+        run: python -m py_compile skills/studio-grade-web-transformation/scripts/competitive_reconstruction_gate.py
+      - name: Reject shallow or faked research evidence
+        run: python -m unittest discover -s tests -p 'test_competitive_reconstruction_gate.py' -v
