@@ -82,6 +82,11 @@ def inspect(data: dict, root: Path, *, atlas: dict | None = None) -> dict:
     recipes = {x["id"]: x for x in atlas["profiles"]}
     if comp not in recipes:
         return {"status": "INVALID", "errors": ["Unknown component_id"]}
+    component_router = module._component_router()
+    matrix_profiles, _ = component_router.load()
+    for profile in matrix_profiles:
+        if profile["id"] == comp and surface not in profile["surfaces"]:
+            return {"status": "INVALID", "errors": ["Component not valid for surface"]}
     if not isinstance(root, Path) or not root.is_dir():
         return {"status": "INVALID", "errors": ["root must exist"]}
     root = root.resolve()
