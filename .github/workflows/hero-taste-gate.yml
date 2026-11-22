@@ -1,0 +1,33 @@
+name: Hero Taste Evidence Contract
+
+on:
+  pull_request:
+    paths:
+      - "skills/studio-grade-web-transformation/scripts/hero_taste_gate.py"
+      - "skills/studio-grade-web-transformation/scripts/production_evidence.py"
+      - "tests/test_hero_taste_gate.py"
+      - ".github/workflows/hero-taste-gate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/studio-grade-web-transformation/scripts/hero_taste_gate.py"
+      - "skills/studio-grade-web-transformation/scripts/production_evidence.py"
+      - "tests/test_hero_taste_gate.py"
+      - ".github/workflows/hero-taste-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile evidence gate
+        run: python -m py_compile skills/studio-grade-web-transformation/scripts/hero_taste_gate.py
+      - name: Regression tests (structural evidence only)
+        run: python -m unittest discover -s tests -p 'test_hero_taste_gate.py' -v

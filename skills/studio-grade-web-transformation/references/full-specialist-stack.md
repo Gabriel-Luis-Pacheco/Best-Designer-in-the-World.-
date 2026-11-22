@@ -26,6 +26,13 @@ A consulta a todas as famílias é obrigatória em trabalho visual grande. A exe
 
 O processo não exige cinco agentes LLM separados: pode ser leitura/ferramenta especializada, desde que **realmente aplicada** e com evidências. Ponto de vista independente só quando execução separada existe.
 
+## Taste variants and conflict resolution — 22/11/2026
+
+- The existing complete snapshot inventories include Taste, Impeccable, UI/UX Pro Max and others. Inspect the exact upstream SHA and files; vendor presence is **not** installation or execution. The canonical art-direction protocol is now `references/art-direction-and-hero-taste.md`; research transfer lives in `references/taste-research-sourcebook.md`.
+- Seven single-file classic style skills from `Leonxlnx/taste-skill-classics` are mirrored under `vendor/taste-skill-classics/skills/`, with original MIT LICENSE, README and SHA provenance. These are **optional style dialects** (high-end, minimal, industrial, GPT, Stitch, v2 experimental, v1), not universal rules. No claim is made that the entire upstream repository or executable tools were cloned here.
+- Some classic rules are actively inappropriate as global policy: banning common fonts, forcing double borders or glass effects, fixed hero heights, compulsory scroll entrance animations, blanket 'no captions' or mandatory card variants. Protect readability, accessibility and product truth first. Choose a style only when the client/audience call for it.
+- In flagship hero work, use at least two genuine visual concepts and capture comparable screenshots. Invoke Taste for compositional direction, Impeccable for actual critique where available, Anthropic for authorial thesis, UI/UX Pro Max for type/spacing patterns, Emil only for meaningful motion. A static gate cannot replace a visual critic or human test.
+
 ## 2. Motion Studio — mais três famílias oficiais/referenciadas
 Quando houver **motion substantivo, anúncio, Reel, microanimação, vídeo comercial ou demo**, ler `references/motion-studio-pack-2026.md`. Avaliar estas três famílias adicionalmente:
 

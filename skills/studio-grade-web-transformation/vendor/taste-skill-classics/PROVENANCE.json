@@ -1,0 +1,46 @@
+{
+  "source": "https://github.com/Leonxlnx/taste-skill-classics",
+  "fetched_utc_date": "2026-11-22",
+  "source_type": "per-file upstream blob snapshots",
+  "license": "MIT; preserve LICENSE. Some referenced assets or other files may require their own rights checks.",
+  "source_files": [
+    {
+      "path": "skills/soft-skill/SKILL.md",
+      "blob_sha": "78a7a4a69665fcd3f6a6135c749d27fa64057b66"
+    },
+    {
+      "path": "skills/minimalist-skill/SKILL.md",
+      "blob_sha": "e6902a6428723cfd98746eb08c5092bbd520ade3"
+    },
+    {
+      "path": "skills/brutalist-skill/SKILL.md",
+      "blob_sha": "119030a65f7ef7e0eccf290e269ffaebbcdcca8e"
+    },
+    {
+      "path": "skills/gpt-tasteskill/SKILL.md",
+      "blob_sha": "c9a72395c9024d4d2398238f0d8b37495228fb7d"
+    },
+    {
+      "path": "skills/stitch-skill/SKILL.md",
+      "blob_sha": "4f4e5a33a6acc5d6257b56a5edb7db219caa5f2e"
+    },
+    {
+      "path": "skills/taste-skill-v2-experimental/SKILL.md",
+      "blob_sha": "1f2c70c8701a0769e4e81e15c1a7e842024e837e"
+    },
+    {
+      "path": "skills/taste-skill-v1/SKILL.md",
+      "blob_sha": "fe03fc42f4c46409fe2d4e224f4d6bab1b794b23"
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "48a2f6640b81ff8eca9ce7f6a96337692713ef5b"
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "b2c7f301e0d464d88ba19f2139ab89db8b90bc3b"
+    }
+  ],
+  "completeness": "Contains all seven upstream SKILL.md files listed in upstream README, plus root LICENSE and README. Does not claim an exhaustive mirror of every tracked repository file. No upstream scripts or hooks were run.",
+  "usage": "Optional reference dialects only; never impose blanket bans on fonts, cards, animations, or spacing. Main Design OS skill controls conflicts."
+}

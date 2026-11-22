@@ -10,6 +10,12 @@
 4. **Render and inspect real pixels.** Record route, build SHA, 1440px desktop and approximately 390px mobile captures (adjust to product), plus intermediate section, footer, CTA destination and important interaction states. For significant motion, inspect frames/timing, reduced-motion and keyboard/focus; a still is insufficient. Unavailable browser/capture => `NOT_VERIFIED`.
 5. **Conduct two distinct passes:** (a) truth/functional, navigation, readability, accessibility risks, performance measurements when available; (b) visual craft/art direction. Never equate (a) passing with (b) being excellent.
 
+## Non-negotiable compositional critique for flagship heroes
+
+Read `art-direction-and-hero-taste.md` for major new or weak heroes. In addition to the broad audit below, require: (1) an observable dominant focal path; (2) legible authentic product or scene as proof; (3) primary CTA visibility; (4) editorial removal list; (5) credible full-page rhythm; and (6) an intentionally recomposed phone hero. Study up to 10 relevant live competitor/substitute heroes and 2–4 cross-category exemplars **when available and proportionate**; preserve screenshots and specific mechanisms. Do not copy a distinct third-party visual identity.
+
+If a screenshot still shows a multi-card UI collage, tiny proof, decorative annotations competing with CTA, or monotone component repetition, classify the *observed failure* as P1 when it compromises the requested premium result. Return `ART_DIRECTION_BLOCKED` until structure is reworked. Do not call a change a repair if it only adds effects, shadows, animations or more sections. Record the specific evidence and whether the reviewer is the builder, a separate critic, or a human. Successful CI and `READY_FOR_HUMAN_REVIEW` are **not art acceptance**.
+
 ## Visual craft review: document findings, not arbitrary auto-scores
 
 For the rendered full page, record at least one concrete observation per relevant axis:
