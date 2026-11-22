@@ -30,6 +30,11 @@ def compose(payload,project=None):
             "research_state":"CANDIDATES_NOT_VISITED",
             "execution_state":"PLAN_ONLY_NOT_EXECUTED",
             "source_evidence":"NO_RUNTIME_BROWSER_OR_USER_EVIDENCE"}
+    # Previous versions stopped at strategy hints. Route material component
+    # work through the actual 47-component atlas; this remains PLAN-ONLY.
+    # Explicit IDs win; missing inventory is reported, never fabricated.
+    result["component_orchestration"] = load_module("component_bridge").compose(
+        context, strategy, explicit_components=payload.get("components"))
     proposals=payload.get("proposals",[])
     if not isinstance(proposals,list):
         raise ValueError("proposals must be list")
