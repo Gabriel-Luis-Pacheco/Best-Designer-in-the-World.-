@@ -6,8 +6,10 @@ No network, downloads, executables or external skills.
 """
 from __future__ import annotations
 import argparse
+import importlib.util
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -17,21 +19,37 @@ STATES = {"NOT_INSPECTED", "INSPECTED_NO_CAPTURE", "CAPTURED"}
 REVIEWS = {"NOT_REVIEWED", "SELF_REVIEW_ONLY", "INDEPENDENT_REVIEW", "HUMAN_REVIEWED"}
 
 
+@lru_cache(maxsize=1)
+def _png_validator():
+    here = Path(__file__).resolve().parent
+    spec = importlib.util.spec_from_file_location(
+        "component_reference_png_validator", here / "production_evidence.py")
+    if spec is None or spec.loader is None:
+        raise ValueError("PNG validator unavailable")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.png_dimensions
+
+
 def safe_file(root: Path, value: str) -> bool:
     if not isinstance(value, str) or not value or len(value) > 400:
         return False
     p = Path(value)
-    if p.is_absolute() or ".." in p.parts or p.suffix.lower() not in {".png", ".jpg", ".jpeg", ".webp"}:
+    if p.is_absolute() or ".." in p.parts or p.suffix.lower() != ".png":
         return False
     target = root / p
     if not target.is_file() or target.is_symlink() or not target.resolve().is_relative_to(root.resolve()):
         return False
     if not 32 <= target.stat().st_size <= 10_000_000:
         return False
-    with target.open("rb") as f:
-        head = f.read(12)
-    return (head[:8] == b"\x89PNG\r\n\x1a\n" or head[:3] == b"\xff\xd8\xff" or
-            (head[:4] == b"RIFF" and head[8:12] == b"WEBP"))
+    try:
+        # A signature-only test can accept arbitrary bytes with a PNG prefix.
+        # The existing validator verifies chunk boundaries, CRC and dimensions.
+        _png_validator()(target.read_bytes())
+    except (ValueError, OSError):
+        return False
+    return True
+
 
 
 def valid_url(url: str) -> bool:

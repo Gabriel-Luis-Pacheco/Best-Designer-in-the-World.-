@@ -156,6 +156,75 @@ def _vendor_phase_candidates(component_id: str, phase_id: str,
         "warning": "Snapshot != installed skill, plugin, CLI, subagent or tested output"
     }
 
+
+# These lanes are deliberately context-dependent. An art/motion piece does not
+# need SaaS sales persuasion just because the atlas includes a "proof" phase,
+# and internal UX writing does not need a commercial copywriting pitch.
+def _applicable_lanes(phase_id: str, default_lanes: list[str],
+                      component_id: str, surface: str, task: str) -> list[str]:
+    if surface == "art" and phase_id == "proof":
+        return ["art-direction", "visual-refinement", "browser-qa"]
+    if surface == "art" and phase_id == "ux":
+        return ["visual-refinement", "browser-qa", "art-direction"]
+    if surface in {"product", "internal", "native", "art"} and phase_id == "editorial":
+        return ["pattern-research", "interface-audit", "accessibility", "visual-refinement"]
+    if phase_id == "engineering":
+        if surface == "art" and component_id == "brand-identity":
+            return ["art-direction", "visual-refinement"]
+        lanes = ["react-architecture", "react-performance", "web-performance"]
+        text = task.casefold()
+        if component_id == "motion" or any(word in text for word in ("gsap", "animate", "motion graphics", "animation", "animacao", "animação")):
+            lanes.append("motion-implementation")
+        if component_id == "3d-interactive" or any(word in text for word in ("webgl", "three.js", "react three fiber", "r3f")):
+            lanes.append("r3f-implementation")
+        if surface == "art":
+            return [x for x in lanes if x in {"motion-implementation", "r3f-implementation"}]
+        return lanes
+    return default_lanes
+
+
+def _phase_specialists(item: dict, phase_id: str, phase: dict,
+                       experts: dict[str, dict], surface: str,
+                       task: str) -> tuple[list[dict], list[dict], list[str]]:
+    """Pick the right expert per role: local first, surface-compatible registry fallback.
+
+    Never claim tool invocation. This closes coverage gaps without blindly
+    assigning 50 experts or leaking B2C persuasion into sensitive internal UI.
+    """
+    leads: list[dict] = []
+    alternatives: list[dict] = []
+    gaps: list[str] = []
+    local_ids = profile_skill_ids(item)
+    active_lanes = _applicable_lanes(phase_id, phase["role_lanes"], item["id"], surface, task)
+    for lane in active_lanes:
+        local = [experts[sid] for sid in local_ids
+                 if sid in experts and experts[sid]["lane"] == lane
+                 and surface in experts[sid]["surfaces"]]
+        global_fallback = [exp for exp in experts.values()
+                           if exp["lane"] == lane and surface in exp["surfaces"]
+                           and exp["id"] not in local_ids]
+        pool = [(x, "COMPONENT_PROFILE") for x in local] + [
+            (x, "SURFACE_COMPATIBLE_REGISTRY_FALLBACK") for x in global_fallback]
+        if not pool:
+            gaps.append(lane)
+            continue
+        for i, (exp, method) in enumerate(pool):
+            candidate = {
+                "id": exp["id"], "name": exp["name"],
+                "lane": lane, "source": exp["source"]["url"],
+                "skill_file": exp["source"].get("path"),
+                "selection_method": method,
+                "status": "CANDIDATE_UNVERIFIED_NOT_INVOKED"
+            }
+            # A phase can have several complementary lanes; restrict automatic
+            # "lead" suggestions to avoid 5 heavyweight skills for routine CSS.
+            if i == 0 and len(leads) < 3:
+                leads.append(candidate)
+            else:
+                alternatives.append(candidate)
+    return leads, alternatives, gaps
+
+
 def plan(*, component_ids: list[str], surface: str, mode: str,
          task: str = "", atlas: dict | None = None, experts: dict | None = None) -> dict:
     if mode not in MODES or surface not in SURFACES:
@@ -189,26 +258,8 @@ def plan(*, component_ids: list[str], surface: str, mode: str,
         steps = []
         for phase_id in phase_ids:
             phase = phases[phase_id]
-            seen_lanes: set[str] = set()
-            recommended, alternates = [], []
-            for lane in phase["role_lanes"]:
-                for sid in profile_skill_ids(item):
-                    if sid not in by_id:
-                        continue
-                    exp = experts[sid]
-                    if exp["lane"] != lane:
-                        continue
-                    candidate = {
-                        "id": sid, "name": exp["name"],
-                        "lane": lane, "source": exp["source"]["url"],
-                        "skill_file": exp["source"].get("path"),
-                        "status": "CANDIDATE_UNVERIFIED_NOT_INVOKED"
-                    }
-                    if lane not in seen_lanes:
-                        recommended.append(candidate)
-                        seen_lanes.add(lane)
-                    else:
-                        alternates.append(candidate)
+            recommended, alternates, missing_lanes = _phase_specialists(
+                item, phase_id, phase, experts, surface, task)
             steps.append({
                 "id": phase_id, "owner_role": phase["title"],
                 "goal": phase["goal"], "inputs": phase["inputs"],
@@ -217,6 +268,8 @@ def plan(*, component_ids: list[str], surface: str, mode: str,
                 "local_guides": ["references/" + x for x in phase["guides"]],
                 "lead_candidates": recommended,
                 "alternative_candidates": alternates,
+                "missing_compatible_specialist_lanes": missing_lanes,
+                "selection_policy": "Component-matched experts first, then surface-compatible global registry by role. At most three lead suggestions per phase; others are opt-in.",
                 "vendored_specialized_references": _vendor_phase_candidates(
                     item["id"], phase_id, vendor_overlay, vendor_records),
                 "status": "NOT_STARTED",
