@@ -89,6 +89,31 @@ class WorkplanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.go("hero",surface="unrecognized")
 
+    def test_hero_routes_specialized_vendor_copy_slop_and_proof(self):
+        hero=self.go("hero")
+        phases={x["id"]:x for x in hero["phases"]}
+        art=phases["art"]["vendored_specialized_references"]
+        editorial=phases["editorial"]["vendored_specialized_references"]
+        proof=phases["proof"]["vendored_specialized_references"]
+        def names(group):
+            return {x["name"] for x in group["priority_snapshots"]+
+                    group["additional_snapshots_if_relevant"]}
+        self.assertIn("landing-page",names(art))
+        self.assertIn("copy-editing",names(editorial))
+        self.assertIn("product-proof-saas",names(proof))
+        self.assertLessEqual(len(art["priority_snapshots"]),3)
+        self.assertTrue(all("NOT_LOADED" in x["status"] for g in (art,editorial,proof)
+                            for x in g["priority_snapshots"]))
+
+    def test_pricing_gets_pricing_page_not_unrelated_motions(self):
+        pricing=self.go("pricing")
+        phases={x["id"]:x for x in pricing["phases"]}
+        refs=phases["commerce"]["vendored_specialized_references"]
+        all_names={x["name"] for x in refs["priority_snapshots"]+
+                   refs["additional_snapshots_if_relevant"]}
+        self.assertIn("pricing-page",all_names)
+        self.assertNotIn("animation-systems",all_names)
+
     def test_status_is_planning_not_action(self):
         result=plan_mod.plan(component_ids=["hero"],surface="marketing",mode="REBUILD",
                             atlas=self.atlas,experts=self.experts)
