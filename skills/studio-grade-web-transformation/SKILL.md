@@ -51,6 +51,8 @@ For art: `references/full-specialist-stack.md` on demand; vendor snapshots aren'
 
 **LANDING / MARKETING:** audience and alternatives → truthful value → evidence → original visual demonstration → working CTA/first value. **CUT / MERGE** repetitive scenes. Never invent customer claims or use boilerplate hero/cards/FAQ as an automatic answer. Preserve prices and decision-critical terms.
 
+**Landing visual rescue:** For “LP looks AI-made”, weak hero, repeated SaaS cards or unsuccessful redesign attempts, read `references/landing-reference-to-pixels.md`. Select a human-made **dominant visual reference per weak scene**, build the comparable layout with original product/brand assets, compare actual reference/before/after captures side by side and REWORK unrepaired scenes. Source names, checklists and approved JSON alone are not visual work. The hero evidence gate rejects tiny/recycled screenshots and asks for an explicit `visual_transfer` decision on marketing REDESIGN/REBUILD; it still cannot certify beauty.
+
 **Full-page redesign:** For “every section is weaker”, read `references/section-parity-and-competitive-rebuild.md`: inventory every scene, compare equivalent competitor jobs, implement original fixes throughout the page, capture desktop/mobile and verify CTA→first value. `scripts/section_parity.py` checks declared evidence, not beauty.
 
 **Original visual signature:** derive typography, composition, imagery, movement and form from the actual product. Study strong real references when relevant; do not clone other brands or use unlicensed assets. Build opening, convincing middle, weakest transition, ending and mobile recomposition.
