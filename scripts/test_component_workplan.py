@@ -114,6 +114,57 @@ class WorkplanTests(unittest.TestCase):
         self.assertIn("pricing-page",all_names)
         self.assertNotIn("animation-systems",all_names)
 
+    def test_every_component_has_expert_or_explicit_contextual_gap(self):
+        # Regression against 104 formerly empty expert-stage assignments across
+        # 394 staged component checks. Avoid declaring them solved by a vendor
+        # snapshot whose runtime availability has not been established.
+        matrix,_=plan_mod._component_router().load()
+        modes={"hero":"REDESIGN","checkout":"REBUILD","dashboard":"REFINE"}
+        used_fallback=False
+        checked=0
+        uncovered=[]
+        for profile in matrix:
+            component=profile["id"]
+            surface=profile["surfaces"][0]
+            result=self.go(component,mode=modes.get(component,"REDESIGN"),surface=surface)
+            for stage in result["phases"]:
+                checked+=1
+                leads=stage["lead_candidates"]
+                available=leads+stage["alternative_candidates"]
+                if not available:
+                    uncovered.append((component,stage["id"],stage["missing_compatible_specialist_lanes"]))
+                for expert in available:
+                    self.assertIn(surface,self.experts[expert["id"]]["surfaces"],
+                                  (component,stage["id"],expert["id"]))
+                    self.assertEqual(expert["status"],"CANDIDATE_UNVERIFIED_NOT_INVOKED")
+                    used_fallback |= expert["selection_method"]=="SURFACE_COMPATIBLE_REGISTRY_FALLBACK"
+                self.assertLessEqual(len(leads),3)
+        self.assertGreaterEqual(checked,350)
+        self.assertEqual(uncovered,[])
+        self.assertTrue(used_fallback)
+
+    def test_internal_navigation_does_not_pull_marketing_copywriter(self):
+        nav=self.go("navigation",surface="internal")
+        editorial=next(p for p in nav["phases"] if p["id"]=="editorial")
+        ids={x["id"] for x in editorial["lead_candidates"]+editorial["alternative_candidates"]}
+        self.assertNotIn("marketing-copywriting",ids)
+        self.assertIn("ui-ux-pro-max",ids)
+
+    def test_hero_measurement_receives_global_registered_specialist(self):
+        result=self.go("hero")
+        measurement=next(x for x in result["phases"] if x["id"]=="measurement")
+        ids={x["id"] for x in measurement["lead_candidates"]+measurement["alternative_candidates"]}
+        self.assertIn("marketing-conversion-tracking",ids)
+        self.assertIn("marketing-analytics",ids)
+        self.assertEqual(measurement["missing_compatible_specialist_lanes"],[])
+
+    def test_no_threejs_or_gsap_by_default_on_static_hero(self):
+        hero=self.go("hero")
+        stage=next(x for x in hero["phases"] if x["id"]=="engineering")
+        ids={x["id"] for x in stage["lead_candidates"]+stage["alternative_candidates"]}
+        self.assertNotIn("react-three-fiber",ids)
+        self.assertNotIn("gsap-scrolltrigger",ids)
+
     def test_status_is_planning_not_action(self):
         result=plan_mod.plan(component_ids=["hero"],surface="marketing",mode="REBUILD",
                             atlas=self.atlas,experts=self.experts)
