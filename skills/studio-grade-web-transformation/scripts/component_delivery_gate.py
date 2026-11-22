@@ -274,6 +274,12 @@ def inspect(data: dict, root: Path, *, atlas: dict | None = None) -> dict:
                     spec = importlib.util.spec_from_file_location("component_research_gate_check", HERE / "component_research_gate.py")
                     m = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(m)
+                    # A structurally valid benchmark from another component
+                    # or build mode cannot certify this delivery.
+                    if j.get("component_id") != comp:
+                        errors.append("research_packet.component_id must match delivery")
+                    if j.get("mode") != mode:
+                        errors.append("research_packet.mode must match delivery")
                     review = m.inspect(j, root)
                     if review["status"] == "INVALID":
                         errors.append("research_packet structurally INVALID: " + "; ".join(review["errors"]))
