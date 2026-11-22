@@ -31,11 +31,11 @@ Deliver the actual requested result **in source and rendered pixels**, not a lon
 
 ## Component-first expert dispatch — significant UI
 
-Design = **user job + business + copy + proof + art + UX + engineering**. Use `references/component-first-design-orchestration.md`, `references/competency-stage-production.md` and `scripts/component_workplan.py`; verify via `scripts/component_delivery_gate.py`. Select component specialists; fall back to role/surface-compatible registry experts. Apply installed skills or local/vendor guides. Trace decisions via `competency_coverage`, not name-dropping. Use `references/human-editorial-and-anti-slop-gates.md`; reject fake claims, AI-slop and untested success.
+Design = **user job + business + copy + proof + art + UX + engineering**. Use `references/component-first-design-orchestration.md`, `references/competency-stage-production.md` and `brain/pipeline.py` or `scripts/component_workplan.py`; verify via `scripts/component_delivery_gate.py`. Select component specialists; fall back to role/surface-compatible registry experts. Apply installed skills or local/vendor guides. Trace decisions via `competency_coverage`, not name-dropping. Use `references/human-editorial-and-anti-slop-gates.md`; reject fake claims, AI-slop and untested success.
 
 **Benchmark-first for funnels:** for components with `benchmark_transfer`, follow `references/benchmark-pattern-transfer-and-validation.md`. Inspect equivalent end-to-end rival flows (up to 10 for flagship LPs, 4–6 for onboarding/checkout when feasible), capture real screens and record ADOPT/ADAPT/REJECT. **A famous competitor using a pattern does not prove conversion.** Separate observed UI, published research and own tests. Prefer familiar research-supported UX before unvalidated novelty; differentiate through product, brand and voice without cloning. Validate via `scripts/pattern_transfer_gate.py` in REDESIGN/REBUILD. PATCH reuses evidence.
 
-For art consider `references/full-specialist-stack.md` (Impeccable, Taste, Anthropic, UI/UX Pro Max, Emil) when relevant; snapshots aren't tools. Motion: `references/motion-studio-pack-2026.md` with reduced-motion fallback.
+For art: `references/full-specialist-stack.md` on demand; vendor snapshots aren't tools. Motion: `references/motion-studio-pack-2026.md`; respect reduced motion.
 
 ## Art × commercial UX × implementation
 
