@@ -62,6 +62,10 @@ python skills/studio-grade-web-transformation/scripts/component_router.py --task
 
 Use o modelo `templates/COMPONENT_RESEARCH_PACKET.example.json` para registrar a pesquisa **que realmente aconteceu**. Execute `scripts/component_research_gate.py packet.json --root /caminho/do/projeto`. O validador recusa URL duplicada, screenshot ausente/falso, caminho fora do projeto, status CAPTURED sem imagem e revisao humana declarada sem evidencias. Ele nao verifica conteudo visual da captura, autoria, beleza, ganho de conversao, autenticidade do revisor ou qualidade da escrita: `READY_FOR_HUMAN_REVIEW` significa apenas estrutura e evidencias declaradas suficientes para revisao humana. O template propositalmente retorna `NEEDS_EVIDENCE`. **Uma lista de 10 URLs sem observacao e nao-pesquisa.**
 
+## Protocolo de execucao v2: sair do catalogo para entregaveis
+
+O atlas `research/component_execution_atlas.json` descreve **15 fases de expertise** e receitas diferentes para todos os 47 componentes (perguntas do usuario, red flags, resultado observavel). Antes de implementar um componente relevante, gerar `scripts/component_workplan.py --component hero --surface marketing --mode REDESIGN --json` para obter a ordem de competencias, skill original no GitHub, tarefa e output esperado. Aplicar de verdade a etapa, nao apenas invocar o nome do especialista. Para aprovar **estruturalmente** os artefatos, usar `scripts/component_delivery_gate.py packet.json --root .` com o template `templates/COMPONENT_DELIVERY_PACKET.example.json`. Ler `references/competency-stage-production.md` para metodologia completa. Um `READY_FOR_HUMAN_REVIEW` e somente elegibilidade documental para revisao, **nao** prova de beleza, resultado comercial ou teste humano real.
+
 **Fontes de metodologia (nao prova de sucesso no projeto):**
 - NN/g homepage https://www.nngroup.com/articles/homepage-design-principles/
 - NN/g competitive evaluations https://www.nngroup.com/articles/competitive-usability-evaluations/
