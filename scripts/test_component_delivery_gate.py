@@ -1,6 +1,8 @@
 """Read-only component delivery gate must never approve from self-report alone."""
 from __future__ import annotations
 import importlib.util
+import struct
+import zlib
 import tempfile
 from pathlib import Path
 import unittest
@@ -9,6 +11,17 @@ ROOT=Path(__file__).resolve().parents[1]/"skills/studio-grade-web-transformation
 spec=importlib.util.spec_from_file_location("component_delivery_gate",ROOT/"scripts/component_delivery_gate.py")
 gate=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(gate)
+
+
+def tiny_valid_png():
+    """Create a real 1×1 RGBA PNG, with valid IHDR/IDAT/IEND CRCs."""
+    def chunk(tag, body):
+        return (struct.pack(">I",len(body))+tag+body+
+                struct.pack(">I",zlib.crc32(tag+body)&0xffffffff))
+    ihdr=struct.pack(">IIBBBBB",1,1,8,6,0,0,0)
+    return (b"\x89PNG\r\n\x1a\n"+chunk(b"IHDR",ihdr)+
+            chunk(b"IDAT",zlib.compress(b"\x00\xff\x00\x00\xff"))+
+            chunk(b"IEND",b""))
 
 
 def packet(component="hero",mode="REDESIGN",surface="marketing"):
@@ -75,7 +88,7 @@ class ComponentDeliveryTests(unittest.TestCase):
             root=Path(d)
             phases=["truth","ux","engineering","accessibility","render"]
             (root/"proof.md").write_text("Evidence from local source files and observed task behavior.",encoding="utf-8")
-            (root/"pic.png").write_bytes(b"\x89PNG\r\n\x1a\n"+b"\0"*100)
+            (root/"pic.png").write_bytes(tiny_valid_png())
             x=packet(mode="PATCH")
             x["stage_records"]=[
                 {"phase_id":phase,"status":"DONE","evidence_path":"proof.md",
@@ -86,6 +99,12 @@ class ComponentDeliveryTests(unittest.TestCase):
             p=gate.inspect(x,root)
             self.assertEqual(p["status"],"READY_FOR_HUMAN_REVIEW")
             self.assertIn("not proof",str(p["limitations"]).lower())
+
+    def test_broken_png_header_does_not_pass_visual_proof(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            (root/"fake.png").write_bytes(b"\x89PNG\r\n\x1a\n"+b"x"*120)
+            self.assertFalse(gate._safe_artifact(root,"fake.png",image=True))
 
     def test_incompatible_component_surface_fails(self):
         x=packet(surface="internal")
