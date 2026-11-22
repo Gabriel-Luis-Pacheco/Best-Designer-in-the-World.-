@@ -7,7 +7,9 @@ unresolved P0/P1 issues by adding screenshots or declaring self-approval.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
+from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -16,6 +18,18 @@ VERDICTS = {"PASS", "REWORK", "BLOCKED_WITH_EVIDENCE", "NOT_REVIEWED"}
 REVIEWERS = {"SELF_REVIEW", "INDEPENDENT_AGENT", "HUMAN", "NOT_REVIEWED"}
 DECISIONS = {"ADOPT", "ADAPT", "REJECT"}
 MAX_BYTES = 30_000_000
+
+
+@lru_cache(maxsize=1)
+def _png_validator():
+    """Reuse repository's full PNG chunk/CRC/dimension validation."""
+    source = Path(__file__).with_name("production_evidence.py")
+    spec = importlib.util.spec_from_file_location("hero_png_validator", source)
+    if spec is None or spec.loader is None:
+        raise ValueError("production_evidence.py validator unavailable")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.png_dimensions
 
 
 def _meaningful(value: object, n: int = 20) -> bool:
@@ -35,8 +49,11 @@ def _image(root: Path, value: object) -> bool:
     size = full.stat().st_size
     if not 64 <= size <= MAX_BYTES:
         return False
-    with full.open("rb") as f:
-        return f.read(8) == b"\x89PNG\r\n\x1a\n"
+    try:
+        _png_validator()(full.read_bytes())
+    except (ValueError, OSError):
+        return False
+    return True
 
 
 def _valid_url(value: object) -> bool:
