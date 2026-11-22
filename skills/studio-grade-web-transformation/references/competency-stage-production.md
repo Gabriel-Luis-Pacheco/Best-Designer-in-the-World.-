@@ -106,7 +106,26 @@ Nao escolher "autoral" so por ser criativo; prototipar no layout. Se todas sao c
 
 **Admin/financeiro:** permissao, rastreio, integridade dos numeros e recuperacao superam exibicao. Nao mexer em backend ou contratos por estetica.
 
-## 5. Gate adversarial e comprovacao
+## 5. Rastro de conhecimento realmente aplicado — obrigatório em REDESIGN/REBUILD
+
+O conhecimento não conta apenas por estar no repositório. Para cada fase ativa do atlas, o agente deve documentar em `competency_coverage` **de onde veio a ideia, qual decisão mudou e onde verificar o resultado**. O novo `component_delivery_gate.py` considera incompleto um redesenho grande sem esse rastro; a finalidade é impedir que 50 skills sejam apenas citadas como argumento de autoridade.
+
+Exemplo de entrada do pacote JSON:
+
+~~~json
+{
+  "phase_id": "editorial",
+  "source_kind": "LOCAL_GUIDE",
+  "source_id": "human-editorial-and-anti-slop-gates.md",
+  "status": "REFERENCED",
+  "evidence_path": "evidence/hero-copy-critique.md",
+  "decision_influenced": "A headline genérica foi cortada e substituída por uma descrição verificável da tarefa, com três abordagens comparadas no layout."
+}
+~~~
+
+`source_kind`: `LOCAL_GUIDE` deve pertencer à fase; `REGISTERED_SPECIALIST` deve existir no registro e ser adequado à superfície; `VENDORED_REFERENCE` precisa constar do índice e **nunca pode ser declarado uma skill externa executada**. `status=APPLIED` descreve trabalho feito e evidência real; `REFERENCED` indica consulta contextual, não invocação. O artefato citado precisa existir no projeto. Na falta de alguma ferramenta, usar guia local aplicável e declarar limites. O validador checa a estrutura, **não consegue confirmar que um humano escreveu aquele log nem que a melhoria realmente é boa**.
+
+## 6. Gate adversarial e comprovacao
 
 Em fases criativas, uma critica e obrigatoria: **3 defeitos localizados, 1 corte/merge real e 1 comparacao com referencia**, quando tais defeitos existirem. Nao forcar tres problemas inexistentes para preencher checklist. Nenhum agente pode dizer "melhor do mundo" sem experimento controlado.
 
