@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "component_id": "hero",
+  "mode": "REDESIGN",
+  "surface": "marketing",
+  "stage_records": [
+    {
+      "phase_id": "truth",
+      "status": "NOT_STARTED",
+      "summary": "",
+      "evidence_path": null
+    },
+    {
+      "phase_id": "market",
+      "status": "NOT_STARTED",
+      "summary": "",
+      "evidence_path": null
+    },
+    {
+      "phase_id": "editorial",
+      "status": "NOT_STARTED",
+      "summary": "",
+      "evidence_path": null
+    },
+    {
+      "phase_id": "render",
+      "status": "NOT_STARTED",
+      "summary": "",
+      "evidence_path": null
+    }
+  ],
+  "expert_application_log": [
+    {
+      "id": "marketing-copywriting",
+      "status": "UNAVAILABLE",
+      "evidence_path": null,
+      "specific_contribution": ""
+    }
+  ],
+  "research_packet": null,
+  "visual_artifacts": {
+    "before": null,
+    "desktop_after": null,
+    "mobile_after": null
+  },
+  "critical_flows": [
+    {
+      "id": "CTA to first value",
+      "status": "NOT_TESTED",
+      "evidence_path": null
+    }
+  ],
+  "editorial_review": {
+    "status": "NOT_REVIEWED",
+    "evidence_path": null
+  },
+  "blocking_issues": [],
+  "_notes": "Deliberately INCOMPLETE illustrative template; validator must respond NEEDS_EVIDENCE. Do not report approval from this template."
+}
