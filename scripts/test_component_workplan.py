@@ -169,6 +169,48 @@ class WorkplanTests(unittest.TestCase):
         self.assertNotIn("react-three-fiber",ids)
         self.assertNotIn("gsap-scrolltrigger",ids)
 
+    def test_all_priority_flows_receive_competitor_pattern_transfer(self):
+        atlas=self.atlas
+        priority=[p for p in atlas["profiles"] if p.get("benchmark_transfer")]
+        self.assertGreaterEqual(len(priority),16)
+        for profile in priority:
+            surface=("marketing" if "marketing" in next(
+                x for x in plan_mod._component_router().load()[0] if x["id"]==profile["id"]
+            )["surfaces"] else next(
+                x for x in plan_mod._component_router().load()[0] if x["id"]==profile["id"]
+            )["surfaces"][0])
+            result=self.go(profile["id"],mode="REDESIGN",surface=surface)
+            self.assertIn("market",{p["id"] for p in result["phases"]})
+            spec=result["benchmark_pattern_transfer"]
+            self.assertEqual(spec["status"],"NOT_OBSERVED_NOT_VALIDATED")
+            self.assertGreaterEqual(spec["reference_target"],4)
+            self.assertIn("ADOPT",spec["pattern_baseline"])
+            self.assertTrue(spec["stages_to_observe"])
+            self.assertTrue(spec["mandatory_for_major_modes"])
+
+    def test_onboarding_now_prioritizes_competitor_flow_evidence(self):
+        flow=self.go("onboarding",mode="REBUILD",surface="product")
+        phases=[p["id"] for p in flow["phases"]]
+        self.assertLess(phases.index("market"),phases.index("activation"))
+        spec=flow["benchmark_pattern_transfer"]
+        self.assertTrue(any("first value" in s for s in spec["stages_to_observe"]))
+        self.assertEqual(spec["reference_target"],5)
+
+    def test_checkout_adoption_is_not_assumed_to_be_proven_conversion(self):
+        flow=self.go("checkout",mode="REBUILD",surface="product")
+        spec=flow["benchmark_pattern_transfer"]
+        self.assertIn("do not infer conversion",spec["result_claim_policy"].lower())
+        self.assertIn("market",{x["id"] for x in flow["phases"]})
+
+    def test_patch_never_forces_competitor_flow_marathon(self):
+        flow=self.go("onboarding",mode="PATCH",surface="product")
+        self.assertNotIn("market",{x["id"] for x in flow["phases"]})
+        self.assertIsNone(flow["benchmark_pattern_transfer"])
+
+    def test_dashboard_does_not_inherit_commercial_transfer(self):
+        flow=self.go("dashboard",mode="REDESIGN",surface="internal")
+        self.assertIsNone(flow["benchmark_pattern_transfer"])
+
     def test_status_is_planning_not_action(self):
         result=plan_mod.plan(component_ids=["hero"],surface="marketing",mode="REBUILD",
                             atlas=self.atlas,experts=self.experts)

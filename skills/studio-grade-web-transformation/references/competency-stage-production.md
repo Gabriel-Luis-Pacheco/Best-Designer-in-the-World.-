@@ -28,6 +28,12 @@ Além dos 46 candidatos do registro central, o workplan agora faz uma **interse�
 
 Quando uma skill adequada estiver realmente instalada na plataforma, ler seu SKILL.md real e usar a ferramenta adequada; pacote local e so referencia. Nao executar scripts/instaladores externos nem ativar hooks fora do escopo autorizado. Carregar conhecimento progressivamente pelo problema observado, nao indiscriminadamente os 50 pacotes.
 
+### Baseline competitivo para fluxos, nao so para landing page
+
+Para componentes de conversao e ativacao com `benchmark_transfer` no atlas, o agente agora recebe tarefas comparaveis e uma meta de referencias por tipo de fluxo. Um onboarding exige observar **sequencias completas**, nao apenas primeira tela; checkout exige custo/erro/confirmacao, signup exige cadastro e retorno ao primeiro valor. **Padrao observado ≠ experiencia de fato validada**; dados de conversao de concorrentes geralmente nao estao acessiveis.
+
+O objetivo e aproveitar convencoes bem fundamentadas antes de inventar interacoes com risco desnecessario. Registrar as escolhas ADOPT/ADAPT/REJECT, fontes, adequacao ao usuario e plano de validacao local conforme `references/benchmark-pattern-transfer-and-validation.md`. Para REDESIGN/REBUILD, o `component_delivery_gate.py` verifica um `pattern_transfer_packet` estruturalmente consistente com o mesmo `research_packet`. Se o navegador nao puder entrar no onboarding concorrente, nao inventar prints; usar pesquisa de usabilidade publicada e reportar limitacoes. PATCH nao exige pesquisa competitiva ampla.
+
 ## 1. O que significa pesquisar dez concorrentes de verdade
 
 Para a landing ou hero estrategica, buscar ate dez **alternativas reais**, priorizando concorrentes diretos e substitutos relevantes, **mais** 2–4 exemplos de qualidade em categorias adjacentes quando ajudarem. Nao prometer que dez existem: delimitar mercado, pais, publico e pricing; nao confundir 10 URLs com 10 telas realmente estudadas. Usar tempo e orcamento proporcional: PATCH claro nao precisa de catalogo, REFINE aprovado aproveita screenshots recentes.

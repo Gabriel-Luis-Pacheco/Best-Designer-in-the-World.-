@@ -1,5 +1,11 @@
 # Design OS Prime v14.0.0
 
+## Benchmark-first UX para onboarding e conversao
+
+Os funis de alto impacto agora possuem um [protocolo de transferencia fundamentada de padroes](skills/studio-grade-web-transformation/references/benchmark-pattern-transfer-and-validation.md): observar fluxos equivalentes reais de concorrentes, priorizar padroes familiares apoiados por pesquisa, decidir ADOPT/ADAPT/REJECT, preservar expressao propria da marca e testar em nossos usuarios. O [atlas de execucao](skills/studio-grade-web-transformation/research/component_execution_atlas.json) inclui requisitos de pesquisa por componente; o [validador de transferencia](skills/studio-grade-web-transformation/scripts/pattern_transfer_gate.py) e o [gate de entrega](skills/studio-grade-web-transformation/scripts/component_delivery_gate.py) exigem a trilha documental nas grandes reconstrucoes.
+
+**Importante:** utilizar um padrao em uma empresa grande nao comprova conversao superior; capturas demonstram design observado, nao validacao comercial. Nenhuma ferramenta afirma ter visitado rivais, medido efeitos ou aplicado skill externa sem evidencia.
+
 ## Workplans e gates de entrega por componente (21/11/2026)
 
 A melhoria agora vai alem do catalogo: o [atlas de execucao de 47 componentes e 15 etapas](skills/studio-grade-web-transformation/research/component_execution_atlas.json), o [workplan por especialista](skills/studio-grade-web-transformation/scripts/component_workplan.py), o [guia de handoffs](skills/studio-grade-web-transformation/references/competency-stage-production.md) e o [gate de evidencias de entrega](skills/studio-grade-web-transformation/scripts/component_delivery_gate.py) explicitam **o que um pesquisador, copywriter, vendedor, diretor de arte, especialista UX, engenheiro e critico precisam ENTREGAR**. Cada componente tem perguntas e red flags proprios. Nao declarar aplicacao de skills, prints, revisao humana ou resultado de receita sem evidencias. Workplans e gates nao invocam outros agentes nem certificam bom gosto.

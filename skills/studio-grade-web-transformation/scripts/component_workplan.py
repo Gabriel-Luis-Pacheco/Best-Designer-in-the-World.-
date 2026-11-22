@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ATLAS_PATH = ROOT / "research/component_execution_atlas.json"
 SMALL_MODES = {"PATCH", "AUDIT"}
+BROAD_MAJOR_MODES = {"REDESIGN", "REBUILD"}
 MODES = {"PATCH", "AUDIT", "REFINE", "REDESIGN", "REBUILD"}
 SURFACES = {"marketing", "product", "internal", "read", "art", "native"}
 
@@ -284,6 +285,14 @@ def plan(*, component_ids: list[str], surface: str, mode: str,
             "red_flags": profile["red_flags"],
             "observable_user_outcome": profile["observable_user_outcome"],
             "benchmark": item["benchmark"],
+            "benchmark_pattern_transfer": (
+                {**profile["benchmark_transfer"],
+                 "status": "NOT_OBSERVED_NOT_VALIDATED",
+                 "guide": "references/benchmark-pattern-transfer-and-validation.md",
+                 "gate": "scripts/pattern_transfer_gate.py",
+                 "template": "templates/PATTERN_TRANSFER_PACKET.example.json",
+                 "mandatory_for_major_modes": True}
+                if mode in BROAD_MAJOR_MODES and profile.get("benchmark_transfer") else None),
             "research_comparison_job": profile["comparison_job"],
             "final_status": "NOT_EXECUTED_NEEDS_REAL_ARTIFACTS"
         })
@@ -295,6 +304,7 @@ def plan(*, component_ids: list[str], surface: str, mode: str,
             "For major commercial redesign, research up to 10 genuine alternatives plus excellent adjacent examples when available; inspect relevant sections, capture evidence, learn mechanisms not protected expression.",
             "Apply each stage to the same product/job; keep a short recorded handoff and resolve conflicting opinions with truth, brand, usability and real evidence.",
             "Produce working pixels and states, then critique and repair. A build/screenshot or model praise is not design approval.",
+            "For flagship commercial flows, start from comparable observed patterns and research evidence, then ADOPT/ADAPT/REJECT with documented fit and own testing; competitor existence is not conversion validation.",
             "Use the component delivery evidence gate before shipping; distinguish human review, self-review and untested business outcomes."
         ]
     }
