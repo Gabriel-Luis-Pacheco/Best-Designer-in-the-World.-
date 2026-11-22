@@ -55,5 +55,15 @@
     "evidence_path": null
   },
   "blocking_issues": [],
-  "_notes": "Deliberately INCOMPLETE illustrative template; validator must respond NEEDS_EVIDENCE. Do not report approval from this template."
+  "_notes": "Deliberately INCOMPLETE illustrative template; validator must respond NEEDS_EVIDENCE. Do not report approval from this template. Major redesigns additionally require one verified competency_coverage record for each relevant stage, with source and changed decision.",
+  "competency_coverage": [
+    {
+      "phase_id": "editorial",
+      "source_kind": "LOCAL_GUIDE",
+      "source_id": "human-editorial-and-anti-slop-gates.md",
+      "status": "REFERENCED",
+      "evidence_path": null,
+      "decision_influenced": "EXAMPLE ONLY — replace with the actual edit and evidence"
+    }
+  ]
 }
