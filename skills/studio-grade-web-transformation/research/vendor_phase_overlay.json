@@ -19,15 +19,20 @@
     "editorial": [
       "copywriting",
       "copy-editing",
-      "marketing-psychology"
+      "marketing-psychology",
+      "no-ai-design-slop"
     ],
     "proof": [
       "product-proof-saas",
+      "landing-page",
       "webapp-testing"
     ],
     "art": [
       "frontend-design",
       "taste-skill",
+      "landing-page",
+      "brand-guidelines",
+      "theme-factory",
       "design-first-ui-prompting",
       "build-awwwards-quality-sites",
       "no-ai-design-slop"
@@ -41,7 +46,8 @@
       "pricing",
       "pricing-page",
       "paywalls",
-      "signup"
+      "signup",
+      "landing-page"
     ],
     "activation": [
       "onboarding",
@@ -77,7 +83,8 @@
       "no-ai-design-slop",
       "web-design-reviewer",
       "webapp-testing",
-      "verification-before-completion"
+      "verification-before-completion",
+      "copy-editing"
     ],
     "measurement": [
       "analytics",
