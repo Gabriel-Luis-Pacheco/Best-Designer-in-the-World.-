@@ -281,6 +281,30 @@ def inspect(data: dict, root: Path, *, atlas: dict | None = None) -> dict:
                         missing.append("research_packet incomplete: " + "; ".join(review.get("missing_evidence", [])))
                 except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
                     errors.append("research_packet unreadable: " + str(exc))
+    # Significant high-impact flows have a separate baseline transfer contract.
+    # A competitor screenshot is evidence of observed behavior, NEVER a proof of
+    # conversion lift or of our own users' preference.
+    recipe = recipes[comp]
+    if mode in {"REDESIGN", "REBUILD"} and recipe.get("benchmark_transfer"):
+        transfer_path = data.get("pattern_transfer_packet")
+        if not _safe_artifact(root, transfer_path) or Path(transfer_path).suffix.lower() != ".json":
+            missing.append("pattern_transfer_packet must be an existing JSON with adoption decisions")
+        else:
+            try:
+                p = json.loads((root / transfer_path).read_text(encoding="utf-8"))
+                if p.get("research_packet") != data.get("research_packet"):
+                    errors.append("pattern transfer must use the same research_packet as component delivery")
+                spec = importlib.util.spec_from_file_location(
+                    "component_transfer_gate_check", HERE / "pattern_transfer_gate.py")
+                trans = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(trans)
+                checked = trans.inspect(p, root)
+                if checked["status"] == "INVALID":
+                    errors.append("pattern transfer invalid: " + "; ".join(checked["errors"]))
+                elif checked["status"] != "READY_FOR_HUMAN_REVIEW":
+                    missing.append("pattern transfer incomplete: " + "; ".join(checked["missing_evidence"]))
+            except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
+                errors.append("pattern transfer packet unreadable: " + str(exc))
     status = "INVALID" if errors else ("BLOCKED" if blockers else
              "NEEDS_EVIDENCE" if missing else "READY_FOR_HUMAN_REVIEW")
     return {
