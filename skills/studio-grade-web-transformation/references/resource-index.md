@@ -6,6 +6,8 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/component-first-design-orchestration.md` | Pesquisa real + especialistas por componente + impacto em vendas, copy, UX e produto |
+| `references/human-editorial-and-anti-slop-gates.md` | Critica editorial de copy humana e regras de REWRITE/REWORK com evidencias |
 | `references/section-parity-and-competitive-rebuild.md` | Redesign competitivo por seção, matriz KEEP/REWORK/ADD/REMOVE, capturas comparáveis e CTA→primeiro valor |
 | `references/visual-craft-acceptance.md` | Revisão da página inteira: direção artística, sequência de cenas, comparação pareada, mobile e evidência real |
 | `references/human-comprehension-first-value.md` | Compreensão de público real, confiança, demonstração, CTA e primeiro valor; sem fingir teste com usuário |

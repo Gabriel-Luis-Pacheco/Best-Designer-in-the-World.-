@@ -1,0 +1,1400 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-21",
+  "purpose": "Component-specific competency recommendations, never runtime execution, installation, human validation or evidence of conversion.",
+  "profiles": [
+    {
+      "id": "hero",
+      "aliases": [
+        "hero",
+        "primeira dobra",
+        "headline",
+        "above the fold",
+        "abertura",
+        "masthead"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Entender valor, acreditar e dar o primeiro passo correto.",
+      "specialist_ids": [
+        "marketing-research",
+        "marketing-competitor",
+        "marketing-product",
+        "marketing-copywriting",
+        "marketing-offers",
+        "marketing-cro",
+        "marketing-psychology",
+        "anthropic-frontend",
+        "taste-skill",
+        "ui-ux-pro-max",
+        "impeccable",
+        "vercel-guidelines",
+        "playwright-browser",
+        "cloudflare-webperf"
+      ],
+      "reference_guides": [
+        "reference-led-visual-intelligence.md",
+        "landing-strategy-and-decision-architecture.md",
+        "great-leads-ethical-copy-framework.md",
+        "human-editorial-and-anti-slop-gates.md",
+        "evidence-to-scene-protocol.md"
+      ],
+      "research_focus": "Headline, prova visivel, CTA real, composicao/midia, mobile, 10 referencias no redesign amplo.",
+      "editorial_or_ux_gate": "Nao aceitar promessa universal, imagem decorativa nem CTA enganosa."
+    },
+    {
+      "id": "navigation",
+      "aliases": [
+        "navbar",
+        "header",
+        "menu",
+        "navegacao",
+        "site navigation"
+      ],
+      "surfaces": [
+        "marketing",
+        "product",
+        "internal",
+        "read"
+      ],
+      "user_job": "Encontrar caminho correto e reconhecer orientacao.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "impeccable",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "interaction-and-content.md",
+        "human-comprehension-first-value.md"
+      ],
+      "research_focus": "IA, rotulos de destino, foco, menu mobile, estados login, sticky e contraste.",
+      "editorial_or_ux_gate": "Nao esconder destinos importantes, foco ou escolha de idioma."
+    },
+    {
+      "id": "footer",
+      "aliases": [
+        "rodape",
+        "footer",
+        "links legais"
+      ],
+      "surfaces": [
+        "marketing",
+        "product",
+        "read"
+      ],
+      "user_job": "Concluir confianca, localizar termos, navegacao e suporte.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "impeccable",
+        "marketing-seo"
+      ],
+      "reference_guides": [
+        "privacy-trust-and-consent-ux.md",
+        "seo-discovery-and-search-experience.md"
+      ],
+      "research_focus": "Contato real, acessibilidade, links, politica, alternativas e lingua.",
+      "editorial_or_ux_gate": "Nao inserir logos/certificacoes, enderecos ou informacoes legais falsas."
+    },
+    {
+      "id": "problem-framing",
+      "aliases": [
+        "problema",
+        "pain section",
+        "dor do cliente",
+        "problem framing"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Sentir que a marca conhece a situacao concreta.",
+      "specialist_ids": [
+        "marketing-research",
+        "marketing-competitor",
+        "marketing-copywriting",
+        "marketing-product",
+        "marketing-psychology",
+        "taste-skill"
+      ],
+      "reference_guides": [
+        "user-research-and-proof.md",
+        "copy-lab-and-ethical-psychology.md",
+        "ethical-user-psychology.md"
+      ],
+      "research_focus": "Palavras reais do publico, situacao, custo de nao agir, segmento e confianca.",
+      "editorial_or_ux_gate": "Nao inventar dor, exagerar medo ou repetir a hero."
+    },
+    {
+      "id": "product-demo",
+      "aliases": [
+        "demo",
+        "demonstracao",
+        "product preview",
+        "produto em acao",
+        "simulacao"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Ver o produto e compreender o mecanismo real.",
+      "specialist_ids": [
+        "marketing-product",
+        "marketing-cro",
+        "anthropic-frontend",
+        "taste-skill",
+        "ui-ux-pro-max",
+        "impeccable",
+        "playwright-browser",
+        "a11y-specialist"
+      ],
+      "reference_guides": [
+        "evidence-to-scene-protocol.md",
+        "product-truth.md",
+        "reference-led-visual-intelligence.md"
+      ],
+      "research_focus": "Fluxo real, estados, performance, criacao de expectativa, mobile, acessibilidade.",
+      "editorial_or_ux_gate": "Nao usar mockup que simule recurso inexistente ou fluxo de CTA falso."
+    },
+    {
+      "id": "feature-section",
+      "aliases": [
+        "features",
+        "funcionalidades",
+        "recursos",
+        "beneficios visuais"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Relacionar capacidade real a trabalho concreto.",
+      "specialist_ids": [
+        "marketing-product",
+        "marketing-copywriting",
+        "marketing-research",
+        "ui-ux-pro-max",
+        "anthropic-frontend",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "evidence-to-scene-protocol.md",
+        "attention-architecture-and-density.md",
+        "copy-lab-and-ethical-psychology.md"
+      ],
+      "research_focus": "Beneficio distinto por secao, prova, media, contexto e densidade.",
+      "editorial_or_ux_gate": "Nao criar grade de 6 cards repetitivos por default."
+    },
+    {
+      "id": "benefit-story",
+      "aliases": [
+        "beneficios",
+        "por que usar",
+        "value proposition",
+        "value section"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Entender mudanca no trabalho/vida que o produto realmente produz.",
+      "specialist_ids": [
+        "marketing-product",
+        "marketing-copywriting",
+        "marketing-research",
+        "marketing-cro",
+        "taste-skill",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "positioning-and-copywriting.md",
+        "evidence-to-scene-protocol.md"
+      ],
+      "research_focus": "Beneficios demonstraveis versus recursos, momento do usuario, ordem dos argumentos.",
+      "editorial_or_ux_gate": "Nao vender abstracao sem diferenca especifica."
+    },
+    {
+      "id": "trust-proof",
+      "aliases": [
+        "social proof",
+        "prova social",
+        "trust",
+        "depoimentos",
+        "testimonials",
+        "logos clientes"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Reduzir incerteza por sinais autenticos de confianca.",
+      "specialist_ids": [
+        "marketing-cro",
+        "marketing-copywriting",
+        "marketing-psychology",
+        "marketing-research",
+        "ui-ux-pro-max",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "user-research-and-proof.md",
+        "copy-lab-and-ethical-psychology.md",
+        "privacy-trust-and-consent-ux.md"
+      ],
+      "research_focus": "Identidade/fonte de testemunhos, periodo, relacao com resultado, marca autorizada.",
+      "editorial_or_ux_gate": "Bloquear metricas, testimonials, ranking e logos inventados."
+    },
+    {
+      "id": "case-study",
+      "aliases": [
+        "case study",
+        "estudo de caso",
+        "customer story",
+        "cases"
+      ],
+      "surfaces": [
+        "marketing",
+        "read"
+      ],
+      "user_job": "Ver como um caso real gerou resultado, com limites claros.",
+      "specialist_ids": [
+        "marketing-research",
+        "marketing-copywriting",
+        "marketing-product",
+        "marketing-cro",
+        "taste-skill"
+      ],
+      "reference_guides": [
+        "user-research-and-proof.md",
+        "visual-storytelling.md",
+        "research-provenance.md"
+      ],
+      "research_focus": "Contexto inicial, dados, periodo, processo, autorizacoes e resultado.",
+      "editorial_or_ux_gate": "Nao fabricar cliente ou causalidade."
+    },
+    {
+      "id": "pricing",
+      "aliases": [
+        "pricing",
+        "planos",
+        "precos",
+        "preço",
+        "precificacao",
+        "pricing table"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Escolher um plano entendendo preco, limite e compromisso.",
+      "specialist_ids": [
+        "marketing-pricing",
+        "marketing-offers",
+        "marketing-cro",
+        "marketing-psychology",
+        "marketing-copywriting",
+        "ui-ux-pro-max",
+        "impeccable",
+        "a11y-specialist",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "landing-page-evidence-and-cro.md",
+        "human-editorial-and-anti-slop-gates.md",
+        "full-funnel-commercial-orchestration.md"
+      ],
+      "research_focus": "Comparacao real, unidade de cobranca, renovacao, cancelamento, trials e fluxos.",
+      "editorial_or_ux_gate": "Nao ocultar preco total, inventar ancoragem ou preselecionar consentimento pago."
+    },
+    {
+      "id": "paywall",
+      "aliases": [
+        "paywall",
+        "upgrade",
+        "upsell",
+        "assinatura",
+        "upgrade screen"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Decidir se vale pagar com informacao adequada.",
+      "specialist_ids": [
+        "marketing-pricing",
+        "marketing-offers",
+        "marketing-cro",
+        "marketing-onboarding",
+        "marketing-copywriting",
+        "a11y-specialist",
+        "vercel-guidelines"
+      ],
+      "reference_guides": [
+        "activation-retention-and-ethical-engagement.md",
+        "system-user-journeys-and-transactions.md",
+        "privacy-trust-and-consent-ux.md"
+      ],
+      "research_focus": "Momento do valor, limites gratuitos, plano, cancelamento e alternativas.",
+      "editorial_or_ux_gate": "Nao bloquear navegacao ou disfarcar cancelamento."
+    },
+    {
+      "id": "comparison",
+      "aliases": [
+        "comparativo",
+        "compare",
+        "alternativas",
+        "versus",
+        "vs competitors"
+      ],
+      "surfaces": [
+        "marketing",
+        "read"
+      ],
+      "user_job": "Distinguir opcoes sem propaganda enganosa.",
+      "specialist_ids": [
+        "marketing-competitor",
+        "marketing-product",
+        "marketing-research",
+        "marketing-copywriting",
+        "marketing-cro",
+        "marketing-seo",
+        "ui-ux-pro-max"
+      ],
+      "reference_guides": [
+        "research-provenance.md",
+        "positioning-and-copywriting.md",
+        "seo-discovery-and-search-experience.md"
+      ],
+      "research_focus": "Metodo, data e fonte de claims, criterios simetricos, variacao real.",
+      "editorial_or_ux_gate": "Nao alegar lideranca sem evidencia nem depreciar competidor sem base."
+    },
+    {
+      "id": "faq",
+      "aliases": [
+        "faq",
+        "perguntas frequentes",
+        "perguntas e respostas",
+        "accordion"
+      ],
+      "surfaces": [
+        "marketing",
+        "product",
+        "read"
+      ],
+      "user_job": "Resolver objecao real sem enterrar informacoes essenciais.",
+      "specialist_ids": [
+        "marketing-research",
+        "marketing-copywriting",
+        "marketing-cro",
+        "a11y-specialist",
+        "vercel-guidelines"
+      ],
+      "reference_guides": [
+        "copy-lab-and-ethical-psychology.md",
+        "reading-and-information-design.md"
+      ],
+      "research_focus": "Origem da pergunta, resposta verificavel, teclado, indexabilidade.",
+      "editorial_or_ux_gate": "Nao inventar 12 perguntas para preencher template."
+    },
+    {
+      "id": "closing-cta",
+      "aliases": [
+        "cta final",
+        "closing cta",
+        "ultima chamada",
+        "final cta",
+        "encerramento"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Tomar decisao informada apos ver prova e termos.",
+      "specialist_ids": [
+        "marketing-copywriting",
+        "marketing-cro",
+        "marketing-offers",
+        "marketing-psychology",
+        "taste-skill",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "human-editorial-and-anti-slop-gates.md",
+        "attention-architecture-and-density.md"
+      ],
+      "research_focus": "Estado de conviccao ao final, promessa, friccao, action path.",
+      "editorial_or_ux_gate": "Nao repetir hero sem adicionar contexto ou alterar acao."
+    },
+    {
+      "id": "lead-form",
+      "aliases": [
+        "lead form",
+        "formulario comercial",
+        "fale com vendas",
+        "solicitar demo",
+        "solicitar orçamento"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Enviar dados com expectativa clara e seguro.",
+      "specialist_ids": [
+        "marketing-cro",
+        "marketing-copywriting",
+        "marketing-sales",
+        "marketing-analytics",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "interaction-and-content.md",
+        "privacy-trust-and-consent-ux.md",
+        "full-funnel-commercial-orchestration.md"
+      ],
+      "research_focus": "Quantidade de campos, intencao, privacidade, feedback, entrega e atribuição.",
+      "editorial_or_ux_gate": "Nao alegar sucesso de envio sem backend/resultado real."
+    },
+    {
+      "id": "signup",
+      "aliases": [
+        "signup",
+        "cadastro",
+        "registro",
+        "registrar conta",
+        "create account"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Criar conta com minimo atrito e expectativas corretas.",
+      "specialist_ids": [
+        "marketing-signup",
+        "marketing-onboarding",
+        "marketing-cro",
+        "marketing-copywriting",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "system-user-journeys-and-transactions.md",
+        "privacy-trust-and-consent-ux.md"
+      ],
+      "research_focus": "Senha/social, consentimento, recuperacao, estados, dominio da acao.",
+      "editorial_or_ux_gate": "Nao quebrar autenticacao existente ou prometer acesso imediato ficticio."
+    },
+    {
+      "id": "authentication",
+      "aliases": [
+        "login",
+        "autenticacao",
+        "2fa",
+        "mfa",
+        "recuperar senha",
+        "password reset"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Entrar e recuperar acesso com seguranca e clareza.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "playwright-browser",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "system-user-journeys-and-transactions.md",
+        "operational-reliability-and-recovery-ux.md"
+      ],
+      "research_focus": "Erro sem vazamento, reset real, teclado, timeout e tratamento de sessao.",
+      "editorial_or_ux_gate": "Nao alterar permissao/backend de login so para redesenhar."
+    },
+    {
+      "id": "checkout",
+      "aliases": [
+        "checkout",
+        "pagamento",
+        "finalizar compra",
+        "purchase flow",
+        "carrinho checkout"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Concluir transacao sem surpresa, erro ou engano.",
+      "specialist_ids": [
+        "marketing-cro",
+        "marketing-pricing",
+        "marketing-copywriting",
+        "marketing-signup",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "system-user-journeys-and-transactions.md",
+        "privacy-trust-and-consent-ux.md",
+        "interaction-and-content.md"
+      ],
+      "research_focus": "Checkout convidado quando suportado, total, renovacao, falha, required/optional, confirmacao.",
+      "editorial_or_ux_gate": "Nao inventar descontos, aprovar pagamento ou mascarar renovacao."
+    },
+    {
+      "id": "onboarding",
+      "aliases": [
+        "onboarding",
+        "boas-vindas",
+        "tour guiado",
+        "primeiro acesso",
+        "setup wizard"
+      ],
+      "surfaces": [
+        "product"
+      ],
+      "user_job": "Chegar ao primeiro valor antes de abandonar.",
+      "specialist_ids": [
+        "marketing-onboarding",
+        "marketing-research",
+        "marketing-psychology",
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "activation-retention-and-ethical-engagement.md",
+        "system-user-journeys-and-transactions.md"
+      ],
+      "research_focus": "Passos necessarios, tempo ao primeiro valor, recovery, skip voluntario, feedback.",
+      "editorial_or_ux_gate": "Nao usar tour longo sem necessidade nem gamificacao compulsiva."
+    },
+    {
+      "id": "activation",
+      "aliases": [
+        "ativacao",
+        "activation",
+        "primeiro valor",
+        "first value",
+        "first session"
+      ],
+      "surfaces": [
+        "product",
+        "marketing"
+      ],
+      "user_job": "Completar primeira tarefa valiosa com sucesso.",
+      "specialist_ids": [
+        "marketing-onboarding",
+        "marketing-cro",
+        "marketing-analytics",
+        "marketing-research",
+        "ui-ux-pro-max",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "activation-retention-and-ethical-engagement.md",
+        "human-comprehension-first-value.md"
+      ],
+      "research_focus": "Evento e resultado reais, dependencia entre passos, empty/error, contato com produto.",
+      "editorial_or_ux_gate": "Nao medir sucesso pelo clique se usuario nao concluiu o job."
+    },
+    {
+      "id": "dashboard",
+      "aliases": [
+        "dashboard",
+        "painel",
+        "kpis",
+        "workspace home",
+        "visao geral"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Responder decisoes frequentes sem confundir dados.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "vercel-composition",
+        "vercel-react",
+        "a11y-specialist",
+        "impeccable",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "advanced-product-ux-operations.md",
+        "reading-and-information-design.md",
+        "design-system-extraction.md"
+      ],
+      "research_focus": "Quais decisoes, hierarquia de indicadores, estados, filtros, confiabilidade, densidade.",
+      "editorial_or_ux_gate": "Nao fabricar KPIs ou impor visual de landing."
+    },
+    {
+      "id": "data-table",
+      "aliases": [
+        "table",
+        "tabela",
+        "grid de dados",
+        "planilha na tela",
+        "data grid"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Comparar, ordenar e agir sobre registros corretamente.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "vercel-composition",
+        "a11y-specialist",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "advanced-product-ux-operations.md",
+        "interaction-and-content.md",
+        "reading-and-information-design.md"
+      ],
+      "research_focus": "Sort, filtro, selecao, virtualizacao, numeros, formatacao, export, mobile e foco.",
+      "editorial_or_ux_gate": "Nao truncar valores criticos ou quebrar navegacao por teclado."
+    },
+    {
+      "id": "charts",
+      "aliases": [
+        "chart",
+        "grafico",
+        "visualizacao de dados",
+        "analytics graph",
+        "data viz"
+      ],
+      "surfaces": [
+        "product",
+        "internal",
+        "read"
+      ],
+      "user_job": "Ver variacoes e tomar decisao com dados honestos.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "impeccable",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "reading-and-information-design.md",
+        "advanced-product-ux-operations.md"
+      ],
+      "research_focus": "Escala, unidades, cores, legenda, ausencia de dados, texto alternativo e proveniencia.",
+      "editorial_or_ux_gate": "Nao usar eixo enganoso ou numeros ficticios nao identificados."
+    },
+    {
+      "id": "search-filter",
+      "aliases": [
+        "search",
+        "busca",
+        "pesquisa no app",
+        "filtro",
+        "faceted"
+      ],
+      "surfaces": [
+        "product",
+        "internal",
+        "read"
+      ],
+      "user_job": "Encontrar item relevante e recuperar-se de buscas ruins.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "advanced-product-ux-operations.md",
+        "interaction-and-content.md"
+      ],
+      "research_focus": "Empty, sorting, multi-select, limpar filtros, teclado e relevancia.",
+      "editorial_or_ux_gate": "Nao deixar estado filtrado parecer vazio permanente."
+    },
+    {
+      "id": "empty-state",
+      "aliases": [
+        "empty state",
+        "estado vazio",
+        "sem registros",
+        "nenhum resultado"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Entender por que esta vazio e o que fazer.",
+      "specialist_ids": [
+        "marketing-onboarding",
+        "ui-ux-pro-max",
+        "marketing-copywriting",
+        "a11y-specialist",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "operational-reliability-and-recovery-ux.md",
+        "human-editorial-and-anti-slop-gates.md"
+      ],
+      "research_focus": "Vazio novo vs sem permissao vs sem match vs erro, acao proxima.",
+      "editorial_or_ux_gate": "Nao usar piada ou ilustraçao que esconde problema."
+    },
+    {
+      "id": "error-state",
+      "aliases": [
+        "error",
+        "erro",
+        "falha",
+        "offline",
+        "indisponivel",
+        "recovery"
+      ],
+      "surfaces": [
+        "product",
+        "internal",
+        "marketing"
+      ],
+      "user_job": "Recuperar a tarefa e confiar que dados nao se perderam.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "playwright-browser",
+        "marketing-copywriting"
+      ],
+      "reference_guides": [
+        "operational-reliability-and-recovery-ux.md",
+        "human-editorial-and-anti-slop-gates.md"
+      ],
+      "research_focus": "Reversibilidade, retry, estado persistido, suporte, privacidade, aria-live.",
+      "editorial_or_ux_gate": "Nao prometer que dados foram salvos se nao foram."
+    },
+    {
+      "id": "settings",
+      "aliases": [
+        "configuracoes",
+        "settings",
+        "preferencias",
+        "account settings",
+        "perfil de conta"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Controlar dados, opcoes e estado atual sem surpresa.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "privacy-trust-and-consent-ux.md",
+        "system-user-journeys-and-transactions.md"
+      ],
+      "research_focus": "Consentimento, defaults reversiveis, destructive action, saves, status.",
+      "editorial_or_ux_gate": "Nao mudar permissao nem desrespeitar privacidade."
+    },
+    {
+      "id": "notifications",
+      "aliases": [
+        "notificacoes",
+        "alerts",
+        "toasts",
+        "mensagens sistema",
+        "feedback status"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Saber o que aconteceu e o que precisa de acao.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "animation-specialist"
+      ],
+      "reference_guides": [
+        "interaction-and-content.md",
+        "operational-reliability-and-recovery-ux.md"
+      ],
+      "research_focus": "Persistencia, timing, aria-live, ruido, severidade e acao.",
+      "editorial_or_ux_gate": "Nao depender so de cor ou sumir aviso critico."
+    },
+    {
+      "id": "mobile-navigation",
+      "aliases": [
+        "bottom nav",
+        "mobile menu",
+        "hamburger",
+        "navegacao mobile"
+      ],
+      "surfaces": [
+        "product",
+        "marketing",
+        "native"
+      ],
+      "user_job": "Navegar com polegar e teclado sem perder contexto.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "impeccable",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "native-interface-discipline.md",
+        "interaction-and-content.md"
+      ],
+      "research_focus": "Touch targets, safe areas, scroll, foco, back e labels.",
+      "editorial_or_ux_gate": "Nao substituir semantica por icones ambiguos."
+    },
+    {
+      "id": "responsive-layout",
+      "aliases": [
+        "responsivo",
+        "mobile",
+        "tablet",
+        "breakpoint",
+        "responsividade"
+      ],
+      "surfaces": [
+        "product",
+        "marketing",
+        "internal",
+        "read",
+        "art"
+      ],
+      "user_job": "Preservar hierarquia e tarefas em diferentes dispositivos.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "impeccable",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "cloudflare-webperf",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "typography-layout-craft.md",
+        "visual-craft-acceptance.md"
+      ],
+      "research_focus": "Reflow, 320px/zoom, touch, type, croppings, teclado virtual.",
+      "editorial_or_ux_gate": "Nao apenas empilhar o desktop nem esconder informacao necessaria."
+    },
+    {
+      "id": "editorial-content",
+      "aliases": [
+        "artigo",
+        "blog",
+        "conteudo longo",
+        "docs",
+        "documentacao",
+        "reading page"
+      ],
+      "surfaces": [
+        "read",
+        "marketing"
+      ],
+      "user_job": "Ler, localizar respostas e confiar nas fontes.",
+      "specialist_ids": [
+        "marketing-content",
+        "marketing-seo",
+        "marketing-copywriting",
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "vercel-guidelines"
+      ],
+      "reference_guides": [
+        "reading-and-information-design.md",
+        "seo-discovery-and-search-experience.md",
+        "research-provenance.md"
+      ],
+      "research_focus": "Hierarquia editorial, anchors, metadata, cite fontes, escaneabilidade.",
+      "editorial_or_ux_gate": "Nao encher de SEO slop nem cortar informacao tecnica essencial."
+    },
+    {
+      "id": "seo-geo",
+      "aliases": [
+        "seo",
+        "geo",
+        "ai search",
+        "visibilidade ia",
+        "schema",
+        "buscadores"
+      ],
+      "surfaces": [
+        "marketing",
+        "read"
+      ],
+      "user_job": "Encontrar e compreender conteudo original indexavel.",
+      "specialist_ids": [
+        "marketing-seo",
+        "marketing-ai-seo",
+        "marketing-site-architecture",
+        "marketing-content",
+        "marketing-analytics"
+      ],
+      "reference_guides": [
+        "seo-discovery-and-search-experience.md",
+        "ai-answer-and-entity-visibility.md",
+        "organic-discovery-operating-system.md"
+      ],
+      "research_focus": "Intencao, indexacao, entidade, rastreio, fonte, estrutura, medicao.",
+      "editorial_or_ux_gate": "Nao fabricar E-E-A-T ou prometer ranking."
+    },
+    {
+      "id": "campaign-landing",
+      "aliases": [
+        "campaign",
+        "campanha",
+        "anuncios",
+        "ad landing",
+        "paid landing"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Cumprir a promessa do criativo e converter com confianca.",
+      "specialist_ids": [
+        "marketing-ads",
+        "marketing-offers",
+        "marketing-copywriting",
+        "marketing-cro",
+        "marketing-analytics",
+        "marketing-research",
+        "taste-skill"
+      ],
+      "reference_guides": [
+        "full-funnel-commercial-orchestration.md",
+        "landing-strategy-and-decision-architecture.md"
+      ],
+      "research_focus": "Message match do anuncio a landing, friccao, atribuicao e prova.",
+      "editorial_or_ux_gate": "Nao criar urgencia falsa ou uma landing sem oferta."
+    },
+    {
+      "id": "ecommerce-product",
+      "aliases": [
+        "produto ecommerce",
+        "product detail",
+        "pdp",
+        "pagina de produto"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Avaliar caracteristicas, adequacao, riscos e compra.",
+      "specialist_ids": [
+        "marketing-cro",
+        "marketing-copywriting",
+        "marketing-product",
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "experiential-commerce.md",
+        "interaction-and-content.md"
+      ],
+      "research_focus": "Imagens reais, variacoes, entrega, preço, total, retorno e disponibilidade.",
+      "editorial_or_ux_gate": "Nao fingir estoque, ratings nem entrega."
+    },
+    {
+      "id": "ecommerce-cart",
+      "aliases": [
+        "cart",
+        "carrinho",
+        "shopping bag"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Revisar itens e custo antes do checkout.",
+      "specialist_ids": [
+        "marketing-cro",
+        "ui-ux-pro-max",
+        "a11y-specialist",
+        "playwright-browser"
+      ],
+      "reference_guides": [
+        "experiential-commerce.md",
+        "system-user-journeys-and-transactions.md"
+      ],
+      "research_focus": "Quantidades, remocao, frete, impostos, empty, total, recuperacao.",
+      "editorial_or_ux_gate": "Nao esconder custos ou limpar carrinho inadvertidamente."
+    },
+    {
+      "id": "community-referral",
+      "aliases": [
+        "referral",
+        "indicacao",
+        "comunidade",
+        "convide amigos",
+        "viral loop"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Compartilhar ou convidar por escolha informada.",
+      "specialist_ids": [
+        "marketing-community",
+        "marketing-loops",
+        "marketing-social",
+        "marketing-psychology",
+        "marketing-copywriting"
+      ],
+      "reference_guides": [
+        "activation-retention-and-ethical-engagement.md",
+        "ethical-user-psychology.md"
+      ],
+      "research_focus": "Motivacao voluntaria, recompensa real, privacidade, abuso e legitimidade.",
+      "editorial_or_ux_gate": "Nao gerar spam nem dark patterns de convite."
+    },
+    {
+      "id": "brand-identity",
+      "aliases": [
+        "identidade visual",
+        "branding",
+        "logo",
+        "brand system",
+        "mascote",
+        "mascot"
+      ],
+      "surfaces": [
+        "art",
+        "marketing",
+        "product"
+      ],
+      "user_job": "Reconhecer uma marca coerente e diferenciada.",
+      "specialist_ids": [
+        "anthropic-frontend",
+        "taste-skill",
+        "ui-ux-pro-max",
+        "impeccable",
+        "ui-craft"
+      ],
+      "reference_guides": [
+        "brand-canon.md",
+        "brand-affinity-and-desire.md",
+        "creative-signature-and-form.md"
+      ],
+      "research_focus": "Consistencia, propriedade intelectual, usos reais, formas e escalas.",
+      "editorial_or_ux_gate": "Nao redesenhar mascote aprovado sem pedido nem copiar simbolos."
+    },
+    {
+      "id": "motion",
+      "aliases": [
+        "motion",
+        "animacao",
+        "animation",
+        "scroll animation",
+        "microinteracao"
+      ],
+      "surfaces": [
+        "art",
+        "marketing",
+        "product"
+      ],
+      "user_job": "Usar movimento para explicar estado, orientar ou expressar marca.",
+      "specialist_ids": [
+        "animation-specialist",
+        "gsap-scrolltrigger",
+        "vercel-react",
+        "impeccable",
+        "cloudflare-webperf"
+      ],
+      "reference_guides": [
+        "motion-and-interaction-direction.md",
+        "motion-studio-pack-2026.md"
+      ],
+      "research_focus": "Semantica, trigger, cancelamento, prefers-reduced-motion, FPS e fallback.",
+      "editorial_or_ux_gate": "Nao animar headline critica a ponto de atrasar leitura."
+    },
+    {
+      "id": "3d-interactive",
+      "aliases": [
+        "webgl",
+        "webgpu",
+        "three.js",
+        "3d",
+        "react three fiber",
+        "r3f"
+      ],
+      "surfaces": [
+        "art",
+        "marketing",
+        "product"
+      ],
+      "user_job": "Explorar um objeto/experiencia 3D com utilidade real.",
+      "specialist_ids": [
+        "threejs-engineering",
+        "react-three-fiber",
+        "cloudflare-webperf",
+        "a11y-specialist",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "immersive-3d-product-direction.md",
+        "motion-3d-engineering-cookbook.md"
+      ],
+      "research_focus": "Carga, input fallback, mobile, GPU, usabilidade, contraste e direitos.",
+      "editorial_or_ux_gate": "Nao impor 3D como decoracao cara e inacessivel."
+    },
+    {
+      "id": "design-system",
+      "aliases": [
+        "design system",
+        "tokens",
+        "component library",
+        "biblioteca componentes",
+        "sistema design"
+      ],
+      "surfaces": [
+        "product",
+        "internal",
+        "marketing",
+        "native"
+      ],
+      "user_job": "Manter consistencia e escalabilidade sem perder clareza.",
+      "specialist_ids": [
+        "design-tokens-dtcg",
+        "vercel-composition",
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist"
+      ],
+      "reference_guides": [
+        "design-system-extraction.md",
+        "brand-canon.md",
+        "implementation-quality.md"
+      ],
+      "research_focus": "Tokens semanticos, variantes, dark mode, docs, a11y e migration.",
+      "editorial_or_ux_gate": "Nao substituir design aprovado por defaults arbitrarios."
+    },
+    {
+      "id": "accessibility",
+      "aliases": [
+        "acessibilidade",
+        "a11y",
+        "wcag",
+        "teclado",
+        "screen reader",
+        "contraste"
+      ],
+      "surfaces": [
+        "product",
+        "internal",
+        "marketing",
+        "read",
+        "native"
+      ],
+      "user_job": "Completar tarefa com diferentes capacidades e preferencias.",
+      "specialist_ids": [
+        "a11y-specialist",
+        "vercel-guidelines",
+        "playwright-browser",
+        "ui-ux-pro-max"
+      ],
+      "reference_guides": [
+        "native-interface-discipline.md",
+        "interaction-and-content.md",
+        "implementation-quality.md"
+      ],
+      "research_focus": "Focus, reflow, zoom, labels, ARIA, contraste, motion, input.",
+      "editorial_or_ux_gate": "Nao declarar certificacao WCAG sem auditoria adequada."
+    },
+    {
+      "id": "b2b-landing",
+      "aliases": [
+        "b2b",
+        "enterprise",
+        "escolas",
+        "empresa",
+        "comprador corporativo",
+        "saas b2b"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Ajudar comite de compra a entender ROI/risco com prova.",
+      "specialist_ids": [
+        "marketing-research",
+        "marketing-competitor",
+        "marketing-product",
+        "marketing-copywriting",
+        "marketing-cro",
+        "marketing-sales",
+        "marketing-pricing",
+        "anthropic-frontend",
+        "taste-skill",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "full-funnel-commercial-orchestration.md",
+        "landing-strategy-and-decision-architecture.md",
+        "human-editorial-and-anti-slop-gates.md"
+      ],
+      "research_focus": "Buyer versus user, integracoes, seguranca, demo, custos, onboarding e fonte dos claims.",
+      "editorial_or_ux_gate": "Nao usar retorica de consumidor para compra institucional complexa."
+    },
+    {
+      "id": "b2c-landing",
+      "aliases": [
+        "b2c",
+        "consumidor",
+        "jovem",
+        "direct to consumer",
+        "app b2c"
+      ],
+      "surfaces": [
+        "marketing"
+      ],
+      "user_job": "Gerar reconhecimento, desejo e primeira tentativa sem friccao.",
+      "specialist_ids": [
+        "marketing-research",
+        "marketing-competitor",
+        "marketing-copywriting",
+        "marketing-cro",
+        "marketing-psychology",
+        "anthropic-frontend",
+        "taste-skill",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "copy-lab-and-ethical-psychology.md",
+        "landing-strategy-and-decision-architecture.md",
+        "human-editorial-and-anti-slop-gates.md"
+      ],
+      "research_focus": "Contexto cultural, linguagem natural, mobile, preco, prova e primeiro valor.",
+      "editorial_or_ux_gate": "Nao forcar gíria jovem nem copiar voz de outra marca."
+    },
+    {
+      "id": "app-home",
+      "aliases": [
+        "app home",
+        "home do app",
+        "workspace",
+        "tela inicial"
+      ],
+      "surfaces": [
+        "product",
+        "internal"
+      ],
+      "user_job": "Identificar e realizar tarefas relevantes rapidamente.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "marketing-onboarding",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "impeccable"
+      ],
+      "reference_guides": [
+        "advanced-product-ux-operations.md",
+        "visual-first-product-architecture.md"
+      ],
+      "research_focus": "Frequencia de tarefas, personalizacao, empty, continuidade e proximo passo.",
+      "editorial_or_ux_gate": "Nao transformar app em landing comercial."
+    },
+    {
+      "id": "localization",
+      "aliases": [
+        "traducao",
+        "localizacao",
+        "i18n",
+        "l10n",
+        "idiomas",
+        "rtl"
+      ],
+      "surfaces": [
+        "product",
+        "marketing",
+        "read",
+        "native"
+      ],
+      "user_job": "Usar experiencia natural no idioma e formato local.",
+      "specialist_ids": [
+        "marketing-copywriting",
+        "a11y-specialist",
+        "vercel-guidelines",
+        "marketing-seo"
+      ],
+      "reference_guides": [
+        "localization-and-content-operations.md",
+        "human-editorial-and-anti-slop-gates.md"
+      ],
+      "research_focus": "Registro, plural, formatos, moeda, legal, RTL, SEO lang.",
+      "editorial_or_ux_gate": "Nao traduzir palavra por palavra sem revisar layout e copy."
+    },
+    {
+      "id": "email-surface",
+      "aliases": [
+        "email",
+        "newsletter",
+        "email marketing",
+        "email onboarding"
+      ],
+      "surfaces": [
+        "marketing",
+        "product"
+      ],
+      "user_job": "Entender mensagem, confiar no remetente e seguir acao real.",
+      "specialist_ids": [
+        "marketing-copywriting",
+        "marketing-onboarding",
+        "marketing-cro",
+        "marketing-content",
+        "marketing-analytics"
+      ],
+      "reference_guides": [
+        "human-editorial-and-anti-slop-gates.md",
+        "full-funnel-commercial-orchestration.md"
+      ],
+      "research_focus": "Entregabilidade, assunto, preheader, texto util, preferências, unsubscribe.",
+      "editorial_or_ux_gate": "Nao enviar spam nem usar assunto clickbait enganoso."
+    },
+    {
+      "id": "admin-sensitive",
+      "aliases": [
+        "admin",
+        "permissoes",
+        "usuarios",
+        "audit log",
+        "tenant",
+        "fiscal",
+        "compliance"
+      ],
+      "surfaces": [
+        "internal",
+        "product"
+      ],
+      "user_job": "Executar operacao critica sem erro, perda ou quebra de autorizacao.",
+      "specialist_ids": [
+        "ui-ux-pro-max",
+        "vercel-guidelines",
+        "a11y-specialist",
+        "playwright-browser",
+        "vercel-composition"
+      ],
+      "reference_guides": [
+        "operational-reliability-and-recovery-ux.md",
+        "system-user-journeys-and-transactions.md",
+        "privacy-trust-and-consent-ux.md"
+      ],
+      "research_focus": "RBAC, auditabilidade, destructive confirm, recuperacao e densidade.",
+      "editorial_or_ux_gate": "Nao alterar permissao, dados fiscais ou seguranca por causa de visual."
+    }
+  ]
+}

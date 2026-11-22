@@ -16,6 +16,20 @@ class ResearchReachabilityTests(unittest.TestCase):
                 self.assertIn("references/"+name,refs)
                 self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/"+name,build_prompt(case,"with_skill"))
                 self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/"+name,build_prompt(case,"without_skill"))
+    def test_hero_uses_component_and_human_copy_guides(self):
+        case = {"prompt": "Refaça hero e headline da landing SaaS comparando concorrentes",
+                "files": [], "meta": {"surface": ["landing"]}}
+        plan = _route_case(case)
+        refs = selected_contextual_references(case, plan)
+        self.assertIn("references/component-first-design-orchestration.md", refs)
+        self.assertIn("references/human-editorial-and-anti-slop-gates.md", refs)
+        prompt = build_prompt(case, "with_skill")
+        for reference in ("component-first-design-orchestration.md", "human-editorial-and-anti-slop-gates.md"):
+            self.assertIn("TRUSTED CONTEXTUAL REFERENCE: references/" + reference, prompt)
+            self.assertNotIn("TRUSTED CONTEXTUAL REFERENCE: references/" + reference,
+                             build_prompt(case, "without_skill"))
+        self.assertLessEqual(len(refs), 9)
+
     def test_patch_is_small(self):
         case={"prompt":"Só corrija o link SEO na landing","files":[],"meta":{"surface":["landing"]}}
         refs=selected_contextual_references(case,_route_case(case))

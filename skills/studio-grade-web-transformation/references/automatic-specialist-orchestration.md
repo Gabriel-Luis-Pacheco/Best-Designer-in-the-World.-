@@ -4,6 +4,10 @@
 
 > **Not a claim that Design OS loses every category listed.** No controlled visual head-to-head currently demonstrates that. The catalog names **plausible specialist advantages** or official/tool-specific knowledge. Refresh sources, capabilities and license before real use; never label a merely linked repo INSTALLED or EXECUTED.
 
+## Component-level activation, not generic design advice
+
+For material heroes and other important scenes, read references/component-first-design-orchestration.md and find profiles in research/component_expertise_matrix.json (47 types). The optional read-only scripts/component_router.py recommends relevant registered skills and guides per element. It prevents selecting only an art director when hero quality also depends on audience research, offer, marketing copy, CRO, real product proof, mobile, technical correctness and critique. Apply references/human-editorial-and-anti-slop-gates.md; reject unnatural language even when self-scored highly. Candidate selection is not proof of invocation or benchmark.
+
 ## Operational routine — do this proactively, once per material task
 
 1. **Understand actual job.** Establish user's target route/screen, existing source/canon, constraints, mode (PATCH/AUDIT/REFINE/REDESIGN/REBUILD), surface (marketing/product/internal/read/art/native) and special risks. Honor literal user wishes, business truth, ownership and scope. Do not create a full-site design contest to adjust one button.
