@@ -42,6 +42,7 @@ def transfer(*, component="onboarding"):
         "research_packet": "research.json",
         "baseline_choice": "Use a familiar low-friction first-value path, preserving safe skip and recovery.",
         "own_validation_plan": "Test authentic first-task completion, user understanding and errors on mobile.",
+        "benchmark_access_limitation": "Only one comparable public flow was capturable using authorized access.",
         "candidate_patterns": [{
             "source_url": "https://sample.org/onboarding",
             "source_step": "After signup, before first guided task",
@@ -98,6 +99,17 @@ class PatternTransferTests(unittest.TestCase):
             self.assertEqual(result["status"], "NEEDS_EVIDENCE")
             self.assertEqual(result["captured_sources"], 0)
             self.assertTrue(any("screenshot" in x for x in result["missing_evidence"]))
+
+    def test_benchmark_shortfall_needs_explanation(self):
+        obj = transfer()
+        obj.pop("benchmark_access_limitation")
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "screens").mkdir()
+            (root / "screens/first.png").write_bytes(valid_png())
+            result = mod.inspect(obj, root, research())
+            self.assertEqual(result["status"], "NEEDS_EVIDENCE")
+            self.assertIn("target benchmarks", " ".join(result["missing_evidence"]))
 
     def test_independent_evidence_requires_publication_and_scope(self):
         obj = transfer()
