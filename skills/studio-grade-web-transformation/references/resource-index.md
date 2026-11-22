@@ -6,6 +6,7 @@ Use only when a specific gap remains after the core workflow. Paths are relative
 
 | Resource | Subject |
 |---|---|
+| `references/mandatory-competitor-reconstruction.md` | Obrigatório para LPs e jornadas grandes: rolagem integral, copy completa, animações, fotos, vídeos, mapa de funil/onboarding, reconstrução fiel e gate de evidência |
 | `references/benchmark-pattern-transfer-and-validation.md` | Reuse evidence-backed patterns from equivalent competitor journeys; distinguish observed adoption vs proven conversion; transfer gate |
 | `references/competency-stage-production.md` | Etapas executaveis por componente, handoffs, benchmark real, criterio humano e validacao de evidencias; atlas de 47 receitas |
 | `references/component-first-design-orchestration.md` | Pesquisa real + especialistas por componente + impacto em vendas, copy, UX e produto |
