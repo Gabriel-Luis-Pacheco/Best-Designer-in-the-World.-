@@ -6,6 +6,8 @@ on:
       - "skills/studio-grade-web-transformation/scripts/hero_taste_gate.py"
       - "skills/studio-grade-web-transformation/scripts/production_evidence.py"
       - "tests/test_hero_taste_gate.py"
+      - "tests/test_competitive_reconstruction_gate.py"
+      - "skills/studio-grade-web-transformation/scripts/competitive_reconstruction_gate.py"
       - ".github/workflows/hero-taste-gate.yml"
   push:
     branches: [main]
@@ -13,6 +15,8 @@ on:
       - "skills/studio-grade-web-transformation/scripts/hero_taste_gate.py"
       - "skills/studio-grade-web-transformation/scripts/production_evidence.py"
       - "tests/test_hero_taste_gate.py"
+      - "tests/test_competitive_reconstruction_gate.py"
+      - "skills/studio-grade-web-transformation/scripts/competitive_reconstruction_gate.py"
       - ".github/workflows/hero-taste-gate.yml"
 
 permissions:
@@ -31,3 +35,5 @@ jobs:
         run: python -m py_compile skills/studio-grade-web-transformation/scripts/hero_taste_gate.py
       - name: Regression tests (structural evidence only)
         run: python -m unittest discover -s tests -p 'test_hero_taste_gate.py' -v
+      - name: Full-scroll and full-funnel reference evidence tests
+        run: python -m unittest discover -s tests -p 'test_competitive_reconstruction_gate.py' -v
