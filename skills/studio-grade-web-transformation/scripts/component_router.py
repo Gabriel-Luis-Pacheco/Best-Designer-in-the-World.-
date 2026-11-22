@@ -137,8 +137,8 @@ def suggest(*, component_ids: list[str] | None = None, task: str = "",
                           "TARGETED_REFERENCES_ONLY_WHEN_NEEDED",
                 "mandatory_captures": "REAL_OBSERVATIONS_ONLY",
                 "status": "NOT_RESEARCHED_BY_THIS_TOOL",
-                "rule": "6 direct/substitute + 2 adjacent + 2 cross-category is a reference mix, "
-                        "not 10 direct competitors. Reuse recent authorized research."
+                "rule": "Aim for up to 10 relevant direct competitors/substitutes when available, "
+                        "plus adjacent/cross-category examples. Reuse authorized research."
             }
         })
     return {
