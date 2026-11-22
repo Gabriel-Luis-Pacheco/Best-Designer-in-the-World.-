@@ -209,6 +209,41 @@ def inspect(packet: object, root: Path) -> dict:
             if comp.get("role") == "PRIMARY":
                 for viewport in ("desktop", "mobile"):
                     capture(scene.get(f"{viewport}_capture"), f"{sub}.{viewport}_capture", viewport)
+                text_items = scene.get("text_items", [])
+                if not isinstance(text_items, list) or not text_items:
+                    missing.append(sub + ": enumerate every meaningful visible text item or an explicit NO_TEXT")
+                    text_items = []
+                seen_text_ids = set()
+                for k, text_row in enumerate(text_items):
+                    label = f"{sub}.text_items[{k}]"
+                    if not isinstance(text_row, dict) or not isinstance(text_row.get("id"), str) or text_row["id"] in seen_text_ids:
+                        errors.append(label + ": unique text item id required")
+                        continue
+                    seen_text_ids.add(text_row["id"])
+                    if text_row.get("role") not in {"HOOK", "HEADLINE", "SUBHEAD", "BODY", "CTA", "CAPTION", "PROOF", "FORM", "DISCLAIMER", "NO_TEXT"}:
+                        errors.append(label + ": text role invalid")
+                    if not _text(text_row.get("observed_purpose"), 24) or not _text(text_row.get("strategy"), 24):
+                        missing.append(label + ": analyze individual text purpose and writing strategy")
+                if scene.get("copy_inventory_complete") is not True:
+                    missing.append(sub + ": copy_inventory_complete must confirm full visible text audit")
+                assets = scene.get("media_items", [])
+                if not isinstance(assets, list) or not assets:
+                    missing.append(sub + ": media_items must inventory photos, videos, screenshots, motion or explicit NONE")
+                    assets = []
+                for k, asset in enumerate(assets):
+                    label = f"{sub}.media_items[{k}]"
+                    if not isinstance(asset, dict) or asset.get("kind") not in {"PHOTO", "VIDEO", "SCREENSHOT", "ILLUSTRATION", "ANIMATION", "THREE_D", "NONE"}:
+                        errors.append(label + ": invalid media kind")
+                        continue
+                    if not _text(asset.get("observed_role"), 24):
+                        missing.append(label + ": explain observed asset role, not only its label")
+                    if asset["kind"] in {"VIDEO", "ANIMATION"}:
+                        frames = asset.get("observed_frames", [])
+                        if not isinstance(frames, list) or len(frames) < 2:
+                            missing.append(label + ": record at least two observed real motion states")
+                        else:
+                            for k2, frame in enumerate(frames):
+                                capture(frame, f"{label}.observed_frames[{k2}]", "desktop")
         flows = comp.get("flows", [])
         if not isinstance(flows, list):
             errors.append(tag + ": flows must be an array")
@@ -220,6 +255,9 @@ def inspect(packet: object, root: Path) -> dict:
             key = (ident, f["id"])
             if key in source_flows:
                 errors.append(tag + ": duplicated competitor flow ID")
+                continue
+            if f.get("inspection_status") != "INSPECTED":
+                missing.append(tag + ": inaccessible/partial source flow cannot support observed transfer")
                 continue
             steps = f.get("steps", [])
             if not isinstance(steps, list) or not steps:
@@ -235,6 +273,10 @@ def inspect(packet: object, root: Path) -> dict:
                     missing.append(tag + ": describe source step labels, choices and feedback")
                 if not _text(step.get("access_state"), 12):
                     missing.append(tag + ": source step access/visibility status required")
+                if not _text(step.get("branching_and_errors"), 24):
+                    missing.append(tag + ": source step decisions, skip/back and errors required")
+                for viewport in ("desktop", "mobile"):
+                    capture(step.get(f"{viewport}_capture"), f"{tag}.flows[{f['id']}].{step['id']}.{viewport}", viewport)
             source_flows[key] = ids
 
     minimum = 3 if scope == "LANDING" else 2
@@ -305,6 +347,24 @@ def inspect(packet: object, root: Path) -> dict:
                 missing.append(tag + ": mapped_source_steps must refer to observed source steps")
         if not _text(row.get("step_by_step_transfer"), 30):
             missing.append(tag + ": describe each interaction/state used in the target")
+        target_steps = row.get("steps", [])
+        if not isinstance(target_steps, list) or not target_steps:
+            missing.append(tag + ": each target flow needs captured real steps and states")
+            target_steps = []
+        step_ids = set()
+        for k, step in enumerate(target_steps):
+            label = f"{tag}.steps[{k}]"
+            if not isinstance(step, dict) or not isinstance(step.get("source_step"), str) or step["source_step"] in step_ids:
+                errors.append(label + ": unique source_step mapping required")
+                continue
+            step_ids.add(step["source_step"])
+            if not _text(step.get("feedback_and_errors"), 24):
+                missing.append(label + ": real target feedback, error and return handling required")
+            for viewport in ("desktop", "mobile"):
+                capture(step.get(f"{viewport}_capture"), f"{label}.{viewport}", viewport)
+        mapped = row.get("mapped_source_steps", [])
+        if isinstance(mapped, list) and set(mapped) != step_ids:
+            missing.append(tag + ": every mapped observed source step needs its own rendered target step")
         state = row.get("test_status")
         if state not in FLOW_STATES:
             errors.append(tag + ": invalid test_status")
