@@ -73,6 +73,9 @@ Use `references/complete-skill-packs-routing.md` to read **only relevant** licen
 - Slides: `references/presentation-slide-craft.md`. SEO/GEO: `references/organic-discovery-operating-system.md`, `references/ai-answer-and-entity-visibility.md`. Motion: `references/motion-studio-pack-2026.md`.
 - Independent critique: `references/independent-critique-and-evidence-learning.md`. Vendor packs: `references/complete-skill-packs-routing.md`.
 
+
+Further guides on demand: `references/copy-lab-and-ethical-psychology.md`, `references/visual-direction-and-anti-slop-atelier.md`, `references/funnel-measurement-experiments-and-release.md`, `references/search-content-and-authority-engine.md`, `references/search-intelligence-measurement-loop.md`.
+
 For vague briefs see `references/prompt-rescue-and-autonomous-direction.md`. Do not auto-load archived v14 instructions.
 
 **Premium visual gate:** For major LANDING/REDESIGN/REBUILD, read `references/visual-craft-acceptance.md` and for acquisition `references/human-comprehension-first-value.md`. Missing real user tests stay NOT_TESTED.
