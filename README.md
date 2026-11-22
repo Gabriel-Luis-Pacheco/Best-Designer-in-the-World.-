@@ -1,5 +1,9 @@
 # Design OS Prime v14.0.0
 
+## Workplans e gates de entrega por componente (21/11/2026)
+
+A melhoria agora vai alem do catalogo: o [atlas de execucao de 47 componentes e 15 etapas](skills/studio-grade-web-transformation/research/component_execution_atlas.json), o [workplan por especialista](skills/studio-grade-web-transformation/scripts/component_workplan.py), o [guia de handoffs](skills/studio-grade-web-transformation/references/competency-stage-production.md) e o [gate de evidencias de entrega](skills/studio-grade-web-transformation/scripts/component_delivery_gate.py) explicitam **o que um pesquisador, copywriter, vendedor, diretor de arte, especialista UX, engenheiro e critico precisam ENTREGAR**. Cada componente tem perguntas e red flags proprios. Nao declarar aplicacao de skills, prints, revisao humana ou resultado de receita sem evidencias. Workplans e gates nao invocam outros agentes nem certificam bom gosto.
+
 ## Orquestracao por componente (21/11/2026)
 
 Para criar uma hero, pricing, onboarding, dashboard ou outra parte de UI, o agente deve convocar **as competencias complementares certas para aquele job**: pesquisa real de concorrentes, marketing e vendas, copywriting, UX, direcao de arte, acessibilidade, engenharia e critica de pixels. O [guia por componente](skills/studio-grade-web-transformation/references/component-first-design-orchestration.md) e a [matriz de 47 perfis](skills/studio-grade-web-transformation/research/component_expertise_matrix.json) instruem o [roteador estatico](skills/studio-grade-web-transformation/scripts/component_router.py). O [gate editorial anti-AI-slop](skills/studio-grade-web-transformation/references/human-editorial-and-anti-slop-gates.md) rejeita textos genericos mesmo que gramaticalmente perfeitos.
