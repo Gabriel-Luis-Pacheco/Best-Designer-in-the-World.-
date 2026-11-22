@@ -58,6 +58,10 @@ python skills/studio-grade-web-transformation/scripts/component_router.py --comp
 python skills/studio-grade-web-transformation/scripts/component_router.py --task "dashboard onboarding estados vazios" --surface product --mode REFINE --json
 ~~~
 
+## Gate opcional para impedir pesquisa ficticia
+
+Use o modelo `templates/COMPONENT_RESEARCH_PACKET.example.json` para registrar a pesquisa **que realmente aconteceu**. Execute `scripts/component_research_gate.py packet.json --root /caminho/do/projeto`. O validador recusa URL duplicada, screenshot ausente/falso, caminho fora do projeto, status CAPTURED sem imagem e revisao humana declarada sem evidencias. Ele nao verifica conteudo visual da captura, autoria, beleza, ganho de conversao, autenticidade do revisor ou qualidade da escrita: `READY_FOR_HUMAN_REVIEW` significa apenas estrutura e evidencias declaradas suficientes para revisao humana. O template propositalmente retorna `NEEDS_EVIDENCE`. **Uma lista de 10 URLs sem observacao e nao-pesquisa.**
+
 **Fontes de metodologia (nao prova de sucesso no projeto):**
 - NN/g homepage https://www.nngroup.com/articles/homepage-design-principles/
 - NN/g competitive evaluations https://www.nngroup.com/articles/competitive-usability-evaluations/
