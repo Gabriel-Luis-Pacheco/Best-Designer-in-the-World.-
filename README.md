@@ -1,5 +1,12 @@
 # Design OS Prime v14.0.0
 
+## Orquestracao por componente (21/11/2026)
+
+Para criar uma hero, pricing, onboarding, dashboard ou outra parte de UI, o agente deve convocar **as competencias complementares certas para aquele job**: pesquisa real de concorrentes, marketing e vendas, copywriting, UX, direcao de arte, acessibilidade, engenharia e critica de pixels. O [guia por componente](skills/studio-grade-web-transformation/references/component-first-design-orchestration.md) e a [matriz de 47 perfis](skills/studio-grade-web-transformation/research/component_expertise_matrix.json) instruem o [roteador estatico](skills/studio-grade-web-transformation/scripts/component_router.py). O [gate editorial anti-AI-slop](skills/studio-grade-web-transformation/references/human-editorial-and-anti-slop-gates.md) rejeita textos genericos mesmo que gramaticalmente perfeitos.
+
+Em landing/hero principal com redesign, buscar aproximadamente 10 referencias **realmente observadas** quando possivel, com prints e comparacao por trabalho de secao; isso nao significa que todos sejam concorrentes diretos. Nenhum teste real, skill instalada ou resultado comercial e presumido. PATCHs pequenos continuam enxutos.
+
+
 ## Comece aqui — uma skill para executar, não só recomendar
 
 **Uso no dia a dia:** instale apenas a skill principal; as referências são carregadas sob demanda. Para uma alteração pequena, a IA corrige e testa sem carregar a biblioteca. Para um redesign grande, ela estuda produto e referências reais, **constrói a página inteira**, inspeciona pixels e fluxo de conversão, corrige defeitos e relata evidências.
